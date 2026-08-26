@@ -91,7 +91,7 @@
         }
       },
       "scoreboard": {
-        "title": "&6&lEXE",
+        "title": "&c&lEXE",
         "lines": [
           " &7{current_date}",
           "",

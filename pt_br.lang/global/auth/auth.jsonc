@@ -101,15 +101,15 @@
           "titles": {
             "request-auth": {
               "login": {
-                "title": "&6&lEXE",
+                "title": "&c&lEXE",
                 "subtitle": "&fUtilize /logar <senha>"
               },
               "register": {
-                "title": "&6&lEXE",
+                "title": "&c&lEXE",
                 "subtitle": "&fUtilize /registrar <senha> <senha>"
               },
               "staff": {
-                "title": "&6&lEXE",
+                "title": "&c&lEXE",
                 "subtitle": "&fUtilize /loginstaff <código>"
               }
             },
@@ -118,7 +118,7 @@
               "subtitle": "&fSeja bem-vindo!"
             },
             "queue-wait": {
-              "title": "&6&lEXE",
+              "title": "&c&lEXE",
               "subtitle": "&fAguarde, você está na fila para entrar..."
             }
           },
@@ -126,7 +126,7 @@
             "request-auth": {
               "login": [
                 "",
-                " &6&lEXE &8➟ &eSessão de Autenticação",
+                " &c&lEXE &8➟ &eSessão de Autenticação",
                 " &7Seja bem-vindo ao EXE!",
                 "",
                 " &fUtilize &6/logar <senha>&f para se autenticar.",
@@ -137,7 +137,7 @@
               ],
               "register": [
                 "",
-                " &6&lEXE &8➟ &eSessão de Autenticação",
+                " &c&lEXE &8➟ &eSessão de Autenticação",
                 " &7Seja bem-vindo ao EXE!",
                 "",
                 " &fUtilize &6/registrar <senha> <senha>&f para se registrar.",
