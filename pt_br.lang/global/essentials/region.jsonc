@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "server-core": {
+    "essentials": {
       "messages": {
         "region": {
           "not-allowed": {

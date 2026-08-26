@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "server-core": {
+    "essentials": {
       "holograms": {
         "spawn": [
           "&5&lPRISON ECLIPSE! &8▪ &f{server_online_count}",

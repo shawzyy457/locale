@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "server-core": {
+    "essentials": {
       "commands": {
         "fly": {
           "not-allowed-in-app": "OPS! Parece que você não pode mudar seu modo de vôo aqui!",

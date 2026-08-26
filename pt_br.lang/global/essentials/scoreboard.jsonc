@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "server-core": {
+    "essentials": {
       "scoreboards": {
         "title": [
           "&6&lP4 FREE &8⚡ &f&l{server_online_count}&l",

@@ -2,6 +2,14 @@
   "plugins": {
     "core": {
       "preferences": {
+        "vanish": {
+          "name": "&eModo invisível",
+          "description": ["&7Controla se você aparece", "&7para os outros jogadores."]
+        },
+        "god-mode": {
+          "name": "&eModo invencível",
+          "description": ["&7Controla a proteção contra", "&7danos recebidos."]
+        },
         "private-messages": {
           "name": "&eMensagens privadas",
           "description": [

@@ -1,0 +1,52 @@
+{
+  "plugins": {
+    "boosters": {
+      "items": {
+        "booster": {
+          "display-name": "{booster_type_color}Booster de {booster_type_name}",
+          "name": "{booster_type_color}Booster de {booster_type_name}",
+          "lore": [
+            "&7Aumenta o ganho de &f{booster_type_name}&7.",
+            "",
+            "{booster_type_color}Bónus: &f+{booster_multiplier}%",
+            "{booster_type_color}Duração: &f{booster_duration}"
+          ],
+          "lore-inventory": []
+        }
+      },
+      "commands": {
+        "booster-give": {
+          "arguments": {
+            "target": { "name": "jogador", "description": "Jogador que receberá o booster" },
+            "type": { "name": "tipo", "description": "Tipo do booster" },
+            "duration": { "name": "duração", "description": "Duração em minutos" },
+            "multiplier": { "name": "multiplicador", "description": "Multiplicador em percentagem" },
+            "amount": { "name": "quantidade", "description": "Quantidade de boosters" }
+          },
+          "booster-type-not-found": "&cEsse tipo de booster não existe.",
+          "success": "&aVocê enviou &f{booster_amount}x&a booster de &f{booster_multiplier}%&a para {booster_target_name_with_tag}&a."
+        },
+        "boosters": {
+          "dont-have-boosters": "&cVocê não possui nenhum booster ativo.",
+          "booster-info": "&f+{booster_multiplier}% de {booster_type_color}{booster_type_name} &fpor &7{booster_remaining_duration}&f.",
+          "success": ["", "&5&lBoosters", " {boosters_lines}", ""]
+        }
+      },
+      "messages": {
+        "on-expire": { "chat": "&cO efeito do seu booster terminou." },
+        "items": {
+          "booster": {
+            "booster-already-exists-with-other-multiplier": "&cVocê já possui um booster deste tipo com outro multiplicador. Aguarde até ele terminar.",
+            "success": {
+              "booster-new-success": "&aVocê ativou um booster de &f{booster_type_name}&a com &f{booster_multiplier}%&a durante &f{booster_duration}&a.",
+              "booster-sum-success": "&aO booster de &f{booster_type_name}&a foi prolongado para &f{booster_duration}&a."
+            }
+          }
+        }
+      },
+      "views": {
+        "booster-use-confirmation": { "title": "Utilizar o booster?" }
+      }
+    }
+  }
+}

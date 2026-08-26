@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "server-core": {
+    "essentials": {
       "messages": {
         "spawn": {
           "already-connect": "&cVocê já está conectado a um spawn.",

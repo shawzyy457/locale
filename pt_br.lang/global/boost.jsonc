@@ -1,0 +1,15 @@
+{
+  "plugins": {
+    "boost": {
+      "commands": {
+        "boost": {
+          "arguments": {
+            "key": { "name": "chave", "description": "Identificador do boost" },
+            "multiplier": { "name": "multiplicador", "description": "Multiplicador que será aplicado" }
+          },
+          "success": "&aBoost &f{boost_key}&a definido para &f{boost_multiplier}x&a."
+        }
+      }
+    }
+  }
+}

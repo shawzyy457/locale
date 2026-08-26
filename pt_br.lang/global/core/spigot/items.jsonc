@@ -3,6 +3,10 @@
     "core": {
       "items": {
         "inventory-full-dropped": "&cInventário cheio! O item caiu no chão aos seus pés.",
+        "internal-error": {
+          "name": "&cErro interno",
+          "lore": ["&7Não foi possível carregar este item.", "&7Tente novamente em alguns instantes."]
+        },
         "back": {
           "name": "&eVoltar",
           "lore": []

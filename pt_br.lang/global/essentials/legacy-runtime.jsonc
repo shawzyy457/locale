@@ -1,0 +1,72 @@
+{
+  "plugins": {
+    "essentials": {
+      "chat": {
+        "preferences": {
+          "global": {
+            "name": "&eChat global",
+            "description": ["&7Exibe as mensagens enviadas", "&7no chat global."]
+          },
+          "local": {
+            "name": "&eChat local",
+            "description": ["&7Exibe as mensagens enviadas", "&7por jogadores próximos."]
+          }
+        }
+      },
+      "messages": {
+        "block-height-limit": {
+          "exceeded": "&cVocê não pode construir acima da altura {limit}."
+        },
+        "clear-lag": {
+          "countdown": "&aO chão será limpo em &f{countdown}&a.",
+          "clean": "&aForam removidos &f{count}&a itens do chão."
+        },
+        "crops": {
+          "need-sneak": "&cSegure SHIFT para quebrar esta plantação."
+        },
+        "fishing": {
+          "cannot-fish-on-spawn": "&cVocê não pode pescar no spawn."
+        },
+        "inventory-full": "&cSeu inventário está cheio. Os itens ficaram no chão.",
+        "redstone-limiter": {
+          "too-many-redstone-circuits": "&cHá circuitos de redstone demais neste chunk."
+        },
+        "restrictions": {
+          "command-disabled": "&cEste comando está desabilitado neste servidor.",
+          "custom-item-disabled": "&cVocê não pode usar este item neste servidor.",
+          "material-disabled": "&cVocê não pode usar este material neste servidor.",
+          "action-disabled": "&cVocê não pode realizar esta ação neste servidor."
+        },
+        "views": {
+          "kit-edit": {
+            "update-items": {
+              "success": "&aOs itens do kit &f{kit_id}&a foram alterados."
+            }
+          }
+        }
+      },
+      "warps": {
+        "shop": {
+          "name": "&cLoja",
+          "description": ["&7Acesse a loja de itens."]
+        },
+        "vip": {
+          "name": "&cÁrea VIP",
+          "description": ["&7Área exclusiva para jogadores VIP."]
+        },
+        "mundo": {
+          "name": "&cMundo aberto",
+          "description": ["&7Teleporta para um local aleatório."]
+        },
+        "goldshop": {
+          "name": "&6Loja de Gold",
+          "description": ["&7Acesse a loja de Gold."]
+        },
+        "arena": {
+          "name": "&cArena",
+          "description": ["&7Teleporta para a arena do servidor."]
+        }
+      }
+    }
+  }
+}

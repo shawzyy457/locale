@@ -1,0 +1,35 @@
+{
+  "plugins": {
+    "ender-chest": {
+      "commands": {
+        "enderchest": {
+          "in-saving-process": "&cAguarde enquanto seu Ender Chest é salvo.",
+          "not-allowed-with-shift": "&cVocê não pode abrir este inventário usando shift.",
+          "not-allowed-while-inventory-open": "&cFeche o inventário atual e tente novamente."
+        }
+      },
+      "messages": {
+        "ender-chest": {
+          "cooldown": "&cAguarde {time} depois de entrar para abrir o Ender Chest.",
+          "in-use": "&cEste Ender Chest já está a ser utilizado.",
+          "on-interact": {
+            "in-saving-process": "&cAguarde enquanto seu Ender Chest é salvo.",
+            "not-allowed-with-shift": "&cVocê não pode abrir este inventário usando shift.",
+            "not-allowed-while-inventory-open": "&cFeche o inventário atual e tente novamente."
+          },
+          "on-open": {
+            "fix-size": "&eO tamanho do seu Ender Chest foi ajustado ao grupo atual."
+          }
+        },
+        "views": {
+          "ender-chest": {
+            "item-not-allowed": "&cNão podes guardar esse item no Ender Chest."
+          }
+        }
+      },
+      "views": {
+        "ender-chest": { "title": "Ender Chest de {owner_name}" }
+      }
+    }
+  }
+}
