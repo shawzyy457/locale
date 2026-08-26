@@ -1,0 +1,38 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "custom-item-give": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que irá receber o item"
+                        },
+                        "item": {
+                            "name": "item",
+                            "description": "Item que o jogador irá receber"
+                        },
+                        "amount": {
+                            "name": "quantidade",
+                            "description": "Quantidade do item que o jogador irá receber"
+                        }
+                    },
+                    "custom-item-not-found": "Não foi possivel encontrar um item com esse id!",
+                    "target-full-inventory": "O jogador {target_name} não recebeu o item pois está com o inventário cheio!",
+                    "success": "O jogador {target_name} recebeu {custom_item_amount}x {custom_item_key}!"
+                },
+                "custom-item-origin": {
+                    "no-item-in-hand": "Segure o item que você quer consultar!",
+                    "no-identity": "Esse item não carrega identidade — não tem história para mostrar.",
+                    "success": "A história do item {custom_item_key}: <hover:show_text:'<yellow>Clique para abrir no site!'><click:open_url:'{url}'><yellow><underlined>{url}</underlined></yellow></click></hover>"
+                },
+                "custom-item-restore": {
+                    "no-item-in-hand": "Você precisa estar segurando o item que deseja restaurar!",
+                    "not-unique-item": "Esse item não é um exemplar (não carrega identidade única)!",
+                    "not-voided": "Esse item não está inutilizado — não há nada para restaurar.",
+                    "success": "O item {custom_item_key} foi restaurado com uma identidade nova!"
+                }
+            }
+        }
+    }
+}

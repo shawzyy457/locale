@@ -1,0 +1,236 @@
+{
+    "plugins": {
+        "fishing": {
+            "items": {
+                "fishing-rod": {
+                    "name": "",
+                    "lore": [
+                        "",
+                        "<aqua> encantamentos</aqua>",
+                        "{enchantments}",
+                        "",
+                        "  <aqua>Nível: <gray>{rod_level}",
+                        "  <aqua>XP: {rod_xp_progress_bar} {rod_xp_progress}%",
+                        "",
+                        "<dark_gray>Clique botão direito + shift.",
+                        "<dark_gray>para abrir o menu da vara."
+                    ]
+                }
+            },
+            "views": {
+                "fishing-view": {
+                    "title": "pescaria",
+                    "items": {
+                        "0": {
+                            "name": "<aqua>loja de pontos",
+                            "lore": [
+                                "<gray>Adquira itens e até VIP’s",
+                                "<gray>de graça apenas utilizando",
+                                "<gray>pontos.",
+                                "",
+                                "<aqua>clique para acessar."
+                            ]
+                        },
+                        "1": {
+                            "name": "<aqua>Balde de peixes",
+                            "lore": [
+                                "<gray>Todos os peixes que você",
+                                "<gray>pescar, serão armazenados",
+                                "<gray>aqui.",
+                                "",
+                                " <aqua>Armazenamento:",
+                                " <dark_gray>► <gray>{bucket_fish_size}/{bucket_max_capacity}",
+                                " {bucket_ocupacity_progress_bar}",
+                                "",
+                                "<aqua>clique para acessar."
+                            ]
+                        },
+                        "2": {
+                            "name": "<aqua>Ir pescar!",
+                            "lore": [
+                                "<gray>Clicando nesse ícone, você",
+                                "<gray>acessará a área de pesca.",
+                                "",
+                                " <aqua>estatísticas:",
+                                " <dark_gray>► <white>Peixes pescados: <gray>{catched_fishes}",
+                                " <dark_gray>► <white>Tempo: <gray>{fishing_time}",
+                                "",
+                                "<aqua>clique para teleportar."
+                            ]
+                        }
+                    }
+                },
+                "bucket-view": {
+                    "title": "balde de peixes",
+                    "items": {
+                        "0": {
+                            "name": "<aqua>{fish_display_name}",
+                            "lore": [
+                                "<gray>Para pescar esse peixe, você",
+                                "<gray>necessita de uma {rod_name}",
+                                "<gray>ou superior.",
+                                "",
+                                " <dark_gray>► <white>Quantia: <gray>{fish_amount}",
+                                " <dark_gray>► <white>Valor Individual: <gray>{fish_price}",
+                                "",
+                                "<aqua>opções do armazém:",
+                                " <dark_gray>► <white>Esquerdo: <gray>vender tudo"
+                            ]
+                        },
+                        "1": {
+                            "name": "<aqua>venda automática",
+                            "lore": [
+                                "<gray>Ativando esta opção, você",
+                                "<gray>irá vender todos os peixes",
+                                "<gray>automaticamente.",
+                                "",
+                                " <aqua>► <white>Status: {automatic_sell_status}",
+                                "",
+                                "<aqua>Adquira esse item na loja de",
+                                "<aqua>cash para ativar."
+                            ]
+                        },
+                        "2": {
+                            "name": "<aqua>armazenamento",
+                            "lore": [
+                                "<gray>Clicando nesse ícone, você",
+                                "<gray>tem a opção de melhorar a",
+                                "<gray>capacidade de armazenamento",
+                                "<gray>do seu balde de peixes.",
+                                "",
+                                " <aqua>Armazenamento:",
+                                " <dark_gray>► <gray>{bucket_fish_size}/{bucket_max_capacity}",
+                                " {bucket_ocupacity_progress_bar}",
+                                "",
+                                "<aqua>clique para melhorar."
+                            ]
+                        },
+                        "3": {
+                            "name": "<aqua>vender <bold>tudo!",
+                            "lore": [
+                                "<gray>Clicando nesse ícone, você",
+                                "<gray>irá vender todos os peixes.",
+                                "",
+                                "<aqua>clique para vender."
+                            ]
+                        }
+                    }
+                },
+                "bucket-upgrades-view": {
+                    "title": "balde de peixes - melhorias",
+                    "items": {
+                        "0": {
+                            "name": "<aqua>Balde de Peixes <gray>[Nvl. {upgrade_level}",
+                            "lore": [
+                                "<gray>Ao adquirir este upgrade,",
+                                "<gray>você aumenta a quantia de",
+                                "<gray>peixes totais armazenados.",
+                                "",
+                                " <dark_gray>► <white>Capacidade: <gray><obfuscated>{bucket_current_capacity}</obfuscated> <dark_gray>➠ <white>{bucket_new_capacity}",
+                                " <dark_gray>► <white>Custo: <green>$<white>{upgrade_price}",
+                                "",
+                                "<red>Você já adquiriu esse nível."
+                            ]
+                        },
+                        "1": {
+                           "name": "<aqua>Balde de Peixes <gray>[Nvl. {upgrade_level]",
+                            "lore": [
+                                "<gray>Ao adquirir este upgrade,",
+                                "<gray>você aumenta a quantia de",
+                                "<gray>peixes totais armazenados.",
+                                "",
+                                " <dark_gray>► <white>Capacidade: <gray><obfuscated>{bucket_current_capacity}</obfuscated> <dark_gray>➠ <white>{bucket_new_capacity}",
+                                " <dark_gray>► <white>Custo: <green>$<white>{upgrade_price}",
+                                "",
+                                "<aqua>Clique para adquirir."
+                            ]
+                        },
+                        "2": {
+                            "name": "<aqua>Balde de Peixes <gray>[Nvl. {upgrade_level]",
+                            "lore": [
+                                "<gray>Ao adquirir este upgrade,",
+                                "<gray>você aumenta a quantia de",
+                                "<gray>peixes totais armazenados.",
+                                "",
+                                " <dark_gray>► <white>Capacidade: <gray><obfuscated>{bucket_current_capacity}</obfuscated> <dark_gray>➠ <white>{bucket_new_capacity}",
+                                " <dark_gray>► <white>Custo: <green>$<white>{upgrade_price}",
+                                "",
+                                "<red>Evolua os níveis anteriores."
+                            ]
+                        }
+                    }
+                },
+                "fishing-store-view": {
+                    "title": "loja de pontos",
+                    "items": {
+                        "0": {
+                            "name": "{fishing_store_name}",
+                            "lore": [
+                                "{fishing_store_lore}",
+                                "",
+                                " <dark_gray>► <gray>Custo: <white>{fishing_store_price} Pontos",
+                                "",
+                                "<aqua>clique para comprar."
+                            ]
+                        },
+                        "1": {
+                           "name": "<aqua>Pontos",
+                            "lore": [
+                                "<gray>Pontos são moedas obtidas",
+                                "<gray>enquanto se pesca, e servem",
+                                "<gray>para comprar itens na lojinha",
+                                "<gray>de pontos.",
+                                "",
+                                "<aqua>seu saldo: <white>{points}"
+                            ]
+                        }
+                    }
+                },
+                "rod-view": {
+                    "title": "vara de pesca",
+                    "items": {
+                        "0": {
+                            "name": "{enchantment_name} <gray>[Nvl. {enchantment_level}]",
+                            "lore": [
+                                "{enchantment_lore}",
+                                "",
+                                " <dark_gray>► <white>Nível máximo: <gray>{enchantment_max_level}  ",
+                                " <dark_gray>► <white>Custo: <green>$<gray>{enchantment_price}",
+                                "",
+                                "<aqua>clique para adquirir."
+                            ]
+                        },
+                        "1": {
+                           "name": "<aqua>Balde de peixes",
+                            "lore": [
+                                "<gray>Todos os peixes que você",
+                                "<gray>pescar, serão armazenados",
+                                "<gray>aqui.",
+                                "",
+                                " <aqua>Armazenamento:",
+                                " <dark_gray>► <gray>{bucket_fish_size}/{bucket_max_capacity}",
+                                " {bucket_ocupacity_progress_bar}",
+                                "",
+                                "<aqua>clique para gerenciar."
+                            ]
+                        }
+                    }
+                }
+            },
+            "scoreboard": {
+                "title": "<aqua>PESCARIA",
+                "lines": [
+                    "",
+                    " <white>balde de peixes:",
+                    "   <white>Estocados: <gray>{bucket_fishs}",
+                    "   <white>Capacidade: <gray>{bucket_capacity}",
+                    "",
+                    " <white>Pescando há: <gray>{fishing_time}",
+                    " <white>Pontos: <dark_gray>{points}",
+                    "",
+                    "<aqua>exe.com"
+                ]
+            }
+        }
+    }
+}

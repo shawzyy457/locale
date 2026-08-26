@@ -1,0 +1,132 @@
+{
+    "plugins": {
+        "server-core": {
+            "messages": {
+                "auto-messages": {
+                    "1": [
+                        "",
+                        "<color:#FF8200><bold> Tem alguma dúvida?<reset>",
+                        "",
+                        "<white> Abra um ticket em nosso discord e",
+                        "<white> ficaremos muito felizes em responder.",
+                        "",
+                        "<color:#FF8200> discord.gg/exe",
+                        ""
+                    ],
+                    "2": [
+                        "",
+                        "<color:#2ECC71><bold> Métodos de pagamento disponíveis<reset>",
+                        "<white> exe.com",
+                        "",
+                        "<dark_gray> <white>Nossas formas de pagamentos são:",
+                        "<gray> PIX, PayPal, Cartão de Crédito & MbWay.",
+                        "",
+                        "<white> Qualquer dúvida sobre compras, abra um ticket.",
+                        "<color:#2ECC71> discord.gg/exe",
+                        ""
+                    ],
+                    "22": [
+                        "",
+                        "<color:#2ECC71><bold> Métodos de pagamento disponíveis<reset>",
+                        "<white> exe.com",
+                        "",
+                        "<dark_gray> <white>Nossas formas de pagamentos são:",
+                        "<gray> PIX, PayPal, Cartão de Crédito & MbWay.",
+                        "",
+                        "<white> Qualquer dúvida sobre compras, abra um ticket.",
+                        "<color:#2ECC71> discord.gg/exe",
+                        ""
+                    ],
+                    "3": [
+                        "",
+                        "<color:#6e0281> Cupom <bold>ECLIPSE<reset><color:#D6B3FF> disponível com <color:#6e0281><bold>70%",
+                        "<color:#D6B3FF> de desconto em qualquer produto do site.",
+                        "",
+                        "<dark_gray> <white><white> de <dark_gray><strikethrough>R$316,30<reset><white> por <gray>R$94,90<reset>",
+                        "<dark_gray> <white><white> de <dark_gray><strikethrough>R$149,65<reset><white> por <gray>R$44,90<reset>",
+                        "<dark_gray> <white><white> de <dark_gray><strikethrough>R$73,00<reset><white> por <gray>R$22,90<reset>",
+                        "<dark_gray> <white><white> de <dark_gray><strikethrough>R$33,00<reset><white> por <gray>R$9,90<reset>",
+                        "",
+                        "<color:#6e0281> Adquira acessando: <color:#D6B3FF>exe.com",
+                        ""
+                    ],
+                    "0": [
+                        "",
+                        "<color:#2a4d7e><bold> Discord Oficial!<reset>",
+                        "",
+                        "<white> Entre já em nosso discord e fique por dentro",
+                        "<white> de todas as atualizações do servidor.",
+                        "",
+                        "<color:#2a4d7e> discord.gg/exe",
+                        ""
+                    ],
+                    "4": [
+                        "",
+                        "<color:#FF8200> Cupom <bold>ABERTURA<reset><white> disponível com <color:#c68346><bold>70%</bold>",
+                        "<white> de desconto em qualquer produto do site.",
+                        "",
+                        "<dark_gray>  <gold>12.000 Gold<white> de <dark_gray><strikethrough>R$709,65<reset><white> por <gold>R$212,90<reset>",
+                        "<dark_gray>  <gold>5.500 Gold<white> de <dark_gray><strikethrough>R$329,65<reset><white> por <gold>R$98,90<reset>",
+                        "<dark_gray>  <gold>3.100 Gold<white> de <dark_gray><strikethrough>R$186,30<reset><white> por <gold>R$55,90<reset>",
+                        "<dark_gray>  <gold>2.050 Gold<white> de <dark_gray><strikethrough>R$126,30<reset><white> por <gold>R$37,90<reset>",
+                        "<dark_gray>  <gold>1.000 Gold<white> de <dark_gray><strikethrough>R$63,00<reset><white> por <gold>R$18,90<reset>",
+                        "<dark_gray>  <gold>500 Gold<white> de <dark_gray><strikethrough>R$33,00<reset><white> por <gold>R$9,90<reset>",
+                        "",
+                        "<color:#FF8200> Adquira acessando: <white>exe.com",
+                        ""
+                    ],
+                    "26": [
+                        "",
+                        "<gradient:#5da145:#85ff59> 🎉<bold> Novo modo de jogo chegou!</gradient>",
+                        "<color:#d1d1d1> O modo mais INSANO acabou de chegar!",
+                        "",
+                        " <color:#d1d1d1>O queridinho da galera já é realidade: <gradient:#5da145:#85ff59>P4FREE!</gradient>",
+                        "",
+                        " <gradient:#5da145:#85ff59>Vem descobrir tudo no nosso Discord! Clique AQUI!</gradient>",
+                        ""
+                    ],
+                    "5": [
+                        "",
+                        "<color:#FF8200> <bold>Faça parte da equipe do EXE!",
+                        "",
+                        "<white> As vagas para adentrar a equipe do",
+                        "<white> servidor estão abertas, aplique-se já!.",
+                        "",
+                        "<color:#FF8200> discord.gg/exe #formulários",
+                        ""
+                    ],
+                    "6": [
+                        "",
+                        "<color:#FF8200><bold> Rede EXE</bold> ⚡",
+                        "",
+                        "<white> Obrigado aos mais de <color:#FF8200>{server_online_count} jogadores online<white>!",
+                        "<white> Divirta-se e mantenha o respeito com outros.",
+                        "",
+                        "<color:#ff8200> Novidades e Sorteios: <white>discord.gg/exe",
+                        ""
+                    ],
+                    "7": [
+                        "",
+                        "<gold><bold> Mercado de Gold",
+                        "",
+                        "<white> Você pode adquirir itens especiais e",
+                        "<white> outros com <gold>Gold<white> digitando <gold>/goldshop",
+                        "",
+                        "<gold> Adquira Gold acessando: <white>exe.com",
+                        ""
+                    ],
+                    "23": [
+                        "",
+                        "<gradient:#5da145:#85ff59> 🎉<bold> Novo modo de jogo chegou!</gradient>",
+                        "<color:#d1d1d1> O modo mais INSANO acabou de chegar!",
+                        "",
+                        " <color:#d1d1d1>O queridinho da galera já é realidade: <gradient:#5da145:#85ff59>P4FREE!</gradient>",
+                        "",
+                        " <gradient:#5da145:#85ff59>Vem descobrir tudo no nosso Discord! Clique AQUI!</gradient>",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

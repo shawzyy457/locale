@@ -1,0 +1,2883 @@
+{
+  "plugins": {
+    "factions": {
+      // O prefixo é o ÍCONE do cargo (glifo do pacote de textura do academy, pasta
+      // `server-visual/academy/ícone/factionrank/`). O mapeamento nome-do-glifo × cargo é o MESMO do
+      // servidor de factions — os arquivos vieram de lá para o tab ficar idêntico.
+      // ⚠️ Glifo ausente no pacote renderiza "[NULL: nome]" em vermelho: publique a textura ANTES desta lang.
+      "roles": {
+        "leader": {
+          "name": "<gold>Líder",
+          "prefix": ""
+        },
+        "captain": {
+          "name": "<yellow>Capitão",
+          "prefix": ""
+        },
+        "member": {
+          "name": "<green>Membro",
+          "prefix": ""
+        },
+        "recruit": {
+          "name": "<gray>Recruta",
+          "prefix": ""
+        },
+        "none": {
+          "name": "<dark_gray>Sem facção",
+          "prefix": ""
+        }
+      },
+      // Legenda do /f mapa. Os nomes são os MESMOS do ClaimState do servidor de factions, para quem
+      // joga lá ler o mapa daqui sem reaprender. As CORES não moram aqui: são do enum (também iguais).
+      // Faltam de propósito os estados que a Academy não tem — as zonas (protegida/guerra/livre/base
+      // perdida) e "terra sob ataque", que lá depende de um registro de explosões por chunk.
+      "claim-states": {
+        "your-position": "Sua Posição",
+        "your-claim": "Sua Facção",
+        "other-claim": "Outras Facções",
+        "invasion-claim": "Terra de Ataque",
+        "protected-claim": "Terra em Proteção",
+        "free": "Zona Livre",
+        "void": "Fora do Mapa"
+      },
+      "ranking": {
+        "types": {
+          "members": {
+            "name": "<gradient:#FF6F00:#faa825:#FF6F00>Membros",
+            "description": [
+              "<gray>Facções com o maior",
+              "<gray>número de membros."
+            ]
+          },
+          "training": {
+            "name": "<gradient:#FF6F00:#faa825:#FF6F00>Treino",
+            "description": [
+              "<gray>Soma da pontuação de treino",
+              "<gray>de canhão dos membros."
+            ]
+          },
+          "invasions": {
+            "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasões",
+            "description": [
+              "<gray>Facções com mais",
+              "<gray>invasões vencidas."
+            ]
+          },
+          "general": {
+            "name": "<gradient:#FF6F00:#faa825:#FF6F00>Geral",
+            "description": [
+              "<gray>Nota final somando membros,",
+              "<gray>treino e invasões."
+            ]
+          }
+        }
+      },
+      "nametag": {
+        // Segunda linha do nome flutuante. O factions usa , que é do resource
+        // pack dele; na Academy vai o coração literal para não depender de ícone inexistente.
+        "health": "<color:#F22F46>❤ {health}"
+      },
+      "invasion": {
+        "results": {
+          "attacker-won": "<red>Vitória do atacante",
+          "defender-won": "<green>Defesa bem-sucedida",
+          "tie": "<gray>Cancelada"
+        },
+        // Bossbar da invasão — MESMAS strings do servidor de factions
+        // (plugins.factions.messages.invasion.bossbar de lá), para o visual ser o mesmo nos dois:
+        // barra verde e cheia, com o tempo no texto. Uma chave por LADO, mais a preparação e o aviso
+        // de inatividade (que aparece empilhado embaixo).
+        //
+        // ⚠️ A BARRA É INVISÍVEL: o pack do Academy sobrescreve gui/sprites/boss_bar/green_* por PNGs
+        // transparentes (os mesmos do pack do factions), então o jogador vê só ESTE TEXTO flutuando —
+        // sem moldura e sem preenchimento. Por isso as quatro barras são verdes no Java: mudar a cor de
+        // qualquer uma traz a moldura de volta. E por isso o texto precisa se bastar sozinho.
+        //
+        // Além de {remaining_time}, ficam disponíveis (sem uso no texto padrão, de propósito):
+        //   attacker_display_name, defender_display_name, destroyed_blocks, required_blocks
+        // — dá para pôr o placar de blocos de volta mexendo só aqui. Na arena (Fac x Fac) não há
+        // objetivo por blocos, então lá esses dois últimos não significam nada.
+        "bossbar": {
+          "attacker": "<red>🗡<bold> Invasão em andamento! </bold><white>Duração:</white> <gray>{remaining_time}",
+          "defender": "<color:#F97316>🗡<bold> Defesa em andamento! </bold><white>Duração:</white> <gray>{remaining_time}",
+          "preparing": "<red>⏳ <bold>Tempo de preparação! </bold><white>Duração:</white> <gray>{remaining_time}",
+          "inactivity": "<yellow>⚠ <bold>Invasão inativa! </bold><white>Encerra em:</white> <gray>{remaining_time}",
+          // PRORROGAÇÃO: partida de arena com vitória por domínio segue de pé com o relógio em zero.
+          // Continuar mostrando "0s restantes" faria a barra mentir sobre a única coisa que ela diz.
+          "attacker-overtime": "<red>⏳<bold> Prorrogação! </bold><white>A partida segue enquanto o ataque segurar o cubículo.",
+          "defender-overtime": "<color:#F97316>⏳<bold> Prorrogação! </bold><white>A partida segue enquanto o ataque segurar o cubículo.",
+          // AUDIÊNCIA do Fac x Fac (espectador/monitor): mesma informação, sem lado — os textos de
+          // atacante/defensor falam da "sua" invasão, e quem assiste não tem uma.
+          "spectator": "<gold>👁<bold> Assistindo! </bold><white>Duração:</white> <gray>{remaining_time}",
+          "spectator-overtime": "<gold>⏳<bold> Prorrogação! </bold><white>A partida segue enquanto o ataque segurar o cubículo."
+        }
+      },
+      // ======================================================================
+      //  Simulator (Invasão Fac x Fac) — a atividade da bússola do spawn.
+      // ======================================================================
+      "simulator": {
+        // Confirmação de uma ação da staff sobre uma partida. Mora aqui, e não na view, porque quem a
+        // envia é o app ANFITRIÃO — que pode não ser o app onde o admin clicou.
+        "admin": {
+          "messages": {
+            "action-applied": "<green>Partida encerrada (<yellow>{acao}</yellow>).",
+            // Fora do anfitrião a ordem VIAJA pelo Echo e quem executa é o dono da partida — a resposta
+            // honesta daqui é "enviada", não "encerrada" (o desfecho os quadros anunciam).
+            "action-sent": "<green>Ordem enviada ao servidor da partida (<yellow>{acao}</yellow>).",
+            "open-sent": "<green>Ordem de abertura enviada ao servidor das partidas. <gray>Os quadros serão convocados se as duas facções estiverem livres.",
+            "rules-applied": "<green>Regras da partida atualizadas.",
+            // Mesma razão do `action-sent`: fora do anfitrião a edição VIAJA, e quem aplica é o dono da
+            // partida. Prometer "atualizadas" daqui seria mentir quando o pacote se perdesse.
+            "rules-sent": "<green>Ordem enviada ao servidor da partida. <gray>As regras novas valem assim que ele aplicar.",
+            // Mesma razão do `rules-sent`: a convocação da staff é executada pelo ANFITRIÃO (é lá que o
+            // quadro vive e que o jogador é trazido), então daqui só dá para prometer o envio. O
+            // resultado — trouxe, ou o alvo está offline / é de outra facção — chega em seguida, pela
+            // lang do /f convocar.
+            "call-up-sent": "<green>Ordem de convocação enviada ao servidor da partida."
+          }
+        },
+        // MONITORAMENTO: a barra de ferramentas de quem acompanha uma partida por dentro.
+        //
+        // Mesma gramática do pós-jogo — slots 1, 3, 5 e 9 com vão entre eles — porque é a mesma mão, no
+        // mesmo servidor, e a staff não deveria aprender duas disposições. O que muda é o conteúdo: aqui
+        // a barra é de trabalho, não de comemoração.
+        // ====================================================================
+        //  ARQUIBANCADA — /assistir, o jogador comum vendo uma partida.
+        //
+        //  Não é o monitoramento da staff (bloco `monitor` abaixo): aqui não há ferramenta, criativo
+        //  nem ação sobre a partida. Só a câmera, em espectador.
+        // ====================================================================
+        "spectator": {
+          "messages": {
+            "started": "Você está assistindo à invasão na arena <white>{arena}</white>. <gray>Use <white>/assistir sair</white> para voltar.",
+            "stopped": "Você saiu da arquibancada.",
+            "finished": "A partida acabou.",
+            "gone": "Essa partida já acabou.",
+            "playing": "Você está NESSA partida — jogue-a em vez de assisti-la.",
+            // O espectador atravessa parede e vê a base inteira do defensor: assistir ao jogo da própria
+            // facção é espionagem, não torcida.
+            "own-faction": "Você é de uma das facções em campo e não pode assistir a esta partida.",
+            "world-unavailable": "O mundo dessa partida não está carregado aqui."
+          }
+        },
+
+        "monitor": {
+          "items": {
+            "overview": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Ficha da partida",
+              "lore": [
+                "<gray>Arena: <white>{arena}",
+                "",
+                "<gray>Regras, fase, duração, quadros e",
+                "<gray>as ações de encerramento.",
+                "",
+                "<yellow>Clique para abrir<gray>."
+              ]
+            },
+            "players": {
+              "name": "<white>Jogadores <gray>(<white>{jogadores}<gray>)",
+              "lore": [
+                "<gray>Os dois quadros: quem está vivo,",
+                "<gray>quem caiu e quem espera renascer.",
+                "",
+                "<gray>Dali dá para devolver kit, curar e",
+                "<gray>trazer alguém de volta ao campo.",
+                "",
+                "<yellow>Clique para abrir<gray>."
+              ]
+            },
+            // Um item só para uma decisão só: ele mostra o modo para onde você VAI, não o de agora.
+            "mode": {
+              "spectator": {
+                "name": "<aqua>Entrar em criativo",
+                "lore": [
+                  "<gray>Você está em <white>espectador<gray>:",
+                  "<gray>invisível, atravessando parede e",
+                  "<gray>sem interferir na partida.",
+                  "",
+                  "<yellow>Clique para poder agir<gray>."
+                ]
+              },
+              "creative": {
+                "name": "<green>Voltar a espectador",
+                "lore": [
+                  "<gray>Você está em <white>criativo<gray>: o",
+                  "<gray>catálogo inteiro e blocos na mão.",
+                  "",
+                  "<red>Você aparece para os jogadores<gray>.",
+                  "",
+                  "<yellow>Clique para observar sem interferir<gray>."
+                ]
+              }
+            },
+            "leave": {
+              "name": "<red>Sair do monitoramento",
+              "lore": [
+                "<gray>Devolve o seu modo de jogo e o",
+                "<gray>seu inventário, e leva você ao spawn.",
+                "",
+                "<yellow>Clique para sair<gray>."
+              ]
+            }
+          },
+          "messages": {
+            // Ensina os comandos porque em ESPECTADOR o cliente não envia clique de item: a barra só
+            // responde no criativo, e sem esta linha o admin ficava preso sem saber como alternar/sair.
+            "started": "<green>Você começou a monitorar a partida da arena <yellow>{arena}</yellow>. <gray>Use <white>/academy monitor</white> para alternar espectador/criativo e <white>/academy monitor sair</white> para sair.",
+            "stopped": "<yellow>Você saiu do monitoramento.",
+            "mode-creative": "<green>Modo <yellow>criativo</yellow> — você aparece para os jogadores.",
+            "mode-spectator": "<green>Modo <yellow>espectador</yellow> — ninguém vê você.",
+            // A partida acabou com o monitor dentro: o mundo vai ser descartado, então ele sai junto.
+            "match-over": "<yellow>A partida que você monitorava terminou.",
+            "playing": "<red>Você está NESSA partida — jogue-a em vez de monitorá-la.",
+            "gone": "<red>Essa partida já acabou."
+          },
+          "actionbar": "<gradient:#FF6F00:#faa825:#FF6F00>MONITORANDO <dark_gray>| <white>{arena} <dark_gray>| <red>{atacantes} <gray>ataque <dark_gray>| <blue>{defensores} <gray>defesa"
+        },
+        // BOX INSTANTÂNEA: item de uso único que abre uma sala cúbica com o jogador dentro.
+        //
+        // NÃO EXISTE DESFAZER — não há //undo, a escrita é direta no mundo. Por isso a lore avisa antes,
+        // e por isso as recusas são explícitas: quem gastou a box precisa entender no ato POR QUE ela não
+        // saiu, senão vai achar que perdeu o item à toa (ele não é consumido quando é negada).
+        "box": {
+          "item": {
+            "name": "<light_purple>Box Instantânea",
+            "lore": [
+              "<gray>Clique para abrir uma sala <white>{tamanho}x{tamanho}x{tamanho}",
+              "<gray>com chão, paredes e teto de <white>End Stone<gray>.",
+              "",
+              "<gray>Sai só da <yellow>/loja<gray>, e são <white>4 por partida",
+              "<gray>para o seu <white>lado<gray> — uma a cada <white>5 minutos<gray>.",
+              "",
+              "<gray>Só <white>durante a partida<gray>, e apenas",
+              "<gray>dentro do <white>claim da sua facção<gray>.",
+              "<gray>O pedaço que cair em claim inimigo <white>não é cavado<gray>.",
+              "",
+              "<red>Não tem como desfazer."
+            ]
+          },
+          "messages": {
+            "done": "<green>Box aberta! <gray>{blocos} bloco(s) alterado(s). <yellow>{restantes}<gray> restante(s) nesta partida.",
+            // A box encostou na divisa: o jogador precisa saber que ela saiu MENOR de propósito, e não
+            // que o item falhou pela metade.
+            "clipped": "<green>Box aberta! <gray>{blocos} bloco(s) alterado(s), <yellow>{restantes}<gray> restante(s). <yellow>Parte dela caiu em claim inimigo e foi preservada."
+          },
+          "errors": {
+            "not-in-arena": "<red>A box só funciona dentro da arena da partida.",
+            // ⚠️ 'not-cannon' saiu em 10/08/2026 junto com a exclusividade do kit canhão: a loja passou a
+            // vender tudo a todos, e a box com ela. O que segura a box agora é a cota do LADO.
+            // Desde 11/08/2026 a box é só do ATAQUE — a loja nem a oferece a quem defende, e esta linha
+            // cobre o exemplar que já estava na mão (comprado antes, recebido de um companheiro).
+            "attackers-only": "<red>A box instantânea é só para quem está atacando.",
+            "limit-reached": "<red>Você já usou suas <yellow>{limite}</yellow> boxes desta partida.",
+            "cooling-down": "<red>Aguarde <yellow>{remaining_time}</yellow> para abrir outra box.",
+            "awaiting-respawn": "<red>Você não pode usar a box enquanto espera para renascer.",
+            "not-own-claim": "<red>Você só pode abrir a box dentro do claim da sua facção.",
+            "nothing-to-dig": "<red>Não há nada para cavar aqui — a box não foi gasta.",
+            "failed": "<red>Não foi possível abrir a box. Avise a staff."
+          }
+        },
+        // Rótulos curtos usados dentro de outras linhas (o /facxfac monta o status com eles).
+        // "spectator" é da AUDIÊNCIA (espectador/monitor): a board da partida o usa no lugar do lado.
+        "sides": {
+          "attack": "<red>Ataque",
+          "defense": "<green>Defesa",
+          "spectator": "<gold>Assistindo"
+        },
+        "phases": {
+          "preparation": "<yellow>Preparação",
+          "running": "<red>Valendo",
+          // Só nas partidas com vitória por domínio: o relógio zerou, mas o ataque segura o cubículo.
+          // Sem esta linha o placar mostraria "Valendo · 0s" enquanto a partida continua.
+          "overtime": "<color:#ffd34d>Prorrogação"
+        },
+        // Scoreboard de quem está EM PARTIDA. Uma por simulação: o app roda várias ao mesmo tempo e
+        // cada jogador vê a da sessão dele (SimulatorScoreboard, prioridade acima das do cannon-utils —
+        // fora da partida a board comum do Academy volta sozinha).
+        //
+        // Placeholders: arena, side_name, phase_name, remaining_time e, para cada lado,
+        //   {attacker|defender}_tag           tag da facção
+        //   {attacker|defender}_display_name  "[TAG] Nome"
+        //   {attacker|defender}_online        quantos estão EM CAMPO (online e dentro da arena)
+        //   {attacker|defender}_roster        tamanho do elenco convocado
+        //   {attacker|defender}_kills         abates do lado
+        //   {attacker|defender}_marker        "you"/"other" — o destaque do próprio lado
+        // ⚠️ 07/08: saiu daqui o bloco "Suas estatísticas" (Abates: 17 / Mortes: 1 / Blocos: 7.000).
+        // Eram valores FIXOS no texto, sem placeholder e sem nada no Java que os preenchesse — todo
+        // jogador via os mesmos três números inventados. Placar por JOGADOR não existe no Simulator: a
+        // invasão conta abates por LADO ({attacker_kills}/{defender_kills}, já mostrados acima) e blocos
+        // por partida. Trazer o bloco de volta exige contadores por jogador na sessão, o que é feature
+        // nova — não uma linha de lang.
+        "scoreboard": {
+          // ── O TÍTULO diz onde o jogador está pisando, igual ao placar do factions ──────────────
+          // Em terra de ninguém (o campo aberto entre os dois lados) vale a marca da atividade; em
+          // território de facção vale o CLAIM, verde no próprio e vermelho no do adversário. É a cor
+          // que responde "estou no meu chão ou no dele?" sem o jogador ter que abrir o mapa.
+          "title": " <gradient:#FF6F00:#faa825:#FF6F00><bold>ACADEMY FACxFAC</bold></gradient> ",
+          // {faction_claim_faction_color} já vem verde ou vermelho do Java — os mesmos nomes de
+          // placeholder do factions, para esta linha poder ser copiada de lá sem tradução.
+          "title-claim": " <bold>{faction_claim_faction_color}CLAIM [{faction_claim_faction_tag}] ",
+          // Marcadores do lado de quem lê. O do adversário é vazio de propósito: só um lado é destacado.
+          "you": "<yellow>▸",
+          "other": " ",
+          "lines": [
+            "",
+            " <white>Fase: {phase_name}",
+            " <white>Tempo: <gray>{remaining_time}",
+            "",
+            "  <gradient:#FF6F00:#faa825:#FF6F00>Abates Totais:",
+            "  <red>🗡 <white>[{attacker_tag}]: <gray>{attacker_kills} <dark_gray>◇ <gray>{attacker_roster}<dark_gray>/<gray>{attacker_online} on.",
+            "  <green>🗡 <white>[{defender_tag}]: <gray>{defender_kills} <dark_gray>◇ <gray>{defender_roster}<dark_gray>/<gray>{defender_online} on.",
+            "",
+            "<gradient:#FF6F00:#faa825:#FF6F00>exe.com"
+          ]
+        },
+        // ------------------------------------------------------------------
+        //  PÓS-JOGO: a partida acabou e os dois quadros ficam no mapa por um tempo.
+        //  Criativo para andar e olhar, sem quebrar nem colocar bloco — o cenário destruído é o
+        //  registro da partida. A hotbar tem 1 (resumo), 5 (espectador) e 9 (sair).
+        // ------------------------------------------------------------------
+        "post-match": {
+          "actionbar": "<gray>O mapa fecha em <yellow><bold>{restante}</bold></yellow> <dark_gray>· <gray>slot <white>9</white> para sair agora",
+          "messages": {
+            "opened": [
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>FIM DA PARTIDA</bold>",
+              " <gray>Você tem <white>{restante}s</white> para andar pelo mapa e ver o estrago.",
+              " <gray>Barra: <white>1</white> resumo <dark_gray>· <white>5</white> espectador <dark_gray>· <white>9</white> sair",
+              ""
+            ],
+            "expired": "<gray>O mapa da partida foi fechado. Até a próxima invasão!",
+            "spectator-on": "<gray>Modo espectador. <white>Agache</white> para voltar ao criativo.",
+            "spectator-off": "<gray>De volta ao criativo."
+          },
+          "items": {
+            "summary": {
+              // O nome muda com o resultado: é a primeira coisa que a mão encontra ao acabar a partida.
+              "won": { "name": "<gradient:#3ef7aa:#00d97e:#3ef7aa><bold>VITÓRIA</bold>" },
+              "lost": { "name": "<gradient:#ff6b6b:#ff2d2d:#ff6b6b><bold>DERROTA</bold>" },
+              "lore": [
+                "<gray>Sua partida, em números:",
+                "",
+                "<gray>Abates: <white>{abates}",
+                "<gray>Mortes: <white>{mortes}",
+                "<gray>Maior sequência: <white>{sequencia}",
+                "<gray>Blocos colocados: <white>{blocos_colocados}",
+                "<gray>Blocos derrubados pelo seu canhão: <white>{blocos_quebrados}",
+                "",
+                "<yellow>Clique direito para o placar completo<gray>."
+              ]
+            },
+            "spectator": {
+              "off": {
+                "name": "<aqua>Modo espectador",
+                "lore": [
+                  "<gray>Atravesse paredes e veja a base",
+                  "<gray>por dentro, como ela ficou.",
+                  "",
+                  "<yellow>Clique para entrar<gray>."
+                ]
+              },
+              "on": {
+                "name": "<aqua>Voltando ao criativo",
+                "lore": [
+                  "<gray>Você está em modo espectador.",
+                  "",
+                  "<yellow>Agache</yellow> <gray>para voltar ao criativo.",
+                  "<dark_gray>(o item não responde a clique em espectador)"
+                ]
+              }
+            },
+            "leave": {
+              "name": "<red>Voltar ao spawn",
+              "lore": [
+                "<gray>Sai do mapa agora, sem esperar.",
+                "",
+                "<gray>O mapa fecha sozinho em <white>{restante}s<gray>.",
+                "",
+                "<yellow>Clique para sair<gray>."
+              ]
+            }
+          }
+        },
+        // ======================================================================
+        //  ESPERA DE RENASCIMENTO — quem morre em partida não volta a campo na hora.
+        //
+        //  Durante a espera (`simulator.renascimento.segundos`) ele fica em modo espectador vendo
+        //  PELOS OLHOS de um companheiro VIVO do próprio lado: a mesma posição, a mesma cabeça, o mesmo
+        //  giro. Não é sobrevoar o companheiro — o morto não anda, não escolhe o ângulo e não vê nada
+        //  além do que o companheiro está vendo. É por isso que o texto fala em "visão de", e não em
+        //  "assistindo de perto": prometer câmera livre seria prometer o que não existe mais.
+        //
+        //  A CONTAGEM ocupa a action bar — esta linha era do kill feed, que saiu de cena para dar
+        //  lugar a ela.
+        //
+        //  ⚠️ Em modo espectador o cliente 1.21 NÃO envia clique no ar: só clique EM CIMA de alguém e
+        //  as teclas de movimento chegam ao servidor. Por isso os controles são clique esquerdo no
+        //  jogador (ou tecla D) para avançar e SHIFT (ou tecla A) para voltar — e por isso `controls`
+        //  precisa dizer isso ao jogador, senão ele fica clicando no ar sem entender.
+        //
+        //  Placeholders:
+        //    {remaining}            o que falta da espera, já formatado ("28s")
+        //    {remaining_seconds}    o mesmo, só o número (para o título grande da reta final)
+        //    {target_name_with_tag} de quem é a visão (tag do cargo + nick)
+        //    {index}/{total}        posição do companheiro na roda
+        // ======================================================================
+        "respawn": {
+          // A action bar. Reenviada de segundo em segundo pelo relógio da partida — ela apaga sozinha.
+          "actionbar": {
+            "watching": "<red>Renascendo em <bold>{remaining}</bold> <dark_gray>· <red>Visão de: {target_name_with_tag} <dark_gray>[{index}/{total}]",
+            // Sem ninguém vivo para assistir. Desde 07/08 ele NÃO fica mais numa caixa: espera parado
+            // no ponto exato em que vai voltar, e a linha diz isso — antes ela só dizia o que faltava.
+            "alone": "<red>Renascendo em <bold>{remaining}</bold> <dark_gray>· <red>Nenhum companheiro vivo"
+          },
+          // Reta final da contagem, no meio da tela e com som (últimos 5s). A action bar sozinha é uma
+          // linha fina que some e divide espaço com o resto da partida — o dono pediu a contagem clara.
+          // O subtítulo muda conforme haja ou não alguém para assistir.
+          "countdown": {
+            "title": "<gradient:#FF6F00:#faa825:#FF6F00><bold>Renascendo em {remaining_seconds}</bold>",
+            "subtitle": "<white>Voltando dentro de instantes!",
+            "subtitle-alone": "<white>Você renascerá nesse lugar."
+          },
+          // Dita UMA vez, na primeira visão desta espera. A primeira linha diz o que está acontecendo
+          // (a tela mudou de dono, e sem aviso isso parece travamento); a segunda, como trocar de
+          // companheiro. Andar não está na lista de propósito: quem espera não anda.
+          "controls": [
+            "<yellow>Você caiu. <gray>Você está vendo pelos olhos de {target_name_with_tag} <dark_gray>[{index}/{total}]",
+            "<gray>Clique <white>esquerdo em um jogador</white> ou <white>D</white> para avançar <dark_gray>· <white>SHIFT</white> ou <white>A</white> para voltar."
+          ],
+          "switched": [
+            "<green>Agora você vê pelos olhos de {target_name_with_tag} <dark_gray>[{index}/{total}]"
+          ],
+          // Sai por INFO (som e cor de aviso, não de recusa): não é erro do jogador, é o estado do
+          // time. Ele fica parado no ponto em que volta até alguém do lado dele estar de pé.
+          "no-targets": [
+            "<yellow>Nenhum companheiro vivo para assistir. <gray>Espere aqui até renascer."
+          ],
+          "revived": [
+            "<green>Você voltou para a partida!"
+          ]
+        },
+        "messages": {
+          // O bloco do desafio segue o MESMO desenho do pedido de teleporte do cannoning
+          // (`plugins.cannonutils.messages.tpa.send.target`): linhas soltas, respiro em volta e o botão
+          // clicável embaixo. Texto corrido com o comando no meio ficava ilegível no chat.
+          //
+          // Desde 07/08 o convite NÃO responde direto do chat: quem desafia configura a partida inteira
+          // no menu da bússola, e aceitar sem ver o que foi configurado era decidir no escuro. O botão
+          // abre `/facxfac visualizar <tag>` — a mesma tela, em modo leitura, com ACEITAR e RECUSAR lá
+          // dentro. A tag viaja no botão porque a facção pode ter mais de um desafio pendente.
+          "request": {
+            "received": [
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>{requester_display_name} desafiou a sua facção!",
+              "",
+              " <gray>A sua facção foi desafiada para uma <white>Invasão Fac x Fac<gray>.",
+              " <gray>O pedido expira em <white>{expires_in}</white>.",
+              "",
+              " <hover:show_text:'<gradient:#FF6F00:#faa825:#FF6F00>Ver as regras da partida e responder'><click:run_command:'/facxfac visualizar {requester_tag}'><gradient:#FF6F00:#faa825:#FF6F00><bold>Clique AQUI para visualizar.</bold></gradient></click></hover>",
+              ""
+            ],
+            "sent": [
+              "Desafio enviado para {opponent_display_name}<white>. <gray>Expira em <white>{expires_in}</white>."
+            ],
+            "accepted": [
+              "Desafio aceito! <gray>Preparando a arena da partida."
+            ],
+            "denied": [
+              "O desafio entre {requester_display_name} <white>e {opponent_display_name} <white>foi recusado."
+            ],
+            "expired": [
+              "O desafio entre {requester_display_name} <white>e {opponent_display_name} <white>expirou."
+            ],
+            "cancelled": [
+              "O desafio entre {requester_display_name} <white>e {opponent_display_name} <white>foi cancelado."
+            ],
+            "no-arena": [
+              "O desafio foi aceito, mas <color:#ff2d2d>não há arena livre</color> agora. <gray>Tentem de novo quando uma partida terminar."
+            ]
+          },
+          "match": {
+              // Encerramento pela STAFF. Duas chaves porque o placar muda: "ended" declara vencedor
+              // e conta a invasão; "cancelled" não toca no histórico de ninguém.
+              "admin-ended": "<yellow>A partida foi encerrada pela staff. Vitória de {winner_display_name}<yellow>.</yellow>",
+              "admin-cancelled": "<yellow>A partida foi encerrada pela staff, sem vencedor.</yellow>",
+              // Regra trocada pela staff com a partida rodando (painel ▸ Regras da partida). Os dois
+              // quadros recebem a MESMA linha ao mesmo tempo: uma regra que muda no meio muda o que
+              // cada lado está calculando, e saber disso pelo adversário seria pior.
+              "rules-changed": "<yellow>A staff alterou as regras da partida: <white>{mudancas}</white>.</yellow>",
+              // Linha PRÓPRIA, enviada logo depois de qualquer desfecho. Uma só, para todos os quinze.
+              "stats-button": [
+                " <hover:show_text:'<gradient:#FF6F00:#faa825:#FF6F00>Abates, mortes, sequências e blocos dos dois quadros'><click:run_command:'/facxfac placar'><gradient:#FF6F00:#faa825:#FF6F00><bold>[VER O PLACAR]</bold></gradient></click></hover>",
+                ""
+              ],
+            // Abertura e encerramento vêm em bloco, com respiro: são os dois momentos em que o jogador
+            // precisa parar e ler. O resto da partida fala em uma linha só, com o mesmo ✦ do resto da rede.
+            "started": [
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>INVASÃO FAC X FAC</bold>",
+              " {attacker_display_name} <white>vs {defender_display_name}",
+              "",
+              " <white>Arena: <gray>{arena}",
+              " <white>Tempo de Preparação: <gray>{preparation_time}",
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00>Defensores não podem sair da base durante a preparação."
+            ],
+            "no-arena": [
+              "Não há arena livre agora. <gray>Tente de novo quando uma partida terminar."
+            ],
+            // A cerca é o TERRITÓRIO da defesa: o que barra é pisar na faixa do atacante.
+            "locked-in-base": "Durante a preparação você não pode sair do território da sua facção.",
+            // Abate no chat da partida — a MESMA linha do servidor de factions, com os mesmos tokens.
+            // Vai para o elenco dos dois quadros que está dentro do mundo da partida.
+            // Tokens: {victim_name}, {victim_name_with_color}, {victim_name_with_tag} e os mesmos com
+            // {killer_...}. O `_with_tag` traz a tag do cargo + o nick nas cores dele.
+            "kill": "<gray>☠</gray> {victim_name_with_tag} <gray>foi morto por</gray> {killer_name_with_tag}<gray>.</gray>",
+            "ejector-limit": "Seu lado já está no limite de <color:#ff2d2d>{limit}</color> ejetores.",
+            "cubicle": [
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>VITÓRIA DO ATAQUE</bold>",
+              " {player_name_with_tag} <gray>entrou no cubículo de {defender_display_name}<gray>.",
+              ""
+            ],
+            // VITÓRIA POR DOMÍNIO (KOTH): a captura do cubículo chegou a 100%. Só existe nas partidas
+            // cujo pedido ligou a opção — sem ela, a vitória do ataque continua sendo a `cubicle`.
+            "domination": [
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>CUBÍCULO DOMINADO</bold></gradient>",
+              " {attacker_display_name} <gray>capturou o cubículo de {defender_display_name}<gray>.",
+              ""
+            ],
+            // Cancelamento pela staff (`/f admin cancelar-invasao`). Não tem vencedor e não mexe no
+            // placar — antes de 07/08 esta linha não existia e os jogadores liam "a defesa segurou".
+            "cancelled": [
+              "",
+              " <color:#ff2d2d><bold>PARTIDA CANCELADA</bold></color>",
+              " <gray>Um administrador encerrou esta partida.",
+              ""
+            ],
+            "surrender": [
+              "",
+              " <color:#ffd34d><bold>RENDIÇÃO</bold></color>",
+              " <gray>Vitória de {winner_display_name}<gray>.",
+              ""
+            ],
+            "timeout": [
+              "",
+              " <color:#3ef7aa><bold>A DEFESA SEGUROU</bold></color>",
+              " <gray>O tempo da partida acabou e {defender_display_name} <gray>venceu.",
+              ""
+            ],
+            "walkover": [
+              "",
+              " <color:#ffd34d><bold>W.O.</bold></color>",
+              " {abandoned_display_name} <gray>ficou sem ninguém na arena.",
+              " <gray>Vitória de {winner_display_name}<gray>.",
+              ""
+            ],
+            "abandoned-both": [
+              "",
+              " <color:#ff2d2d><bold>PARTIDA CANCELADA</bold></color>",
+              " <gray>Os dois lados ficaram sem ninguém na arena.",
+              ""
+            ],
+            // NÚCLEO: os vidros do centro da base cederam. É o desfecho das partidas que ligaram a
+            // "Vitória por Núcleo" — o ataque não venceu por chegar ao centro, e sim por abri-lo.
+            "nucleus": [
+              "",
+              " <color:#ffd34d><bold>NÚCLEO DESTRUÍDO</bold></color>",
+              " {attacker_display_name} <gray>derrubou <white>{percentual}%</white> do núcleo de",
+              " {defender_display_name}<gray>.",
+              ""
+            ],
+            "faction-gone": [
+              "",
+              " <color:#ff2d2d><bold>PARTIDA CANCELADA</bold></color>",
+              " <gray>Uma das facções deixou de existir.",
+              ""
+            ]
+          },
+          "surrender": {
+            "opened": "<yellow>Seu líder pediu <bold>rendição</bold>. <gray>Vote com <yellow><click:run_command:'/facxfac sim'>/facxfac sim</click></yellow> ou <yellow><click:run_command:'/facxfac nao'>/facxfac nao</click></yellow> <dark_gray>({votes}/{required} · {remaining_time})",
+            "voted": "<gray>Rendição: <white>{votes}/{required}</white> votos <dark_gray>({remaining_time})",
+            "failed": "<green>A rendição não foi aprovada. A partida continua."
+          },
+          // ====================================================================
+          //  QUADRO DA PARTIDA — quem está em campo por cada facção.
+          //
+          //  Entra quem estava ONLINE na abertura, até o teto (`simulator.limite-quadro`, 13). Quem
+          //  ficou de fora — e quem loga depois do começo — só entra por CONVOCAÇÃO, e cada lado tem
+          //  três na partida inteira. Dispensar é de graça: abre a vaga, mas preenchê-la ainda custa.
+          //
+          //  As duas primeiras linhas vão para o LADO inteiro (o quadro é assunto do time); a terceira
+          //  vai só para quem ficou de fora, e é ela que evita a espera por um teleporte que não vem.
+          // ====================================================================
+          "roster": {
+            "called-up": "{responsavel_name_with_tag} <green>convocou</green> {jogador_name_with_tag} <green>para a partida.</green> <dark_gray>(quadro {quadro}/{limite} · {restantes} convocação(ões) restante(s))",
+            "dismissed": "{responsavel_name_with_tag} <yellow>dispensou</yellow> {jogador_name_with_tag} <yellow>da partida.</yellow> <dark_gray>(quadro {quadro}/{limite})",
+            "left-out": [
+              "",
+              " <color:#ffd34d><bold>VOCÊ FICOU FORA DO QUADRO</bold></color>",
+              " <gray>A partida começou com <white>{quadro}/{limite}</white> jogadores — entram os que",
+              " <gray>estavam <white>online</white> quando ela abriu.",
+              " <gray>Peça ao <yellow>líder</yellow> ou a um <yellow>capitão</yellow> para convocar você.",
+              ""
+            ]
+          },
+          // ====================================================================
+          //  SISTEMA DE VIDAS — o limite de renascimento que a facção escolhe no menu do pedido.
+          //
+          //  Cada morte cobra uma vida do LADO de quem morreu. Zerou, ninguém daquele lado renasce
+          //  mais: quem morre fica em modo espectador até a invasão acabar.
+          //
+          //  A linha de saldo (`spent`) vai só para o lado que pagou — o adversário não precisa
+          //  acompanhar morte a morte. Quando o saldo ZERA os dois lados são avisados, com blocos
+          //  separados: para um é a notícia de que acabou, para o outro é a de que cada abate agora
+          //  é definitivo.
+          // ====================================================================
+          //  NÚCLEO — só nas partidas cujo pedido ligou a "Vitória por Núcleo".
+          //
+          //  Os vidros do centro da base são o coração dela: o ataque vence derrubando o percentual
+          //  que o servidor define (`simulator.nucleo.percentual`), e só por EXPLOSÃO. O chat fala nos
+          //  MARCOS (10% e 20%), não a cada vidro — um tiro de canhão derruba vários de uma vez.
+          //
+          //  Placeholders: {percentual} {meta} {restantes} {total}
+          // ====================================================================
+          "nucleus": {
+            "progress": "<yellow>O núcleo da base já perdeu <white>{percentual}%</white> <gray>({restantes} de {total} spawners de pé)</gray>. <gray>O ataque vence com {meta}%.</gray></yellow>",
+            "unbreakable": "<red>O núcleo só cai por explosão — nem o ataque nem a defesa o quebram na mão.</red>"
+          },
+          // ====================================================================
+          //  DOMÍNIO DO CUBÍCULO — só nas partidas cujo pedido ligou a "Vitória por Domínio".
+          //
+          //  O chat fala apenas nas TRANSIÇÕES (começou a capturar, perdeu a maioria, entrou em
+          //  prorrogação). O número que muda a cada segundo vive na BOSSBAR — nenhum serviço do
+          //  Simulator anuncia por tempo decorrido.
+          //
+          //  Uma chave por LADO, e não "próprio/inimigo" como nas vidas: quem captura é sempre o
+          //  ataque, então o lado já diz tudo.
+          //
+          //  Placeholders: {capture_percent} {capture_seconds}
+          // ====================================================================
+          "capture": {
+            "started-attacker": "<green>Vocês começaram a <bold>dominar o cubículo</bold>! <gray>Segurem a maioria por <white>{capture_seconds}s</white>.</gray></green>",
+            "started-defender": "O inimigo começou a <bold>dominar o cubículo</bold>! <gray>Entrem lá para segurar.",
+            "lost-attacker": "<yellow>Vocês perderam a maioria no cubículo. <gray>A captura está voltando <white>({capture_percent}%)</white>.</gray></yellow>",
+            "lost-defender": "<green>Vocês retomaram o cubículo! <gray>A captura do inimigo está voltando <white>({capture_percent}%)</white>.</gray></green>",
+            "overtime-attacker": [
+              "",
+              " <color:#ffd34d><bold>PRORROGAÇÃO</bold></color>",
+              " <gray>O tempo acabou, mas vocês estão no cubículo.",
+              " <gray>A partida continua enquanto houver atacante lá dentro.",
+              ""
+            ],
+            "overtime-defender": [
+              "",
+              " <color:#ffd34d><bold>PRORROGAÇÃO</bold></color>",
+              " <gray>O tempo acabou, mas o inimigo está no cubículo.",
+              " <gray>Tirem todos de lá para vencer a partida.",
+              ""
+            ]
+          }
+        },
+        // Segunda bossbar, empilhada embaixo da barra da invasão (mesmo desenho da de inatividade): só
+        // aparece enquanto há captura para mostrar, e só para quem está em partida.
+        //
+        // ⚠️ VERDE como as outras quatro, pelo mesmo contrato com o pacote de textura: a barra é
+        // invisível e o TEXTO é tudo o que o jogador vê. Por isso o progresso vai em NÚMERO, e não em
+        // preenchimento — o preenchimento fica fixo em cheio.
+        //
+        // Placeholders: {capture_percent} {capture_seconds} {attacker_inside} {defender_inside}
+        "capture": {
+          "bossbar": {
+            "attacker": "<color:#3ef7aa>⚑ <bold>Dominando o cubículo! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            "defender": "<red>⚠ <bold>Cubículo sob ataque! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            // Quando o ataque perde a maioria a captura DECAI: a barra precisa dizer isso, senão afirma
+            // "dominando" ao lado de um número que está caindo.
+            "attacker-losing": "<color:#ffd34d>⚑ <bold>Cubículo disputado! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            "defender-losing": "<color:#3ef7aa>⚑ <bold>Cubículo seguro! </bold><white>Captura do inimigo:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            "attacker-overtime": "<color:#ffd34d>⏳ <bold>Prorrogação! </bold><white>Captura:</white> <gray>{capture_percent}% <white>— segurem o cubículo.",
+            "defender-overtime": "<color:#ffd34d>⏳ <bold>Prorrogação! </bold><white>Captura:</white> <gray>{capture_percent}% <white>— tirem o inimigo de lá.",
+            // AUDIÊNCIA (espectador/monitor): sem lado, os três estados viram descrição neutra.
+            "spectator": "<gold>⚑ <bold>Cubículo em captura! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            "spectator-losing": "<gold>⚑ <bold>Cubículo disputado! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})",
+            "spectator-overtime": "<gold>⏳ <bold>Prorrogação! </bold><white>Captura:</white> <gray>{capture_percent}% <dark_gray>({attacker_inside}<gray>×<dark_gray>{defender_inside})"
+          }
+        }
+      },
+      "results": {
+        "create": {
+          "already-in-faction": "<red>Você já está em uma facção.",
+          "invalid-tag": "<red>A tag precisa ter entre <yellow>{min_tag_length}</yellow> e <yellow>{max_tag_length}</yellow> caracteres, apenas letras e números.",
+          "invalid-name": "<red>O nome precisa ter entre <yellow>{min_name_length}</yellow> e <yellow>{max_name_length}</yellow> caracteres.",
+          "tag-in-use": "<red>A tag <yellow>{faction_tag}</yellow> já está em uso.",
+          "name-in-use": "<red>O nome <yellow>{faction_name}</yellow> já está em uso."
+        },
+        "member": {
+          "not-in-faction": "<red>Você não está em uma facção.",
+          "target-not-in-faction": "<red>Esse jogador não é da sua facção.",
+          "no-permission": "<red>Só o <yellow>líder</yellow> e os <yellow>capitães</yellow> podem expulsar membros.",
+          "same-or-higher-role": "<red>Você não pode fazer isso com alguém de cargo igual ou superior ao seu.",
+          "already-top-role": "<red>Esse membro já está no cargo mais alto que você pode conceder.",
+          "already-bottom-role": "<red>Esse membro já está no cargo mais baixo.",
+          "cannot-target-self": "<red>Você não pode fazer isso consigo mesmo.",
+          "leader-must-transfer": "<red>Transfira a liderança (ou desfaça a facção) antes de sair.",
+          "faction-full": "<red>A facção está cheia.",
+          "already-cannon-kit": "<red>Esse membro já é quem leva o kit canhão da facção."
+        },
+        "invite": {
+          "not-in-faction": "<red>Você não está em uma facção.",
+          "no-permission": "<red>Só o <yellow>líder</yellow> e os <yellow>capitães</yellow> podem convidar jogadores.",
+          "target-already-in-faction": "<red>Esse jogador já está em uma facção.",
+          "target-is-member": "<red>Esse jogador já é da sua facção.",
+          "already-invited": "<red>Esse jogador já tem um convite pendente da sua facção.",
+          "not-invited": "<red>Não há convite pendente para essa facção.",
+          "expired": "<red>Esse convite expirou.",
+          "faction-full": "<red>A facção está cheia.",
+          "too-many-pending": "<red>A facção já tem convites pendentes demais.",
+          "cannot-invite-self": "<red>Você não pode convidar a si mesmo."
+        },
+        "claim": {
+          "disabled": "<red>O território de facção está desativado neste servidor.",
+          "world-not-allowed": "<red>Não existe território de facção neste mundo.",
+          "not-in-faction": "<red>Você não está em uma facção.",
+          "already-claimed-by-you": "<red>Este chunk já é da sua facção.",
+          "already-claimed": "<red>Este chunk já pertence a outra facção.",
+          "not-claimed": "<red>Este chunk não pertence a ninguém.",
+          "not-your-claim": "<red>Este chunk não é da sua facção.",
+          "limit-reached": "<red>A facção já atingiu o limite de <yellow>{max_claims}</yellow> chunks.",
+          "not-connected": "<red>O chunk precisa encostar em outro que a facção já tenha.",
+          "under-invasion": "<red>O território não pode mudar durante uma invasão."
+        },
+        "invasion": {
+          "disabled": "<red>As invasões estão desativadas neste servidor.",
+          "not-in-faction": "<red>Você não está em uma facção.",
+          "same-faction": "<red>Você não pode invadir a própria facção.",
+          "target-not-found": "<red>Facção não encontrada.",
+          "target-protected": "<red>{defender_display_name} <red>está protegida no momento.",
+          "target-without-claims": "<red>{defender_display_name} <red>não tem território para invadir.",
+          "attacker-already-invading": "<red>Sua facção já está em uma invasão.",
+          "target-already-under-attack": "<red>Essa facção já está sendo invadida.",
+          "not-enough-attackers-online": "<red>Não há membros suficientes da sua facção online."
+        },
+        // Resultados do Simulator (Fac x Fac): pedido, resposta e rendição.
+        "simulator": {
+          "disabled": "<red>A Invasão Fac x Fac está desativada no momento.",
+          "no-arena-available": "<red>Não há arena livre para uma partida agora.",
+          "simulator-offline": "<red>O servidor de partidas está reiniciando. Tente de novo em alguns instantes.",
+          "not-in-faction": "<red>Você precisa estar em uma facção para puxar um Fac x Fac.",
+          "opponent-required": "<red>Escolha a facção adversária no menu antes de enviar.",
+          "opponent-not-found": "<red>Facção adversária não encontrada.",
+          "same-faction": "<red>Você não pode desafiar a própria facção.",
+          "not-enough-members": "<red>Sua facção não tem membros suficientes para uma partida.",
+          "opponent-not-enough-members": "<red>A facção adversária não tem membros suficientes.",
+          "no-cannon-kit": "<red>Sua facção precisa definir quem leva o <yellow>kit canhão</yellow> no menu de membros.",
+          "opponent-no-cannon-kit": "<red>A facção adversária ainda não definiu quem leva o kit canhão.",
+          "opponent-offline": "<red>Ninguém da facção adversária está online. <gray>O desafio só é entregue em mãos.",
+          "opponent-leader-offline": "<red>A facção adversária não tem <yellow>líder</yellow> nem <yellow>capitão</yellow> online para responder ao desafio.",
+          "already-requested": "<red>Já existe um desafio pendente entre as duas facções.",
+          "already-in-match": "<red>Sua facção já está em uma partida.",
+          "opponent-in-match": "<red>A facção adversária já está em uma partida.",
+          "request-not-found": "<red>Não há desafio pendente para responder.",
+          "request-expired": "<red>Esse desafio já expirou.",
+          "not-the-opponent": "<red>Só a facção desafiada pode responder a esse desafio.",
+          "not-the-responder": "<red>Esse desafio não é seu para responder. <gray>Ele foi entregue ao líder (ou aos capitães, na ausência dele).",
+          // Rendição.
+          "not-in-match": "<red>Você não está em uma partida.",
+          "not-running": "<red>A partida ainda não começou.",
+          "not-leader": "<red>Só o líder pode pedir rendição.",
+          "already-voting": "<red>Já existe uma votação de rendição em andamento.",
+          "no-vote": "<red>Não há votação de rendição aberta.",
+          "not-your-vote": "<red>Essa votação não é do seu lado.",
+          "already-voted": "<red>Você já votou.",
+          "success": "<green>Desafio enviado! <gray>Aguardando a resposta da facção adversária.",
+          // Quadro da partida (/f convocar). Nível próprio para não disputar nome com as chaves
+          // do desafio acima — 'not-in-match' já existe ali com outro texto.
+          "roster": {
+            "not-in-match": "<red>Você não está em uma partida.",
+            "not-allowed": "<red>Só o <yellow>líder</yellow> e os <yellow>capitães</yellow> mexem no quadro da partida.",
+            "disabled": "<red>As convocações estão desativadas nesta partida.",
+            "no-callups": "<red>Sua facção já usou todas as convocações desta partida.",
+            "roster-full": "<red>O quadro está cheio. <gray>Dispense alguém para abrir vaga.",
+            "target-not-member": "<red>Esse jogador não é da sua facção.",
+            "target-offline": "<red>Esse jogador não está online.",
+            "target-in-match": "<red>Esse jogador já está em uma partida.",
+            "target-not-in-roster": "<red>Esse jogador não está no quadro do seu lado.",
+            "target-is-self": "<red>Você não pode dispensar a si mesmo."
+          }
+        }
+      },
+      "messages": {
+        "faction-permissions": {
+          "without-permission": "<red>Seu cargo não permite <yellow>{permission_action}</yellow>."
+        },
+        "faction": {
+          // A proteção de território é MUDA desde 05/08 (decisão do dono): a ação bloqueada simplesmente
+          // não acontece, sem linha no chat. Por isso não há mais 'not-your-territory' aqui.
+          "disbanded": "<red>Sua facção {faction_display_name} <red>foi desfeita.",
+          // Chat interno da facção (/c). Formato COPIADO VERBATIM do servidor de factions — é o pedido:
+          // quem joga lá tem de reconhecer a linha aqui sem reparar na diferença. Por isso o verde, e não
+          // a paleta #ff2d2d da Academy.
+          //
+          // Os outros quatro placeholders que o código passa ({user_faction_name}, {user_name_with_tag},
+          // {user_name_with_color} e {user_role_name}) existem para quem quiser reescrever esta linha.
+          "on-member-chat": [
+            " <green>[{user_faction_tag}] </green><gray>{user_role_prefix}{user_name}</gray><white>: </white><green>{user_chat_message}</green>"
+          ]
+        },
+        "member": {
+          "promoted": "<green>Você foi promovido a {role_name}<green>.",
+          "demoted": "<yellow>Você foi rebaixado a {role_name}<yellow>.",
+          "leadership-transferred": "<yellow>A liderança da facção {faction_display_name} <yellow>mudou de mãos."
+        },
+        "invite": {
+          "member-joined": "{member_name_with_tag} <green>entrou na facção.</green>"
+        },
+        "invasion": {
+          "started": "<red>Invasão aberta: {attacker_display_name} <red>➜ {defender_display_name}<red>. A preparação começou.",
+          "activated": "<red>A invasão contra {defender_display_name} <red>foi ativada!",
+          "finished": "<yellow>Invasão encerrada: {attacker_display_name} <yellow>➜ {defender_display_name} <dark_gray>(<white>{destroyed_blocks}/{required_blocks}<dark_gray> blocos)",
+          "cancelled": "<gray>A invasão entre {attacker_display_name} <gray>e {defender_display_name} <gray>foi cancelada por um administrador."
+        }
+      },
+      "commands": {
+        "faction": {
+          "help": [
+            "<color:#ff2d2d>Comandos de facção:",
+            "<gray>/f <dark_gray>·</dark_gray> /f criar <tag> <nome> <dark_gray>·</dark_gray> /f desfazer <dark_gray>·</dark_gray> /f info [tag]",
+            "<gray>/f convidar <jogador> <dark_gray>·</dark_gray> /f entrar <tag> <dark_gray>·</dark_gray> /f recusar <tag> <dark_gray>·</dark_gray> /f convites",
+            "<gray>/f membros <dark_gray>·</dark_gray> /f kits <dark_gray>·</dark_gray> /f promover|rebaixar|expulsar|transferir <jogador> <dark_gray>·</dark_gray> /f sair",
+            "<gray>/f tag <tag> <dark_gray>·</dark_gray> /f nome <nome>",
+            "<gray>/c <mensagem> <dark_gray>·</dark_gray> /f c <mensagem> <dark_gray>(chat interno da facção)</dark_gray>",
+            "<gray>/f claim <dark_gray>·</dark_gray> /f desclaim <dark_gray>·</dark_gray> /f mapa",
+            "<gray>/f invadir <tag> <dark_gray>·</dark_gray> /f invasoes <dark_gray>·</dark_gray> /f ranking",
+        // Só existe no servidor das partidas (Fac x Fac) — fora dele o comando nem é registrado.
+        "<gray>/f convocar <dark_gray>(quadro da partida: convocar e dispensar)</dark_gray>",
+            "<gray>/f admin <dark_gray>(staff: bypass, desfazer, cancelarinvasao)</dark_gray>"
+          ],
+          "errors": {
+            "no-faction": "<red>Você não está em uma facção.",
+            "faction-not-found": "<red>Facção <yellow>{faction_tag}</yellow> não encontrada.",
+            // Nome DIGITADO de alguém que pode nem existir: sem cargo, logo sem tag. Não troque por _with_tag.
+            "player-not-found": "<red>Jogador <yellow>{player_name}</yellow> não encontrado.",
+            "only-leader": "<red>Apenas o líder da facção pode fazer isso.",
+            "change-cooldown": "<red>Aguarde <yellow>{remaining_time}</yellow> para trocar novamente.",
+            "world-not-allowed": "<red>Não existe território de facção neste mundo.",
+            "loading": "<red>Seus dados de facção ainda estão carregando. Tente de novo em instantes."
+          },
+          "create": {
+            "success": "<green>Facção <yellow>[{faction_tag}] {faction_name}</yellow> criada! Você é o líder."
+          },
+          "disband": {
+            "success": "<green>A facção {faction_display_name} <green>foi desfeita."
+          },
+          "info": {
+            "body": [
+              "<dark_gray>▪ <white>{faction_display_name}",
+              "<gray>Líder: </gray>{faction_leader_name_with_tag}",
+              "<gray>Membros: <white>{faction_members} <dark_gray>(<green>{faction_members_online}<dark_gray> online)",
+              "<gray>Território: <white>{faction_claims} <gray>chunks",
+              "<gray>Invasões: <green>{faction_invasions_won} <gray>vencidas <dark_gray>·</dark_gray> <red>{faction_invasions_lost} <gray>perdidas",
+              "<gray>Ranking geral: <white>#{faction_ranking_position}",
+              "<gray>Proteção: <white>{faction_protection}"
+            ]
+          },
+          "tag": {
+            "success": "<green>A tag da facção agora é <yellow>{value}</yellow>.",
+            "invalid": "<red>Tag inválida ou já em uso: <yellow>{value}</yellow>."
+          },
+          "name": {
+            "success": "<green>O nome da facção agora é <yellow>{value}</yellow>.",
+            "invalid": "<red>Nome inválido ou já em uso: <yellow>{value}</yellow>."
+          },
+          "invite": {
+            "success": "<green>Convite enviado para </green>{player_name_with_tag}<green>.</green>",
+            "received": "<green>A facção {faction_display_name} <green>convidou você! Use <yellow>/f entrar {faction_tag}</yellow>."
+          },
+          "accept": {
+            "success": "<green>Você entrou na facção {faction_display_name}<green>."
+          },
+          "deny": {
+            "success": "<yellow>Você recusou o convite de {faction_display_name}<yellow>."
+          },
+          "leave": {
+            "success": "<yellow>Você saiu da facção {faction_display_name}<yellow>."
+          },
+          "kick": {
+            "success": "{player_name_with_tag} <green>foi expulso da facção.</green>"
+          },
+          "promote": {
+            "success": "{player_name_with_tag} <green>foi promovido.</green>"
+          },
+          "demote": {
+            "success": "{player_name_with_tag} <green>foi rebaixado.</green>"
+          },
+          "transfer": {
+            "success": "<green>A liderança foi transferida para </green>{player_name_with_tag}<green>.</green>"
+          },
+          "claim": {
+            "success": "<green>Chunk <yellow>{chunk_x}, {chunk_z}</yellow> reivindicado <dark_gray>(<white>{faction_claims}<dark_gray> no total)"
+          },
+          "unclaim": {
+            "success": "<yellow>Chunk <white>{chunk_x}, {chunk_z}</white> liberado <dark_gray>(<white>{faction_claims}<dark_gray> restantes)"
+          },
+          // /f mapa — a GRADE não tem chave de lang: ela é montada no FactionMapService, no mesmo
+          // desenho do servidor de factions (19×19 chunks que giram com o olhar, bússola e legenda).
+          // Os nomes da legenda ficam em plugins.factions.claim-states.
+          "c": {
+            "mensagem": {
+              "name": "mensagem",
+              "description": "Mensagem para enviar no chat interno da facção"
+            }
+          },
+          "map": {
+            "estado": {
+              "name": "on|off",
+              "description": "Liga ou desliga o mapa automático (redesenha a cada troca de chunk)."
+            },
+            "success-auto-map-on": "<green>Mapa automático ativado!",
+            "success-auto-map-off": "<green>Mapa automático desativado!",
+            "already-on": "<yellow>O mapa automático já está ligado.",
+            "already-off": "<yellow>O mapa automático já está desligado."
+          },
+          "admin": {
+            "matches": {
+              "unavailable": "<red>O sistema de partidas ainda não subiu neste servidor.",
+              "none": "<red>A facção {faction_display_name} <red>não está em nenhuma partida em andamento.",
+              "ending": "<green>Encerrando a partida de {faction_display_name} <green>(<yellow>{acao}</yellow>)."
+            },
+            "bypass": {
+              "enabled": "<green>Modo administrador de facções <white>ligado<green>.",
+              "disabled": "<yellow>Modo administrador de facções <white>desligado<yellow>."
+            },
+            "disband": {
+              "success": "<green>A facção {faction_display_name} <green>foi desfeita."
+            },
+            "cancel-invasion": {
+              "none": "<red>{faction_display_name} <red>não está em nenhuma invasão.",
+              // Fac x Fac cancelado de FORA do servidor de partidas: a invasão morre daqui (o território
+              // e as duas facções destravam), mas quem encerra a partida com a limpeza completa é o
+              // anfitrião — e ele anuncia o desfecho como "encerrada pelo tempo".
+              "arena-elsewhere": "<yellow>{faction_display_name} <yellow>está numa <white>Invasão Fac x Fac</white>. <gray>A invasão foi cancelada, mas quem encerra a partida é o servidor de partidas — os jogadores verão o desfecho por tempo. <gray>Para o aviso correto, cancele por lá.",
+              "success": "<green>Invasão de {faction_display_name} <green>cancelada."
+            },
+            "errors": {
+              "unknown-action": "<red>Ação desconhecida: <yellow>{action}</yellow>."
+            }
+          }
+        },
+        // ====================================================================
+        //  /facxfac — resposta ao desafio e rendição. Quem MONTA o desafio é a
+        //  bússola do spawn; aqui o jogador só responde e acompanha.
+        // ====================================================================
+        "simulator": {
+          "errors": {
+            "loading": "<red>Seus dados de facção ainda estão carregando. Tente de novo em instantes.",
+            "no-faction": "<red>Você não está em uma facção."
+          },
+          // /facxfac kit — renova o kit da partida a pedido do jogador. Existe desde 07/08/2026, a
+          // pedido do dono: o kit deixou de ser "uma vez por participação" quando o jogador pede.
+          "kit": {
+            "success": "<green>Kit renovado! <gray>Seu inventário voltou como você o organizou.",
+            "errors": {
+              "not-in-arena": "<red>Você precisa estar <yellow>dentro da arena</yellow> para renovar o kit.",
+              "awaiting-respawn": "<red>Você está esperando para renascer."
+            }
+          },
+          // /facxfac visualizar — abre o desafio num menu de leitura, com as regras que o desafiante
+          // definiu e (para quem responde) os botões de aceitar e recusar.
+          "view": {
+            // Sem `<tag>` literal: o MiniMessage engoliria os sinais como se fossem uma tag de estilo.
+            "ambiguous": "<red>Sua facção tem mais de um desafio aberto. <gray>Diga qual: <white>/facxfac visualizar TAG</white>."
+          },
+          "status": {
+            "idle": "<gray>Sua facção não tem desafio pendente nem partida em andamento. <white>Use a bússola do spawn <gray>para desafiar outra facção.",
+            "match": [
+              "<dark_gray>▪ <white>Invasão Fac x Fac",
+              "<gray>Adversário: {opponent_display_name}",
+              "<gray>Seu lado: {side_name}",
+              "<gray>Fase: {phase_name} <dark_gray>·</dark_gray> <white>{remaining_time} <gray>restantes",
+              "<gray>Arena: <white>{arena}"
+            ],
+            // Os três estados do desafio no `/facxfac`. Todos levam ao MESMO menu de leitura: quem
+            // responde encontra ACEITAR/RECUSAR lá dentro, e quem não responde vê só as regras. A tag
+            // vai no comando porque a facção pode ter mais de um desafio aberto ao mesmo tempo.
+            "request-received": [
+              " {faction_display_name} <white>desafiou sua facção <dark_gray>(expira em {expires_in})",
+              " <hover:show_text:'<gradient:#FF6F00:#faa825:#FF6F00>Ver as regras da partida e responder'><click:run_command:'/facxfac visualizar {faction_tag}'><gradient:#FF6F00:#faa825:#FF6F00><bold>[VISUALIZAR]</bold></gradient></click></hover>"
+            ],
+            "request-pending": [
+              " <gray>{faction_display_name} <gray>desafiou sua facção — quem responde é o líder (ou os capitães) <dark_gray>({expires_in})",
+              " <hover:show_text:'<gradient:#FF6F00:#faa825:#FF6F00>Ver as regras da partida'><click:run_command:'/facxfac visualizar {faction_tag}'><gradient:#FF6F00:#faa825:#FF6F00>[VISUALIZAR]</gradient></click></hover>"
+            ],
+            "request-sent": [
+              " <gray>Desafio enviado para {faction_display_name} <gray>— aguardando resposta <dark_gray>({expires_in})",
+              " <hover:show_text:'<gradient:#FF6F00:#faa825:#FF6F00>Ver as regras que você enviou'><click:run_command:'/facxfac visualizar {faction_tag}'><gradient:#FF6F00:#faa825:#FF6F00>[VISUALIZAR]</gradient></click></hover>"
+            ]
+          }
+          // `accept.success`/`deny.success` saíram: o fechamento do desafio já avisa os DOIS quadros, e
+          // a confirmação pessoal repetia a mesma frase na linha seguinte (bug visual de 05/08).
+        },
+        // ====================================================================
+        //  /simarena — marcação da arena em jogo (staff). Age SEMPRE sobre a
+        //  arena do mundo em que o staff está.
+        // ====================================================================
+        "simarena": {
+          "usage": [
+            "<gray>Uso do <white>/simarena</white> (age sobre a arena do mundo em que você está):",
+            "<gray>· <white>pos1</white> / <white>pos2</white> <dark_gray>—</dark_gray> marca os cantos da caixa",
+            "<gray>· <white>base</white> / <white>cubiculo</white> <dark_gray>—</dark_gray> grava a caixa marcada",
+            "<gray>· <white>spawn atacante|defensor</white> <dark_gray>—</dark_gray> grava onde você está",
+            "<gray>· <white>atalho base|plataforma|counter</white> <dark_gray>—</dark_gray> grava onde você está",
+            "<gray>· <white>borda</white> <dark_gray>—</dark_gray> grava a borda ATUAL do mundo (centro e tamanho)",
+            "<gray>· <white>ativar</white> / <white>desativar</white> / <white>info</white> / <white>remover</white>"
+          ],
+          "errors": {
+            "not-arena-world": "<red>O mundo <yellow>{world}</yellow> não é uma arena do Simulator.",
+            "unknown-action": "<red>Ação <yellow>{action}</yellow> desconhecida. Use <white>/simarena info</white>.",
+            "incomplete-selection": "<red>Marque os dois cantos antes: <white>/simarena pos1</white> e <white>/simarena pos2</white>.",
+            "selection-world": "<red>Sua seleção foi feita em outro mundo. Remarque os cantos dentro de <yellow>{world}</yellow>.",
+            "unknown-side": "<red>Lado <yellow>{side}</yellow> desconhecido. Use <white>atacante</white> ou <white>defensor</white>.",
+            "unknown-shortcut": "<red>Atalho <yellow>{shortcut}</yellow> desconhecido. Use <white>base</white>, <white>plataforma</white> ou <white>counter</white>.",
+            "default-border": "<red>Este mundo está com a borda PADRÃO. Defina a borda com <white>/worldborder center</white> e <white>/worldborder set</white> antes de gravá-la na arena."
+          },
+          "selection": {
+            "saved": "<green>Posição <yellow>{position}</yellow> marcada em <white>{x}, {y}, {z}</white>."
+          },
+          "base": {
+            "saved": "<green>Zona da base salva: <white>{zone}</white>."
+          },
+          "cubicle": {
+            "saved": "<green>Cubículo dos spawners salvo: <white>{zone}</white>."
+          },
+          "spawn": {
+            "attacker-saved": "<green>Spawn do atacante salvo em <white>{location}</white>.",
+            "defender-saved": "<green>Spawn do defensor salvo em <white>{location}</white>."
+          },
+          "shortcut": {
+            "saved": "<green>Atalho <yellow>{shortcut}</yellow> salvo em <white>{location}</white>."
+          },
+          "border": {
+            "saved": "<green>Borda gravada na arena: centro <white>{center_x}, {center_z}</white>, tamanho <white>{size}</white>. <gray>Ela volta igual a cada restart."
+          },
+          "enabled": "<green>Arena <yellow>{world}</yellow> ativada — já entra no sorteio de partidas.",
+          "disabled": "<yellow>Arena <yellow>{world}</yellow> desativada — não será sorteada até ser reativada.",
+          "removed": "<red>Arena <yellow>{world}</yellow> apagada. Toda a marcação dela foi perdida.",
+          "info": {
+            "body": [
+              "<dark_gray>▪ <white>Arena <yellow>{world}</yellow> <dark_gray>·</dark_gray> <gray>{status}",
+              "<gray>Zona da base: <white>{base_zone}",
+              "<gray>Cubículo: <white>{cubicle}",
+              "<gray>Spawn do atacante: <white>{attacker_spawn}",
+              "<gray>Spawn do defensor: <white>{defender_spawn}",
+              "<gray>Atalhos: <white>{shortcut_base} <dark_gray>·</dark_gray> <white>{shortcut_platform} <dark_gray>·</dark_gray> <white>{shortcut_counter}"
+            ],
+            "missing": "<red>não marcado",
+            "status": {
+              "incomplete": "<red>incompleta",
+              "ready": "<green>pronta",
+              "disabled": "<yellow>desativada"
+            }
+          }
+        },
+        // ====================================================================
+        //  /base, /plataforma, /counter — atalhos do DEFENSOR, fora de combate.
+        //  Ficam sob uma chave própria para não virarem subcomandos soltos do /f.
+        // ====================================================================
+        // /loja — reposição item a item do kit da partida. Substituiu o /camada, que só repunha end
+        // stone nos slots vazios.
+                "simulator-stats": {
+          "errors": {
+            // O placar vive só enquanto o pós-jogo dura: depois disso os números foram embora com o
+            // mundo da partida, e dizer isso é melhor que abrir uma tela vazia.
+            "no-stats": "<red>Você não tem nenhuma partida recente para ver o placar."
+          }
+        },
+"simulator-shop": {
+          "errors": {
+            "not-in-arena": "<red>Você precisa estar no mundo da partida para abrir a <yellow>/loja</yellow>.",
+            "awaiting-respawn": "<red>Você está esperando para renascer."
+          }
+        },
+        "simulator-shortcut": {
+          "errors": {
+            "no-match": "<red>Você não está em nenhuma partida do Simulator.",
+            "defender-only": "<red>Só a defesa usa os atalhos da base.",
+            // Vale para a espera de renascimento E para quem foi eliminado pelo sistema de vidas: nos
+            // dois casos o corpo está em modo espectador e não anda pela base.
+            "awaiting-respawn": "<red>Você está esperando para renascer.",
+            "in-combat": "<red>Você está em combate! Aguarde <yellow>{remaining_time}</yellow>.",
+            "not-marked": "<red>O atalho <yellow>{shortcut}</yellow> não está marcado nesta arena."
+          },
+          "base": {
+            "success": "<green>Você foi levado para a <white>base</white>."
+          },
+          "plataforma": {
+            "success": "<green>Você foi levado para a <white>plataforma</white>."
+          },
+          "counter": {
+            "success": "<green>Você foi levado para o <white>counter</white>."
+          }
+        }
+      },
+      "views": {
+        "items": {
+          "member": {
+            "name": "{member_name_with_tag}",
+            "lore": [
+              "<white>Cargo: {member_role}",
+              "<white>Treino: <gray>{member_training_points} pontos",
+              "<white>Kit: {member_kit_role}",
+              "",
+              "<gradient:#FF6F00:#faa825:#FF6F00>Esquerdo: <white>Promover",
+              "<gradient:#FF6F00:#faa825:#FF6F00>Direito: <white>Rebaixar"
+            ],
+            // Papel do membro na partida Fac x Fac: define QUAL kit ele recebe ao entrar. Estes são os
+            // nomes COM cor, para leitura (a cabeça do quadro de cargos e as mensagens). A lista
+            // clicável da setinha usa os nomes sem cor de "member-kit.roles" abaixo. Só o canhão é
+            // único por facção — marcar outro tira do anterior.
+            "kit-role": {
+              "nenhum": "<dark_gray>nenhum <gray>(joga de PvP)",
+              "pvp": "<red>PvP",
+              "canhao": "<gold>Canhão",
+              "tampar": "<aqua>Tampar"
+            }
+          },
+          // A cabeça no quadro de KITS. A lore lista os papéis com a setinha na opção atual — o mesmo
+          // desenho do configurador do Fac x Fac (cannonutils.views.invasao-config).
+          //
+          // ⚠️ {kit_roles} é UMA linha-molde que vira UMA LINHA POR PAPEL: o Java manda uma coleção e o
+          // lang expande. Três regras, todas com falha SILENCIOSA:
+          //   1. não repita a linha aqui — cada cópia viraria outro bloco de quatro;
+          //   2. não coloque duas coleções na mesma linha — com mais de uma o lang desiste de expandir;
+          //   3. NUNCA use {kit_roles} no "name" — chave de nome exige um componente só, e com quatro
+          //      o item passa a se chamar literalmente o caminho da chave.
+          "member-kit": {
+            "name": "{member_name_with_tag}",
+            "lore": [
+              "<gray>Cargo: {member_role}",
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00>Kit na partida:",
+              " {kit_roles}",
+              "",
+              "<yellow>Kit canhão limitado a 1 membro.",
+              "",
+              "<gradient:#FF6F00:#faa825:#FF6F00>Clique para alterar."
+            ],
+            // As duas caras de uma linha da lista. A cor mora AQUI, na linha, e por isso os nomes em
+            // "roles" abaixo são sem cor — um nome colorido ficaria igual nos dois estados.
+            "role-selected": "<dark_gray>▸</dark_gray> {kit_role_name}",
+            "role-option": "<dark_gray> ▸ <gray>{kit_role_name}",
+            // Nomes SEM cor, só para a lista da setinha — substantivos secos, para as quatro linhas
+            // ficarem do mesmo tamanho (é o alinhamento que faz a setinha ser legível). Os nomes
+            // coloridos, usados nas mensagens e na cabeça do quadro de cargos, continuam em
+            // "member.kit-role" acima.
+            //
+            // ⚠️ São DOIS mapas com os mesmos ids (os de MemberKitRole): papel novo ou id renomeado
+            // exige mexer nos dois, e o que ficar para trás aparece como chave crua na tela.
+            "roles": {
+              "nenhum": "Nenhum",
+              "pvp": "PvP",
+              "canhao": "Canhão",
+              "tampar": "Tampar"
+            }
+          },
+          // A bandeira do menu principal. Desde 06/08 ela é PERFIL e PORTA: o clique abre o quadro
+          // (promover, rebaixar e trocar o kit), papel que era da cabeça do jogador. Sem o pergaminho e
+          // sem a cabeça, é o único caminho de menu até lá — por isso a lore precisa convidar ao clique.
+          "banner": {
+            "name": "<gradient:#FF6F00:#faa825:#FF6F00>{faction_display_name}",
+            "lore": [
+              "<gray>Confira e configure os membros",
+              "<gray>da facção, altere os kits do",
+              "<gray>Fac x Fac e customize os kits.",
+              "",
+              "<gradient:#FF6F00:#faa825:#FF6F00> ▸ <white>Membros: <gray>{faction_members} <dark_gray>/ <gray>{faction_members_online} online",
+              "<gradient:#FF6F00:#faa825:#FF6F00> ▸ <white>Invasões: <gray>{faction_invasions_won} vencidas <dark_gray>·</dark_gray> <gray>{faction_invasions_lost} perdidas",
+              "",
+              "<gradient:#FF6F00:#faa825:#FF6F00>Clique para configurar."
+            ]
+          }
+        },
+        "faction-primary": {
+          "title": "Facção [{faction_tag}]",
+          "items": {
+            // Herdou o slot do pergaminho: os convites eram a outra metade dele.
+            "invites": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Convites",
+              "lore": [ "<gray>Convide jogadores para a facção",
+                        "<gray>ou veja convites pendentes.",
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Clique para acessar."
+            ]
+            },
+            "ranking": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Ranking",
+              "lore": [ "<gray>As melhores facções do Academy.",
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Clique para acessar."  
+            ]
+            },
+            "invasions": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasões",
+              "lore": [ "<gray>Confira as invasões em andamento",
+                        "<gray>ou veja o histórico de invasões.",
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Clique para acessar."   
+            ]
+            },
+            "disband": {
+              "name": "<red>Desfazer facção",
+              "lore": [
+                "<gray>Apaga a facção e solta",
+                "<gray>todos os membros."
+              ]
+            },
+            "leave": {
+              "name": "<red>Sair da facção",
+              "lore": [ "<gray>Você deixa de ser membro." ]
+            }
+          }
+        },
+        "faction-members": {
+          "title": "Membros [{faction_tag}]",
+          "items": {
+            // ⚠️ NÓ DE TRAVESSIA — APAGAR NA PRÓXIMA LEVA, junto com o bind `cannon-kit` do Java.
+            // O menu que está no ar declara name/lore EXPLÍCITOS apontando para cá. Como o jar sobe
+            // ANTES do server-menus (ver o aviso no members/list.yml), existe uma janela de jar novo +
+            // menu velho: sem este nó o botão apareceria com a chave crua no nome e na lore. O bind de
+            // compatibilidade e esta lang têm o mesmo tempo de vida e saem juntos.
+            "cannon-kit": {
+              "select": {
+                "name": "<gradient:#FF6F00:#faa825:#FF6F00>Kits da partida",
+                "lore": [ "<gray>Clique para <white>definir os kits<gray>." ]
+              }
+            },
+            // Porta do quadro de kits. Substituiu o "cannon-kit" acima, cujo nome era herança de quando
+            // havia um papel só.
+            "kits": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Kits da partida",
+              "lore": [
+                "<gray>Cada membro entra na Invasão Fac x Fac",
+                "<gray>com o kit selecionado.",
+                "",
+                " <gradient:#FF6F00:#faa825:#FF6F00>Kits disponíveis:",
+                " <gradient:#FF6F00:#faa825:#FF6F00>- <white>Pvp ",
+                " <gradient:#FF6F00:#faa825:#FF6F00>- <white>Canhão ",
+                " <gradient:#FF6F00:#faa825:#FF6F00>- <white>Tampar",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Clique para definir os kits."
+              ]
+            },
+            // Único botão do quadro que não age sobre terceiros: abre o kit de quem clicou.
+            "kit-layout": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Organização de inventário",
+              "lore": [
+                "<gray>Escolha em que slot cada item do",
+                "<gray>seu kit vai nascer na Invasão Fac x Fac.",
+                "",
+                "<yellow> Cada membro arruma o",
+                "<yellow> próprio inventário.",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Clique para organizar."
+              ]
+            }
+          },
+          "messages": {
+            "no-kits": "<red>Nenhum kit de partida está configurado neste servidor.",
+            "member-promoted": "{player_name_with_tag} <green>foi promovido.</green>",
+            "member-demoted": "{player_name_with_tag} <green>foi rebaixado.</green>",
+            "member-kicked": "{player_name_with_tag} <green>foi expulso da facção.</green>",
+            "leadership-transferred": "<green>A liderança foi transferida para </green>{player_name_with_tag}<green>.</green>"
+          }
+        },
+        // Quadro dos KITS: com que kit cada membro entra na partida. A cabeça de cada um lista os papéis
+        // e a setinha marca o atual — esquerdo desce, direito sobe. Saiu do quadro de membros em 07/08.
+        "faction-kits": {
+          "title": "Kits [{faction_tag}]",
+          "messages": {
+            "kit-role-set": "<green>O kit de </green>{player_name_with_tag} <green>agora é {kit_role_name}<green>."
+          }
+        },
+        // ------------------------------------------------------------------
+        //  STAFF: catálogo de kits do Fac x Fac (/f admin kits)
+        //
+        //  O catálogo vive no BANCO. A seção 'simulator.kits' do config.yml é só a semente do primeiro
+        //  boot — depois disso editar o arquivo não muda mais nada, igual ao /durabilidade.
+        // ------------------------------------------------------------------
+        // ------------------------------------------------------------------
+        //  STAFF: painel das partidas do Fac x Fac (/f admin partidas)
+        //
+        //  A lista é replicada por Echo e abre em qualquer app. O estado VIVO (vidas, captura,
+        //  ejetores) só existe no anfitrião — fora dele a tela diz que não sabe, em vez de mostrar
+        //  zero como se fosse dado.
+        // ------------------------------------------------------------------
+        "admin-matches": {
+          "title": "Partidas Fac x Fac ({em_andamento} em andamento)",
+          "items": {
+            "partida": {
+              "name": "{atacante} <gray>x {defensor}",
+              "lore": [
+                "<gray>Arena: <white>{arena}",
+                "<gray>Fase: {fase}",
+                "<gray>Duração: <white>{duracao}",
+                "",
+                "<gray>Atacantes: {atacantes}",
+                "<gray>Defensores: {defensores}",
+                "",
+                "<yellow>Clique para gerenciar<gray>."
+              ],
+              "finished-lore": [
+                "<gray>Arena: <white>{arena}",
+                "<gray>Fase: {fase}",
+                "<gray>Durou: <white>{duracao}",
+                "",
+                "<gray>Atacantes: {atacantes}",
+                "<gray>Defensores: {defensores}",
+                "",
+                "<yellow>Clique para ver a ficha<gray>."
+              ]
+            },
+            "empty": {
+              "name": "<white>Nenhuma partida",
+              "lore": [
+                "<gray>Não há partida em andamento",
+                "<gray>nem recém-encerrada."
+              ]
+            }
+          },
+          "phases": {
+            "preparation": "<yellow>preparação",
+            "active": "<red>valendo",
+            "finished": "<dark_gray>encerrada",
+            "unknown": "<dark_gray>desconhecida"
+          },
+          "roster": {
+            "known": "<white>{na_arena}<gray>/<white>{total} <gray>na arena",
+            // Fora do anfitrião não dá para contar quem está na arena: o mundo da partida não existe
+            // neste app. Dizer só o tamanho do quadro é honesto; "0 na arena" seria mentira.
+            "unknown": "<white>{total} <gray>no quadro"
+          }
+        },
+        "admin-match": {
+          "title": "Partida: {arena}",
+          "items": {
+            "info": {
+              "name": "<white>Ficha da partida",
+              "lore": [
+                "{atacante} <gray>x {defensor}",
+                "",
+                "<gray>Arena: <white>{arena}",
+                "<gray>Mundo: <white>{mundo}",
+                "<gray>Fase: {fase}",
+                "<gray>Duração: <white>{duracao}",
+                "",
+                "<gray>Atacantes: {atacantes}",
+                "<gray>Defensores: {defensores}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Regras do pedido:",
+                "<gray>Equipamento: <white>{equipamento}",
+                "<gray>Bloco de proteção: <white>{bloco_protecao}",
+                "<gray>Estilo da base: <white>{estilo_base}",
+                "<gray>Raio da explosão: <white>{raio} <gray>blocos",
+                "<gray>Ejetores: <white>{ejetores_ataque} <gray>ataque, <white>{ejetores_defesa} <gray>defesa",
+                "<gray>TNT: <white>{tnt_dano} <gray>dano, <white>{tnt_impulso} <gray>impulso",
+                "<gray>Núcleo: {nucleo}",
+                "<gray>Domínio: {dominio}",
+                "",
+                "<gray>Ejetores usados: {ejetores_usados}"
+              ],
+              // No anfitrião os dados vivos existem de verdade; a lore é a mesma, e o que muda é o
+              // valor que {vidas} e {ejetores_usados} trazem.
+              "host-lore": [
+                "{atacante} <gray>x {defensor}",
+                "",
+                "<gray>Arena: <white>{arena}",
+                "<gray>Mundo: <white>{mundo}",
+                "<gray>Fase: {fase}",
+                "<gray>Duração: <white>{duracao}",
+                "",
+                "<gray>Atacantes: {atacantes}",
+                "<gray>Defensores: {defensores}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Regras do pedido:",
+                "<gray>Equipamento: <white>{equipamento}",
+                "<gray>Bloco de proteção: <white>{bloco_protecao}",
+                "<gray>Estilo da base: <white>{estilo_base}",
+                "<gray>Raio da explosão: <white>{raio} <gray>blocos",
+                "<gray>Ejetores: <white>{ejetores_ataque} <gray>ataque, <white>{ejetores_defesa} <gray>defesa",
+                "<gray>TNT: <white>{tnt_dano} <gray>dano, <white>{tnt_impulso} <gray>impulso",
+                "<gray>Núcleo: {nucleo}",
+                "<gray>Domínio: {dominio}",
+                "",
+                "<gray>Ejetores usados: {ejetores_usados}",
+                "",
+                "<dark_gray>Este app hospeda a partida."
+              ]
+            },
+            "attacker-won": {
+              "name": "<red>Encerrar: vitória do atacante",
+              "lore": [
+                "<gray>Termina a partida dando a vitória",
+                "<gray>ao <white>atacante<gray>.",
+                "",
+                "<gray>Conta no placar das duas facções.",
+                "",
+                "<red>Irreversível<gray>. Pede confirmação."
+              ]
+            },
+            "defender-won": {
+              "name": "<blue>Encerrar: vitória da defesa",
+              "lore": [
+                "<gray>Termina a partida dando a vitória",
+                "<gray>à <white>defesa<gray>.",
+                "",
+                "<gray>Conta no placar das duas facções.",
+                "",
+                "<red>Irreversível<gray>. Pede confirmação."
+              ]
+            },
+            "cancel": {
+              "name": "<yellow>Encerrar sem vencedor",
+              "lore": [
+                "<gray>Termina a partida <white>sem vencedor<gray>:",
+                "<gray>ninguém ganha, ninguém perde e o",
+                "<gray>placar não é tocado.",
+                "",
+                "<gray>É o caminho da partida travada.",
+                "",
+                "<red>Irreversível<gray>. Pede confirmação."
+              ]
+            },
+            "teleport": {
+              "name": "<aqua>Ir até a arena",
+              "lore": [
+                "<gray>Leva você ao mundo da partida",
+                "<gray>para ver o que está acontecendo.",
+                "",
+                "<dark_gray>Só no app que hospeda a partida."
+              ]
+            },
+            // MONITORAR é o teleporte com ferramentas: além de ir até lá, a staff ganha a barra, o
+            // espectador e as ações sobre os jogadores. Por isso os dois botões convivem — quem só quer
+            // dar uma olhada continua tendo um caminho sem entrar no modo de trabalho.
+            "monitor": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Monitorar partida",
+              "lore": [
+                "<gray>Entra na partida como <white>staff<gray>:",
+                "<gray>invisível, atravessando parede e",
+                "<gray>sem contar para nenhum dos lados.",
+                "",
+                "<gray>Na sua barra:",
+                "<gray>• <white>Ficha<gray> da partida",
+                "<gray>• <white>Jogadores<gray> dos dois lados",
+                "<gray>• Trocar entre <white>espectador<gray> e <white>criativo",
+                "<gray>• <white>Sair<gray> e voltar ao spawn",
+                "",
+                "<yellow>Clique para começar a monitorar<gray>.",
+                "",
+                "<dark_gray>De outro app você é levado até lá."
+              ]
+            },
+            "players": {
+              "name": "<white>Jogadores da partida",
+              "lore": [
+                "<gray>Os dois quadros lado a lado: quem",
+                "<gray>está vivo, quem caiu, quem espera",
+                "<gray>renascer e quanto falta.",
+                "",
+                "<gray>Abre em <white>qualquer app<gray> — os quadros",
+                "<gray>viajam junto com a partida.",
+                "",
+                "<yellow>Clique para ver a lista<gray>."
+              ]
+            },
+            // A tela das REGRAS. Fica na linha das ferramentas do painel porque ajustar regra não
+            // encerra nada — e um botão de ajuste entre os três encerramentos convidaria ao clique
+            // errado.
+            "rules": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Regras da partida",
+              "lore": [
+                "<gray>As mesmas regras da ficha, só que",
+                "<gray>editáveis com a partida <white>rodando<gray>.",
+                "",
+                "<gray>Bloco, equipamento, ejetores, dano,",
+                "<gray>impulsão, raio, domínio e núcleo.",
+                "<gray>O <white>estilo da base<gray> não: ela já está de pé.",
+                "",
+                "<gray>Cada mudança avisa os <white>dois quadros<gray>.",
+                "",
+                "<yellow>Clique para abrir<gray>."
+              ]
+            }
+          },
+          "phases": {
+            "preparation": "<yellow>preparação",
+            "active": "<red>valendo",
+            "finished": "<dark_gray>encerrada",
+            "unknown": "<dark_gray>desconhecida"
+          },
+          "roster": {
+            "known": "<white>{na_arena}<gray>/<white>{total} <gray>na arena",
+            "unknown": "<white>{total} <gray>no quadro"
+          },
+          "labels": {
+            "on": "<green>ligado",
+            "off": "<dark_gray>desligado",
+            "disabled": "<dark_gray>desligadas",
+            // Dado que só existe no app que hospeda a partida. Dizer isso é melhor que mostrar zero.
+            "host-only": "<dark_gray>só no anfitrião",
+            "nucleus": "<white>{percentual}%</white> <gray>({restantes} de {total} de pé)</gray>",
+            "ejectors": "<white>{atacante} <gray>ataque, <white>{defensor} <gray>defesa"
+          },
+          "messages": {
+            "teleported": "<green>Você foi levado à arena <yellow>{arena}</yellow>.",
+            "world-gone": "<red>O mundo dessa partida não está mais carregado."
+          }
+        },
+        // ------------------------------------------------------------------
+        //  STAFF: as regras da partida, editáveis com ela EM CURSO (painel ▸ Regras da partida).
+        //
+        //  O vocabulário é o do configurador da bússola (`plugins.cannonutils.views.invasao-config`):
+        //  mesmos nomes e mesmas lores, para quem conhece aquela tela reconhecer esta. Duas coisas
+        //  mudam, e são a razão de a tela existir:
+        //    1. o ESTILO DA BASE não é editável — a base já está de pé, e trocar o molde agora não
+        //       reconstrói nada; ele aparece só para dizer o que está em campo;
+        //    2. cada regra diz QUANDO a mudança passa a valer. Antes da partida a regra é uma escolha;
+        //       durante ela é uma troca, e a staff precisa saber o que a troca alcança e o que já passou.
+        //
+        //  As três regras de TNT (dano, impulsão e raio) vivem aqui mesmo tendo saído do menu do
+        //  desafio: elas continuam valendo na partida, só deixaram de ser escolhidas pelo desafiante.
+        // ------------------------------------------------------------------
+        "admin-match-rules": {
+          "title": "Regras: {arena}",
+          "items": {
+            // Id que este arquivo não conhece (partida aberta por um jar mais novo): a tela diz isso em
+            // vez de deixar o slot mudo.
+            "unknown": {
+              "lore": [
+                "<gray>Regra desconhecida por este servidor.",
+                "",
+                "<dark_gray>A partida foi aberta por uma versão mais nova."
+              ]
+            },
+            "protection-block": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Bloco de proteção",
+              "glacite": {
+                "lore": [
+                  "<gray>O bloco que reveste a parede da base.",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Glacite",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock",
+                  "",
+                  "<yellow>Clique para alterar<gray>.",
+                  "<dark_gray>Vale do próximo kit em diante; a parede de pé não muda."
+                ]
+              },
+              "protective-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a parede da base.",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Protetora",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock",
+                  "",
+                  "<yellow>Clique para alterar<gray>.",
+                  "<dark_gray>Vale do próximo kit em diante; a parede de pé não muda."
+                ]
+              },
+              "frozen-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a parede da base.",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Congelada",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock",
+                  "",
+                  "<yellow>Clique para alterar<gray>.",
+                  "<dark_gray>Vale do próximo kit em diante; a parede de pé não muda."
+                ]
+              },
+              "bedrock": {
+                "lore": [
+                  "<gray>O bloco que reveste a parede da base.",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Bedrock",
+                  "",
+                  "<yellow>Clique para alterar<gray>.",
+                  "<dark_gray>Vale do próximo kit em diante; a parede de pé não muda."
+                ]
+              }
+            },
+            "equipment": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Equipamento",
+              "lore": [
+                "<gray>O material das peças que o kit entrega.",
+                "",
+                "<gray>Atual: <white>{equipamento}",
+                "",
+                "<yellow>Clique para alternar<gray>.",
+                "<dark_gray>Quem já recebeu o kit fica com o anterior."
+              ]
+            },
+            "attack-ejectors": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Ejetores do ataque",
+              "lore": [
+                "<gray>Quantos ejetores o <white>ataque<gray> pode ter",
+                "<gray>de pé ao mesmo tempo.",
+                "",
+                "<gray>Atual: <white>{valor}",
+                "",
+                "<yellow>Esquerdo <gray>aumenta, <yellow>direito <gray>diminui.",
+                "<dark_gray>Baixar o teto não derruba o que já está colocado."
+              ]
+            },
+            "defense-ejectors": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Ejetores da defesa",
+              "lore": [
+                "<gray>Quantos ejetores a <white>defesa<gray> pode ter",
+                "<gray>de pé ao mesmo tempo.",
+                "",
+                "<gray>Atual: <white>{valor}",
+                "",
+                "<yellow>Esquerdo <gray>aumenta, <yellow>direito <gray>diminui.",
+                "<dark_gray>Baixar o teto não derruba o que já está colocado."
+              ]
+            },
+            "tnt-damage": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Dano da TNT",
+              "lore": [
+                "<gray>Quanto de durabilidade cada tiro tira",
+                "<gray>da <white>primeira camada<gray> da parede.",
+                "",
+                "<gray>Atual: <white>{valor}",
+                "",
+                "<yellow>Esquerdo <gray>aumenta, <yellow>direito <gray>diminui.",
+                "<dark_gray>Vale do próximo tiro em diante."
+              ]
+            },
+            "tnt-impulse": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Impulsão da TNT",
+              "lore": [
+                "<gray>A força com que a TNT de impulso",
+                "<gray>empurra a de dano no canhão.",
+                "",
+                "<gray>Atual: <white>{valor}",
+                "",
+                "<yellow>Esquerdo <gray>aumenta, <yellow>direito <gray>diminui.",
+                "<dark_gray>Muda o alcance dos canhões já calibrados."
+              ]
+            },
+            "radius": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Raio da explosão",
+              "lore": [
+                "<gray>O alcance de cada tiro, em blocos:",
+                "<gray>tantos para <white>cima<gray>, para <white>baixo<gray> e para",
+                "<gray>cada <white>lado<gray>.",
+                "",
+                "<gray>Atual: <white>{valor}",
+                "",
+                "<gray>A <white>1ª camada<gray> da parede leva o dano",
+                "<gray>inteiro, a 2ª <white>metade<gray>, a 3ª <white>um quarto<gray>.",
+                "",
+                "<yellow>Esquerdo <gray>aumenta, <yellow>direito <gray>diminui.",
+                "<dark_gray>Vale do próximo tiro em diante."
+              ]
+            },
+            "domination": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por domínio",
+              "disabled": {
+                "lore": [
+                  "<gray>Sem domínio, o ataque vence ao",
+                  "<gray><white>pisar<gray> no cubículo do centro.",
+                  "",
+                  "<gray>Estado: <dark_gray>desligado",
+                  "",
+                  "<dark_gray>Fixado na abertura: a invasão guarda esta",
+                  "<dark_gray>regra e não a troca com a partida em curso."
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Com domínio, o ataque precisa <white>segurar",
+                  "<gray>o cubículo até a barra encher.",
+                  "",
+                  "<gray>Estado: <green>ligado",
+                  "",
+                  "<dark_gray>Fixado na abertura: a invasão guarda esta",
+                  "<dark_gray>regra e não a troca com a partida em curso."
+                ]
+              }
+            },
+            "nucleus": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por núcleo",
+              "disabled": {
+                "lore": [
+                  "<gray>Sem núcleo, o centro da base é só",
+                  "<gray>o ponto que o ataque precisa alcançar.",
+                  "",
+                  "<gray>Estado: <dark_gray>desligado",
+                  "",
+                  "<yellow>Clique para ligar<gray>, <gray>na preparação.",
+                  "<dark_gray>Com a partida em campo o botão não age:",
+                  "<dark_gray>encher o cubículo taparia o rombo aberto."
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Com núcleo, o ataque tem de <white>abrir",
+                  "<gray>os spawners do centro a canhão.",
+                  "",
+                  "<gray>Estado: <green>ligado",
+                  "",
+                  "<yellow>Clique para desligar<gray>, <gray>na preparação.",
+                  "<dark_gray>Os spawners já colocados continuam de pé."
+                ]
+              }
+            },
+            "base-style": {
+              "name": "<white>Estilo da base",
+              "traditional": {
+                "lore": [
+                  "<gray>A base desta partida: <white>Tradicional",
+                  "",
+                  "<dark_gray>Não é editável: o mapa já foi montado."
+                ]
+              },
+              "square": {
+                "lore": [
+                  "<gray>A base desta partida: <white>Quadrada",
+                  "",
+                  "<dark_gray>Não é editável: o mapa já foi montado."
+                ]
+              },
+              "star": {
+                "lore": [
+                  "<gray>A base desta partida: <white>Estrela",
+                  "",
+                  "<dark_gray>Não é editável: o mapa já foi montado."
+                ]
+              }
+            },
+            "step-plus": {
+              "name": "<green>Aumentar",
+              "lore": [
+                "<gray>Clique para somar <white>1<gray>.",
+                "<gray>Com <white>Shift<gray>, soma <white>10<gray>."
+              ]
+            },
+            "step-minus": {
+              "name": "<red>Diminuir",
+              "lore": [
+                "<gray>Clique para tirar <white>1<gray>.",
+                "<gray>Com <white>Shift<gray>, tira <white>10<gray>."
+              ]
+            }
+          },
+          "messages": {
+            "finished": "<red>Essa partida já acabou — não há regra para ajustar."
+          }
+        },
+        "admin-match-confirm": {
+          "title": "Encerrar partida ({acao})",
+          "items": {
+            "atacante": {
+              "name": "<red>Vitória do atacante",
+              "lore": [
+                "{atacante} <gray>x {defensor}",
+                "<gray>Arena: <white>{arena}",
+                "",
+                "<gray>A partida termina agora e a vitória",
+                "<gray>vai para o <white>atacante<gray>.",
+                "",
+                "<red>Isso conta no placar das duas facções."
+              ]
+            },
+            "defensor": {
+              "name": "<blue>Vitória da defesa",
+              "lore": [
+                "{atacante} <gray>x {defensor}",
+                "<gray>Arena: <white>{arena}",
+                "",
+                "<gray>A partida termina agora e a vitória",
+                "<gray>vai para a <white>defesa<gray>.",
+                "",
+                "<red>Isso conta no placar das duas facções."
+              ]
+            },
+            "cancelar": {
+              "name": "<yellow>Encerrar sem vencedor",
+              "lore": [
+                "{atacante} <gray>x {defensor}",
+                "<gray>Arena: <white>{arena}",
+                "",
+                "<gray>A partida termina agora <white>sem vencedor<gray>.",
+                "<gray>O placar das facções não é tocado."
+              ]
+            }
+          },
+          "messages": {
+            "gone": "<red>Essa partida não existe mais.",
+            "already-finished": "<red>Essa partida já tinha sido encerrada.",
+            // O anfitrião é outro app: o pedido saiu pelo Echo e a confirmação chega quando ele executar.
+            "dispatched": "<yellow>Pedido de encerramento (<white>{acao}</white>) enviado ao servidor que hospeda a partida."
+          }
+        },
+        // ====================================================================
+        //  Monitoramento da staff — o quadro dos dois lados e a ficha de um jogador.
+        // ====================================================================
+        //
+        // Estas duas telas respondem a pergunta que a ficha da partida NÃO responde: "quem está em campo
+        // agora?". É a pergunta de quem foi chamado para julgar uma denúncia no meio da invasão.
+        "monitor-players": {
+          "title": "{atacante} x {defensor}",
+          "items": {
+            // A ordem da lista põe na frente quem exige atenção: primeiro quem espera renascer (tem um
+            // relógio correndo), depois quem está em campo, e os ausentes por último.
+            "player": {
+              "name": "{jogador_name_with_tag}",
+              "lore": [
+                "<gray>Estado: {estado}",
+                "<gray>Vida: <red>{vida} ❤",
+                "<gray>Onde: {local}",
+                "",
+                "<gray>Abates: <white>{abates}",
+                "<gray>Mortes: <white>{mortes}",
+                "",
+                "<yellow>Clique para agir sobre ele<gray>."
+              ]
+            }
+          },
+          "states": {
+            "alive": "<green>em campo",
+            "waiting": "<yellow>renascendo <gray>(<white>{restante}<gray>)",
+            "eliminated": "<dark_red>eliminado",
+            "offline": "<dark_gray>ausente",
+            // O jogador não está online: não dá para ler vida nem posição dele. Dizer isso é melhor
+            // que mostrar zero como se fosse leitura.
+            "unknown": "<dark_gray>—",
+            "in-arena": "<green>na arena",
+            "outside": "<red>fora da arena"
+          }
+        },
+        "monitor-player": {
+          "title": "{jogador_name_with_tag}",
+          "items": {
+            "head": {
+              "name": "{jogador_name_with_tag}",
+              "lore": [
+                "<gray>O que dá para fazer por ele sem",
+                "<gray>sair do monitoramento.",
+                "",
+                "<dark_gray>Encerrar a partida continua na ficha."
+              ]
+            },
+            "kit": {
+              "name": "<green>Devolver o kit",
+              "lore": [
+                "<gray>Entrega o kit inteiro de novo, do",
+                "<gray>jeito que ele receberia ao renascer:",
+                "<gray>papel, equipamento e a organização",
+                "<gray>que ele mesmo salvou.",
+                "",
+                "<yellow>Clique para devolver<gray>."
+              ]
+            },
+            "heal": {
+              "name": "<light_purple>Curar",
+              "lore": [
+                "<gray>Vida e fome cheias, e o fogo apagado.",
+                "",
+                "<gray>É o socorro de quando um bug tirou",
+                "<gray>vida de alguém sem motivo.",
+                "",
+                "<yellow>Clique para curar<gray>."
+              ]
+            },
+            "revive": {
+              "name": "<gold>Voltar ao campo agora",
+              "lore": [
+                "<gray>Traz de volta quem está <yellow>renascendo<gray>,",
+                "<gray>sem esperar a contagem terminar.",
+                "",
+                "<gray>Ele volta ao spawn do lado dele e",
+                "<gray>recebe o kit, como no tempo normal.",
+                "",
+                "<yellow>Clique para trazer de volta<gray>.",
+                "",
+                "<dark_gray>Só para quem está esperando."
+              ]
+            },
+            "teleport": {
+              "name": "<aqua>Ir até ele",
+              "lore": [
+                "<gray>Leva você até onde ele está agora.",
+                "",
+                "<yellow>Clique para ir<gray>."
+              ]
+            }
+          },
+          "messages": {
+            "kit": "<green>Kit devolvido a </green>{jogador_name_with_tag}<green>.</green>",
+            "heal": "{jogador_name_with_tag} <green>foi curado.</green>",
+            "revive": "{jogador_name_with_tag} <green>voltou ao campo.</green>",
+            "teleported": "<green>Você foi levado até </green>{jogador_name_with_tag}<green>.</green>",
+            // Vale para as quatro ações: sem o jogador online (ou sem ele esperando, no caso do
+            // retorno ao campo) não há o que fazer, e fingir que deu certo seria pior.
+            "offline": "<red>Não deu para agir sobre esse jogador agora.",
+            // Ir até alguém no meio da invasão exige estar em modo monitor (espectador): fora dele o
+            // admin chegaria em campo como alvo.
+            "not-monitoring": "<red>Monitore a partida (botão <yellow>Monitorar</yellow> da ficha) para ir até ele."
+          }
+        },
+        "admin-kit-editor": {
+          "title": "Kits do Fac x Fac",
+          "items": {
+            // O NOME desta célula é o do próprio item; só a lore vem daqui.
+            "linha": {
+              "lore": [
+                "<gray>Quantidade: <white>{quantidade}",
+                "<gray>Pilhas: <white>{repetir}",
+                "<gray>Veste: <white>{equipar}",
+                "<gray>Slot: <white>{slot}",
+                "<gray>Encantamentos: <white>{encantamentos}",
+                "",
+                "<yellow>Clique para editar esta linha<gray>."
+              ]
+            },
+            "role": {
+              "pvp": { "name": "<white>Papel: <red>PvP" },
+              "canhao": { "name": "<white>Papel: <gold>Canhão" },
+              "tampar": { "name": "<white>Papel: <aqua>Tampar" },
+              "lore": [
+                "<gray>Cada papel tem a própria lista",
+                "<gray>de itens.",
+                "",
+                "<yellow>Clique para trocar de papel<gray>."
+              ]
+            }
+          },
+          "labels": {
+            "yes": "<green>sim",
+            "no": "<red>não",
+            "anywhere": "<gray>onde couber",
+            "none": "<dark_gray>nenhum"
+          },
+          "messages": {
+            "item-added": "<green>{item} <green>entrou no kit de {papel}<green>."
+          }
+        },
+        "admin-kit-item": {
+          "title": "Linha do kit",
+          "items": {
+            "amount": {
+              "name": "<white>Quantidade: <yellow>{quantidade}",
+              "lore": [
+                "<gray>Tamanho de <white>cada pilha</white> entregue.",
+                "",
+                "<gray>Esquerdo <white>+1<gray>, direito <white>-1",
+                "<gray>Shift multiplica por <white>10<gray>."
+              ]
+            },
+            "repeat": {
+              "name": "<white>Pilhas: <yellow>{repetir}",
+              "lore": [
+                "<gray>Quantas pilhas <white>iguais</white> vão para",
+                "<gray>o inventário.",
+                "",
+                "<gray>Esquerdo <white>+1<gray>, direito <white>-1",
+                "<gray>Shift multiplica por <white>10<gray>."
+              ]
+            },
+            "equip": {
+              "name": "<white>Vestir",
+              "yes": {
+                "lore": [
+                  "<gray>Uma cópia é <white>vestida</white> ao nascer.",
+                  "<gray>Só faz sentido em armadura.",
+                  "",
+                  "<green>Ligado<gray>. Clique para desligar."
+                ]
+              },
+              "no": {
+                "lore": [
+                  "<gray>Uma cópia é <white>vestida</white> ao nascer.",
+                  "<gray>Só faz sentido em armadura.",
+                  "",
+                  "<red>Desligado<gray>. Clique para ligar."
+                ]
+              }
+            },
+            "slot": {
+              "name": "<white>Slot: <yellow>{slot}",
+              "lore": [
+                "<gray>Onde a pilha nasce no inventário.",
+                "<gray><white>0–8</white> é a hotbar, <white>9–35</white> o resto.",
+                "",
+                "<gray>Esquerdo <white>+1<gray>, direito <white>-1",
+                "<gray>Shift multiplica por <white>10",
+                "<gray>Clique do meio: <white>onde couber<gray>."
+              ]
+            },
+            "delete": {
+              "name": "<red>Apagar esta linha",
+              "lore": [
+                "<gray>Tira o item do kit.",
+                "",
+                "<red>Clique para apagar<gray>."
+              ]
+            }
+          },
+          "labels": {
+            "anywhere": "<gray>onde couber"
+          },
+          "messages": {
+            "deleted": "<green>Linha apagada do kit.",
+            // A quantidade desta linha é decidida pela PARTIDA (o teto de ejetores do lado do jogador);
+            // sobrescrevê-la por um clique de ajuste apagaria uma regra do jogo em silêncio.
+            "amount-locked": "<red>A quantidade desta linha vem da partida (<yellow>{marcador}</yellow>) e não se ajusta aqui."
+          }
+        },
+        // Organização de inventário do kit de partida. As três primeiras linhas são os slots 9–35 e a
+        // quarta é a hotbar — a mesma geometria da tela do jogo.
+        "faction-kit-layout": {
+          "title": "Organizar kit: {kit_role_name}",
+          "items": {
+            // Item de leitura, no canto: qual kit está na tela e como se mexe nele.
+            "kit": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Kit de {kit_role_name}",
+              "lore": [
+                "<gray>Este é o inventário com que você vai",
+                "<gray>nascer na Invasão Fac x Fac.",
+                "",
+                "<gray>Clique num item e depois <white>no destino</white>",
+                "<gray>para trocar os dois de lugar.",
+                "<gray>Clique nele de novo para <red>cancelar<gray>.",
+                "",
+                "<gray>A <white>última linha</white> é a sua <white>hotbar<gray>.",
+                "<dark_gray>As quantidades são definidas na partida.",
+                "<dark_gray>Sua ordem é salva ao fechar."
+              ]
+            },
+            // Item de LEITURA desde 14/08/2026, não mais um seletor. Antes ele alternava entre
+            // netherite e diamante, porque cada material era um kit diferente com organização própria.
+            // Hoje o kit é um só: o material troca apenas as peças de armadura, as espadas e a picareta,
+            // na hora da entrega, e a organização vale para os dois. Não há mais o que escolher aqui — e
+            // o jogador precisa saber por quê, senão procura o botão que sumiu.
+            "equipment": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Equipamento da partida",
+              "lore": [
+                "<gray>Netherite ou diamante, escolhido",
+                "<gray>no menu <white>Fac x Fac</white> antes do desafio.",
+                "",
+                "<gray>Só muda o <white>material</white> da armadura,",
+                "<gray>das espadas e da picareta.",
+                "",
+                "<dark_gray>Esta organização vale para os dois."
+              ]
+            },
+            "reset": {
+              "name": "<red>Restaurar ordem padrão",
+              "lore": [
+                "<gray>Devolve este kit à ordem original e",
+                "<gray>apaga a sua organização dele.",
+                "",
+                "<gray>Só afeta o kit que está na tela."
+              ]
+            },
+            // Linha acrescentada à lore da pilha que está esperando destino.
+            "cell": {
+              "selected": [
+                "",
+                "<green>» Selecionado <gray>— clique no destino."
+              ]
+            },
+            // Substitutos do desenho: os itens de canhão são registrados pelo cannon-utils só nos apps
+            // com mecânica de canhão, e esta tela é aberta no SPAWN. O nome vem daqui para o jogador
+            // reconhecer a pilha — dois ejetores lado a lado seriam dois "Dispenser" iguais.
+            "custom": {
+              "cannon-bedrock-pickaxe": { "name": "<light_purple>Picareta de Bedrock" },
+              "cannon-dispenser-normal": { "name": "<red>Ejetor com TNT de dano" },
+              "cannon-dispenser-impulse": { "name": "<aqua>Ejetor com TNT de impulsão" },
+              "enchanted-golden-apple": { "name": "<gold>Maçã dourada encantada" },
+              "protecao": { "name": "<white>Bloco de proteção da partida" },
+              "desconhecido": { "name": "<dark_gray>Item indisponível" }
+            }
+          },
+          "messages": {
+            "reset": "<green>A ordem deste kit voltou ao padrão."
+          }
+        },
+        "faction-invites": {
+          "title": "Convites [{faction_tag}]",
+          "items": {
+            "empty": {
+              "name": "<red>Nenhum convite pendente",
+              "lore": [ "<gray>Use o livro para convidar alguém." ]
+            },
+            "invite": {
+              "name": "{player_name_with_tag}",
+              "lore": [
+                "<gray>Convidado por: </gray>{inviter_name_with_tag}",
+                "<gray>Expira em: <white>{remaining_time}",
+                "",
+                "<gray>Direito: <red>cancelar convite"
+              ]
+            },
+            "invite-button": {
+              "name": "<white>Convidar jogador",
+              "lore": [ "<gray>Clique e digite o nome no chat." ]
+            }
+          },
+          "messages": {
+            "invite-query": "<gray>Digite no chat o nome do jogador que deseja convidar.",
+            "invited": "<green>Convite enviado para </green>{player_name_with_tag}<green>.</green>",
+            "cancelled": "<yellow>Convite de </yellow>{player_name_with_tag} <yellow>cancelado.</yellow>",
+            // Nome DIGITADO de alguém que pode nem existir: sem cargo, logo sem tag. Não troque por _with_tag.
+            "player-not-found": "<red>Jogador <yellow>{player_name}</yellow> não encontrado."
+          }
+        },
+        "faction-ranking": {
+          "title": "Ranking de facções",
+          "categories": {
+            "selected": {
+              "name": "<green>{ranking_type_name}",
+              "lore": [
+                "{ranking_type_description}",
+                "",
+                "<green>▪ Aba selecionada."
+              ]
+            },
+            "unselected": {
+              "name": "<white>{ranking_type_name}",
+              "lore": [
+                "{ranking_type_description}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Clique para ver."
+              ]
+            }
+          },
+          "items": {
+            "entry": {
+              "name": "<color:{ranking_position_color}>#{ranking_position} <white>[{ranking_faction_tag}] {ranking_faction_name}",
+              "lore": [ "<gray>Pontuação: <white>{ranking_value}" ]
+            }
+          }
+        },
+        "faction-invasions": {
+          "title": "Invasões [{faction_tag}]",
+          "sides": {
+            "attacker": "<red>atacando",
+            "defender": "<green>defendendo"
+          },
+          "items": {
+            "pending": {
+              "name": "<yellow>Preparação <dark_gray>·</dark_gray> {opponent_display_name}",
+              "lore": [
+                "<gray>Sua facção está {invasion_side}<gray>.",
+                "<gray>Começa em: <white>{remaining_time}",
+                "<gray>Alvo: <white>{required_blocks} <gray>blocos"
+              ]
+            },
+            "active": {
+              "name": "<red>Em andamento <dark_gray>·</dark_gray> {opponent_display_name}",
+              "lore": [
+                "<gray>Sua facção está {invasion_side}<gray>.",
+                "<gray>Termina em: <white>{remaining_time}",
+                "<gray>Progresso: <white>{destroyed_blocks}/{required_blocks} <gray>blocos",
+                "<gray>Mortes: <red>{attacker_kills} <gray>× <green>{defender_kills}"
+              ]
+            },
+            "finished": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasão encerrada",
+              "lore": [
+                "<gray>Confira o resultado e estatísticas",
+                "<gray>da invasão.",
+                "",
+                "<white> Você estava: {invasion_side}<gray>.",
+                "<white> Resultado: {invasion_result}",
+                "<white> Blocos destruídos: <gray>{destroyed_blocks}",
+                "<white> Blocos colocados: <gray>",
+                "<white> Abates: <red>{attacker_kills} <gray>× <green>{defender_kills}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00> 1h 35min de invasão."
+              ]
+            },
+            // Partidas do Simulator (Fac x Fac): mesma tela, sem as linhas de placar por blocos —
+            // ali a vitória é por cubículo, rendição ou relógio, e "Alvo: 0 blocos" não diria nada.
+            "pending-arena": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasão vs {opponent_display_name} ",
+              "lore": [
+                "<gray>Confira o resultado e estatísticas",
+                "<gray>da invasão.",
+                "",
+                "<white> Você está: {invasion_side}<gray>.",
+                "<white> Resultado: {invasion_result}",
+                "<white> Blocos destruídos: <gray>{destroyed_blocks}",
+                "<white> Blocos colocados: <gray>",
+                "<white> Abates: <red>{attacker_kills} <gray>× <green>{defender_kills}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Iniciando..."
+              ]
+            },
+            "active-arena": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasão vs {opponent_display_name}",
+              "lore": [
+                "<gray>Confira o resultado ou estatísticas",
+                "<gray>da invasão.",
+                "",
+                "<white> Você está: {invasion_side}<gray>.",
+                "<white> Resultado: {invasion_result}",
+                "<white> Blocos destruídos: <gray>{destroyed_blocks}",
+                "<white> Blocos colocados: <gray>",
+                "<white> Abates: <red>{attacker_kills} <gray>× <green>{defender_kills}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Em andamento."
+              ]
+            },
+            "finished-arena": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Invasão vs {opponent_display_name}",
+              "lore": [
+                "<gray>Confira o resultado e estatísticas",
+                "<gray>da invasão.",
+                "",
+                "<white> Você estava: {invasion_side}<gray>.",
+                "<white> Resultado: {invasion_result}",
+                "<white> Blocos destruídos: <gray>{destroyed_blocks}",
+                "<white> Blocos colocados: <gray>",
+                "<white> Abates: <red>{attacker_kills} <gray>× <green>{defender_kills}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>1h 35min de invasão."
+              ]
+            }
+          }
+        },
+        // ====================================================================
+        //  Desafio Fac x Fac em modo LEITURA (`/facxfac visualizar`, e o botão
+        //  [VISUALIZAR] do convite).
+        //
+        //  Quem desafia configura a partida inteira na bússola do spawn; deste
+        //  lado nada é editável — as lores dizem o que ficou valendo e os dois
+        //  botões respondem. Por isso NENHUMA linha aqui pode terminar em
+        //  "clique para alterar", como as do configurador
+        //  (`plugins.cannonutils.views.invasao-config`).
+        //
+        //  Placeholders: requester_tag / requester_display_name,
+        //  opponent_tag / opponent_display_name, expires_in,
+        //  attack_ejectors, defense_ejectors, tnt_damage, tnt_impulse, lives,
+        //  capture_seconds (o tempo de captura do domínio, que é do servidor).
+        // ====================================================================
+        // Lojinha da partida (/loja): reposição item a item do PRÓPRIO kit, grátis e sem limite.
+        // O conteúdo é do Java — cada jogador vê só o kit do papel dele nesta partida.
+        // ------------------------------------------------------------------
+        //  Placar da partida: os dois quadros lado a lado, atacante à esquerda.
+        //  Mostrar só o próprio lado esconderia a metade que explica a derrota.
+        // ------------------------------------------------------------------
+        "simulator-stats": {
+          "title": "Placar da partida",
+          "items": {
+            "match": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00><bold>A partida",
+              "lore": [
+                "{atacante} <gray>x {defensor}",
+                "",
+                "<gray>Vencedor: {vencedor}",
+                "<gray>Duração: <white>{duracao}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Ataque",
+                "<gray>Abates: <white>{abates_atacante}",
+                "<gray>Blocos derrubados: <white>{quebrados_atacante}",
+                "<gray>Blocos colocados: <white>{colocados_atacante}",
+                "",
+                "<gradient:#FF6F00:#faa825:#FF6F00>Defesa",
+                "<gray>Abates: <white>{abates_defensor}",
+                "<gray>Blocos derrubados: <white>{quebrados_defensor}",
+                "<gray>Blocos colocados: <white>{colocados_defensor}"
+              ]
+            },
+            // Uma cabeça por jogador, já na ordem de desempenho — a primeira é o destaque do lado.
+            "player": {
+              "name": "{jogador_name_with_tag}",
+              "lore": [
+                "<gray>Abates: <white>{abates} <dark_gray>· <gray>Mortes: <white>{mortes}",
+                "<gray>Maior sequência: <white>{sequencia}",
+                "<gray>Blocos colocados: <white>{blocos_colocados}"
+              ]
+            },
+            "top-killer": {
+              "name": "<gradient:#ff6b6b:#ff2d2d:#ff6b6b><bold>Mais abates",
+              "lore": [
+                "{jogador_name_with_tag} <gray>por {faccao}",
+                "",
+                "<gray>Abates: <white>{abates}"
+              ],
+              "empty-lore": [ "<dark_gray>Ninguém abateu nesta partida." ]
+            },
+            "top-streak": {
+              "name": "<gradient:#ffd34d:#ffb300:#ffd34d><bold>Maior sequência",
+              "lore": [
+                "{jogador_name_with_tag} <gray>por {faccao}",
+                "",
+                "<gray>Sequência: <white>{sequencia} <gray>sem morrer"
+              ],
+              "empty-lore": [ "<dark_gray>Ninguém emendou dois abates." ]
+            }
+          },
+          "labels": {
+            "no-winner": "<dark_gray>sem vencedor"
+          }
+        },
+        // ====================================================================
+        //  QUADRO DA PARTIDA (/f convocar) — em cima quem está em campo, embaixo quem pode ser
+        //  chamado. O clique de cima DISPENSA (de graça, abre vaga) e o de baixo CONVOCA (gasta uma
+        //  das três do lado). Só líder e capitães abrem a tela.
+        // ====================================================================
+        "simulator-roster": {
+          "title": "Quadro da partida — {quadro}/{limite}",
+          "items": {
+            "info": {
+              "name": "<aqua>Quadro da partida",
+              "lore": [
+                "<gray>Em campo: <white>{quadro}<gray>/<white>{limite}",
+                "<gray>Vagas livres: <white>{vagas}",
+                "<gray>Convocações: <white>{convocacoes}<gray>/<white>{convocacoes_limite}",
+                "",
+                "<gray>O quadro abriu com quem estava <white>online<gray>.",
+                "<gray>Quem entrou depois só joga se for convocado.",
+                "",
+                "<dark_gray>Dispensar é de graça; convocar gasta uma."
+              ]
+            },
+            // Quem está EM CAMPO. Os ausentes vêm primeiro na lista — são eles que o líder veio trocar.
+            "member": {
+              "name": "{jogador_name_with_tag}",
+              "lore": [
+                "<gray>Cargo: {cargo}",
+                "<gray>Estado: {estado}",
+                "",
+                "<red>Clique para dispensar<gray>.",
+                "<dark_gray>Ele volta ao spawn e abre uma vaga."
+              ],
+              // O próprio jogador não pode se dispensar: o quadro ficaria sem quem o comanda.
+              "lore-self": [
+                "<gray>Cargo: {cargo}",
+                "<gray>Estado: {estado}",
+                "",
+                "<dark_gray>Você não pode dispensar a si mesmo."
+              ]
+            },
+            // Membro da facção que está ONLINE e FORA da partida.
+            "candidate": {
+              "name": "{jogador_name_with_tag}",
+              "lore": [
+                "<gray>Cargo: {cargo}",
+                "<gray>Está <white>fora<gray> da partida.",
+                "",
+                "<green>Clique para convocar<gray>.",
+                "<dark_gray>Gasta uma convocação do seu lado."
+              ]
+            },
+            "separator": {
+              "name": " "
+            }
+          },
+          "states": {
+            "in-field": "<green>em campo",
+            "offline": "<red>desconectado"
+          }
+        },
+        "simulator-shop": {
+          "title": "Reposição — todos os kits",
+          "items": {
+            // Linha ACRESCENTADA à lore do item real: o nome e a lore dele continuam acima.
+            "offer": {
+              "lore": [
+                "",
+                "<gray>Clique para receber <yellow>{amount}<gray>."
+              ]
+            },
+            "info": {
+              "name": "<aqua>Reposição da partida",
+              "lore": [
+                "<gray>Aqui você repõe os itens de <white>todos",
+                "<white>os kits<gray> — os do seu kit de",
+                "<yellow>{kit_role_name} <gray>vêm primeiro.",
+                "",
+                "<gray>É de graça e sem limite — clique",
+                "<gray>quantas vezes precisar.",
+                "",
+                "<light_purple>A Box Instantânea <gray>só sai daqui:",
+                "<gray>no máximo <white>4 por partida<gray> (do seu",
+                "<gray>lado), uma a cada <white>5 minutos<gray>.",
+                "",
+                "<dark_gray>Só funciona dentro da partida."
+              ]
+            }
+          },
+          "messages": {
+            // Inventário cheio: a compra é RECUSADA em vez de derramar a pilha no chão. Conta só os 36
+            // slots principais — a mão secundária e a armadura não são espaço para o inventário.
+            "inventory-full": "<red>Seu inventário está cheio. Abra espaço para pegar esse item.",
+            "bought": "<green>Item reposto no seu inventário.",
+            "match-over": "<red>A partida acabou.",
+            "not-in-arena": "<red>Você saiu do mundo da partida."
+          }
+        },
+        "simulator-request": {
+          "title": "Desafio [{requester_tag}] × [{opponent_tag}]",
+          // ⚠️ ESPELHO DO CONFIGURADOR. Cada regra abaixo tem o nome e a lore de
+          // `plugins.cannonutils.views.invasao-config.items.<mesma regra>`, sem as linhas que
+          // pressupõem o clique ("Clique para alterar", "Botão esquerdo ▸ ...") — deste lado nada é
+          // editável, e quem diz isso é o item do desafiante. Mexeu lá, espelhe aqui.
+          // Só divergem: o nome do LADO (lá é a pergunta feita a quem escolhe, aqui é o seu lado) e os
+          // quatro itens que só existem nesta tela — desafiante (pending · not-responder · sent ·
+          // closed), desconhecido, aceitar e recusar.
+          "items": {
+            "challenger": {
+              "name": "<white>Desafio de {requester_display_name}",
+              "pending": {
+                "lore": [
+                  "<gray>{requester_display_name} <gray>montou esta partida",
+                  "<gray>e desafiou a sua facção.",
+                  "",
+                  "<gray>Expira em: <white>{expires_in}",
+                  "",
+                  "<gray>As regras ao lado foram definidas por",
+                  "<gray>quem desafiou e <white>não podem ser alteradas<gray>.",
+                  "",
+                  "<gradient:#FF6F00:#faa825:#FF6F00>Responda nos botões abaixo."
+                ]
+              },
+              "not-responder": {
+                "lore": [
+                  "<gray>{requester_display_name} <gray>desafiou a sua facção.",
+                  "",
+                  "<gray>Expira em: <white>{expires_in}",
+                  "",
+                  "<gray>Quem responde por ele é o <white>líder</white>",
+                  "<gray>(ou os <white>capitães</white>, na ausência dele).",
+                  "",
+                  "<gray>Você pode ver as regras da partida,",
+                  "<gray>mas não responder por ela."
+                ]
+              },
+              "sent": {
+                "name": "<white>Desafio enviado a {opponent_display_name}",
+                "lore": [
+                  "<gray>Sua facção desafiou {opponent_display_name}<gray>.",
+                  "",
+                  "<gray>Expira em: <white>{expires_in}",
+                  "",
+                  "<gray>Quem responde é o líder (ou os capitães)",
+                  "<gray>da facção adversária."
+                ]
+              },
+              "closed": {
+                "name": "<red>Desafio encerrado",
+                "lore": [
+                  "<gray>Este desafio já foi respondido,",
+                  "<gray>cancelado ou venceu o prazo.",
+                  "",
+                  "<gray>As regras seguem à mostra apenas",
+                  "<gray>para consulta."
+                ]
+              }
+            },
+            "protection-block": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Bloco de proteção</gradient>",
+              "glacite": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Glacite</white> <gray>[40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>"
+                ]
+              },
+              "protective-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Protetora</white> <gray>[20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>"
+                ]
+              },
+              "frozen-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Congelada</white> <gray>[15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>"
+                ]
+              },
+              "bedrock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Bedrock</white> <gray>[10]</gray>"
+                ]
+              }
+            },
+            "base-style": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Estilo da base</gradient>",
+              "traditional": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base tradicional</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Base quadrada</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Base estrela</gray>"
+                ]
+              },
+              "square": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Base tradicional</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base quadrada</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Base estrela</gray>"
+                ]
+              },
+              "star": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Base tradicional</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Base quadrada</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base estrela</white>"
+                ]
+              }
+            },
+            "side": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Seu lado na partida</gradient>",
+              "attack": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Ataque</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Defesa</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Aleatório</gray>"
+                ]
+              },
+              "defense": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Ataque</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Defesa</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Aleatório</gray>"
+                ]
+              },
+              "random": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Ataque</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Defesa</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Aleatório</white>",
+                  "",
+                  "<gray>O servidor sorteia quem ataca</gray>",
+                  "<gray>e quem defende ao criar a partida.</gray>"
+                ]
+              }
+            },
+            "equipment": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Equipamento</gradient>",
+              "lore": [
+                "<gray>O kit que os dois lados</gray>",
+                "<gray>recebem ao entrar na arena.</gray>",
+                "",
+                "{equipamentos}"
+              ],
+              "selected": " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>{equipamento}</white>",
+              "option": " <dark_gray>▸</dark_gray> <gray>{equipamento}</gray>"
+            },
+            "domination": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por domínio</gradient>",
+              "disabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao cubículo dos spawners.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Domínio:</white> <gray>Desativado</gray>",
+                  "",
+                  "<gray>Desativado, vale a invasão: o</gray>",
+                  "<gray>primeiro atacante que pisar no</gray>",
+                  "<gray>cubículo encerra a partida.</gray>"
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao cubículo dos spawners.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Domínio:</white> <green>Ativado</green>",
+                  "",
+                  "<gray>O cubículo vira ponto de captura:</gray>",
+                  "<gray>com mais atacantes que defensores</gray>",
+                  "<gray>lá dentro, a captura sobe até 100%.</gray>",
+                  "",
+                  "<gray>Perdida a maioria, a captura volta —</gray>",
+                  "<gray>e o tempo não encerra a partida</gray>",
+                  "<gray>enquanto houver atacante lá dentro.</gray>"
+                ]
+              }
+            },
+            "radius": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Raio da explosão</gradient>",
+              "radius-2": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>2 blocos</white> <gray>(igual ao factions)</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>3 blocos</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>4 blocos</gray>"
+                ]
+              },
+              "radius-3": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>2 blocos (igual ao factions)</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>3 blocos</white>",
+                  " <dark_gray>▸</dark_gray> <gray>4 blocos</gray>"
+                ]
+              },
+              "radius-4": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>2 blocos (igual ao factions)</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>3 blocos</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>4 blocos</white>"
+                ]
+              }
+            },
+            "ejectors": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Quantidade de ejetores</gradient>",
+              "lore": [
+                "<gray>Quantos ejetores cada lado</gray>",
+                "<gray>pode manter de pé na partida.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Ataque:</white> <gray>{attack_ejectors}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Defesa:</white> <gray>{defense_ejectors}</gray>"
+              ]
+            },
+            "tnt-damage": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Dano da TNT</gradient>",
+              "lore": [
+                "<gray>Quanto de durabilidade cada</gray>",
+                "<gray>explosão tira dos blocos.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Dano atual:</white> <gray>{tnt_damage}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Padrão do factions:</white> <gray>2</gray>"
+              ]
+            },
+            "tnt-impulse": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Impulso da TNT</gradient>",
+              "lore": [
+                "<gray>Com que força a TNT de impulso</gray>",
+                "<gray>empurra as outras.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Impulso atual:</white> <gray>{tnt_impulse}</gray>",
+                " <dark_gray>▸</dark_gray> <white>No factions:</white> <gray>4</gray>"
+              ]
+            },
+            "nucleus": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por Núcleo</gradient>",
+              "disabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao centro da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Núcleo:</white> <gray>Desativado</gray>",
+                  "",
+                  "<gray>O centro da base fica vazio, e</gray>",
+                  "<gray>vence o primeiro atacante que</gray>",
+                  "<gray>pisar no cubículo.</gray>"
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao centro da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Núcleo:</white> <green>Ativado</green>",
+                  "",
+                  "<gray>O cubículo do centro nasce cheio</gray>",
+                  "<gray>de spawners: o ataque precisa</gray>",
+                  "<gray>derrubá-los a canhão para vencer.</gray>",
+                  "<gray>Chegar ao centro não basta —</gray>",
+                  "<gray>não há por onde entrar.</gray>",
+                  "",
+                  "<gray>Só explosão quebra o núcleo —</gray>",
+                  "<gray>nem a defesa o quebra na mão.</gray>"
+                ]
+              }
+            },
+            "unknown": {
+              "lore": [
+                "<gray>Esta regra veio de uma versão mais",
+                "<gray>nova do menu do desafio.",
+                "",
+                "<gray>Ela vale na partida do mesmo jeito."
+              ]
+            },
+            "accept": {
+              "name": "<gradient:#00ff55:#6dff9e:#00ff55>Aceitar o desafio",
+              "available": {
+                "lore": [
+                  "<gray>A partida abre na hora, com as",
+                  "<gray>regras desta tela.",
+                  "",
+                  "<gradient:#00ff55:#6dff9e:#00ff55>Clique para aceitar."
+                ]
+              },
+              "unavailable": {
+                "lore": [
+                  "<gray>Este desafio não é seu para responder."
+                ]
+              }
+            },
+            "deny": {
+              "name": "<color:#ff2d2d>Recusar o desafio",
+              "available": {
+                "lore": [
+                  "<gray>O desafio é encerrado na hora e os",
+                  "<gray>dois quadros são avisados.",
+                  "",
+                  "<color:#ff2d2d>Clique para recusar."
+                ]
+              },
+              "unavailable": {
+                "lore": [
+                  "<gray>Este desafio não é seu para responder."
+                ]
+              }
+            }
+          }
+        },
+        "faction-disband": {
+          "title": "Desfazer [{faction_tag}]?",
+          "items": {
+            "subject": {
+              "name": "<red>Desfazer {faction_display_name}",
+              "lore": [
+                "<gray>Os <white>{faction_members}</white> membros ficarão sem facção",
+                "<gray>e todo o território será liberado.",
+                "",
+                "<red>Não dá para desfazer isso."
+              ]
+            }
+          },
+          "messages": {
+            "disbanded": "<green>A facção {faction_display_name} <green>foi desfeita."
+          }
+        },
+        "member-leave": {
+          "title": "Sair de [{faction_tag}]?",
+          "items": {
+            "subject": {
+              "name": "<red>Sair de {faction_display_name}",
+              "lore": [ "<gray>Você deixa de ser membro da facção." ]
+            }
+          },
+          "messages": {
+            "left": "<yellow>Você saiu da facção {faction_display_name}<yellow>."
+          }
+        },
+        "faction-invade": {
+          "title": "Invadir [{faction_tag}]?",
+          "items": {
+            "subject": {
+              "name": "<red>Invadir {defender_display_name}",
+              "lore": [
+                "<gray>Território do alvo: <white>{defender_claims} <gray>chunks",
+                "<gray>Preparação: <white>{preparation_time}",
+                "<gray>Duração: <white>{duration_time}",
+                "<gray>Para vencer: <white>{required_blocks} <gray>blocos destruídos"
+              ]
+            }
+          },
+          "messages": {
+            "started": "<red>Invasão aberta contra {defender_display_name}<red>."
+          }
+        },
+        "member-primary": {
+          "title": "Facções",
+          "items": {
+            "with-invites": {
+              "name": "<green>Convites <dark_gray>(<white>{member_invites_count}<dark_gray>)",
+              "lore": [ "<gray>Facções que chamaram você." ]
+            },
+            "without-invites": {
+              "name": "<gray>Convites",
+              "lore": [ "<gray>Nenhuma facção chamou você ainda." ]
+            },
+            "create": {
+              "name": "<white>Criar facção",
+              "lore": [ "<gray>Clique e escolha a tag e o nome." ]
+            },
+            "ranking": {
+              "name": "<white>Ranking",
+              "lore": [ "<gray>As melhores facções do Academy." ]
+            }
+          },
+          "messages": {
+            "tag-query": "<gray>Digite no chat a <white>tag</white> da facção.",
+            "name-query": "<gray>Agora digite no chat o <white>nome</white> da facção.",
+            "invalid-tag": "<red>A tag precisa ter entre <yellow>{min_tag_length}</yellow> e <yellow>{max_tag_length}</yellow> caracteres, apenas letras e números.",
+            "invalid-name": "<red>O nome precisa ter entre <yellow>{min_name_length}</yellow> e <yellow>{max_name_length}</yellow> caracteres.",
+            "created": "<green>Facção <yellow>[{faction_tag}] {faction_name}</yellow> criada!"
+          }
+        },
+        "member-invites": {
+          "title": "Meus convites",
+          "items": {
+            "invite": {
+              "name": "<white>{faction_display_name}",
+              "lore": [
+                "<gray>Convidado por: </gray>{inviter_name_with_tag}",
+                "<gray>Expira em: <white>{remaining_time}",
+                "",
+                "<gray>Esquerdo: <green>aceitar",
+                "<gray>Direito: <red>recusar"
+              ]
+            }
+          },
+          "messages": {
+            "accepted": "<green>Você entrou na facção {faction_display_name}<green>.",
+            "denied": "<yellow>Você recusou o convite de {faction_display_name}<yellow>."
+          }
+        }
+      }
+    }
+  }
+}

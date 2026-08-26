@@ -1,0 +1,20 @@
+{
+    "plugins": {
+        "stats": {
+            "types": {
+                "mine-enchantment-activation-tokenator": "{stats_requirement_amount_number}x ativações do Tokenator",
+                "mine-enchantment-activation-fortune": "{stats_requirement_amount_number}x ativações da Fortuna",
+                "mine-enchantment-activation-crusher": "{stats_requirement_amount_number}x ativações da Britadeira",
+                "mine-enchantment-activation-meteor": "{stats_requirement_amount_number}x ativações do Meteoro",
+                "mine-enchantment-activation-ghost-skeleton": "{stats_requirement_amount_number}x ativações do Cavalao Esqueleto",
+                "mine-enchantment-activation-laser": "{stats_requirement_amount_number}x ativações do Laser",
+                "mine-enchantment-activation-warden": "{stats_requirement_amount_number}x ativações do Warden",
+                "mine-enchantment-activation-blaze": "{stats_requirement_amount_number}x ativações do Blaze",
+                "mine-enchantment-activation-wither": "{stats_requirement_amount_number}x ativações do Wither",
+                "mine-enchantment-activation-dragon": "{stats_requirement_amount_number}x ativações da Furia Dracônica",
+                "mine-enchantment-activation-nuker": "{stats_requirement_amount_number}x ativações do Nuker",
+                "mine-enchantment-activation-alien": "{stats_requirement_amount_number}x ativações do Invasão Alienígena"
+            }
+        }
+    }
+}

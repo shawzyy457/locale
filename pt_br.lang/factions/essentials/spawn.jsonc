@@ -1,0 +1,30 @@
+{
+    "plugins": {
+        "essentials": {
+            "messages": {
+                "spawn": {
+                    "already-connect-queue": "<red>Já existe um pedido de teletransporte para o spawn, aguarde.",
+                    "cant-find-app": "<red>Não foi possível encontrar um servidor de spawn aberto.",
+                    "join": {
+                        "title": {
+                            "title": "<gradient:#00acff:#00f2ff><bold>FACTIONS ICE",
+                            "subtitle": "<white>exe.com"
+                        },
+                        "chat": [
+                            "",
+                            " <gradient:#00acff:#00f2ff><bold>FACTIONS ICE</bold>",
+                            " <gray>O gelo ameaça desabar a qualquer momento.</gray>",
+                            "",
+                            " <color:#00acff>Acompanhe nossas redes sociais:",
+                            " <color:#00acff>▶ <white>Discord:</white> <gray>discord.gg/exe</gray>",
+                            " <color:#00acff>▶ <white>TikTok:</white> <gray>@RedeEXEOficial</gray>",
+                            "",
+                            " <gradient:#00acff:#00f2ff>exe.com",
+                            ""
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

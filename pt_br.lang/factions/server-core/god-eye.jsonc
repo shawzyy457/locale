@@ -1,0 +1,51 @@
+{
+  "plugins": {
+    "server-core": {
+      "npcs": {
+        "god-eye": {
+          "name-tag": [
+            "{owner_name_with_tag}"
+          ]
+        }
+      },
+      "items": {
+        "god-eye": {
+          "name": "<color:#C77DFF>Olho de Deus<color:#C77DFF>",
+          "lore": [
+            "<gray>Ativa o modo espectador </gray>",
+            "<gray>por tempo limitado; para voltar, </gray>",
+            "<gray>clique no corpo ou espere acabar.</gray>",
+            "",
+            "<color:#C77DFF> Propriedades:<color:#C77DFF>",
+            "<color:#C77DFF> ⌚ <white>Duração: <gray>{god_eye_duration}<gray>",
+            "<color:#C77DFF> 📏 <white>Alcance: <gray>{god_eye_max_distance} blocos<gray>",
+            "",
+            "<color:#C77DFF>Clique para ativar!<color:#C77DFF>"
+          ]
+        }
+      },
+      "messages": {
+        "god-eye": {
+          "activated": [
+            "",
+            "<red><bold> ⚠ Cuidado!</bold></red>",
+            "",
+            "<gray> Se alguém atacar seu corpo, você será</gray>",
+            "<gray> teleportado de volta instantaneamente.</gray>",
+            ""
+          ],
+          "cancelled-self": "<red>Olho de Deus desativado com sucesso.</red>",
+          "cancelled-attacked": "<red>Olho de Deus cancelado! Seu corpo foi atacado por {attacker_name_with_tag}!</red>",
+          "expired": "<red>O olho de Deus acabou!</red>",
+          "in-cooldown": "<red>Você precisa esperar <white>{remaining_time}</white> para conseguir usar o olho de deus novamente!</red>",
+          "need-solid-block-down": "<red>Se posicione em cima de um bloco sólido!</red>",
+          "command-blocked": "<red>Você não pode executar comandos enquanto usa o Olho de Deus.</red>",
+          "chat-blocked": "<red>Você não pode enviar mensagens enquanto usa o Olho de Deus.</red>",
+          "distance-limit": "<red>Você atingiu o limite de <bold>{distance}</bold> blocos do seu corpo!</red>",
+          "bossbar": "<color:#C77DFF>🔱 <bold>Olho de Deus ativo! </bold><white>Duração: <gray>{remaining_time}!",
+          "already-active": "<red>Você já está com o Olho de Deus ativo.</red>"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "plugins": {
+    "cannonutils": {
+      // ======================================================================
+      //  OLHO DE DEUS (/olho) — a MESMA funcionalidade do item `god-eye` do servidor de factions,
+      //  acionada por comando. As mensagens são as de lá, palavra por palavra onde o sentido é o
+      //  mesmo; o que muda é a COR: onde o factions usa o roxo `#C77DFF` do item, aqui vale o
+      //  gradiente laranja da Academy, igual ao resto do servidor.
+      //
+      //  Duas chaves não existem no factions e nascem aqui:
+      //   - `in-combat`: o item de lá ENVIA essa chave, mas ela não está na lang do factions — quem
+      //     tenta usar em combate lê a chave crua. Reportado ao dono; aqui a mensagem existe.
+      //   - `not-in-match`: o recorte daqui (o olho é do Fac x Fac), que lá não tem equivalente
+      //     porque a restrição é por app-type no `restrictions.yml`.
+      // ======================================================================
+      "olho": {
+        "npc": {
+          // Nome flutuante sobre o corpo deixado para trás.
+          "name-tag": [
+            "{owner_name_with_tag}"
+          ]
+        },
+        "messages": {
+          // Ativação: o aviso que importa é o do CORPO — é ele que o jogador está arriscando.
+          "activated": [
+            "",
+            "<red><bold> ⚠ Cuidado!</bold></red>",
+            "",
+            "<gray> Se alguém atacar seu corpo, você será</gray>",
+            "<gray> teleportado de volta instantaneamente.</gray>",
+            ""
+          ],
+          "cancelled-self": "<red>Olho de Deus desativado com sucesso.</red>",
+          "cancelled-attacked": "<red>Olho de Deus cancelado! Seu corpo foi atacado por {attacker_name_with_tag}!</red>",
+          "expired": "<red>O olho de Deus acabou!</red>",
+          "in-cooldown": "<red>Você precisa esperar <white>{remaining_time}</white> para conseguir usar o olho de deus novamente!</red>",
+          "need-solid-block-down": "<red>Se posicione em cima de um bloco sólido!</red>",
+          "command-blocked": "<red>Você não pode executar comandos enquanto usa o Olho de Deus.</red>",
+          "chat-blocked": "<red>Você não pode enviar mensagens enquanto usa o Olho de Deus.</red>",
+          "distance-limit": "<red>Você atingiu o limite de <bold>{distance}</bold> blocos do seu corpo!</red>",
+          "already-active": "<red>Você já está com o Olho de Deus ativo.</red>",
+          // Existe no código do factions, mas não na lang de lá (ver o cabeçalho deste arquivo).
+          "in-combat": "<red>Você não pode usar o Olho de Deus em combate!</red>",
+          // Recorte da Academy: o olho é da atividade Fac x Fac (olho.apenas-em-partida).
+          "not-in-match": "<red>O Olho de Deus só funciona durante uma partida Fac x Fac.</red>",
+          // Barra de tempo restante. O ícone e a estrutura são os do factions; a cor é a da Academy.
+          "bossbar": "<gradient:#FF6F00:#faa825:#FF6F00>🔱 <bold>Olho de Deus ativo! </bold></gradient><white>Duração: <gray>{remaining_time}!"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+    "plugins": {
+        "ender-chest": {
+            "commands": {
+                "enderchest": {
+                    "in-saving-process": "Aguarde um pouco para acessar seu ender chest!",
+                    "not-allowed-with-shift": "A abertura de inventários com o shift ligado está bloqueada.",
+                    "not-allowed-while-inventory-open": "Você está em desincronização com o servidor, aguarde e tente novamente."
+                }
+            },
+            "messages": {
+                "ender-chest": {
+                    "cooldown": "Aguarde {time} após entrar para abrir o ender chest!",
+                    "in-use": "Este ender chest já está sendo acessado no momento, tente novamente.",
+                    "on-interact": {
+                        "in-saving-process": "Aguarde um pouco para acessar seu ender chest!",
+                        "not-allowed-with-shift": "A abertura de inventários com o shift ligado está bloqueada.",
+                        "not-allowed-while-inventory-open": "Você está em desincronização com o servidor, aguarde e tente novamente."
+                    },
+                    "on-open": {
+                        "fix-size": "Seu báu foi reduzido por conta do seu vip ter expirado, acesse /correio para recolher os items!"
+                    }
+                },
+                "views": {
+                    "ender-chest": {
+                        "number-keys-not-allowed": "Você não pode utilizar as teclas numéricas nesse inventário!",
+                        "item-not-allowed": "Você não pode armazenar esse item!"
+                    }
+                }
+            },
+            "views": {
+                "ender-chest": {
+                    "title": "EnderChest de @{owner_name}",
+                    "items": {}
+                }
+            }
+        }
+    }
+}

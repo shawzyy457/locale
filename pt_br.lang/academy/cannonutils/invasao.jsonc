@@ -1,0 +1,393 @@
+{
+  "plugins": {
+    "cannonutils": {
+      // Invasão Fac x Fac — o configurador do pedido abre no Academy Spawn. O backend de
+      // facções/convites/sessões ainda será conectado; o menu não simula envio enquanto isso.
+      //
+      // A atividade está EM DESENVOLVIMENTO: só staff abre o configurador
+      // (permissoes.cannonutils.INVASION_ACCESS). Para o jogador comum a bússola responde o
+      // "coming-soon" de activity.jsonc, então as mensagens daqui são vistas apenas por quem tem acesso.
+      //
+      // Estilo (padrão do servidor de factions): fonte pequena em TODO nome e lore de item; a linha da
+      // opção escolhida usa a cor de marca da Academy e as demais ficam em <dark_gray>/<gray>.
+      "invasao": {
+        "messages": {
+          // Nenhum app de invasão aberto, ou a conexão falhou.
+          "unavailable": "<red>A Invasão Fac x Fac não está disponível no momento. Avise a staff.</red>"
+        }
+      },
+      "commands": {
+        "invasao": {
+          "teleported": "<green>Você entrou na invasão. Construa e teste à vontade!</green>",
+          // O mundo da invasão não está carregado (config apontando para um mundo inexistente).
+          "unavailable": "<red>O mundo da invasão não está disponível no momento. Avise a staff.</red>"
+        }
+      },
+      "views": {
+        "invasao-config": {
+          "title": "Invasão Fac x Fac",
+          "items": {
+            // ⚠️ Os números entre colchetes são o HP de cada bloco, ESCRITOS À MÃO: não há placeholder
+            // aqui, porque a tela lista os quatro blocos de uma vez e o plugin só resolve o do estado
+            // atual. Eles vivem no perfil `simulador` do config.yml do cannon-plugin — quem mudar o HP
+            // lá tem de mudar aqui, e na mesma tela do academy-factions
+            // (plugins.factions.views.simulator-request). Corrigidos em 17/08/2026: anunciavam
+            // [50]/[40]/[30] contra 40/20/15 reais, e o jogador escolhia a parede pelo número errado.
+            "protection-block": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Bloco de proteção</gradient>",
+              "glacite": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Glacite</white> <gray>[40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "protective-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Protetora</white> <gray>[20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "frozen-rock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Rocha Congelada</white> <gray>[15]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Bedrock [10]</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "bedrock": {
+                "lore": [
+                  "<gray>O bloco que reveste a</gray>",
+                  "<gray>parede inteira da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Glacite [40]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Protetora [20]</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Rocha Congelada [15]</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Bedrock</white> <gray>[10]</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              }
+            },
+            "base-style": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Estilo da base</gradient>",
+              "traditional": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base tradicional</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Base quadrada</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Base estrela</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "square": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Base tradicional</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base quadrada</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Base estrela</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "star": {
+                "lore": [
+                  "<gray>O formato da base que</gray>",
+                  "<gray>a defesa vai proteger.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Base tradicional</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Base quadrada</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Base estrela</white>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              }
+            },
+            "starting-side": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Ataque ou defesa?</gradient>",
+              "attack": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Ataque</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Defesa</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Aleatório</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "defense": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Ataque</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Defesa</white>",
+                  " <dark_gray>▸</dark_gray> <gray>Aleatório</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "random": {
+                "lore": [
+                  "<gray>De que lado a sua facção</gray>",
+                  "<gray>começa a invasão.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>Ataque</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>Defesa</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>Aleatório</white>",
+                  "",
+                  "<gray>O servidor sorteia quem ataca</gray>",
+                  "<gray>e quem defende ao criar a partida.</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              }
+            },
+            // Sem uma cópia da lore por opção: os equipamentos são criados pela staff no
+            // /f admin kits, então a lista é DADO. {equipamentos} é uma linha-molde que vira uma
+            // linha por equipamento — o Java manda uma coleção e o lang expande.
+            // ⚠️ Não repita essa linha e não a use no "name": chave de nome exige um componente só.
+            "equipment": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Equipamento</gradient>",
+              "lore": [
+                "<gray>O kit que os dois lados</gray>",
+                "<gray>recebem ao entrar na arena.</gray>",
+                "",
+                "{equipamentos}",
+                "",
+                "<green>Clique para alterar.</green>"
+              ],
+              // As duas caras de uma linha da lista. A cor mora AQUI, na linha.
+              "selected": " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>{equipamento}</white>",
+              "option": " <dark_gray>▸</dark_gray> <gray>{equipamento}</gray>"
+            },
+            // Raio da explosão da TNT de dano, em blocos — no lugar do antigo "delay do tick", que não
+            // tinha efeito nenhum (16/08/2026). É a regra que mais muda a partida: ela decide quanto de
+            // parede cada tiro abre. O 2 é o do servidor de factions e o 4 é o da TNT vanilla; o padrão
+            // é o 3, por decisão do dono — a partida abre mais forte que o factions de propósito.
+            "radius": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Raio da explosão</gradient>",
+              "radius-2": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>2 blocos</white> <gray>(igual ao factions)</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>3 blocos</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>4 blocos</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "radius-3": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>2 blocos (igual ao factions)</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>3 blocos</white>",
+                  " <dark_gray>▸</dark_gray> <gray>4 blocos</gray>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              },
+              "radius-4": {
+                "lore": [
+                  "<gray>Quanta parede cada tiro de</gray>",
+                  "<gray>canhão abre na base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <gray>2 blocos (igual ao factions)</gray>",
+                  " <dark_gray>▸</dark_gray> <gray>3 blocos</gray>",
+                  " <gradient:#FF6F00:#faa825:#FF6F00>▸</gradient> <white>4 blocos</white>",
+                  "",
+                  "<green>Clique para alterar.</green>"
+                ]
+              }
+            },
+            // Vitória por NÚCLEO: o cubículo do centro da base, cheio de SPAWNERS. Ligada, eles
+            // nascem no lugar do centro e o ataque só vence derrubando a fatia que o servidor define
+            // (`simulator.nucleo.percentual`) — e só por EXPLOSÃO. Desligada, o centro fica vazio e
+            // vale a vitória por invasão: o primeiro atacante que pisa no cubículo encerra a partida.
+            //
+            // ⚠️ A lore não cita o percentual de propósito: ele é do servidor e muda sem passar por
+            // aqui — um número escrito na mão viraria mentira no primeiro ajuste do config.
+            "nucleus": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por Núcleo</gradient>",
+              "disabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao centro da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Núcleo:</white> <gray>Desativado</gray>",
+                  "",
+                  "<gray>O centro da base fica vazio, e</gray>",
+                  "<gray>vence o primeiro atacante que</gray>",
+                  "<gray>pisar no cubículo.</gray>",
+                  "",
+                  "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Ativar o núcleo</white>"
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao centro da base.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Núcleo:</white> <green>Ativado</green>",
+                  "",
+                  "<gray>O cubículo do centro nasce cheio</gray>",
+                  "<gray>de spawners: o ataque precisa</gray>",
+                  "<gray>derrubá-los a canhão para vencer.</gray>",
+                  "<gray>Chegar ao centro não basta —</gray>",
+                  "<gray>não há por onde entrar.</gray>",
+                  "",
+                  "<gray>Só explosão quebra o núcleo —</gray>",
+                  "<gray>nem a defesa o quebra na mão.</gray>",
+                  "",
+                  "<red>Botão esquerdo</red> <dark_gray>▸</dark_gray> <white>Desativar o núcleo</white>"
+                ]
+              }
+            },
+            // Vitória por domínio: o cubículo dos spawners vira um ponto de captura (tipo KOTH).
+            // Desligada, vale a "vitória por invasão" de sempre — o primeiro atacante que pisa lá
+            // dentro encerra a partida. O TEMPO de captura é do SERVIDOR, não do pedido, por isso
+            // nenhum número aparece aqui.
+            "domination": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Vitória por domínio</gradient>",
+              "disabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao cubículo dos spawners.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Domínio:</white> <gray>Desativado</gray>",
+                  "",
+                  "<gray>Desativado, vale a invasão: o</gray>",
+                  "<gray>primeiro atacante que pisar no</gray>",
+                  "<gray>cubículo encerra a partida.</gray>",
+                  "",
+                  "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Ativar o domínio</white>"
+                ]
+              },
+              "enabled": {
+                "lore": [
+                  "<gray>Como o ataque vence ao chegar</gray>",
+                  "<gray>ao cubículo dos spawners.</gray>",
+                  "",
+                  " <dark_gray>▸</dark_gray> <white>Domínio:</white> <green>Ativado</green>",
+                  "",
+                  "<gray>O cubículo vira ponto de captura:</gray>",
+                  "<gray>com mais atacantes que defensores</gray>",
+                  "<gray>lá dentro, a captura sobe até 100%.</gray>",
+                  "",
+                  "<gray>Perdida a maioria, a captura volta —</gray>",
+                  "<gray>e o tempo não encerra a partida</gray>",
+                  "<gray>enquanto houver atacante lá dentro.</gray>",
+                  "",
+                  "<red>Botão esquerdo</red> <dark_gray>▸</dark_gray> <white>Desativar o domínio</white>"
+                ]
+              }
+            },
+            "ejectors": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Quantidade de ejetores</gradient>",
+              "lore": [
+                "<gray>Quantos ejetores cada lado</gray>",
+                "<gray>pode manter de pé na partida.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Ataque:</white> <gray>{attack_ejectors}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Defesa:</white> <gray>{defense_ejectors}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Alterar o ataque</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Alterar a defesa</white>"
+              ]
+            },
+            // O padrão (2) é o `explosions.tnt-normal.durability-damage` do servidor de factions — a
+            // partida nasce sendo uma simulação fiel dele, e quem mudar sabe que está se afastando disso.
+            "tnt-damage": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Dano da TNT</gradient>",
+              "lore": [
+                "<gray>Quanto de durabilidade cada</gray>",
+                "<gray>explosão tira dos blocos.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Dano atual:</white> <gray>{tnt_damage}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Padrão do factions:</white> <gray>2</gray>",
+                "",
+                "<green>Clique para alterar.</green>"
+              ]
+            },
+            // O padrão nasce em 3 por decisão do dono (16/08/2026), e não mais no 4 do
+            // `explosions.tnt-impulse.knockback-multiplier` do factions — daí a segunda linha dizer "no
+            // factions" em vez de "padrão": as duas coisas deixaram de ser a mesma.
+            "tnt-impulse": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Impulso da TNT</gradient>",
+              "lore": [
+                "<gray>Com que força a TNT de impulso</gray>",
+                "<gray>empurra as outras.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Impulso atual:</white> <gray>{tnt_impulse}</gray>",
+                " <dark_gray>▸</dark_gray> <white>No factions:</white> <gray>4</gray>",
+                "",
+                "<green>Clique para alterar.</green>"
+              ]
+            },
+            "opponent-faction": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Facção adversária</gradient>",
+              "lore": [
+                "<gray>A facção que vai receber</gray>",
+                "<gray>o seu desafio.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Selecionada:</white> <gray>[{opponent_faction}]</gray>",
+                "",
+                "<green>Clique para alterar.</green>"
+              ]
+            },
+            "submit": {
+              "name": "<green>Tudo pronto?</green>",
+              "lore": [
+                "<gray>Envia o desafio para a outra</gray>",
+                "<gray>facção com as regras acima.</gray>",
+                "",
+                "<green>Clique para enviar o desafio!</green>"
+              ]
+            }
+          },
+          "prompts": {
+            "ejectors-attack": "Digite a quantidade de ejetores de ataque, entre <white>1</white> e <white>{maximum}</white>.",
+            "ejectors-defense": "Digite a quantidade de ejetores de defesa, entre <white>1</white> e <white>{maximum}</white>.",
+            "opponent": "Digite a tag da facção adversária."
+          },
+          "messages": {
+            "invalid-ejectors": "<red>Informe uma quantidade entre <yellow>1</yellow> e <yellow>{maximum}</yellow>.</red>",
+            "invalid-opponent": "<red>Informe uma tag de facção válida, com até 16 letras, números ou _.</red>",
+            "opponent-required": "<red>Selecione a facção adversária antes de enviar o desafio.</red>",
+            "request-unavailable": "<red>A Invasão Fac x Fac não está disponível neste servidor. Avise a staff.</red>"
+          }
+        }
+      }
+    }
+  }
+}

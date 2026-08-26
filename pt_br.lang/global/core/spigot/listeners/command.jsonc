@@ -1,0 +1,13 @@
+{
+    "plugins": {
+        "core": {
+            "messages": {
+                "commands": {
+                    "fawe": {
+                        "need-highest-group": "<red>Você precisa do grupo</red> {command_min_group_display_name} <red>ou superior para executar este comando.</red>"
+                    }
+                }
+            }
+        }
+    }
+}

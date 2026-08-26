@@ -1,0 +1,45 @@
+{
+  "plugins": {
+    "server-core": {
+      "packet-optimization": {
+        "preferences": {
+          "spawner-animation": {
+            "name": "<green>Particulas geradores",
+            "description": [
+              "<gray>Controla as animações",
+              "<gray>dos geradores colocados."
+            ],
+            "options": {
+              "true": "<green>Ativado",
+              "false": "<red>Desativado"
+            }
+          },
+          "tnt": {
+            "name": "<yellow>Visual de TNT",
+            "description": [
+              "<gray>Controla quantas TNTs",
+              "<gray>você renderiza na tela."
+            ],
+            "options": {
+              "all": "<green>Todas",
+              "minimal": "<yellow>Mínimo",
+              "off": "<red>Desligado"
+            }
+          },
+          "explosion": {
+            "name": "<yellow>Efeito de Explosão",
+            "description": [
+              "<gray>Controla os efeitos visuais",
+              "<gray>e sonoros das explosões."
+            ],
+            "options": {
+              "all": "<green>Todos",
+              "minimal": "<yellow>Mínimo",
+              "off": "<red>Desligado"
+            }
+          }
+        }
+      }
+    }
+  }
+}

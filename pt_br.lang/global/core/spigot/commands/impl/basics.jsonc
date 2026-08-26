@@ -1,0 +1,284 @@
+{
+  "plugins": {
+    "core": {
+      "commands": {
+        "clear-chat": {
+          "success-target": "<yellow>Chat limpo!</yellow>",
+          "success-sender": "Você limpou o chat com sucesso."
+        },
+        "clear": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja limpar o inventário"
+            }
+          },
+          "success-other": "Você limpou o inventário de {target_name}!",
+          "success-same": "Seu inventário agora está vazio."
+        },
+        "connect": {
+          "arguments": {
+            "app": {
+              "name": "server",
+              "description": "Servidor que você deseja se conectar"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja limpar o inventário"
+            }
+          },
+          "app-now": "<yellow>Você está em: \"{app_id}\"</yellow>",
+          "app-not-found": "Não foi possível encontrar nenhum servidor com esse id!",
+          "app-proxy": "Ops, a aplicação informada é do tipo Proxy.",
+          "app-offline": "Ops, parece que esse servidor está offline.",
+          "success": "Conectando-se ao servidor \"{app_id}\"."
+        },
+        "profile": {
+          "message": {
+            "identity": [
+              "{primary}Seu perfil, <white>{profile_name}",
+              "<white>UUID: <gray><hover:show_text:'<gray>Clique para copiar: <white>{profile_uuid}'><click:suggest_command:'{profile_uuid}'>{profile_uuid}</click></hover>",
+              "<white>Conta: <gray>{profile_type}",
+              "<white>Idioma: <gray>{profile_language}",
+              "<white>Cadastro: <gray>{profile_registered}",
+              "<white>Grupos: <gray>{profile_groups}"
+            ],
+            "balance": [
+              "{primary}---- Saldo ----",
+              "<white>Gold: <gold>{profile_gold}",
+              "<white>Carteira: <gray>{profile_wallet}"
+            ],
+            "discord": [
+              "{primary}---- Discord ----",
+              "<white>Usuário: <gray>{discord_username}",
+              "<white>Nome: <gray>{discord_name}",
+              "<white>Vinculado desde: <gray>{discord_since}"
+            ],
+            "discord-unlinked": [
+              "{primary}---- Discord ----",
+              "<white>Discord: <red>Não vinculado"
+            ],
+            "link": "{primary}Ver perfil no site: <hover:show_text:'<gray>Abrir logado no navegador'><click:open_url:'{profile_link}'><aqua><underlined>clique aqui</underlined></aqua></click></hover>",
+            "type-original": "<aqua>Original",
+            "type-cracked": "<yellow>Pirata",
+            "no-groups": "Nenhum.",
+            "unavailable": "<gray>Indisponível"
+          }
+        },
+        "enchantment": {
+          "arguments": {
+            "enchantment": {
+              "name": "encantamento",
+              "description": "Nome do encantamento"
+            },
+            "level": {
+              "name": "nível",
+              "description": "Level do encantamento"
+            },
+            "need-item-in-hand": "Você precisa estar segurando um item.",
+            "enchantment-not-found": "O encantamento informado não foi encontrado.",
+            "enchantment-success": "Encantamento adicionado com sucesso."
+          }
+        },
+        "gamemode": {
+          "arguments": {
+            "type": {
+              "name": "gamemode",
+              "description": "Modo de jogo desejado"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja aplicar o modo de jogo"
+            }
+          },
+          "gamemode-not-found": "Modo de jogo inválido!",
+          "gamemode-not-allowed": "Péh, você não pode utilizar esse gamemode!",
+          "gamemode-change-success-target": "Game Mode de {target_name} alterado para <white>{gamemode_name}</white>",
+          "gamemode-change-success-sender": "Game Mode alterado para <white>{gamemode_name}</white>"
+        },
+        "god": {
+          "success-deactivated": "<red>Você desativou o modo deus.</red>",
+          "success-activated": "<green>Você ativou o modo deus.</green>"
+        },
+        "head": {
+          "arguments": {
+            "name": "key",
+            "description": "Hash da textura da cabeça"
+          }
+        },
+        "heal": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja recuperar a vida"
+            }
+          },
+          "target-dead": "O jogador escolhido está morto!",
+          "success-other": "Você recuperou a vida de {target_name}!",
+          "success-same": "Você recuperou a sua vida!"
+        },
+        "invsee": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja visualizar o inventário"
+            }
+          }
+        },
+        "lobby": {
+          "already-in-lobby": "Você já está em um lobby!",
+          "not-apps-available": "Não encontramos nenhum servidor para conexão.",
+          "confirm": [
+            "",
+            "<yellow>Quer mesmo ir ao lobby? Utilize /lobby novamente para confirmar!</yellow>",
+            ""
+          ]
+        },
+        "online": {
+          "online-format": "<dark_gray>▪</dark_gray> <gray>{app_display_name} ({app_online_player_count})</gray>",
+          "message": [
+            "",
+            "   <gold>Servidores disponíveis:</gold>",
+            "   <gray>{network_online_player_count} jogadores no total.</gray>",
+            "",
+            "   {online_app_list}",
+            ""
+          ]
+        },
+        "ping": {
+          "ping-target": "O ping de {target_name} é de {target_ping} ms.",
+          "ping-sender": "Seu ping é de {sender_ping} ms."
+        },
+        "plugins": {
+          "message": [
+            "",
+            "<white>Plugins ({plugins_count}):</white>",
+            "{plugins}",
+            ""
+          ]
+        },
+        "scale": {
+          "arguments": {
+            "scale": {
+              "name": "escala",
+              "description": "Insira a escala desejada (0.0625 a 16)"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja alterar a escala"
+            }
+          },
+          "success": {
+            "other": {
+              "reset": "A escala de {target_name} foi resetada.",
+              "set": "A escala de {target_name} foi alterada para: {scale}."
+            },
+            "same": {
+              "reset": "A sua escala foi resetada.",
+              "set": "A sua escala foi alterada para: {scale}."
+            }
+          }
+        },
+        "speed": {
+          "arguments": {
+            "velocity": {
+              "name": "velocidade",
+              "description": "Insira a velocidade desejada"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja alterar a velocidade"
+            }
+          },
+          "success": {
+            "other": {
+              "reset": "As velocidades de {target_name} foram resetadas.",
+              "fly": "A velocidade de vôo de {target_name} foi alterada para: {speed}.",
+              "walk": "A velocidade de caminhada de {target_name} foi alterada para: {speed}."
+            },
+            "same": {
+              "reset": "As suas velocidades foram resetadas.",
+              "fly": "A sua velocidade de vôo foi alterada para: {speed}.",
+              "walk": "A sua velocidade de caminhada foi alterada para: {speed}."
+            }
+          }
+        },
+        "tpall": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja teleportar todos"
+            }
+          },
+          "success": "Todos os jogadores foram teleportados até você."
+        },
+        "tp": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que você deseja se teleportar"
+            }
+          },
+          "success": "<yellow>Você foi teleportado até {target_name}</yellow>"
+        },
+        "tphere": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que você deseja se teleportar"
+            }
+          },
+          "success-target": "<yellow>Você foi teleportado até {target_name}</yellow>",
+          "success-sender": "O jogador {target_name} foi teleportado até você"
+        },
+        "tppos": {
+          "arguments": {
+            "x": {
+              "name": "x",
+              "description": "Posição X que deseja se teleportar"
+            },
+            "y": {
+              "name": "y",
+              "description": "Posição Y que deseja se teleportar"
+            },
+            "z": {
+              "name": "z",
+              "description": "Posição Z que deseja se teleportar"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que você deseja teleportar"
+            }
+          },
+          "success-other": "O jogador {target_name} foi teleportado para as coordenadas: {coordinates_x}, {coordinates_y}, {coordinates_z}.",
+          "success-same": "Você foi teleportado para as coordenadas: {coordinates_x}, {coordinates_y}, {coordinates_z}."
+        },
+        "tpworld": {
+          "arguments": {
+            "world": {
+              "name": "mundo",
+              "description": "Mundo que você deseja se teleportar"
+            }
+          },
+          "world-not-found": "Esse mundo não existe!",
+          "success": "Você foi teleportado para o mundo {world_name}"
+        },
+        "vanish": {
+          "success-activated": "<green>Modo vanish habilitado com sucesso.</green>",
+          "success-deactivated": "<red>Modo vanish desabilitado com sucesso.</red>"
+        },
+        "vip-time": {
+          "no-group": "Você não possui nenhum grupo vip!",
+          "visualization-format": " {user_group_display_name} <dark_gray>➠</dark_gray> <gray>{user_group_expire_in}</gray>",
+          "visualization": [
+            "",
+            "<aqua> Tempo dos pacotes VIPs:</aqua>",
+            "",
+            "  {groups}",
+            ""
+          ]
+        }
+      }
+    }
+  }
+}

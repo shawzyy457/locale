@@ -1,0 +1,14 @@
+{
+    "plugins": {
+        "server-core": {
+            "commands": {
+                "back": {
+                    "errors": {
+                        "need-location": "<red>Você não possui uma localização anterior para voltar.</red>",
+                        "not-available-apps": "<red>Você não pode usar /back neste servidor.</red>"
+                    }
+                }
+            }
+        }
+    }
+}

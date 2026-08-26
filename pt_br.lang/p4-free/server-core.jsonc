@@ -1,0 +1,220 @@
+{
+  "plugins": {
+    "server-core": {
+        "chat": {
+            "preferences": {
+                "global": {
+                    "name": "<color:#ff8200>Chat global",
+                    "description": [
+                        "<gray>Ver as mensagens do chat global.</gray>",
+                        "<gray>Desativado, só aparece o chat local.</gray>"
+                    ],
+                    "options": {
+                        "true": "<green>Ativado",
+                        "false": "<red>Desativado"
+                    }
+                },
+                "local": {
+                    "name": "<color:#ff8200>Chat local",
+                    "description": [
+                        "<gray>Ver as mensagens de quem está</gray>",
+                        "<gray>perto de você.</gray>"
+                    ],
+                    "options": {
+                        "true": "<green>Ativado",
+                        "false": "<red>Desativado"
+                    }
+                }
+            }
+        },
+        "trophy": {
+                "views": {
+                    "trophy-store": {
+                        "title": "Loja de troféu",
+                        "items": {
+                            "0": {
+                                "lore": [
+                                    "<gray>Trocar troféus por este item.</gray>",
+                                    "",
+                                    "<color:#ff8200>Preço: <white>{price} troféus",
+                                    "",
+                                    "<color:#ff8200>Clique para comprar."
+                                ]
+                            }
+                        }
+                    }
+                },
+            "messages": {
+                "views": {
+                    "trophy-store": {
+                        "inventory-full": "Seu inventário está cheio.",
+                        "dont-have-money": "Você precisa de {price} troféus para comprar esse item.",
+                        "buy-item": "Item comprado com sucesso!"
+                    }
+                }
+            }
+        },
+        "commands": {
+            "auto-click": {
+                "success-activated": "Auto click ativado!",
+                "success-disabled": "<red>Auto click desativado!</red>"
+            },
+            "fly": {
+                "not-allowed-in-app": "OPS! Parece que você não pode mudar seu modo de vôo aqui!",
+                "success-disabled": "<red>Modo de vôo desabilitado com sucesso!</red>",
+                "success-disable-with-gamemode": "<red>Modo de vôo desabilitado com sucesso, porém seu vôo não foi desabilitado por você estar no modo criativo ou espectador!</red>",
+                "success-activated": "Modo vôo habilitado com sucesso!"
+            },
+            "off": {
+                "already-disabled": "Todos os jogadores já estão invisíveis.",
+                "success": "Agora todos os jogadores estão invisíveis."
+            },
+            "on": {
+                "already-activated": "Você já consegue ver todos os jogadores.",
+                "success": "Agora você consegue ver todos os jogadores."
+            },
+            "tpaccept": {
+                "arguments": {
+                    "target": {
+                        "name": "jogador",
+                        "description": "Jogador que será aceito o tpa."
+                    }
+                },
+                "dont-have-request": "<red>Você não possui uma solicitação de teleporte de </red>{tpa_sender_name}<red>.</red>",
+                "not-allowed-app": "<red>Você não pode aceitar pedidos de teleporte nesse local.</red>"
+            },
+            "tpa": {
+                "arguments": {
+                    "target": {
+                        "name": "jogador",
+                        "description": "Jogador que será enviado o tpa."
+                    }
+                },
+                "already-exists": "<red>Você já possui uma solicitação de teleporte para </red>{tpa_target_name}<red>.</red>"
+            },
+            "tpcancel": {
+                "arguments": {
+                    "target": {
+                        "name": "jogador",
+                        "description": "Jogador que será cancelado o tpa."
+                    }
+                },
+                "dont-have-request": "<red>Você não possui uma solicitação de teleporte de </red>{tpa_target_name}<red>.</red>"
+            },
+            "tpdeny": {
+                "arguments": {
+                    "target": {
+                        "name": "jogador",
+                        "description": "Jogador que será negado o tpa."
+                    }
+                },
+                "dont-have-request": "<red>Você não possui uma solicitação de teleporte de </red>{tpa_sender_name}<red>.</red>",
+                "deny-sender": [
+                    "<red>O jogador </red>{tpa_target_name_with_tag}<red> negou seu pedido de teleporte.</red>"
+                ],
+                "deny-target": [
+                    "<red>Você negou o pedido de teleporte de </red>{tpa_sender_name_with_tag}<red>.</red>"
+                ]
+            }
+        },
+        "views": {
+            "enchant-view": {
+                "title": "encantar",
+                "items": {
+                    "0": {
+                        "name": "<gold>mesa de encantamento</gold>",
+                        "lore": [
+                            "<gray>Tente a sua sorte dentro de</gray>",
+                            "<gray>uma variedade enorme de</gray>",
+                            "<gray>encantamentos!</gray>",
+                            "",
+                            "<gold>clique para visualizar</gold>"
+                        ]
+                    },
+                    "1": {
+                        "name": "<gold>combos</gold>",
+                        "lore": [
+                            "<gray>Aqui você encontra combos</gray>",
+                            "<gray>pré-definidos para facilitar</gray>",
+                            "<gray>à sua vida.</gray>",
+                            "",
+                            "<gold>clique para visualizar</gold>"
+                        ]
+                    },
+                    "2": {
+                        "name": "<gold>Sua experiência</gold>",
+                        "lore": [
+                            "<gray>Você possui</gray> <white>{xp_level} níveis</white>",
+                            "",
+                            "<gold>clique para coletar</gold>"
+                        ]
+                    }
+                }
+            },
+            "enchantment-table-view": {
+                "title": "mesa de encantamento",
+                "items": {
+                    "0":{
+                        "name": "<gold>Selecione o item que deseja encantar!</gold>"
+                    },
+                    "1":{
+                        "name": "<red>ops!</red>",
+                        "lore": [
+                            "<gray>Parece que nenhum item foi</gray>",
+                            "<gray>adicionado aqui.</gray>"
+                        ]
+                    },
+                    "2":{
+                        "name": "<dark_blue>Adicione o lápis a direita!!</dark_blue>"
+                    },
+                    "3":{
+                        "available": {
+                            "name": "<gold>Encantar</gold> <dark_gray>§8✰</dark_gray> <gold>§6Nível {enchantment_level}</gold>",
+                            "lore": [
+                                "<gray>Encante o seu item com</gray>",
+                                "<gray>encantamentos até </gray><white>Nível {enchantment_level}</white><gray>.</gray>",
+                                "",
+                                " <gold>Encante utilizando</gold>",
+                                " <dark_gray>▸</dark_gray> <white>{exp_cost} níveis de exp</white>",
+                                " <dark_gray>▸</dark_gray> <white>{lapis_lazuli_cost} Lápis Lazuli</white>",
+                                ""
+                            ]
+                        },
+                        "unavailable": {
+                            "name": "<gold>Encantar</gold> <dark_gray>§8✰</dark_gray> <gold>§6Nível {enchantment_level}</gold>",
+                            "lore": [
+                                "<gray>Encante o seu item com</gray>",
+                                "<gray>encantamentos até </gray><white>Nível {enchantment_level}</white><gray>.</gray>",
+                                "",
+                                " <gold>Encante utilizando</gold>",
+                                " <dark_gray>▸</dark_gray> <white>{exp_cost} níveis de exp</white>",
+                                " <dark_gray>▸</dark_gray> <white>{lapis_lazuli_cost} Lápis Lazuli</white>",
+                                " ",
+                                "<red>Você precisa possuir o grupo</red>",
+                                "<red>PRO para encantar.</red>"
+                            ]
+                        }
+                    },
+                    "4":{
+                        "name": "<gold>sua experiência</gold>",
+                        "lore": [
+                            "<gray>você possui</gray> <white>{exp} níveis</white>"
+                        ]
+                    }
+                }
+            }
+        },
+        "messages": {
+            "combat-log": {
+                "join-combat": "Você entrou em combate, não deslogue!",
+                "leave-combat": "Você não está mais em combate, já pode deslogar!",
+                "blocked-command": "Você não pode usar esse comando em combate."
+            },
+            "booster": {
+                "already-activated": "",
+                "active": ""
+            }
+        }
+    }
+  }
+}

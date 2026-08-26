@@ -1,0 +1,160 @@
+{
+  "plugins": {
+    "server-core": {
+      "holograms": {
+        "tops": [
+          "<color:#FF6F00><bold>Tops",
+          "<white>Ranking!"
+        ],
+        "spawn": [
+          "<color:#FF6F00><bold>RANKUP OVERPOWER </bold><dark_gray>🔥</dark_gray> <white>{server_online_count}</white>",
+          "<white>Bem-vindo ao <color:#FF6F00>R. OverPower<white>!</white>",
+          "",
+          "<white>Este é um servidor</white> <color:#FF6F00>OverPower <white>com</white>",
+          "<white>diversos sistemas únicos, como,</white>",
+          "<white>mina privada,</white> <bold>the end</bold><white>, farm</white>",
+          "entre outros!",
+          "",
+          "<white>Adquira</white> <color:#FF6F00>VIP <white>ou</white> <color:#FF6F00>Diversos itens <white>acessando:</white>",
+          "<color:#FF6F00>exe.com"
+        ],
+        "the-end":[
+          "<color:#FF6F00><bold>Mundos",
+          "<white>Pule para acessar!",
+          "<color:#faa825>↓↓↓"
+        ],
+        "crates":[
+          "<color:#FF6F00><bold>Crates",
+          "<white>Receba recompensas!"
+        ],
+        "enchant":[
+          "<color:#FF6F00><bold>Encantar",
+          "<white>Encante seus itens!"
+        ]
+      }
+    }
+  },
+  "holograms": {
+    "spawn": {
+      "0": "<color:#FF6F00><bold>RANKUP OVERPOWER</bold> <dark_gray>🔥 </dark_gray><white>{server_online_count}</white>",
+      "1": "<white>Bem-vindo ao <color:#FF6F00>R. OverPower<white>!</white>",
+      "2": "",
+      "3": "<white>Este é um servidor </white><light_purple>OverPower </light_purple><white>com</white>",
+      "4": "<white>diversos sistemas únicos, como,</white>",
+      "5": "<white>mina privada, </white><bold>the end</bold><white>, farm</white>",
+      "6": "entre outros!",
+      "7": "",
+      "8": "<white>Adquira </white><color:#FF6F00>VIP<white> ou </white><color:#FF6F00>Gold<white> acessando:</white>",
+      "9": "<color:#FF6F00>exe.com"
+    },
+    "economy": {
+      "0": "<color:#FF6F00><bold>NÚMEROS DA ECONOMIA</bold>",
+      "1": "<gray>Você pode enviar coins ou criar</gray>",
+      "2": "<gray>uma loja inserindo estes valores.</gray>",
+      "3": "",
+      "4": "<color:#FF6F00><bold>M</bold><dark_gray> ▸ </dark_gray><white>1E6 </white><gray>(6 zeros)  </gray><color:#FF6F00><bold>B</bold><dark_gray> ▸ </dark_gray><white>1E9 </white><gray>(9 zeros)  </gray><color:#FF6F00><bold>T</bold><dark_gray> ▸ </dark_gray><white>1E12</white><gray> (12 zeros)</gray>",
+      "5": "<color:#FF6F00><bold>Q</bold><dark_gray> ▸ </dark_gray><white>1E15 </white><gray>(15 zeros)  </gray><color:#FF6F00><bold>QQ</bold><dark_gray> ▸ </dark_gray><white>1E18 </white><gray>(18 zeros)  </gray><color:#FF6F00><bold>S</bold><dark_gray> ▸ </dark_gray><white>1E21</white><gray> (21 zeros)</gray>",
+      "6": "<color:#FF6F00><bold>SS</bold><dark_gray> ▸ </dark_gray><white>1E24 </white><gray>(24 zeros)  </gray><color:#FF6F00><bold>OC</bold><dark_gray> ▸ </dark_gray><white>1E27 </white><gray>(27 zeros)  </gray><color:#FF6F00><bold>N</bold><dark_gray> ▸ </dark_gray><white>1E30</white><gray> (30 zeros)</gray>",
+      "7": "<color:#FF6F00><bold>D</bold><dark_gray> ▸ </dark_gray><white>1E33 </white><gray>(33 zeros)  </gray><color:#FF6F00><bold>UN</bold><dark_gray> ▸ </dark_gray><white>1E36 </white><gray>(36 zeros)  </gray><color:#FF6F00><bold>DD</bold><dark_gray> ▸ </dark_gray><white>1E39</white><gray> (39 zeros)</gray>",
+      "8": "<color:#FF6F00><bold>TR</bold><dark_gray> ▸ </dark_gray><white>1E42 </white><gray>(42 zeros)  </gray><color:#FF6F00><bold>QT</bold><dark_gray> ▸ </dark_gray><white>1E45 </white><gray>(45 zeros)  </gray><color:#FF6F00><bold>QN</bold><dark_gray> ▸ </dark_gray><white>1E48</white><gray> (48 zeros)</gray>",
+      "9": "<color:#FF6F00><bold>SD</bold><dark_gray> ▸ </dark_gray><white>1E51 </white><gray>(51 zeros)  </gray><color:#FF6F00><bold>SPD</bold><dark_gray> ▸ </dark_gray><white>1E54 </white><gray>(54 zeros)  </gray><color:#FF6F00><bold>OD</bold><dark_gray> ▸ </dark_gray><white>1E57</white><gray> (57 zeros)</gray>",
+      "10": "<color:#FF6F00><bold>ND</bold><dark_gray> ▸ </dark_gray><white>1E60 </white><gray>(60 zeros)  </gray><color:#FF6F00><bold>VG</bold><dark_gray> ▸ </dark_gray><white>1E63 </white><gray>(63 zeros)  </gray><color:#FF6F00><bold>UVG</bold><dark_gray> ▸ </dark_gray><white>1E66</white><gray> (66 zeros)</gray>",
+      "11": "<color:#FF6F00><bold>DVG</bold><dark_gray> ▸ </dark_gray><white>1E69 </white><gray>(69 zeros)  </gray><color:#FF6F00><bold>TVG</bold><dark_gray> ▸ </dark_gray><white>1E72 </white><gray>(72 zeros)  </gray><color:#FF6F00><bold>QTV</bold><dark_gray> ▸ </dark_gray><white>1E75</white><gray> (75 zeros)</gray>",
+      "12": "<color:#FF6F00><bold>QNV</bold><dark_gray> ▸ </dark_gray><white>1E78 </white><gray>(78 zeros)  </gray><color:#FF6F00><bold>SEV</bold><dark_gray> ▸ </dark_gray><white>1E81 </white><gray>(81 zeros)  </gray><color:#FF6F00><bold>SPV</bold><dark_gray> ▸ </dark_gray><white>1E84</white><gray> (84 zeros)</gray>",
+      "13": "<color:#FF6F00><bold>OVG</bold><dark_gray> ▸ </dark_gray><white>1E87 </white><gray>(87 zeros)  </gray><color:#FF6F00><bold>NVG</bold><dark_gray> ▸ </dark_gray><white>1E90 </white><gray>(90 zeros)  </gray><color:#FF6F00><bold>TG</bold><dark_gray> ▸ </dark_gray><white>1E93</white><gray> (93 zeros)</gray>"
+    },
+    "afk-mine": {
+      "0": "<light_purple><bold>Mineração AFK</bold></light_purple>",
+      "1": "<white>Precisou sair e não quer deixar a sua conta inativa,</white>",
+      "2": "<white>vá até a área de mineração AFK</white>",
+      "3": "<white>e ganhe diversas recompensas.</white>",
+      "4": "",
+      "5": "<color:#FF6F00>Siga adiante para começar a minerar AFK!"
+    },
+    "currency-coins-best-user": {
+      "0": "<dark_green>Jogador com mais Coins</dark_green>",
+      "1": "%tops_currency_coins;name-with-tag%",
+      "2": "<dark_green>$</dark_green><white>%tops_currency_coins;amount-formatted-letter% Coins</white>"
+    },
+    "currency-sparks-best-user": {
+      "0": "<gold>Jogador com mais Faíscas</gold>",
+      "1": "%tops_currency_sparks;name-with-tag%",
+      "2": "<gold><bold>⚡</bold>%tops_currency_sparks;amount-formatted-letter% Faíscas</gold>"
+    },
+    "currency-tokens-best-user": {
+      "0": "<light_purple>Jogador com mais Tokens</light_purple>",
+      "1": "%tops_currency_tokens;name-with-tag%",
+      "2": "<light_purple>⛁%tops_currency_tokens;amount-formatted-letter% Tokens</light_purple>"
+    },
+    "top-online-time": {
+      "0": "<yellow>Jogador com mais tempo online</yellow>",
+      "1": "%tops_online_time;name-with-tag%",
+      "2": "<yellow>%tops_online_time;amount-formatted-time-simple-2% online</yellow>"
+    },
+    "crates-open-count": {
+      "0": "<yellow>Jogador com mais chaves abertas</yellow>",
+      "1": "%tops_crates_open_count;name-with-tag%",
+      "2": "<gray>%tops_crates_open_count;amount-formatted-number% Chaves abertas</gray>"
+    },
+    "fishing-top": {
+      "0": "<aqua>Jogador com mais peixes pescados</aqua>",
+      "1": "%tops_top_fishing;name-with-tag%",
+      "2": "<aqua>%tops_top_fishing;amount-formatted-number% Peixes pescados</aqua>"
+    },
+    "boss-kill-count": {
+      "0": "<dark_red>Jogador com mais bosses mortos</dark_red>",
+      "1": "%tops_boss_kill_count;name-with-tag%",
+      "2": "<dark_red>%tops_boss_kill_count;amount-formatted-letter% Bosses mortos</dark_red>"
+    },
+    "top-purchasing-power": {
+      "0": "<gold>Jogador com mais Poder de Compra</gold>",
+      "1": "%tops_currency_power;name-with-tag%",
+      "2": "<gold>∞%tops_currency_power;amount-formatted-number% Poder de Compra</gold>"
+    },
+    "top-mining-break-blocks": {
+      "0": "<yellow>Jogador com mais blocos quebrados</yellow>",
+      "1": "%tops_mining_break_blocks;name-with-tag%",
+      "2": "<yellow>%tops_mining_break_blocks;amount-formatted-letter% Blocos quebrados</yellow>"
+    },
+    "top-mining-prestige": {
+      "0": "<gold>Jogador com mais prestígio na mina</gold>",
+      "1": "%tops_mining_prestige;name-with-tag%",
+      "2": "<white>Nível: </white><gold>%tops_mining_prestige;amount-formatted-number% </gold>"
+    },
+    "spawners-mobs-killed-count": {
+      "0": "<red>Jogador com mais criaturas mortas</red>",
+      "1": "%tops_spawners_mobs_killed_count;name-with-tag%",
+      "2": "<red>%tops_spawners_mobs_killed_count;amount-formatted-letter% Criaturas mortas</red>"
+    },
+    "farming-break-count": {
+      "0": "<green>Jogador com mais plantações quebradas</green>",
+      "1": "%tops_farming_break_count;name-with-tag%",
+      "2": "<green>%tops_farming_break_count;amount-formatted-letter% Plantações quebradas</green>"
+    },
+    "spawners-drops-sell-count": {
+      "0": "<gold>Jogador com mais drops vendidos</gold>",
+      "1": "%tops_spawners_drops_sell_count;name-with-tag%",
+      "2": "<gold>%tops_spawners_drops_sell_count;amount-formatted-letter% Drops vendidos</gold>"
+    },
+    "the-end-dragon-killed": {
+      "0": "<color:#FF6F00>Jogador com mais dragões mortos",
+      "1": "%tops_the-end-dragon-killed;name-with-tag%",
+      "2": "<color:#FF6F00>%tops_the-end-dragon-killed;amount-formatted-letter% Dragões mortos"
+    },
+    "currency-experience-best-user": {
+      "0": "<green>Jogador com mais experiência</green>",
+      "1": "%tops_currency_experience;name-with-tag%",
+      "2": "<green>%tops_currency_experience;amount-formatted-letter% Experiência</green>"
+    },
+    "skills": {
+      "0": "<aqua>Jogador com mais níveis de Maestria</aqua>",
+      "1": "%tops_currency_experience;name-with-tag%",
+      "2": "<aqua>%tops_currency_experience;amount-formatted-letter% Nivel total</aqua>"
+    },
+    "mythic_entity_killed_count": {
+      "0": "<color:#FF6F00>Jogador com mais entidades do fim mortas",
+      "1": "%tops_mythic_entity_killed_count;name-with-tag%",
+      "2": "<color:#FF6F00>%tops_mythic_entity_killed_count;amount-formatted-letter% entidades mortas"
+    }
+  }
+}

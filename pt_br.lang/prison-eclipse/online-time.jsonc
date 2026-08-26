@@ -1,0 +1,104 @@
+{
+  "plugins": {
+    "online-time": {
+      "messages": {
+        "on-reward-available": {
+          "title": "<green><bold>Tempo online</bold></green>",
+          "subtitle": "<white>Recompensa #{online_time_reward_priority} disponível.</white>"
+        },
+        "views": {
+          "online-time": {
+            "not-enough-time": "Você não possui o tempo necessário para coletar essa recompensa!",
+            "already-collected": "Você já coletou essa recompensa!",
+            "need-collect-previous": "Você precisa coletar a recompensa anterior!"
+          }
+        }
+      },
+      "views": {
+        "online-time-ranking": {
+          "title": "Tempo TOP",
+          "items": {
+            "0": {
+              "name": "<white>#{online_time_user_position} {online_time_user_name_with_tag}</white>",
+              "lore": [
+                "<white>Tempo online: </white><aqua>⌚</aqua><gray>{online_time_user_time}</gray>"
+              ]
+            }
+          }
+        },
+        "online-time": {
+          "title": "Tempo online",
+          "items": {
+            "0": {
+              "name": "<green>Tempo TOP</green>",
+              "lore": [
+                "<gray>Consulte os jogadores</gray>",
+                "<gray>que jogaram mais tempo</gray>",
+                "<gray>no nosso servidor.</gray>",
+                "",
+                "<green>Clique para consultar.</green>"
+              ]
+            },
+            "1": {
+              "name": "<white>#{online_time_user_position} {user_name_with_tag}</white>",
+              "lore": [
+                "<white>Tempo online: </white><aqua>⌚</aqua><gray>{online_time_user_time}</gray>"
+              ]
+            },
+            "2": {
+              "reward-format": "<dark_gray>▸ </dark_gray><gray>x{online_time_reward_item_amount} {online_time_reward_item_name_stripped}</gray>",
+              "without-requirements": {
+                "name": "<red>Recompensa #{online_time_reward_priority}</red>",
+                "lore": [
+                  "<gray>Colete recompensas incríveis</gray>",
+                  "<gray>apenas jogando no servidor!</gray>",
+                  "",
+                  " <red>Recompensas:</red>",
+                  " {online_time_reward_items}",
+                  "",
+                  "<red>Recompensa disponível com {online_time_reward_time}</red>"
+                ]
+              },
+              "already-collected": {
+                "name": "<gold>Recompensa #{online_time_reward_priority}</gold>",
+                "lore": [
+                  "<gray>Colete recompensas incríveis</gray>",
+                  "<gray>apenas jogando no servidor!</gray>",
+                  "",
+                  " <gold>Recompensas:</gold>",
+                  " {online_time_reward_items}",
+                  "",
+                  "<red>Você já coletou essa recompensa!</red>"
+                ]
+              },
+              "need-collect-previous": {
+                "name": "<green>Recompensa #{online_time_reward_priority}</green>",
+                "lore": [
+                  "<gray>Colete recompensas incríveis</gray>",
+                  "<gray>apenas jogando no servidor!</gray>",
+                  "",
+                  " <green>Recompensas:</green>",
+                  " {online_time_reward_items}",
+                  "",
+                  "<red>Colete a recompensa anterior!</red>"
+                ]
+              },
+              "allowed": {
+                "name": "<green>Recompensa #{online_time_reward_priority}</green>",
+                "lore": [
+                  "<gray>Colete recompensas incríveis</gray>",
+                  "<gray>apenas jogando no servidor!</gray>",
+                  "",
+                  " <green>Recompensas:</green>",
+                  " {online_time_reward_items}",
+                  "",
+                  "<green>Clique para coletar!</green>"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,926 @@
+{
+  "plugins": {
+    "cannonutils": {
+      "commands": {
+        "no-plot-permission": "<red>Você só pode usar isso na sua plot (ou onde tiver permissão para construir).",
+        "boca": {
+          "usage": "<yellow>Uso: <white>/boca <n><yellow> — abre um poço vertical abaixo de você com a boca (<white>{bloco}<yellow>) no fundo.",
+          "invalid-amount": "<red>Quantidade inválida: <white>{value}</white>. Informe um número maior que zero.",
+          "max": "<red>Você pode abrir no máximo <white>{max}</white> blocos de poço.",
+          "world-bottom": "<red>Você já está no fundo do mundo!",
+          "done": "<green>Boca aberta com <white>{block}</white> <green>no Y <white>{y}</white>! <gray>{blocks} bloco(s) alterado(s), <white>//undo <gray>desfaz."
+        },
+        "plataforma": {
+          "usage": "<yellow>Uso: <white>/plataforma <raio|chunk><yellow> — cria a plataforma em camadas na sua altura.",
+          "invalid-radius": "<red>Raio inválido: <white>{value}</white>. Informe um número ou <white>chunk<red>.",
+          "no-layers": "<red>Nenhuma camada configurada para a plataforma. Avise a staff.",
+          "too-big": "<red>Operação grande demais: <white>{blocks}</white> blocos (teto: <white>{max}</white>). Reduza o raio.",
+          "done": "<green>Plataforma criada com <white>{layers}</white> <green>camada(s)! <gray>{blocks} bloco(s) alterado(s), <white>//undo <gray>desfaz."
+        },
+        "camada": {
+          "usage": "<yellow>Uso: <white>/camada <raio> <comprimento> [bloco]<yellow>, ou <white>/camada regen<yellow>/<white>limpar<yellow>. Padrão: <white>{block} <yellow>a <white>{distance} <yellow>blocos de você.",
+          "too-big": "<red>Operação grande demais: <white>{blocks}</white> blocos (teto: <white>{max}</white>). Reduza o raio/comprimento.",
+          "no-wall": "<red>Você não tem nenhuma camada para refazer!",
+          "regen": "<green>Camada refeita! <gray>{blocks} bloco(s) alterado(s).",
+          "no-wall-to-remove": "<red>Você não tem nenhuma camada para remover!",
+          "removed": "<green>Camada removida! <gray>{blocks} bloco(s) alterado(s).",
+          "invalid-block": "<red>Bloco inválido: <white>{block}</white>.",
+          "done": "<green>Camada criada com <white>{block}</white>! <gray>{blocks} bloco(s) alterado(s), <white>//undo <gray>desfaz."
+        },
+        "canhao": {
+          "usage": "<yellow>Uso: <white>/canhao criar <nome> <gray>| <white>colar|publico|privado|remover <nome> <gray>| <white>menu",
+          "invalid-name": "<red>Nome inválido! Use apenas letras, números, hífen e underscore (até 32 caracteres).",
+          "name-in-use": "<red>Já existe um canhão com esse nome. Escolha outro.",
+          "limit": "<red>Você atingiu o limite de <yellow>{max}</yellow> <red>canhões salvos.",
+          "no-selection": "<red>Você precisa de uma seleção do WorldEdit para salvar um canhão.",
+          "not-enough-dispensers": "<red>Sua seleção precisa de pelo menos <yellow>{min}</yellow> <red>dispensers para virar um canhão.",
+          "error": "<red>Ocorreu um erro ao processar o canhão. Tente novamente.",
+          "created": "<green>Canhão <yellow>{name}</yellow> <green>salvo! <gray>Tamanho: <white>{size}<gray>.",
+          "removed": "<green>Canhão <yellow>{name}</yellow> <green>removido!",
+          "published": "<green>Canhão <yellow>{name}</yellow> <green>agora é público.",
+          "privated": "<green>Canhão <yellow>{name}</yellow> <green>agora é privado.",
+          "not-found": "<red>Canhão <yellow>{name}</yellow> <red>não encontrado.",
+          "pasted": "<green>Canhão <yellow>{name}</yellow> <green>colado apontando para onde você está olhando! <gray>Use <white>//undo <gray>para desfazer.",
+          // Sem sidecar de cargas e sem dispensers direcionais não dá para saber qual é a frente do canhão:
+          // ele é colado como foi salvo e o jogador precisa conferir (ou salvá-lo de novo, com os ejetores cheios).
+          "pasted-sem-orientacao": "<yellow>Canhão <white>{name}</white> colado, mas não deu para descobrir a frente dele — confira a direção. <gray>Salve o canhão de novo com os ejetores carregados para ele nascer sempre virado certo. <white>//undo <gray>desfaz.",
+          "no-permission": "<red>Você não gerencia este canhão."
+        },
+        "chunkloader": {
+          "given": "<green>Você recebeu um <white>Chunk Loader</white>!",
+          "cleared": "<green>Você removeu <yellow>{amount}</yellow> Chunk Loaders!"
+        },
+        "clock": {
+          "usage": "<yellow>Uso: /clock <intervalo> [pulso] <gray>(em segundos).",
+          "debug-on": "<green>Debug de temporização do relógio ativado!",
+          "debug-off": "<gray>Debug de temporização do relógio desativado.",
+          "invalid-number": "<red>Número inválido: <white>{value}</white>.",
+          "received": "<green>Você recebeu um <white>Relógio de Redstone</white> <gray>(intervalo <white>{interval}s<gray>, pulso <white>{pulse}s<gray>).</green>"
+        },
+        "bh": {
+          "enabled": "<green>BlockHelper ativado! <gray>Redstone automática em escadas, lajes, vidro e glowstone.</gray>",
+          "disabled": "<gray>BlockHelper desativado."
+        },
+        // O /luz saiu daqui em 2026-07-27: virou a lanterna do essentials (módulo utils →
+        // função `lantern`). Os textos foram para cannoning/essentials/utils.jsonc, com OUTRAS
+        // chaves (success-enable / success-disable / cannot-use-on-spawn).
+        "ntc": {
+          "received": "<green>Você recebeu o <white>Node Tick Counter</white>!"
+        },
+        "tc": {
+          "received": "<green>Você recebeu o <white>Tick Counter</white>!"
+        },
+        "explosionboxes": {
+          "ativado": "<green>Visualização de explosões <white>ativada</white>! Só você enxerga as caixas.</green>",
+          "desativado": "<green>Visualização de explosões <white>desativada</white>.</green>"
+        },
+        // Menu direto dos oito kits de ferramenta. /kit e /kits pertencem ao CannonUtils;
+        // o módulo de kits do Essentials fica desligado no Cannoning.
+        "kit": {
+          "invalid-item": "<red>Item inválido. Disponíveis: <white>{items}</white>.</red>",
+          "given": "<green>Você recebeu <white>{amount}x</white> <white>{item}</white>.</green>",
+          "given-pickaxe": "<green>Você recebeu a <white>Picareta SILK2</white>!</green>",
+          "item-unavailable": "<red>Este kit está temporariamente indisponível. Tente novamente em instantes.</red>",
+          "clock": {
+            "prompt-interval": "Digite o <white>intervalo</white> do relógio em segundos <gray>(ex.: 1.8)</gray>.",
+            "prompt-pulse": "Intervalo definido em <white>{interval}s</white>. Agora digite a duração do <white>pulso</white> em segundos, menor que o intervalo <gray>(ex.: 0.2)</gray>.",
+            "invalid-number": "<red>Tempo inválido: <white>{value}</white>. Digite um número maior que zero.</red>",
+            "invalid-pulse": "<red>O pulso precisa ser menor que o intervalo de <white>{interval}s</white>.</red>"
+          }
+        },
+        "tntfill": {
+          "filled": "<green>Ejetores preenchidos: <white>{amount}</white>.</green>",
+          "skipped-other": "<gray>Ignorados por terem item que não é TNT: <white>{amount}</white>.</gray>",
+          "skipped-no-target": "<gray>Ignorados por não ter tipo definido: <white>{amount}</white>.</gray>",
+          "no-worldedit": "<red>O WorldEdit não está instalado neste servidor.</red>",
+          "no-selection": "<red>Você não tem uma seleção completa do WorldEdit! Marque as duas posições.</red>",
+          "invalid-radius": "<red>Raio inválido: <white>{value}</white>. Informe um número.</red>",
+          "usage": [
+            "<yellow>/tntfill <impulso|dano> [raio] <dark_gray>-</dark_gray> <gray>enche numa esfera ao seu redor.",
+            "<yellow>/tntfill <impulso|dano> we <dark_gray>-</dark_gray> <gray>enche na seleção do WorldEdit.",
+            "<yellow>/tntfill <dark_gray>-</dark_gray> <gray>enche os ejetores já tipados por perto."
+          ]
+        },
+        "tntunfill": {
+          "emptied": "<green>Ejetores esvaziados: <white>{amount}</white>.</green>",
+          "no-worldedit": "<red>O WorldEdit não está instalado neste servidor.</red>",
+          "no-selection": "<red>Você não tem uma seleção completa do WorldEdit! Marque as duas posições.</red>",
+          "usage": [
+            "<yellow>/tntunfill <dark_gray>-</dark_gray> <gray>esvazia os dois tipos, no raio padrão.",
+            "<yellow>/tntunfill <impulso|dano> [raio] <dark_gray>-</dark_gray> <gray>esvazia só esse tipo.",
+            "<yellow>/tntunfill [impulso|dano] we <dark_gray>-</dark_gray> <gray>esvazia na seleção do WorldEdit."
+          ]
+        },
+        "multidispenser": {
+          "usage": "<red>Uso: /multidispenser <quantidade> [pavio] [delay] [prioridade]</red>",
+          "prompt-ask": "Digite a quantidade de TNTs por disparo <gray>(máximo <white>{maximo}</white>)</gray>.",
+          "prompt-invalid": "<red>Quantidade inválida! Digite um número maior que zero.</red>",
+          "given": "<green>Você recebeu um MultiDispenser de <yellow>{amount}</yellow> TNTs! <gray>Pavio <white>{fuse}</white>, delay <white>{delay}</white>, prioridade <white>{priority}</white>."
+        },
+        "xray": {
+          "enabled": "<green>Xray ativado! Só a redstone fica visível. Use <white>/xray <green>de novo para atualizar.",
+          "disabled": "<yellow>Xray desativado.</yellow>"
+        },
+        "dispensercheck": {
+          "enabled": "<green>Verificação de ejetores ativada! A cor do vidro mostra quantas vezes cada um disparou.",
+          "disabled": "<yellow>Verificação de ejetores desativada.</yellow>"
+        },
+        "ping": {
+          "self": "<yellow>Seu ping é de {ping}<yellow>ms.</yellow>",
+          "other": "<yellow>O ping de </yellow>{jogador_name_with_tag} <yellow>é de {ping}<yellow>ms.</yellow>",
+          "not-found": "<red>O jogador <yellow>{jogador}</yellow> não está online.</red>",
+          "errors": {
+            "only-player": "<red>Pelo console você precisa informar o jogador. Uso: /ping <jogador></red>"
+          }
+        },
+        "playerscale": {
+          "usage": "<red>Uso: /playerscale <valor|reset|get> [jogador]</red>",
+          "player-not-found": "<red>O jogador <yellow>{jogador}</yellow> não está online.</red>",
+          "get": "<yellow>A escala de </yellow>{jogador_name_with_tag} <yellow>é <white>{escala}</white>.</yellow>",
+          "invalid-number": "<red>Valor inválido: <white>{valor}</white>. Informe um número, <white>reset</white> ou <white>get</white>.</red>",
+          "out-of-range": "<red>A escala deve estar entre <white>{minimo}</white> e <white>{maximo}</white>.</red>",
+          "set": "<green>Sua escala foi definida para <yellow>{escala}</yellow>!</green>",
+          "reset": "<green>Sua escala foi restaurada para <yellow>{escala}</yellow>!</green>",
+          "set-other": "<green>Você definiu a escala de </green>{jogador_name_with_tag} <green>para <yellow>{escala}</yellow>!</green>",
+          "notified": "<yellow>Sua escala foi alterada para <white>{escala}</white>.</yellow>",
+          "errors": {
+            "only-player": "<red>Pelo console você precisa informar o jogador. Uso: /playerscale <valor|reset|get> <jogador></red>",
+            "no-scale-attribute": "<red>Ocorreu um erro interno. Tente novamente mais tarde.</red>"
+          }
+        },
+        "clearentities": {
+          "no-plot": "<red>Você precisa estar dentro de uma plot para usar este comando.</red>",
+          "no-permission": "<red>Você não tem permissão para gerenciar esta plot.</red>",
+          "none": "<yellow>Não havia nada para limpar nesta plot.</yellow>",
+          "header": "<green>Você limpou <white>{total}</white> <green>entidades da sua plot!</green>",
+          "line-items": "<dark_gray>▸ <white>Itens: <yellow>{amount}",
+          "line-tnt": "<dark_gray>▸ <white>TNT: <yellow>{amount}",
+          "line-block": "<dark_gray>▸ <white>{block}: <yellow>{amount}"
+        },
+        "corner": {
+          "usage": "<red>Uso: /corner <quina> — informe um número de 1 a 4.</red>",
+          "no-plot": "<red>Você precisa estar dentro de uma plot para usar este comando.</red>",
+          "no-permission": "<red>Você não tem permissão para gerenciar esta plot.</red>",
+          "teleported": "<green>Você foi teleportado para a quina <yellow>{corner}</yellow> da sua plot!</green>"
+        },
+        "drops": {
+          "no-plot": "<red>Você precisa estar dentro de uma plot para usar este comando.</red>",
+          "no-permission": "<red>Você não tem permissão para gerenciar esta plot.</red>",
+          "enabled": "<green>Você ativou os drops nesta plot!</green>",
+          "disabled": "<green>Você desativou os drops nesta plot!</green>"
+        },
+        "alcance": {
+          "on": "<green>Alcance ativado.</green> <gray>Você receberá a distância de cada disparo dos seus dispensers selecionados.</gray>",
+          "off": "<yellow>Alcance desativado.</yellow> <gray>Você não receberá mais a distância dos disparos.</gray>"
+        },
+        "ajuste": {
+          "on": "<green>Ajuste ativado.</green> <gray>Você receberá a velocidade do impulso de cada disparo dos seus dispensers selecionados.</gray>",
+          "off": "<yellow>Ajuste desativado.</yellow> <gray>Você não receberá mais a velocidade dos disparos.</gray>"
+        },
+        "dselecionar": {
+          "on": "<green>Modo de seleção ativado.</green> <gray>Clique com o botão direito nos dispensers para selecioná-los.</gray>",
+          "off": "<yellow>Modo de seleção desativado.</yellow> <gray>Os dispensers voltam a abrir normalmente.</gray>",
+          "cleared": "<green>Todos os seus dispensers foram desselecionados!</green>"
+        },
+        "configsreload": {
+          "success": "<green>Configs dos plugins de canhão recarregadas com sucesso.",
+          "failed": "<red>Falha ao recarregar uma ou mais configs. Veja o console para detalhes."
+        },
+        "fire": {
+          "triggered": "<green>Botão acionado à distância.</green>",
+          "none": "<red>Você não clicou em nenhum botão recentemente (ou ele não existe mais).</red>"
+        },
+        "lever": {
+          "triggered": "<green>Alavanca alternada à distância.</green>",
+          "none": "<red>Você não clicou em nenhuma alavanca recentemente (ou ela não existe mais).</red>"
+        },
+        "noteblock": {
+          "triggered": "<green>Noteblock reacionado à distância.</green>",
+          "none": "<red>Você não clicou em nenhum noteblock recentemente (ou ele não existe mais).</red>"
+        }
+      },
+      "views": {
+        "kit": {
+          "title": "Kits de Canhoneio",
+          "items": {
+            "dispenser-impulse": {
+              "name": "<color:#ff2d2d>Ejetor de Impulso",
+              "lore": [
+                "<gray>Ejetor que atira TNT de",
+                "<gray>impulso para empurrar o canhão.",
+                "",
+                "<color:#ff2d2d> Propriedades:",
+                "<dark_gray>▸</dark_gray> <white>Carga:</white> <gray>TNT de Impulso",
+                "<dark_gray>▸</dark_gray> <white>Reabastece com:</white> <gray>/tntfill impulso",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "dispenser-normal": {
+              "name": "<color:#ff2d2d>Ejetor de Dano",
+              "lore": [
+                "<gray>Ejetor que atira TNT normal",
+                "<gray>para causar dano na base inimiga.",
+                "",
+                "<color:#ff2d2d> Propriedades:",
+                "<dark_gray>▸</dark_gray> <white>Carga:</white> <gray>TNT de Dano",
+                "<dark_gray>▸</dark_gray> <white>Reabastece com:</white> <gray>/tntfill dano",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "tnt-impulse": {
+              "name": "<color:#ff2d2d>TNT de Impulso",
+              "lore": [
+                "<gray>TNT que empurra o canhão",
+                "<gray>em vez de causar dano.",
+                "",
+                "<color:#ff2d2d> Propriedades:",
+                "<dark_gray>▸</dark_gray> <white>Quantidade:</white> <gray>64",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "bedrock-pickaxe": {
+              "name": "<color:#ff2d2d>Picareta SILK2",
+              "lore": [
+                "<gray>Quebra bedrock e blocos de",
+                "<gray>proteção com um único golpe.",
+                "",
+                "<color:#ff2d2d> Propriedades:",
+                "<dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>500",
+                "<dark_gray>▸</dark_gray> <white>Gasto por bloco:</white> <gray>5",
+                "<dark_gray>▸</dark_gray> <white>Recupera:</white> <gray>5/s parada 5s",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "clock": {
+              "name": "<color:#ff2d2d>Relógio de Redstone",
+              "lore": [
+                "<gray>Cria pulsos automáticos com",
+                "<gray>o tempo definido por você.",
+                "",
+                "<color:#ff2d2d> Configuração:",
+                "<dark_gray>▸</dark_gray> <white>Intervalo:</white> <gray>definido no chat",
+                "<dark_gray>▸</dark_gray> <white>Pulso:</white> <gray>definido no chat",
+                "",
+                "<green>Clique para configurar."
+              ]
+            },
+            "tick-counter": {
+              "name": "<color:#ff2d2d>Tick Counter",
+              "lore": [
+                "<gray>Soma o tempo de repetidores,",
+                "<gray>comparadores e observadores.",
+                "",
+                "<color:#ff2d2d> Uso:",
+                "<dark_gray>▸</dark_gray> <white>Direito:</white> <gray>somar",
+                "<dark_gray>▸</dark_gray> <white>Esquerdo:</white> <gray>redefinir",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "node-tick-counter": {
+              "name": "<color:#ff2d2d>Node Tick Counter",
+              "lore": [
+                "<gray>Mede a diferença de game ticks",
+                "<gray>entre os nós de redstone.",
+                "",
+                "<color:#ff2d2d> Uso:",
+                "<dark_gray>▸</dark_gray> <white>Direito:</white> <gray>selecionar nó",
+                "<dark_gray>▸</dark_gray> <white>Esquerdo:</white> <gray>limpar",
+                "",
+                "<green>Clique para receber."
+              ]
+            },
+            "chunk-loader": {
+              "name": "<color:#ff2d2d>Chunk Loader",
+              "lore": [
+                "<gray>Mantém as chunks ao redor",
+                "<gray>carregadas e tickando.",
+                "",
+                "<color:#ff2d2d> Propriedades:",
+                "<dark_gray>▸</dark_gray> <white>Uso:</white> <gray>dentro do seu plot",
+                "<dark_gray>▸</dark_gray> <white>Limite:</white> <gray>conforme seu rank",
+                "",
+                "<green>Clique para receber."
+              ]
+            }
+          }
+        },
+        "canhao": {
+          "title": {
+            "mine": "Meus Canhões",
+            "public": "Canhões Públicos"
+          },
+          "toggle": {
+            "to-public": "<color:#ff2d2d>Ver canhões públicos",
+            "to-mine": "<color:#ff2d2d>Ver meus canhões"
+          },
+          "visibility": {
+            "public": "<green>Público",
+            "private": "<red>Privado"
+          },
+          "items": {
+            "cannon": {
+              "name": "<color:#ff2d2d>{name}",
+              "mine": {
+                "lore": [
+                  "<color:#ff2d2d> Propriedades:",
+                  "<dark_gray>▸</dark_gray> <white>Tamanho:</white> <gray>{size}",
+                  "<dark_gray>▸</dark_gray> <white>Criado em:</white> <gray>{date}",
+                  "<dark_gray>▸</dark_gray> <white>Visibilidade: {visibility}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Colar virado para você",
+                  "<yellow>Botão Direito <dark_gray>▸ <white>Alternar visibilidade"
+                ],
+                // Mesma lore + a linha do atalho de treino. Só quem administra treinos recebe esta
+                // versão (o Java escolhe a chave); para os demais o shift-clique nem existe.
+                "lore-admin": [
+                  "<color:#ff2d2d> Propriedades:",
+                  "<dark_gray>▸</dark_gray> <white>Tamanho:</white> <gray>{size}",
+                  "<dark_gray>▸</dark_gray> <white>Criado em:</white> <gray>{date}",
+                  "<dark_gray>▸</dark_gray> <white>Visibilidade: {visibility}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Colar virado para você",
+                  "<yellow>Botão Direito <dark_gray>▸ <white>Alternar visibilidade",
+                  "<yellow>Shift + Esquerdo <dark_gray>▸ <white>Gerar treino"
+                ]
+              },
+              "public": {
+                "lore": [
+                  "<color:#ff2d2d> Propriedades:",
+                  "<dark_gray>▸</dark_gray> <white>Dono:</white> {owner_name_with_tag}",
+                  "<dark_gray>▸</dark_gray> <white>Tamanho:</white> <gray>{size}",
+                  "<dark_gray>▸</dark_gray> <white>Criado em:</white> <gray>{date}",
+                  "",
+                  "<color:#ff2d2d>Clique para colar virado para você."
+                ],
+                "lore-admin": [
+                  "<color:#ff2d2d> Propriedades:",
+                  "<dark_gray>▸</dark_gray> <white>Dono:</white> {owner_name_with_tag}",
+                  "<dark_gray>▸</dark_gray> <white>Tamanho:</white> <gray>{size}",
+                  "<dark_gray>▸</dark_gray> <white>Criado em:</white> <gray>{date}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Colar virado para você",
+                  "<yellow>Shift + Esquerdo <dark_gray>▸ <white>Gerar treino"
+                ]
+              }
+            }
+          },
+          "empty": {
+            "mine": {
+              "name": "<red>Nenhum canhão salvo",
+              "lore": [
+                "<gray>Você ainda não salvou",
+                "<gray>nenhum canhão.",
+                "",
+                "<color:#ff2d2d>Selecione o canhão com o",
+                "<color:#ff2d2d>WorldEdit e use /canhao criar."
+              ]
+            },
+            "public": {
+              "name": "<red>Nenhum canhão público",
+              "lore": [
+                "<gray>Ninguém publicou nenhum",
+                "<gray>canhão ainda.",
+                "",
+                "<color:#ff2d2d>Publique o seu com",
+                "<color:#ff2d2d>/canhao publico."
+              ]
+            }
+          }
+        }
+      },
+      "items": {
+        // A maçã do PvP: MESMO nome, MESMA lore e MESMOS efeitos do custom item do servidor de
+        // factions (pt_br.lang/factions/customized-items.jsonc). O PvP daqui tem de ser igual ao
+        // de lá, e a maçã é parte disso.
+        "golden-apple": {
+          "name": "<gradient:#FF8200:#FFF763>Maçã dourada encantada",
+          "display-name": "<gradient:#FF8200:#FFF763>Maçã dourada encantada",
+          "lore": [
+            "<gray>Maçã com efeitos especiais",
+            "<gray>ao consumir.",
+            "",
+            "<gradient:#FF8200:#FFF763> Efeitos:",
+            "<dark_gray> ▸ <white>Regeneração V <gray>(35s)",
+            "<dark_gray> ▸ <white>Resistência II <gray>(40s)"
+          ]
+        },
+        "bedrock-pickaxe": {
+          "name": "<color:#ff2d2d>Picareta SILK2",
+          "lore": [
+            "<gray>Quebra bedrock e blocos de",
+            "<gray>proteção com um único golpe,",
+            "<gray>gastando durabilidade.",
+            "",
+            "<color:#ff2d2d> Propriedades:",
+            "<dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>500",
+            "<dark_gray>▸</dark_gray> <white>Gasto por bloco:</white> <gray>5",
+            "<dark_gray>▸</dark_gray> <white>Recupera:</white> <gray>5/s",
+            "",
+            "<gray>Ela só se recupera depois de",
+            "<gray><white>5 segundos</white> sem quebrar nada.",
+            "",
+            "<color:#ff2d2d>O bloco volta para você (SILK2).",
+            "",
+            "<color:#ff2d2d>Clique direito na bigorna para reparar."
+          ],
+          "full": "<red>Sua <white>Picareta SILK2</white> já está com a durabilidade cheia!</red>",
+          "no-diamond": "<red>Você precisa de <white>{diamonds}</white> diamante(s) para reparar a picareta.</red>",
+          "repaired": "<green>Picareta reparada em <white>{percent}%</white> <green>por <white>{diamonds}</white> <green>diamante(s)!</green>"
+        },
+        "dispenser": {
+          "impulse": {
+            "name": "<color:#ff2d2d>Ejetor de Impulso",
+            "lore": [
+              "<gray>Ejetor que atira TNT de",
+              "<gray>impulso para empurrar o canhão.",
+              "",
+              "<color:#ff2d2d> Propriedades:",
+              "<dark_gray>▸</dark_gray> <white>Carga:</white> <gray>TNT de Impulso",
+              "",
+              "<color:#ff2d2d>Use /tntfill impulso para reabastecer."
+            ]
+          },
+          "normal": {
+            "name": "<color:#ff2d2d>Ejetor de Dano",
+            "lore": [
+              "<gray>Ejetor que atira TNT normal",
+              "<gray>para causar dano na base inimiga.",
+              "",
+              "<color:#ff2d2d> Propriedades:",
+              "<dark_gray>▸</dark_gray> <white>Carga:</white> <gray>TNT de Dano",
+              "",
+              "<color:#ff2d2d>Use /tntfill dano para reabastecer."
+            ]
+          }
+        }
+      },
+      "chunkloader": {
+        "item": {
+          "name": "<color:#ff2d2d>Chunk Loader",
+          "lore": [
+            "<gray>Mantém as chunks ao redor",
+            "<gray>sempre carregadas e tickando.",
+            "",
+            "<gray>Funciona apenas dentro do seu plot.",
+            "",
+            "<color:#ff2d2d>Posicione para ativar."
+          ]
+        },
+        "messages": {
+          "placed": "<green>Chunk Loader ativado! Carregando <yellow>{chunks}</yellow> chunks.",
+          "removed": "<yellow>Chunk Loader removido.</yellow>",
+          "outside-plot": "<red>O Chunk Loader só funciona dentro do seu plot.",
+          "chunk-covered": "<red>Já existe um Chunk Loader cobrindo esta chunk.",
+          "limit-reached": "<red>Você atingiu o limite de <yellow>{max}</yellow> Chunk Loaders! Use <white>/chunkloader limpar<red>."
+        }
+      },
+      "clock": {
+        "item": {
+          "name": "<color:#ff2d2d>Relógio de Redstone",
+          "lore": [
+            "<gray>Pulsa sozinho no intervalo",
+            "<gray>que você definiu.",
+            "",
+            "<color:#ff2d2d> Propriedades:",
+            "<dark_gray>▸</dark_gray> <white>Intervalo:</white> <gray>{interval}s",
+            "<dark_gray>▸</dark_gray> <white>Pulso:</white> <gray>{pulse}s",
+            "",
+            "<color:#ff2d2d>Posicione e use o botão direito",
+            "<color:#ff2d2d>para configurar pelo menu."
+          ]
+        },
+        "display": [
+          "<color:#ff2d2d>Intervalo <white>{interval}s",
+          "<color:#ff2d2d>Pulso <white>{pulse}s"
+        ],
+        "views": {
+          "config": {
+            "title": "Configurar Relógio",
+            "no-permission": "<red>Você não pode configurar relógios nesta plot.</red>",
+            "unavailable": "<red>Este relógio não está mais disponível.</red>",
+            "items": {
+              "summary": {
+                "name": "<color:#ff2d2d>Relógio de Redstone",
+                "lore": [
+                  "<gray>Configuração deste relógio.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Intervalo:</white> <gray>{interval}s",
+                  "<dark_gray>▸</dark_gray> <white>Pulso:</white> <gray>{pulse}s",
+                  "",
+                  "<green>Alterações salvas automaticamente."
+                ]
+              },
+              "interval-decrease": {
+                "name": "<red>Diminuir intervalo",
+                "lore": [
+                  "<gray>Reduz o tempo do ciclo completo.",
+                  "",
+                  "<color:#ff2d2d>Clique <dark_gray>▸ <white>-0,05s",
+                  "<yellow>Shift + clique <dark_gray>▸ <white>-0,5s"
+                ]
+              },
+              "interval": {
+                "name": "<color:#ff2d2d>Intervalo",
+                "lore": [
+                  "<gray>Tempo total entre o início",
+                  "<gray>de dois pulsos consecutivos.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{interval}s"
+                ]
+              },
+              "interval-increase": {
+                "name": "<green>Aumentar intervalo",
+                "lore": [
+                  "<gray>Aumenta o tempo do ciclo completo.",
+                  "",
+                  "<color:#ff2d2d>Clique <dark_gray>▸ <white>+0,05s",
+                  "<yellow>Shift + clique <dark_gray>▸ <white>+0,5s"
+                ]
+              },
+              "pulse-decrease": {
+                "name": "<red>Diminuir pulso",
+                "lore": [
+                  "<gray>Reduz o tempo com o sinal ligado.",
+                  "",
+                  "<color:#ff2d2d>Clique <dark_gray>▸ <white>-0,05s",
+                  "<yellow>Shift + clique <dark_gray>▸ <white>-0,5s"
+                ]
+              },
+              "pulse": {
+                "name": "<color:#ff2d2d>Pulso",
+                "lore": [
+                  "<gray>Tempo em que o bloco permanece",
+                  "<gray>emitindo sinal de redstone.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{pulse}s"
+                ]
+              },
+              "pulse-increase": {
+                "name": "<green>Aumentar pulso",
+                "lore": [
+                  "<gray>Aumenta o tempo com o sinal ligado.",
+                  "",
+                  "<color:#ff2d2d>Clique <dark_gray>▸ <white>+0,05s",
+                  "<yellow>Shift + clique <dark_gray>▸ <white>+0,5s"
+                ]
+              },
+              "help": {
+                "name": "<yellow>Como funciona?",
+                "lore": [
+                  "<gray>O intervalo é o ciclo completo.",
+                  "<gray>O pulso é a parte com sinal ligado.",
+                  "",
+                  "<gray>O pulso sempre fica menor que",
+                  "<gray>o intervalo e nunca chega a zero.",
+                  "",
+                  "<green>Cada relógio guarda seus próprios tempos."
+                ]
+              }
+            }
+          }
+        }
+      },
+      "counter": {
+        "ntc": {
+          "item": {
+            "name": "<color:#ff2d2d>Node Tick Counter",
+            "lore": [
+              "<gray>Mede o delta de game ticks",
+              "<gray>entre os nós de redstone.",
+              "<gray>O primeiro nó a disparar vira o 0.",
+              "",
+              "<yellow>Botão Direito <dark_gray>▸ <white>Selecionar nó",
+              "<green>Botão Esquerdo <dark_gray>▸ <white>Limpar"
+            ]
+          },
+          "cleared": "<yellow>Node Tick Counter limpo.</yellow>",
+          "selected": "<green>Nó <yellow>{node}</yellow> selecionado <gray>({type})</gray>!",
+          "activated": "<yellow>Nó {node}: <white>{gt} gt <gray>| <white>{rst} rst <gray>| <white>{seconds}s",
+          "types": {
+            "redstone": "redstone",
+            "repeater": "repetidor",
+            "comparator": "comparador",
+            "piston": "pistão",
+            "sticky-piston": "pistão grudento",
+            "redstone-torch": "tocha de redstone",
+            "observer": "observador",
+            "generic": "componente"
+          }
+        },
+        "tc": {
+          "item": {
+            "name": "<color:#ff2d2d>Tick Counter",
+            "lore": [
+              "<gray>Acumula RST clicando em",
+              "<gray>repetidores, comparadores",
+              "<gray>e observadores.",
+              "",
+              "<dark_gray>▸</dark_gray> <white>Repetidor:</white> <gray>vale o delay (1-4)",
+              "<dark_gray>▸</dark_gray> <white>Comparador/Observador:</white> <gray>vale 1",
+              "",
+              "<yellow>Botão Direito <dark_gray>▸ <white>Somar",
+              "<green>Botão Esquerdo <dark_gray>▸ <white>Redefinir"
+            ]
+          },
+          "reset": "<yellow>Tick Counter redefinido.</yellow>",
+          "counted": "<yellow>Total: <white>{rst} rst <gray>| <white>{gt} gt <gray>| <white>{seconds}s"
+        }
+      },
+      "multidispenser": {
+        "item": {
+          "name": "<color:#ff2d2d>MultiDispenser",
+          "lore": [
+            "<gray>Ejetor especial que solta",
+            "<gray>várias TNTs por disparo.",
+            "",
+            "<color:#ff2d2d> Propriedades:",
+            "<dark_gray>▸</dark_gray> <white>Quantidade:</white> <gray>{amount}",
+            "<dark_gray>▸</dark_gray> <white>Pavio:</white> <gray>{fuse} ticks",
+            "<dark_gray>▸</dark_gray> <white>Delay:</white> <gray>{delay} ticks",
+            "<dark_gray>▸</dark_gray> <white>Prioridade:</white> <gray>{priority}",
+            "",
+            "<color:#ff2d2d>Agache + botão direito para configurar."
+          ]
+        },
+        "container": {
+          "name": "MultiDispenser {amount}x ▸ {fuse}f ▸ {delay}d ▸ P{priority}"
+        },
+        "views": {
+          "config": {
+            "title": "Configurar MultiDispenser",
+            "amount-ask": "Digite a nova quantidade <gray>(máximo <white>{maximo}</white>)</gray>.",
+            "amount-invalid": "<red>Quantidade inválida! Digite um número maior que zero.</red>",
+            "items": {
+              "summary": {
+                "name": "<color:#ff2d2d>Resumo",
+                "lore": [
+                  "<gray>Configuração atual deste",
+                  "<gray>MultiDispenser.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Quantidade:</white> <gray>{amount}",
+                  "<dark_gray>▸</dark_gray> <white>Pavio:</white> <gray>{fuse} ticks",
+                  "<dark_gray>▸</dark_gray> <white>Delay:</white> <gray>{delay} ticks",
+                  "<dark_gray>▸</dark_gray> <white>Prioridade:</white> <gray>{priority}"
+                ]
+              },
+              "amount": {
+                "name": "<color:#ff2d2d>Quantidade",
+                "lore": [
+                  "<gray>Quantas TNTs saem a cada",
+                  "<gray>disparo do ejetor.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{value}",
+                  "",
+                  "<color:#ff2d2d>Clique para digitar no chat."
+                ]
+              },
+              "fuse": {
+                "name": "<color:#ff2d2d>Pavio",
+                "lore": [
+                  "<gray>Ticks até a TNT explodir",
+                  "<gray>depois de ser lançada.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{value}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Aumentar",
+                  "<yellow>Botão Direito <dark_gray>▸ <white>Diminuir",
+                  "<yellow>Shift <dark_gray>▸ <white>Passo de 10"
+                ]
+              },
+              "delay": {
+                "name": "<color:#ff2d2d>Delay",
+                "lore": [
+                  "<gray>Ticks de espera entre o",
+                  "<gray>disparo e a ejeção.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{value}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Aumentar",
+                  "<yellow>Botão Direito <dark_gray>▸ <white>Diminuir",
+                  "<yellow>Shift <dark_gray>▸ <white>Passo de 10"
+                ]
+              },
+              "priority": {
+                "name": "<color:#ff2d2d>Prioridade",
+                "lore": [
+                  "<gray>Ordem na fila de ejeção.",
+                  "<gray>Quanto menor, mais cedo ejeta.",
+                  "",
+                  "<dark_gray>▸</dark_gray> <white>Atual:</white> <gray>{value}",
+                  "",
+                  "<green>Botão Esquerdo <dark_gray>▸ <white>Aumentar",
+                  "<yellow>Botão Direito <dark_gray>▸ <white>Diminuir",
+                  "<yellow>Shift <dark_gray>▸ <white>Passo de 10"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "preferences": {
+        // Preferências registradas na GUI /pref do CORE (CannonPreferencesRegistry). O core lê
+        // <base>.name e <base>.description; no ebox-time (enum) lê também options.<constante>.
+        // O menu /preferencias próprio do port foi removido (colidia com o /pref do core).
+        //
+        // A preferência "luz" saiu em 2026-07-27: a lanterna virou a do essentials, que guarda o
+        // estado no PDC do jogador e não tem entrada no /pref.
+        "bh": {
+          "name": "<color:#ff2d2d>BlockHelper",
+          "description": [
+            "<gray>Monta a redstone automática ao</gray>",
+            "<gray>posicionar escadas, lajes,</gray>",
+            "<gray>vidro e glowstone.</gray>"
+          ]
+        },
+        "alcance": {
+          "name": "<color:#ff2d2d>Alcance",
+          "description": [
+            "<gray>Mostra onde a TNT dos dispensers</gray>",
+            "<gray>selecionados caiu (/dselecionar).</gray>"
+          ]
+        },
+        "ajuste": {
+          "name": "<color:#ff2d2d>Ajuste",
+          "description": [
+            "<gray>Mostra a velocity de saída da TNT</gray>",
+            "<gray>dos dispensers selecionados.</gray>"
+          ]
+        },
+        "ebox": {
+          "name": "<color:#ff2d2d>Explosion Boxes",
+          "description": [
+            "<gray>Marca no mundo onde cada TNT</gray>",
+            "<gray>explodiu, por alguns segundos.</gray>"
+          ]
+        },
+        "ebox-time": {
+          "name": "<color:#ff2d2d>Tempo das Explosion Boxes",
+          "description": [
+            "<gray>Por quanto tempo cada caixa de</gray>",
+            "<gray>explosão fica visível para você.</gray>"
+          ],
+          "options": {
+            "padrao": "Padrão do servidor",
+            "s1": "1 segundo",
+            "s3": "3 segundos",
+            "s5": "5 segundos",
+            "s10": "10 segundos",
+            "s15": "15 segundos",
+            "s30": "30 segundos",
+            "s60": "60 segundos"
+          }
+        }
+      },
+      "range": {
+        "selected": "<green>Dispenser <yellow>#{id}</yellow> selecionado! <gray>(<white>{quantidade}</white>/<white>{maximo}</white>)</gray>",
+        "deselected": "<green>Dispenser <yellow>#{id}</yellow> desselecionado.</green>",
+        "limit": "<red>Você já selecionou o máximo de <white>{maximo}</white> dispensers! Use <white>/dselecionar limpar<red> para recomeçar.",
+        "debug": "<yellow>Dispenser #{id}: <gray>explosão em <white>{coord} <gray>| delta <white>{alcance} <gray>| alcance <white>{distancia}<gray> blocos",
+        "adjust": "<yellow>Dispenser #{id}: <gray>impulso <white>{velocidade}"
+      },
+      "help": {
+        "errors": {
+          "not-found": "<red>Página não encontrada. Use <white>/ajuda<red> para ver o índice.</red>"
+        },
+        "pages": {
+          "inicio": {
+            "display": "Início",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "            <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<gray>Bem-vindo! Escolha uma categoria (clique no nome):",
+              "",
+              "  <dark_gray>▸</dark_gray> </color> <hover:show_text:'<gray>Clique para abrir <white>Configuração'><click:run_command:'/ajuda config'><yellow>Configuração</yellow></click></hover> <dark_gray>-</dark_gray> <gray>tnt, drops, durabilidade",
+              "  <dark_gray>▸</dark_gray> </color> <hover:show_text:'<gray>Clique para abrir <white>Debug'><click:run_command:'/ajuda debug'><yellow>Debug</yellow></click></hover> <dark_gray>-</dark_gray> <gray>seleção, alcance, ajuste, ticks",
+              "  <dark_gray>▸</dark_gray> </color> <hover:show_text:'<gray>Clique para abrir <white>Construção'><click:run_command:'/ajuda construcao'><yellow>Construção</yellow></click></hover> <dark_gray>-</dark_gray> <gray>camada, plataforma, bh, canhao",
+              "  <dark_gray>▸</dark_gray> </color> <hover:show_text:'<gray>Clique para abrir <white>Básicos'><click:run_command:'/ajuda basicos'><yellow>Básicos</yellow></click></hover> <dark_gray>-</dark_gray> <gray>kit, spawn, warps, gatilhos",
+              "  <dark_gray>▸</dark_gray> </color> <hover:show_text:'<gray>Clique para abrir <white>Utilidades'><click:run_command:'/ajuda utilidades'><yellow>Utilidades</yellow></click></hover> <dark_gray>-</dark_gray> <gray>corner, chunkloader, xray...",
+              "",
+              "<gray>Você também pode abrir direto:",
+              "<dark_gray>▸ <white>/ajuda <categoria> <gray>(ex.: <white>/ajuda Debug<gray>)",
+              "<dark_gray>▸ <gray>Use as setas no rodapé para navegar.",
+              "",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<gray>Página <white>{page}<dark_gray>/<white>{total}                         <hover:show_text:'<gray>Clique para abrir <white>Configuração'><click:run_command:'/ajuda config'><yellow><bold>Próxima ▸</bold></yellow></click></hover>"
+            ]
+          },
+          "config": {
+            "display": "Configuração",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "      <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<yellow>/tnt <dark_gray>-</dark_gray> <gray>abre o menu de configuração da TNT (na sua plot)",
+              "",
+              "<yellow>/drops <dark_gray>-</dark_gray> <gray>liga/desliga os drops dentro da sua plot",
+              "",
+              "<yellow>/durabilidade <gray>(/durability) <dark_gray>-</dark_gray> <gray>ajusta quais blocos têm",
+              "    <gray>durabilidade e quanto, dentro da sua plot",
+              "",
+              "",
+              "",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><yellow><bold>◂ Anterior</bold></yellow></click></hover>   <gray>{page}<dark_gray>/<white>{total}  <dark_gray>▪ <hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><gray>Menu</gray></click></hover>   <hover:show_text:'<gray>Clique para abrir <white>Debug'><click:run_command:'/ajuda debug'><yellow><bold>Próxima ▸</bold></yellow></click></hover>"
+            ]
+          },
+          "debug": {
+            "display": "Debug",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "         <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<yellow>/dselecionar <gray>(/dsel, /dselec) <dark_gray>-</dark_gray> <gray>liga/desliga a seleção de ejetores",
+              "",
+              "<yellow>/alcance <dark_gray>-</dark_gray> <gray>liga/desliga a msg de explosão e alcance da TNT selecionada",
+              "",
+              "<yellow>/ajuste <dark_gray>-</dark_gray> <gray>liga/desliga a msg de ajuste (velocity) da TNT selecionada",
+              "",
+              "<yellow>/dispensercheck <gray>(/dc) <dark_gray>-</dark_gray> <gray>pinta os ejetores como",
+              "    <gray>vidro pela contagem de ativações do último tiro (0/1/2/3+)",
+              "",
+              "<yellow>/ntc <dark_gray>-</dark_gray> <gray>entrega o contador de ticks por nodos",
+              "<yellow>/tc <dark_gray>-</dark_gray> <gray>entrega o contador de ticks simples",
+              "<yellow>/explosionboxes <gray>(/ebox) <dark_gray>-</dark_gray> <gray>mostra onde as TNTs explodem (só pra você)",
+              "<yellow>/pref <dark_gray>-</dark_gray> <gray>preferências (bh, ebox, alcance, ajuste) — menu do servidor",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<hover:show_text:'<gray>Clique para abrir <white>Configuração'><click:run_command:'/ajuda config'><yellow><bold>◂ Anterior</bold></yellow></click></hover>   <gray>{page}<dark_gray>/<white>{total}  <dark_gray>▪ <hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><gray>Menu</gray></click></hover>   <hover:show_text:'<gray>Clique para abrir <white>Construção'><click:run_command:'/ajuda construcao'><yellow><bold>Próxima ▸</bold></yellow></click></hover>"
+            ]
+          },
+          "construcao": {
+            "display": "Construção",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "       <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<yellow>/bh <dark_gray>-</dark_gray> <gray>liga/desliga a ajuda em escadas de redstone",
+              "    <gray>(glowstone/vidro colocados automaticamente)",
+              "",
+              "<yellow>/camada <gray><raio> <comprimento> [bloco] <dark_gray>-</dark_gray> <gray>cria camadas na",
+              "    <gray>direção que você está olhando",
+              "",
+              "<yellow>/camada regen <dark_gray>-</dark_gray> <gray>regenera a última camada criada",
+              "",
+              "<yellow>/plataforma <gray><raio> <dark_gray>-</dark_gray> <gray>cria uma plataforma de bedrock",
+              "    <gray>protegida pra montar seus canhões",
+              "<yellow>/boca <gray><qtd> <dark_gray>-</dark_gray> <gray>abre um poço abaixo de você (//undo desfaz)",
+              "<yellow>/canhao <gray>(/cannon) <dark_gray>-</dark_gray> <gray>salva e cola canhões com o WorldEdit",
+              "    <gray>(<white>/canhao menu<gray> abre a sua biblioteca)",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<hover:show_text:'<gray>Clique para abrir <white>Debug'><click:run_command:'/ajuda debug'><yellow><bold>◂ Anterior</bold></yellow></click></hover>   <gray>{page}<dark_gray>/<white>{total}  <dark_gray>▪ <hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><gray>Menu</gray></click></hover>   <hover:show_text:'<gray>Clique para abrir <white>Básicos'><click:run_command:'/ajuda basicos'><yellow><bold>Próxima ▸</bold></yellow></click></hover>"
+            ]
+          },
+          "basicos": {
+            "display": "Básicos",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "        <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<yellow>/kit <gray>(/kits) <dark_gray>-</dark_gray> <gray>abre os 8 kits de ferramentas de canhoneio",
+              "",
+              "<yellow>/spawn <dark_gray>-</dark_gray> <gray>volta para o spawn do servidor",
+              "<yellow>/warps <gray>(/warp) <dark_gray>-</dark_gray> <gray>lista as localizações do servidor",
+              "",
+              "<yellow>/ping <dark_gray>-</dark_gray> <gray>mostra o seu ping",
+              "",
+              "<yellow>/fire <dark_gray>-</dark_gray> <gray>interage com o último botão que você usou",
+              "<yellow>/lever <dark_gray>-</dark_gray> <gray>interage com a última alavanca que você usou",
+              "<yellow>/noteblock <gray>(/nb) <dark_gray>-</dark_gray> <gray>interage com o último noteblock que você usou",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<hover:show_text:'<gray>Clique para abrir <white>Construção'><click:run_command:'/ajuda construcao'><yellow><bold>◂ Anterior</bold></yellow></click></hover>   <gray>{page}<dark_gray>/<white>{total}  <dark_gray>▪ <hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><gray>Menu</gray></click></hover>   <hover:show_text:'<gray>Clique para abrir <white>Utilidades'><click:run_command:'/ajuda utilidades'><yellow><bold>Próxima ▸</bold></yellow></click></hover>"
+            ]
+          },
+          "utilidades": {
+            "display": "Utilidades",
+            "body": [
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "       <color:#ff2d2d><bold>CANNONUTILS</bold></color> <dark_gray>▸</dark_gray> <yellow>{current}</yellow>",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<yellow>/corner <gray><1-4> <dark_gray>-</dark_gray> <gray>teleporta pra uma das quinas da sua plot",
+              "<yellow>/clearentities <gray>(/ce) <dark_gray>-</dark_gray> <gray>limpa TNTs e drops da sua plot",
+              "<yellow>/chunkloader <gray>[limpar] <dark_gray>-</dark_gray> <gray>dá um carregador de chunks 3x3",
+              "    <gray>(<white>limpar<gray> remove todos os que você colocou)",
+              "<yellow>/clock <gray><segundos> <pulso> <dark_gray>-</dark_gray> <gray>dá um relógio de redstone que pulsa",
+              "<yellow>/playerscale <gray>(/scale, /ps) <dark_gray>-</dark_gray> <gray>aumenta/diminui o seu tamanho",
+              "<yellow>/tntfill <gray><impulso|dano> [raio|we] <dark_gray>-</dark_gray> <gray>enche os ejetores próximos",
+              "    <gray>(ou na seleção do WorldEdit) com a TNT do tipo escolhido",
+              "<yellow>/tntunfill <gray>[raio] <dark_gray>-</dark_gray> <gray>esvazia os ejetores próximos",
+              "<yellow>/multidispenser <gray><qtd> [pavio] [delay] [prio] (/md) <dark_gray>-</dark_gray> <gray>ejetor que",
+              "    <gray>solta N TNTs; shift + abrir ele (colocado) abre o menu",
+              "<yellow>/xray <dark_gray>-</dark_gray> <gray>deixa os blocos próximos invisíveis (menos a redstone)",
+              "<yellow>/luz <gray>(/lanterna) <dark_gray>-</dark_gray> <gray>visão noturna liga/desliga",
+              "<yellow>/lixeira <dark_gray>-</dark_gray> <gray>abre um inventário descartável",
+              "<dark_gray><strikethrough>                                                  </strikethrough>",
+              "<hover:show_text:'<gray>Clique para abrir <white>Básicos'><click:run_command:'/ajuda basicos'><yellow><bold>◂ Anterior</bold></yellow></click></hover>   <gray>{page}<dark_gray>/<white>{total}  <dark_gray>▪ <hover:show_text:'<gray>Clique para abrir <white>Início'><click:run_command:'/ajuda inicio'><gray>Menu</gray></click></hover>"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

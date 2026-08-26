@@ -1,0 +1,19 @@
+{
+    "plugins": {
+        "core": {
+            "proxy": {
+                "motd": {
+                    "highest-version": [
+                        "<gradient:#FF6F00:#faa825><bold>    Rede EXE </bold><dark_gray>⚡</gradient><gradient:#faa825:#FF6F00> discord.gg/exe",
+                        "<white>        ᴀ ᴛᴇᴍᴘᴇsᴛᴀᴅᴇ ᴅᴇ ɴᴇᴠᴇ sᴇ ᴀᴘʀᴏxɪᴍᴀ... ❄  "
+                                           
+                    ],
+                    "lowest-version": [
+                        "<gold><bold>REDE</bold> <white><bold>EXE</bold> <dark_gray>➠ <gold>discord.gg/exe",
+                        "<red>         Servidor disponível apenas na 1.8+"
+                    ]
+                }
+            }
+        }
+    }
+}

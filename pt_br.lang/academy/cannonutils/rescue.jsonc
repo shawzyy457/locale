@@ -1,0 +1,24 @@
+{
+  "plugins": {
+    "cannonutils": {
+      "messages": {
+        "rescue": {
+          // Chat, enviado logo após o teleporte de resgate (CannonRescueService).
+          // A chave é o CannonRescueReason#langKey(): void | border | leash.
+          //
+          // ⚠️ Sem "ao spawn" no texto de void e de borda desde 11/08/2026: o destino passou a ser
+          // CONTEXTUAL — a partida, o duelo, a arquibancada, o plot ou o spawn, conforme onde o jogador
+          // estava. Prometer "spawn" mentiria em quase todos os casos.
+          "void": "<yellow>Você caiu no vazio e foi trazido de volta.</yellow>",
+          "border": "<yellow>Você ultrapassou os limites do mundo e foi trazido de volta.</yellow>",
+          // Passou do raio da coleira do spawn (rescue.coleira no config.yml).
+          "leash": "<yellow>Você se afastou demais do spawn e foi trazido de volta.</yellow>",
+          // Actionbar opcional (rescue.borda.aviso-ativado), do CannonBorderWarningTask. HUD leva a
+          // fonte pequena; o chat acima, não.
+          //   distance -> blocos até a parede da borda, já formatado.
+          "border-warning": "<red>⚠ <white>Limite do mundo a <red>{distance}</red> blocos.</white>"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+    "plugins": {
+        "core": {
+            "messages": {
+                "views": {
+                    "user-ignore-list": {
+                        "remove": {
+                            "success": "<green>O jogador</green> {ignore_target_name} <green>foi removido da sua lista de ignorados.</green>"
+                        }
+                    }
+                }
+            },
+            "views": {
+                "user-ignore-list": {
+                    "title": "Jogadores ignorados",
+                    "items": {
+                        "0": {
+                            "name": "<red>Sem jogadores ignorados!</red>",
+                            "lore": [
+                                "<gray>Para adicionar um jogador a lista</gray>",
+                                "<gray>basta utilizar</gray> <white>/ignorar add <nome></white><gray>.</gray>"
+                            ]
+                        },
+                        "1": {
+                            "name": "{ignore_target_name_with_tag}",
+                            "lore": [
+                                "<white>Data:</white> <yellow>{ignore_created_at_date}</yellow>",
+                                "",
+                                "<yellow>Clique com o botão direito para remover.</yellow>"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

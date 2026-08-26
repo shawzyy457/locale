@@ -1,0 +1,294 @@
+{
+  "plugins": {
+    "spawners": {
+      "types": {
+        "goat": {
+          "name": "{spawner_type_color}Cabra",
+          "description": [
+            "<gray>Uma criatura das montanhas,",
+            "<gray>ágil e imprevisível."
+          ]
+        },
+        "slime": {
+          "name": "{spawner_type_color}Slime",
+          "description": [
+            "<gray>Massa gelatinosa que salta",
+            "<gray>e se divide ao ser derrotada."
+          ]
+        },
+        "stray": {
+          "name": "{spawner_type_color}Errante",
+          "description": [
+            "<gray>Um arqueiro gelado,",
+            "<gray>condenado ao frio eterno."
+          ]
+        },
+        "breeze": {
+          "name": "{spawner_type_color}Vórtice",
+          "description": [
+            "<gray>Criatura ágil do vento,",
+            "<gray>movida por rajadas instáveis."
+          ]
+        },
+        "witch": {
+          "name": "{spawner_type_color}Bruxa",
+          "description": [
+            "<gray>Usuária de poções mortais,",
+            "<gray>astuta e imprevisível."
+          ]
+        },
+        "polar-bear": {
+          "name": "{spawner_type_color}Urso Polar",
+          "description": [
+            "<gray>Predador das regiões geladas,",
+            "<gray>forte e territorial."
+          ]
+        },
+        "iron-golem": {
+          "name": "{spawner_type_color}Golem de Ferro",
+          "description": [
+            "<gray>Guardião de ferro maciço,",
+            "<gray>criado para proteger."
+          ]
+        }
+      },
+      "items": {
+        "spawner-goat": {
+          "display-name": "{spawner_type_color}Gerador de Cabra",
+          "name": "{spawner_type_color}Gerador de Cabra",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-goat": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Cabra",
+          "name": "{spawner_type_color}Gerador Inativo de Cabra",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>1"
+          ]
+        },
+        "spawner-slime": {
+          "display-name": "{spawner_type_color}Gerador de Slime",
+          "name": "{spawner_type_color}Gerador de Slime",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-slime": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Slime",
+          "name": "{spawner_type_color}Gerador Inativo de Slime",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>2"
+          ]
+        },
+        "spawner-stray": {
+          "display-name": "{spawner_type_color}Gerador de Errante",
+          "name": "{spawner_type_color}Gerador de Errante",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-stray": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Errante",
+          "name": "{spawner_type_color}Gerador Inativo de Errante",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>1"
+          ]
+        },
+        "spawner-breeze": {
+          "display-name": "{spawner_type_color}Gerador de Vórtice",
+          "name": "{spawner_type_color}Gerador de Vórtice",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-breeze": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Vórtice",
+          "name": "{spawner_type_color}Gerador Inativo de Vórtice",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>3"
+          ]
+        },
+        "spawner-witch": {
+          "display-name": "{spawner_type_color}Gerador de Bruxa",
+          "name": "{spawner_type_color}Gerador de Bruxa",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-witch": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Bruxa",
+          "name": "{spawner_type_color}Gerador Inativo de Bruxa",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>3"
+          ]
+        },
+        "spawner-polar-bear": {
+          "display-name": "{spawner_type_color}Gerador de Urso Polar",
+          "name": "{spawner_type_color}Gerador de Urso Polar",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-polar-bear": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Urso Polar",
+          "name": "{spawner_type_color}Gerador Inativo de Urso Polar",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>4"
+          ]
+        },
+        "spawner-iron-golem": {
+          "display-name": "{spawner_type_color}Gerador de Golem de Ferro",
+          "name": "{spawner_type_color}Gerador de Golem de Ferro",
+          "lore": [
+            "<gray>Invoca monstros ao ser",
+            "<gray>colocado num terreno de facção."
+          ]
+        },
+        "spawner-cage-iron-golem": {
+          "display-name": "{spawner_type_color}Gerador Inativo de Golem de Ferro",
+          "name": "{spawner_type_color}Gerador Inativo de Golem de Ferro",
+          "lore": [
+            "<gray>Junte com núcleos congelados",
+            "<gray>em uma <white>mesa de trabalho",
+            "<gray>para ativar este gerador.",
+            "",
+            "{spawner_type_color}Núcleos Necessários: <white>5"
+          ]
+        }
+      },
+      "views": {
+        "encyclopedia": {
+          "title": "Enciclopédia de Geradores",
+          "items": {
+            "goat": {
+              "name": "<gold>Cabra</gold>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Couro</white>",
+                "<dark_gray> ▸ </dark_gray><white>Carne Crua</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "slime": {
+              "name": "<green>Slime</green>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Bola de Slime</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "stray": {
+              "name": "<aqua>Errante</aqua>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Osso</white>",
+                "<dark_gray> ▸ </dark_gray><white>Fragmento Congelado</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "breeze": {
+              "name": "<dark_aqua>Vórtice</dark_aqua>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Bastão de Vórtice</white>",
+                "<dark_gray> ▸ </dark_gray><white>Carga de Vento</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "witch": {
+              "name": "<dark_purple>Bruxa</dark_purple>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Pepita de Ouro</white>",
+                "<dark_gray> ▸ </dark_gray><white>Creeper</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "polar-bear": {
+              "name": "<white>Urso Polar</white>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Pele de Urso</white>",
+                "<dark_gray> ▸ </dark_gray><white>Fragmento Protetor</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            },
+            "iron-golem": {
+              "name": "<gray>Golem de Ferro</gray>",
+              "lore": [
+                "",
+                "<gray>Recursos:</gray>",
+                "<dark_gray> ▸ </dark_gray><white>Lingote de Ferro</white>",
+                "",
+                "<green>Disponível para compra na loja.</green>"
+              ]
+            }
+          }
+        }
+      },
+      "messages": {
+        "entity": {
+          "display-name": "<white>x{spawner_entity_count} <white>{spawner_entity_color}{spawner_entity_name}</white> <dark_gray>[<white>{spawner_entity_health}<dark_red>❤<dark_gray>]"
+        },
+        "on-break": {
+          "requires-silk-touch": "Você precisa do encantamento <white>Toque Suave</white> para coletar este spawner sem quebrá-lo.",
+          "in-cooldown": "Este gerador está em cooldown. Aguarde {spawner_cooldown_delay} para coletá-lo."
+        },
+        "on-place": {
+          "only-next-to-spawner-or-glass": "Você só pode colocar geradores ao lado de outros geradores ou de blocos de vidro/vidro fosco.",
+          "only-in-permanent-land": "Você só pode colocar geradores em terrenos permanentes.",
+          "cannot-place-in-zone": "Você só pode colocar geradores no território da sua facção.",
+          "only-in-own-faction-land": "Você só pode colocar geradores no território da sua facção.",
+          "only-glass-or-spawner-near-spawner": "Ao lado de um gerador, você só pode colocar vidro ou outro gerador.",
+          "missing-requirements": [
+            "Você ainda não pode colocar {spawner_name}<red>. Requisitos:",
+            "{spawner_requirements}"
+          ]
+        }
+      }
+    }
+  }
+}

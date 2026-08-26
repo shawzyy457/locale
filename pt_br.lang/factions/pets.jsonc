@@ -1,0 +1,494 @@
+{
+  "plugins": {
+    "pets": {
+      "rarities": {
+        "common": {
+          "name": "<white></white>"
+        },
+        "rare": {
+          "name": "<white></white>"
+        },
+        "epic": {
+          "name": "<white></white>"
+        },
+        "legendary": {
+          "name": "<white></white>"
+        },
+        "divine": {
+          "name": "<white></white>"
+        }
+      },
+      "preferences": {
+        "visibility": {
+          "name": "<yellow>Visibilidade de pets",
+          "description": [
+            "<gray>Controla quais pets",
+            "<gray>você enxerga no mundo."
+          ],
+          "options": {
+            "all": "<green>Todos",
+            "own": "<yellow>Só os meus",
+            "none": "<red>Ninguém"
+          }
+        }
+      },
+      "types": {
+        "morcego": {
+          "name": "Morcego",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>sangramento.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 3: <gray>+1s Sangramento"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>sangramento",
+            "<gray> drasticamente ampliado."
+          ]
+        },
+        "lobo": {
+          "name": "Lobo",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>sangramento.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 4: <gray>+1s sangramento"
+          ]
+        },
+        "piglin_bruto": {
+          "name": "Piglin",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>quebra.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 5: <gray>+1 dano Quebra"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>quebra",
+            "<gray> adicional no auge."
+          ]
+        },
+        "hoglin": {
+          "name": "Hoglin",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>quebra.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 5: <gray>+1 dano Quebra"
+          ]
+        },
+        "traca": {
+          "name": "Traça",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>quebra sísmica.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 5: <gray>+1 bloco de quebra"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>ao ativar a",
+            "<gray> quebra sísmica, concede",
+            "<gray> Pressa II por 5 segundos."
+          ]
+        },
+        "aranha_caverna": {
+          "name": "Aranha",
+          "description": [
+            "<gray>Aumenta em <white>{pet_chance}%</white> a chance</gray>",
+            "<gray>de ativar <white>quebra sísmica.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%",
+            " {pet_rarity_color}◇<white> Nível 5: <gray>+1 bloco de quebra"
+          ]
+        },
+        "minhoca": {
+          "name": "Minhoca",
+          "description": [
+            "<gray>Aumenta em <white>+{pet_chance}</white> <gray>a <white>coleta",
+            "<white>mágica<gray>.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}</strikethrough> <dark_gray>▸ <white>{pet_next_chance}"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>coleta",
+            "<gray> mágica no auge."
+          ]
+        },
+        "sniffer": {
+          "name": "Sniffer",
+          "description": [
+            "<gray>Chance de coletar</gray>",
+            "<gray>itens </gray><white>automaticamente.</white>",
+            "",
+            "{pet_rarity_color}Atributos:",
+            " <white>Chance: </white><gray>{pet_chance}%</gray>",
+            " <white>Sniffers na mina: </white><gray>+{pet_spawn_chance}%</gray>"
+          ]
+        },
+        "passaro": {
+          "name": "Pássaro",
+          "description": [
+            "<gray>Aumenta em <white>+{pet_chance}</white> <gray>a <white>colheita<gray>.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}</strikethrough> <dark_gray>▸ <white>{pet_next_chance}"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>colheita",
+            "<gray> automática no auge."
+          ]
+        },
+        "golem": {
+          "name": "Golem",
+          "description": [
+            "<gray>aumenta em <white>+{pet_bonus} <gray>a durabilidade",
+            "<gray>inicial dos blocos colocados.",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <white>+{pet_next_bonus}"
+          ],
+          "divine-description": [
+            "<gold> Forma divina: proteção e",
+            "<gold> durabilidade no máximo."
+          ]
+        },
+        "tatu": {
+          "name": "Tatu",
+          "description": [
+            "<gray>Compacta minérios de forma</gray>",
+            "<gray><white>automática</white> a cada {pet_interval}s.",
+            "",
+            " {pet_rarity_color}Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_interval}s</strikethrough> <dark_gray>▸ <white>{pet_next_interval}s</white>"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>compacta os",
+            "<gray> itens sem parar."
+          ]
+        },
+        "bruxa": {
+          "name": "Bruxa",
+          "description": [
+            "<gray>Concede efeitos positivos</gray>",
+            "<gray>a cada <white>{pet_interval}s</white>",
+            "",
+            "{pet_rarity_color} Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_interval}s</strikethrough> <dark_gray>▸ <white>{pet_next_interval}s</white>",
+            " {pet_rarity_color}◇<white> Nível 3: <gray>+5s de Efeito"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>efeitos com",
+            "<gray> +1 de potência."
+          ]
+        },
+        "slime": {
+          "name": "Slime",
+          "description": [
+            "<gray>Reduz o <white>dano de queda",
+            "<gray>total em<white> {pet_reduction}%</white>",
+            "",
+            "{pet_rarity_color} Evolução",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_reduction}%</strikethrough> <dark_gray>▸ <white>{pet_next_reduction}%</white>"
+          ],
+          "divine-description": [
+            "<gold> Forma divina: imune a",
+            "<gold> quedas e quica ao cair."
+          ]
+        },
+        "baiacu": {
+          "name": "Baiacu",
+          "description": [
+            "<gray>Envenena inimigos próximos</gray>",
+            "<gray>em </gray><white>intervalos de tempo.</white>",
+            "",
+            "{pet_rarity_color}Atributos:",
+            " <white>Duração: </white><gray>{pet_duration}s</gray>",
+            " <white>Raio: </white><gray>{pet_radius} blocos</gray>",
+            " <white>Intervalo: </white><gray>{pet_interval}s</gray>"
+          ],
+          "divine-description": [
+            "<red> Forma divina:<gray> veneno",
+            "<gray> desativado em PvP."
+          ]
+        },
+        "lhama": {
+          "name": "Lhama",
+          "description": [
+            "<gray>Aumenta a chance em <white>{pet_chance}%",
+            "<gray>de encontrar <white>vazos na mina<gray>.",
+            "",
+            " {pet_rarity_color}Evolução:",
+            " {pet_rarity_color}✘<white> Próx. Nível: <gray><strikethrough>{pet_chance}%</strikethrough> <dark_gray>▸ <white>{pet_next_chance}%"
+          ]
+        },
+        "goblin": {
+          "name": "Macaco",
+          "description": [
+            "<gray>Rouba parte do saldo de</gray>",
+            "<gray>inimigos ao </gray><white>elimina-los.</white>",
+            "",
+            "{pet_rarity_color}Atributos:",
+            " <white>Roubo: </white><gray>{pet_percentage}%</gray>"
+          ],
+          "divine-description": [
+            "<red> Forma divina: <gray>roubo",
+            "<gray> aprimorado ao eliminar."
+          ]
+        },
+        "bigorna": {
+          "name": "Bigorna",
+          "description": [
+            "<gray>Repara automaticamente a</gray>",
+            "<gray>ferramenta mais </gray><white>desgastada.</white>",
+            "",
+            "{pet_rarity_color}Atributos:",
+            " <white>Intervalo: </white><gray>{pet_interval}s</gray>"
+          ]
+        }
+      },
+      "commands": {
+        "pet": {
+          "not-allowed-with-shift": "A abertura de inventários com o shift ligado está bloqueada.",
+          "not-allowed-while-inventory-open": "Você está em desincronização com o servidor, aguarde e tente novamente.",
+          "npc": {
+            "denied": "Você não tem permissão para gerenciar o NPC de pets.",
+            "invalid-usage": "Uso correto: /pet npc <definir|remover|reload>",
+            "definir": {
+              "success": "NPC de pets definido com sucesso."
+            },
+            "remover": {
+              "success": "NPC de pets removido com sucesso."
+            },
+            "reload": {
+              "success": "NPC de pets recarregado com sucesso."
+            }
+          }
+        }
+      },
+      "items": {
+        "pet": {
+          "display-name": "{pet_rarity_color}{pet_rarity_name} {pet_rarity_color}Pet {pet_name}<gray>",
+          "name": "{pet_rarity_color}{pet_rarity_name} {pet_rarity_color}Pet {pet_name}<gray> [Nv. {pet_level}]",
+          "lore": [
+            "{pet_description}",
+            "",
+            " {pet_rarity_color}Informações:",
+            "{pet_progress_line}",
+            " {pet_rarity_color}❤ <white>Comida: <gray>{pet_favorite_food}",
+            " {pet_rarity_color}🔥 <white>Raridade Máx.: <gray>{pet_max_rarity_name}",
+            "",
+            "{pet_footer}"
+          ],
+          "progress-line": [
+            " {pet_rarity_color}⌛ <white>Progresso: {pet_progress_bar} </white><gray>{pet_progress_percent}</gray>"
+          ],
+          "footer-feed": [
+            "<dark_gray> Evolua o pet para aumentar",
+            "<dark_gray> os atributos usando comida."
+          ]
+        }
+      },
+      "messages": {
+        "name-formatted": "{pet_rarity_name} {pet_rarity_color}{pet_name} <gray>Nv. {pet_level}</gray>",
+        "storage": {
+          "pet-storage-exceeded": "<red>Você atingiu o máximo de companheiros em seu armazém.</red>",
+          "pet-storage-success": "<green>O seu companheiro foi armazenado, digite <white>/pet para gerenciá-lo."
+        },
+        "requirements": {
+          "not-met": [
+            "<red>Você não possui todos os requisitos para utilizar esse pet:",
+            "{pet_requirements}"
+          ]
+        },
+        "upgrade": {
+          "cannot-feed-other-players-pet": "<red>Você não pode alimentar o pet de outros jogadores.",
+          "pet-level-max": "<red>Seu pet já está no nível máximo para a raridade atual!",
+          "pet-level-up": [
+            "",
+            "<green>Seu <white>{pet_rarity_name}</white>{pet_rarity_color} Pet {pet_name} <green>atingiu o <white>nível <bold>{pet_next_level}</bold> </white><green>e aprimorou o seu bônus!",
+            ""
+          ]
+        },
+        "views": {
+          "pet-select": {
+            "pet-removed": "<red>O pet <white>{pet_rarity_name}</white>{pet_rarity_color} {pet_name} <red>foi removido do armazém de pets.",
+            "pet-selected": "<green>O pet <white>{pet_rarity_name}</white>{pet_rarity_color} {pet_name} <green>foi equipado.",
+            "pet-unselected": "<red>O pet <white>{pet_rarity_name}</white>{pet_rarity_color} {pet_name} <red>foi desequipado.",
+            "pet-selected-server": "<green>O pet <white>{pet_rarity_name}</white>{pet_rarity_color} {pet_name} <green>foi equipado para este servidor.",
+            "pet-unselected-server": "<red>O pet <white>{pet_rarity_name}</white>{pet_rarity_color} {pet_name} <red>foi desequipado deste servidor."
+          }
+        }
+      },
+      "views": {
+        "pet-rarity-upgrade": {
+          "title": "Upgrade de Raridade",
+          "items": {
+            "sign": {
+              "name": "<yellow>Upgrade de raridade</yellow>",
+              "lore": [
+                "<gray>Selecione um pet para ver o upgrade.</gray>"
+              ]
+            },
+            "upgrade": {
+              "no-pet": {
+                "name": "<red>Sem pet selecionado",
+                "lore": [
+                  "<gray>Selecione um pet para continuar."
+                ]
+              },
+              "max": {
+                "name": "<gold>Raridade maxima",
+                "lore": [
+                  "<gray>Este pet ja esta no nivel maximo."
+                ]
+              },
+              "no-divine": {
+                "name": "<red>Forma divina indisponivel",
+                "lore": [
+                  "<gray>Este pet nao possui forma divina."
+                ]
+              },
+              "requirements": {
+                "name": "<red>Requisitos nao atendidos",
+                "lore": [
+                  "<gray>Proxima raridade: <white>{pet_next_rarity}</white>",
+                  "<gray>Custo: <white>{pet_upgrade_cost}</white>",
+                  "<gray>Item necessario: <white>{pet_upgrade_item}</white>"
+                ]
+              },
+              "available": {
+                "name": "<green>Confirmar upgrade",
+                "lore": [
+                  "<gray>Proxima raridade: <white>{pet_next_rarity}</white>",
+                  "<gray>Custo: <white>{pet_upgrade_cost}</white>",
+                  "<gray>Item necessario: <white>{pet_upgrade_item}</white>",
+                  "",
+                  "<green>Clique para evoluir."
+                ]
+              }
+            },
+            "pet-slot": {
+              "name": "<red>Selecione um pet",
+              "lore": [
+                "<gray>Escolha um pet do seu inventario",
+                "<gray>para melhorar a raridade.",
+                "",
+                "<red>Clique em um pet do seu inventario."
+              ]
+            }
+          }
+        },
+        "pet-select": {
+          "title": "Armazém de companheiros",
+          "server-selector": {
+            "name": "<yellow>Selecionar servidor</yellow>",
+            "lore": [
+              "<gray>Escolha o servidor para</gray>",
+              "<gray>equipar um pet específico.</gray>"
+            ]
+          },
+          "back-to-server-selector": {
+            "name": "<yellow>Voltar para servidores</yellow>",
+            "lore": [
+              "<gray>Retorne para a seleção</gray>",
+              "<gray>de servidores de pets.</gray>"
+            ]
+          },
+          "empty-slot": {
+            "name": "<red>Nenhum pet armazenado!",
+            "lore": [
+              "<gray>Clique botão direito com um",
+              "<gray>pet na mão para armazená-lo."
+            ]
+          },
+          "0": {
+            "selected": [
+              "",
+              "{pet_rarity_color}Botão esquerdo <dark_gray>➟ </dark_gray><white>Desequipar</white>",
+              "{pet_rarity_color}Botão direito <dark_gray>➟ </dark_gray><white>Recolher</white>"
+            ],
+            "unselected": [
+              "",
+              "{pet_rarity_color}Botão esquerdo <dark_gray>➟ </dark_gray><white>Equipar</white>",
+              "{pet_rarity_color}Botão direito <dark_gray>➟ </dark_gray><white>Recolher</white>"
+            ]
+          }
+        },
+        "pet-server-select": {
+          "title": "Pets por servidor",
+          "items": {
+            "spawn": {
+              "name": "<gradient:#03C400:#04FF00>Overworld",
+              "lore": [
+                "<gray>Selecione o pet que ficará</gray>",
+                "<gray>ativo no servidor do mundo</gray>",
+                "<gray>normal.</gray>"
+              ]
+            },
+            "mining": {
+              "name": "<gradient:#161616:#797979>Cavernas",
+              "lore": [
+                "<gray>Selecione o pet que ficará</gray>",
+                "<gray>ativo nas cavernas."
+              ]
+            },
+            "amethyst": {
+              "name": "<gradient:#a855f7:#6366f1>Mina de Ametista",
+              "lore": [
+                "<gray>Selecione o pet que ficará</gray>",
+                "<gray>ativo na mina de Ametista.</gray>"
+              ]
+            },
+            "ice": {
+              "name": "<gradient:#8FD9FF:#E8F9FF>Mina de Glacite",
+              "lore": [
+                "<gray>Selecione o pet que ficará</gray>",
+                "<gray>ativo na mina de Glacite.</gray>"
+              ]
+            },
+            "bone": {
+              "name": "<yellow>Central de Pets</yellow>",
+              "lore": [
+                "<gray>Gerencie os pets ativos</gray>",
+                "<gray>em cada servidor.</gray>"
+              ]
+            },
+            "empty-pet": {
+              "name": "<gray>Nenhum pet equipado</gray>",
+              "lore": [
+                "<dark_gray>▸ </dark_gray><white>Clique para escolher.</white>"
+              ]
+            },
+            "pet": {
+              "lore": [
+                "",
+                "{pet_rarity_color}Raridade: {pet_rarity_name}",
+                "{pet_rarity_color}Nível: <gray>{pet_level}</gray>",
+                "",
+                "<dark_gray>▸ </dark_gray><white>Clique para escolher.</white>"
+              ]
+            }
+          }
+        }
+      },
+      "npc": {
+        "hologram": [
+          "<gradient:#00acff:#00f2ff><bold>Pet",
+          "<white>Clique para evoluir!"
+        ]
+      }
+    }
+  }
+}

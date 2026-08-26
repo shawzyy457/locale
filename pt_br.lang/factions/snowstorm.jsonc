@@ -1,0 +1,154 @@
+{
+  "plugins": {
+    "snowstorm": {
+      "commands": {
+        "toggle": {
+          "stopped": "A Nevasca foi desativada",
+          "started": "A Nevasca foi ativada",
+          "already-active": "Já existe uma nevasca ativa",
+          "no-active": "Não existe uma nevasca ativa"
+        },
+        "status": {
+          "inactive": "Não há nevasca ativa no momento.",
+          "blizzard": {
+            "remaining": [
+              "",
+              " <gradient:#00acff:#00f2ff><bold>NEVASCA ATIVA!</bold> <white></gradient>",
+              " <gray>Buffs e nerfs ativos, domine a nevasca!</gray>",
+              "",
+              " <gradient:#00acff:#00f2ff>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#00acff:#00f2ff>▶ <white>Spawners: <gray>+25% recursos e xp skills",
+              " <gradient:#00acff:#00f2ff>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#00acff:#00f2ff>▶ <white>Mina: <gray>Spawn de errantes e x2 sniffers",
+              "",
+              " <gradient:#00acff:#00f2ff>⌚ <white>Tempo restante da tempestade: <gradient:#00acff:#00f2ff>{snowstorm_remaining}",
+              ""
+            ]
+          },
+          "nocturnal": {
+            "remaining": [
+              "",
+              " <gradient:#4b0082:#8a6fdf><bold>TEMPESTADE NOTURNA!</bold> <white></gradient>",
+              " <gray>Tudo da nevasca, e a produção pela metade.</gray>",
+              "",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Spawners: <gray>-50% recursos e -50% velocidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Skills: <gray>+xp de espada e machado",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Mina: <gray>Spawn de errantes",
+              "",
+              " <gradient:#4b0082:#8a6fdf>⌚ <white>Tempo restante da tempestade: <gradient:#4b0082:#8a6fdf>{snowstorm_remaining}",
+              ""
+            ]
+          }
+        }
+      },
+      "messages": {
+        "blizzard": {
+          "bossbar": "<white> <gradient:#00acff:#00f2ff><bold>NEVASCA ATIVA!</bold></gradient> <white>Duração: <gray>{time}</white> ",
+          "event-start": {
+            "title": "<gradient:#00acff:#00f2ff><bold>NEVASCA </bold><white>",
+            "subtitle": "<white>A tempestade chegou. O Frio reclama o seu reinado!</white>",
+            "chat": [
+              "",
+              " <gradient:#00acff:#00f2ff><bold>NEVASCA ATIVA!</bold> <white></gradient>",
+              " <gray>Buffs e nerfs ativos, domine a nevasca!</gray>",
+              "",
+              " <gradient:#00acff:#00f2ff>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#00acff:#00f2ff>▶ <white>Spawners: <gray>+25% recursos e xp skills",
+              " <gradient:#00acff:#00f2ff>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#00acff:#00f2ff>▶ <white>Mina: <gray>Spawn de errantes e x2 sniffers",
+              "",
+              " <gradient:#00acff:#00f2ff>⌚ <white>Tempo restante da tempestade: <gradient:#00acff:#00f2ff>{snowstorm_remaining}",
+              ""
+            ]
+          },
+          "event-join": {
+            "title": "<gradient:#00acff:#00f2ff><bold>NEVASCA </bold><white>",
+            "subtitle": "<white>A tempestade chegou. O Frio reclama o seu reinado!</white>",
+            "chat": [
+              "",
+              " <gradient:#00acff:#00f2ff><bold>NEVASCA ATIVA!</bold> <white></gradient>",
+              " <gray>Buffs e nerfs ativos, domine a nevasca!</gray>",
+              "",
+              " <gradient:#00acff:#00f2ff>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#00acff:#00f2ff>▶ <white>Spawners: <gray>+25% recursos e xp skills",
+              " <gradient:#00acff:#00f2ff>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#00acff:#00f2ff>▶ <white>Mina: <gray>Spawn de errantes e x2 sniffers",
+              "",
+              " <gradient:#00acff:#00f2ff>⌚ <white>Tempo restante da tempestade: <gradient:#00acff:#00f2ff>{snowstorm_remaining}",
+              ""
+            ]
+          },
+          "event-end": {
+            "title": "<gradient:#00acff:#00f2ff><bold>NEVASCA </bold><white>",
+            "subtitle": "<white>A tempestade acabou, por enquanto...</white>",
+            "chat": [
+              "",
+              " <gradient:#00acff:#00f2ff><bold>NEVASCA FINALIZADA!</bold> <white></gradient>",
+              " <gray>A calma e o silêncio volta ao mundo.</gray>",
+              "",
+              " <gradient:#00acff:#00f2ff>▸ <white>Buffs e nerfs removidos.",
+              "",
+              " <gradient:#00acff:#00f2ff>A tempestade ameaça voltar a qualquer momento.",
+              ""
+            ]
+          }
+        },
+        "nocturnal": {
+          "bossbar": "<white><gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA!</bold></gradient> <white>Duração: <gray>{time}</white> ",
+          "event-start": {
+            "title": "<gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA </bold><white>",
+            "subtitle": "<white>A madrugada aperta o frio. Produzir vai custar caro.</white>",
+            "chat": [
+              "",
+              " <gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA!</bold> </gradient>",
+              " <gray>Tudo da nevasca, e a produção pela metade.</gray>",
+              "",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Spawners: <gray>-50% recursos e -50% velocidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Skills: <gray>+xp de espada e machado",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Mina: <gray>Spawn de errantes",
+              "",
+              " <gradient:#4b0082:#8a6fdf>⌚ <white>Tempo restante da nevasca: <gradient:#4b0082:#8a6fdf>{snowstorm_remaining}",
+              ""
+            ]
+          },
+          "event-join": {
+            "title": "<gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA </bold><white>",
+            "subtitle": "<white>A madrugada aperta o frio. Produzir vai custar caro.</white>",
+            "chat": [
+              "",
+              " <gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA!</bold> <white></gradient>",
+              " <gray>Tudo da nevasca, e a produção pela metade.</gray>",
+              "",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Spawners: <gray>-50% recursos e -50% velocidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Blocos de Proteção: <gray>-10 durabilidade",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Skills: <gray>+xp de espada e machado",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Invasão: <gray>+10% spawners dropados",
+              " <gradient:#4b0082:#8a6fdf>▶ <white>Mina: <gray>Spawn de errantes",
+              "",
+              " <gradient:#4b0082:#8a6fdf>⌚ <white>Tempo restante da tempestade: <gradient:#4b0082:#8a6fdf>{snowstorm_remaining}",
+              ""
+            ]
+          },
+          "event-end": {
+            "title": "<gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA </bold><white>",
+            "subtitle": "<white>O sol nasce e a madrugada solta o seu domínio.</white>",
+            "chat": [
+              "",
+              " <gradient:#4b0082:#8a6fdf><bold>NEVASCA NOTURNA FINALIZADA!</bold> <white></gradient>",
+              " <gray>Os geradores voltam ao ritmo normal.</gray>",
+              "",
+              " <gradient:#4b0082:#8a6fdf>▸ <white>Buffs e nerfs removidos.",
+              "",
+              " <gradient:#4b0082:#8a6fdf>A madrugada volta a cobrar o seu preço amanhã.",
+              ""
+            ]
+          }
+        }
+      }
+    }
+  }
+}

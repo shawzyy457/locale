@@ -1,0 +1,363 @@
+{
+  "plugins": {
+    "vip-rank": {
+      "commands": {
+        "base": "<gradient:#00acff:#00f2ff>[Ranks]</gradient>",
+        "ranks": {
+          "points": {
+            "arguments": {
+              "action": {
+                "name": "ação",
+                "description": "Ação: add, remove ou set"
+              },
+              "target": {
+                "name": "jogador",
+                "description": "Jogador alvo"
+              },
+              "amount": {
+                "name": "quantidade",
+                "description": "Quantidade de pontos"
+              }
+            },
+            "invalid-usage": "<red>Uso incorreto!</red> <gray>Use:</gray> <white>/ranks points <add|remove|set> <jogador> <quantia></white>",
+            "points": {
+              "invalid-number": "<red>Valor inválido!</red> <gray>Insira um número válido.</gray>",
+              "added": "<green>Pontos adicionados!</green> <gray>{player} recebeu</gray> <white>{amount}</white> <gray>pontos. Total:</gray> <white>{total}</white>",
+              "removed": "<red>Pontos removidos!</red> <gray>{player} perdeu</gray> <white>{amount}</white> <gray>pontos. Total:</gray> <white>{total}</white>",
+              "set": "<yellow>Pontos definidos!</yellow> <gray>{player} agora possui</gray> <white>{total}</white> <gray>pontos.</gray>"
+            }
+          },
+          "rank": {
+            "arguments": {
+              "action": {
+                "name": "ação",
+                "description": "Ação a ser executada"
+              }
+            },
+            "invalid-usage": "<red>Uso incorreto!</red> <gray>Use:</gray> <white>/ranks rank set <jogador> <rank></white>",
+            "not-found": "<red>Rank não encontrado:</red> <white>{rank}</white>",
+            "set": "<green>Rank atualizado!</green> <gray>{player} agora é</gray> <white>{rank}</white>",
+            "cleared": "<yellow>Rank limpo!</yellow> <gray>Rank forçado removido de</gray> <white>{player}</white>"
+          },
+          "top": "<gradient:#00acff:#00f2ff>Exibindo Top Ranks...</gradient>"
+        }
+      },
+
+      "messages": {
+        "premium": {
+          "kill": "<green>Você venceu!</green> <gray>Ganhou</gray> <white>{points_gained}</white> <gray>pontos</gray> <gray>(Total:</gray> <white>{points_total}</white><gray>, faltam</gray> <white>{points_to_next}</white> <gray>para</gray> <white>{next_rank}</white><gray>)</gray>",
+          "death": "<red>Você morreu!</red> <gray>Perdeu</gray> <white>{points_lost}</white> <gray>pontos</gray> <gray>(Total:</gray> <white>{points_total}</white><gray>, faltam</gray> <white>{points_to_next}</white> <gray>para</gray> <white>{next_rank}</white><gray>)</gray>"
+        },
+        "rank-up": "<gradient:#00acff:#00f2ff>Rank Up!</gradient> <gray>Você alcançou</gray> <white>{rank}</white> <gray>!</gray>",
+        "rank-down": "<gradient:#ff5555:#ff0000>Rank Down!</gradient> <gray>Você caiu para</gray> <white>{rank}</white> <gray>!</gray>",
+        "glacite": {
+          "enter": "<gradient:#00acff:#00f2ff>Glacite!</gradient> <gray>{new_glacite_player}</gray> <gray>assumiu o rank GLACITE</gray> <gray>(substituiu:</gray> <white>{dropped_glacite_player}</white><gray>)</gray>",
+          "enter-no-replacement": "<gradient:#00acff:#00f2ff>Glacite!</gradient> <gray>{new_glacite_player}</gray> <gray>assumiu o rank GLACITE</gray>"
+        }
+      },
+
+      "ranks": {
+        "ferro-i": {
+          "display-name": "<white>[I]</white>",
+          "emblem": "<white></white>",
+          "hover-lines": [
+            "<white>Rank:</white> Ferro I",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "ferro-ii": {
+          "display-name": "<white>[II]</white>",
+          "emblem": "<white></white><color:#A3A7C2>II</color>",
+          "hover-lines": [
+            "<white>Rank:</white> Ferro II",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "ferro-iii": {
+          "display-name": "<white>[III]</white>",
+          "emblem": "<white></white><color:#A3A7C2>III</color>",
+          "hover-lines": [
+            "<white>Rank:</white> Ferro III",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "ouro-i": {
+          "display-name": "<color:#F3A037>[I]</color>",
+          "emblem": "<white></white>",
+          "hover-lines": [
+            "<color:#fbbf24>Rank:</color> Ouro I",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "ouro-ii": {
+          "display-name": "<color:#F3A037>[II]</color>",
+          "emblem": "<white></white><color:#F3A037>II</color>",
+          "hover-lines": [
+            "<color:#fbbf24>Rank:</color> Ouro II",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "ouro-iii": {
+          "display-name": "<color:#F3A037>[III]</color>",
+          "emblem": "<white></white><color:#F3A037>III</color>",
+          "hover-lines": [
+            "<color:#fbbf24>Rank:</color> Ouro III",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "diamante-i": {
+          "display-name": "<color:#3b82f6>[I]</color>",
+          "emblem": "<white></white>",
+          "hover-lines": [
+            "<color:#3b82f6>Rank:</color> Diamante I",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "diamante-ii": {
+          "display-name": "<color:#3b82f6>[II]</color>",
+          "emblem": "<white></white><color:#87FFE7>II</color>",
+          "hover-lines": [
+            "<color:#3b82f6>Rank:</color> Diamante II",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "diamante-iii": {
+          "display-name": "<color:#3b82f6>[III]</color>",
+          "emblem": "<white></white><color:#87FFE7>III</color>",
+          "hover-lines": [
+            "<color:#3b82f6>Rank:</color> Diamante III",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "esmeralda-i": {
+          "display-name": "<color:#22c55e>[I]</color>",
+          "emblem": "<white></white>",
+          "hover-lines": [
+            "<color:#22c55e>Rank:</color> Esmeralda I",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "esmeralda-ii": {
+          "display-name": "<color:#22c55e>[II]</color>",
+          "emblem": "<white></white><color:#66FF97>II</color>",
+          "hover-lines": [
+            "<color:#22c55e>Rank:</color> Esmeralda II",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "esmeralda-iii": {
+          "display-name": "<color:#22c55e>[III]</color>",
+          "emblem": "<white></white><color:#66FF97>III</color>",
+          "hover-lines": [
+            "<color:#22c55e>Rank:</color> Esmeralda III",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+            "<gray>Faltam:</gray> <white>{points_to_next}</white>"
+          ]
+        },
+
+        "glacite": {
+          "display-name": "<gradient:#00acff:#00f2ff>[G]</gradient>",
+          "emblem": "<white></white>",
+          "hover-lines": [
+            "<gradient:#00acff:#00f2ff>Rank:</gradient> Glacite",
+            "<gray>Pontos totais:</gray> <white>{total_points}</white>",
+            "<gray>Posição Glacite:</gray> <white>{glacite_position}</white>"
+          ]
+        }
+      },
+      "npc": {
+        "top": {
+          "hologram": [
+            "<gradient:#00acff:#00f2ff>{position_number}</gradient>",
+            "<gray>Rank:</gray> {rank}",
+            "<gray>Pontos:</gray> <white>{points}</white>",
+            "{player}"
+          ]
+        }
+      },
+
+      "rank-list": {
+        "title": "<gradient:#00acff:#00f2ff>Progressão de Ranks</gradient>",
+        "items": {
+          "rank": {
+            "current": {
+              "name": "<color:#00f2ff>✦</color> <white>{rank_name}</white> <color:#00f2ff>✦</color> <green>(SEU RANK)</green>",
+              "lore": [
+                "<gray>Pontos necessários:</gray> <white>{rank_threshold}</white>",
+                "<gray>Seus pontos:</gray> <green>{player_points}</green>",
+                "",
+                "<green>✓ Este é seu rank atual!</green>"
+              ]
+            },
+            "unlocked": {
+              "name": "<green>✓</green> <white>{rank_name}</white>",
+              "lore": [
+                "<gray>Pontos necessários:</gray> <white>{rank_threshold}</white>",
+                "<gray>Seus pontos:</gray> <green>{player_points}</green>",
+                "",
+                "<green>Rank desbloqueado!</green>"
+              ]
+            },
+            "locked": {
+              "name": "<red>✗</red> <gray>{rank_name}</gray>",
+              "lore": [
+                "<gray>Pontos necessários:</gray> <white>{rank_threshold}</white>",
+                "<gray>Seus pontos:</gray> <yellow>{player_points}</yellow>",
+                "",
+                "<red>Faltam {points_needed} pontos</red>",
+                "<gray>para desbloquear este rank.</gray>"
+              ]
+            }
+          }
+        }
+      },
+
+      "views": {
+        "ranks": {
+          "menu": {
+            "title": "Menu de Ranks",
+            "items": {
+              "profile": {
+                "name": "<white>{player_name_with_tag}</white> <gray>(</gray><color:#00acff>{current_rank}</color><gray>)</gray>",
+                "lore": [
+                  "<gray>Rank atual:</gray> <white>{current_rank}</white>",
+                  "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+                  "",
+                  "<gray>Pontos:</gray> <white>{points}</white>",
+                  "<gray>Para o próximo:</gray> <white>{points_to_next}</white>",
+                  "",
+                  "<gray>Posição no Top:</gray> <white>{top_position}</white>",
+                  "<gray>KDR:</gray> <white>{kdr}</white>",
+                  "<gray>PR:</gray> <white>{pr_amount}</white>",
+                  "<gray>Esmeralda:</gray> <white>{esmeralda_points}</white>"
+                ]
+              },
+              "current-rank": {
+                "name": "<gradient:#00acff:#00f2ff>Seu Rank Atual</gradient>",
+                "lore": [
+                  "<gray>Rank:</gray> <white>{current_rank}</white>",
+                  "<gray>Próximo:</gray> <white>{next_rank}</white>",
+                  "<gray>Pontos:</gray> <white>{points}</white>",
+                  "<gray>Restantes:</gray> <white>{points_to_next}</white>"
+                ]
+              },
+              "top": {
+                "name": "<gradient:#00acff:#00f2ff>Top Ranks</gradient>",
+                "lore": [
+                  "<gray>Clique para ver os</gray>",
+                  "<white>melhores jogadores</white>",
+                  "<gray>no servidor.</gray>"
+                ]
+              },
+              "rank-list": {
+                "name": "<gradient:#00acff:#00f2ff>Progressão de Ranks</gradient>",
+                "lore": [
+                  "<gray>Clique para ver a</gray>",
+                  "<white>progressão completa</white>",
+                  "<gray>de todos os ranks.</gray>"
+                ]
+              }
+            }
+          }
+        },
+
+        "top-menu": {
+          "title": "Ranking Geral",
+          "items": {
+            "profile": {
+              "name": "<white>{player_name_with_tag}</white> <gray>(#{rank_position})</gray>",
+              "lore": [
+                "<gray>Rank:</gray> <white>{current_rank}</white>",
+                "<gray>Pontos:</gray> <white>{points}</white>",
+                "<gray>Para o próximo:</gray> <white>{points_to_next}</white>",
+                "<gray>Próximo rank:</gray> <white>{next_rank}</white>",
+                "",
+                "<gray>KDR:</gray> <white>{kdr}</white>",
+                "<gray>PR:</gray> <white>{pr_amount}</white>",
+                "<gray>Esmeralda:</gray> <white>{esmeralda_points}</white>"
+              ]
+            },
+
+            "glacite": {
+              "name": "<color:#00f2ff>{player_name_with_tag}</color> <gray>(#{rank_position})</gray>",
+              "lore": [
+                "<gray>Rank:</gray> <white>{current_rank}</white>",
+                "<gray>Pontos:</gray> <white>{points}</white>",
+                "<gray>Para o próximo:</gray> <white>{points_to_next}</white>",
+                "<gray>Próximo:</gray> <white>{next_rank}</white>",
+                "",
+                "<gray>KDR:</gray> <white>{kdr}</white>",
+                "<gray>PR:</gray> <white>{pr_amount}</white>",
+                "<gray>Esmeralda:</gray> <white>{esmeralda_points}</white>"
+              ]
+            },
+
+            "empty": {
+              "name": "<gray>— Sem jogador —</gray>",
+              "lore": [
+                "<gray>Nenhum jogador está</gray>",
+                "<gray>nesta posição.</gray>"
+              ]
+            },
+
+            "general": {
+              "name": "<white>{player_name_with_tag}</white> <gray>(#{rank_position})</gray>",
+              "lore": [
+                "<gray>Rank:</gray> <white>{current_rank}</white>",
+                "<gray>Pontos:</gray> <white>{points}</white>",
+                "<gray>Para o próximo:</gray> <white>{points_to_next}</white>",
+                "<gray>Próximo:</gray> <white>{next_rank}</white>",
+                "",
+                "<gray>KDR:</gray> <white>{kdr}</white>",
+                "<gray>PR:</gray> <white>{pr_amount}</white>",
+                "<gray>Esmeralda:</gray> <white>{esmeralda_points}</white>"
+              ]
+            },
+            
+            "empty-general": {
+              "name": "<gray>Nenhum jogador</gray>",
+              "lore": [
+                "<gray>Não há jogadores nesta</gray>",
+                "<gray>página do ranking.</gray>"
+              ]
+            }
+          }
+        }
+      }  
+    }
+  }
+}

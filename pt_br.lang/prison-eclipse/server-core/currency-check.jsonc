@@ -1,0 +1,39 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "views": {
+          "currency-check-create": {
+            "create": {
+              "conversation": {
+                "query": "Digite o valor que você deseja colocar no cheque:",
+                "responses": {
+                  "requires-a-higher-value": "<red>Você precisa digitar um valor maior que </red>{currency_min_value_formatted}<red>.</red>",
+                  "dont-have-a-value": "<red>Você não possui </red>{currency_name_plural}<red> suficientes para fazer esse cheque.</red>",
+                  "success": "<green>Você criou um cheque de </green>{currency_name_plural}<green> no valor de </green>{currency_value_formatted}<green>.</green>"
+                }
+              }
+            }
+          }
+        }
+      },
+      "views": {
+        "currency-check-create": {
+          "title": "Cheques",
+          "items": {
+            "0": {
+              "name": "{currency_check_feature_color}Cheque de {currency_name_plural_with_capitalize_first_letter}",
+              "lore": [
+                "",
+                "<gray>Crie um cheque utilizando</gray>",
+                "<gray>um valor em </gray>{currency_check_feature_color}{currency_name_plural}<gray>.</gray>",
+                "",
+                "{currency_check_feature_color}Clique para criar."
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "group": {
+                    "add": {
+                        "arguments": {
+                            "target": {
+                                "name": "jogador",
+                                "description": "Jogador que será adicionado o grupo"
+                            },
+                            "group": {
+                                "name": "grupo",
+                                "description": "Group que você deseja adicionar ao jogador"
+                            },
+                            "server": {
+                                "name": "servidor",
+                                "description": "Servidor que você deseja adicionar o grupo ao jogador"
+                            },
+                            "days": {
+                                "name": "dias",
+                                "description": "Dias que você deseja adicionar o grupo"
+                            }
+                        },
+                        "need-highest-group": "Você só pode adicionar grupos menores ou iguais ao seu!",
+                        "error": "Sua tentativa de adicionar o grupo falhou, tente novamente mais tarde!",
+                        "success": "Você adicionou o grupo {group_id} para o jogador {target_name} no servidor {server_id} por {days} dias."
+                    },
+                    "remove": {
+                        "arguments": {
+                            "target": {
+                                "name": "jogador",
+                                "description": "Jogador que será removido o grupo"
+                            },
+                            "group": {
+                                "name": "grupo",
+                                "description": "Group que você deseja remover ao jogador"
+                            },
+                            "server": {
+                                "name": "servidor",
+                                "description": "Servidor que você deseja remover o grupo do jogador"
+                            }
+                        },
+                        "error": "Sua tentativa de remover o grupo falhou, tente novamente mais tarde!",
+                        "success": "Você remove o grupo {group_id} do jogador {target_name} no servidor {server_id}."
+                    }
+                }
+            }
+        }
+    }
+}

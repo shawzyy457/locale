@@ -1,0 +1,308 @@
+{
+  "plugins": {
+    "amethyst": {
+      "events": {
+        "types": {
+          "amethyst-order": {
+            "name": "<aqua>Encomenda de Ametistas"
+          },
+          "joint-mining": {
+            "name": "<aqua>Mineracao Conjunta"
+          },
+          "spider-lair": {
+            "name": "<light_purple>Covil de Aranhas"
+          }
+        }
+      },
+      "scoreboards": {
+        "titles": {
+          "positive-layer": [
+            "<dark_purple>Mina de Ametista</dark_purple>"
+          ],
+          "negative-layer": [
+            "<aqua>Mina de Glacite</aqua>"
+          ]
+        }
+      },
+      "guide": {
+        "title": "<dark_purple>Mina de Ametista</dark_purple>",
+        "body": "<gray>Quebre blocos de <light_purple>ametista</light_purple> para coletar fragmentos — quanto maior a sua <white>Fortuna</white>, mais fragmentos. O bloco quebrado vira bedrock e regenera em instantes.\n\nDe vez em quando a ametista vira <white>detrito ancestral</white>, que dropa uma <white>barra de netherite</white> — e pode até nascer um <aqua>Morcego da Neve</aqua> carregando uma cabeça de wither.\n\nEscavando a <white>terra enraizada</white> você encontra o <white>núcleo ósseo</white>, a moeda do <white>arqueólogo</white>: troque com ele por upgrades permanentes de mineração.\n\nCuidado com os <yellow>goblins</yellow> da zona de ouro e as <light_purple>aranhas</light_purple> das teias — todos dão XP de combate e drops raros.</gray>"
+      },
+      "npc": {
+        "archaeologist": {
+          "hologram": [
+            "<gradient:#a855f7:#6366f1><bold>Arqueólogo",
+            "<white>Clique para evoluir sua mineração"
+          ]
+        },
+        "guide": {
+          "hologram": [
+            "<gradient:#a855f7:#6366f1><bold>Guia da Mina",
+            "<white>Clique para entender como funciona"
+          ]
+        }
+      },
+      "upgrades": {
+        "seismic-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Eco Sismico</gradient>",
+          "description": [
+            "<gray>Aumenta a chance da Quebra</gray>",
+            "<gray>Sismica ativar, so na mina</gray>",
+            "<gray>de ametista.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "netherite-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Detrito Ancestral</gradient>",
+          "description": [
+            "<gray>Aumenta a chance da ametista</gray>",
+            "<gray>virar detrito ancestral.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "bone-core-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Escavador Fóssil</gradient>",
+          "description": [
+            "<gray>Aumenta a chance de achar</gray>",
+            "<gray>núcleo ósseo escavando.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "excavation-box-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Caixas da Escavação</gradient>",
+          "description": [
+            "<gray>Chance de achar caixas comuns</gray>",
+            "<gray>ao escavar na mina.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "extra-shard": {
+          "name": "<gradient:#a855f7:#6366f1>Mineração Ampliada</gradient>",
+          "description": [
+            "<gray>Aumenta em +1 a quantidade</gray>",
+            "<gray>de ametistas mineradas.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>+{upgrade_current} fragmentos",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>+{upgrade_current} fragmentos"
+          ]
+        },
+        "allay-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Chamado do Morcego</gradient>",
+          "description": [
+            "<gray>Aumenta a chance de nascer</gray>",
+            "<gray>um Morcego da Neve.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "haste-burst-chance": {
+          "name": "<gradient:#a855f7:#6366f1>Jorro de Pressa</gradient>",
+          "description": [
+            "<gray>Aumenta a chance do bloco quebrado</gray>",
+            "<gray>explodir em cacos e te dar Pressa.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}%",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}%"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}%"
+          ]
+        },
+        "break-speed": {
+          "name": "<gradient:#a855f7:#6366f1>Punho de Minerador</gradient>",
+          "description": [
+            "<gray>Aumenta a sua velocidade de</gray>",
+            "<gray>quebra dentro da mina.</gray>"
+          ],
+          "value": [
+            "<white>Atual: <gray>{upgrade_current}",
+            "<white>Proximo nivel: <green>+{upgrade_next_gain}"
+          ],
+          "value-max": [
+            "<white>Atual: <gray>{upgrade_current}"
+          ]
+        }
+      },
+      "views": {
+        "archaeologist": {
+          "title": "Arqueólogo",
+          "items": {
+            "upgrade": {
+              "available": {
+                "name": "{upgrade_name}",
+                "lore": [
+                  "{upgrade_description}",
+                  "",
+                  "{upgrade_value}",
+                  "",
+                  "<white>Nível: <gray>{upgrade_level}",
+                  "<white>Custo do nível {upgrade_next_level}:",
+                  "<gray>{upgrade_cost}",
+                  "",
+                  "<green>Clique para evoluir!</green>"
+                ]
+              },
+              "missing": {
+                "name": "{upgrade_name}",
+                "lore": [
+                  "{upgrade_description}",
+                  "",
+                  "{upgrade_value}",
+                  "",
+                  "<white>Nível: <gray>{upgrade_level}",
+                  "<white>Custo do nível {upgrade_next_level}:",
+                  "<gray>{upgrade_cost}",
+                  "",
+                  "<red>Você não tem os itens do custo.</red>"
+                ]
+              },
+              "max": {
+                "name": "{upgrade_name}",
+                "lore": [
+                  "{upgrade_description}",
+                  "",
+                  "{upgrade_value}",
+                  "",
+                  "<white>Nível: <gray>{upgrade_level}",
+                  "",
+                  "<gold>Nível máximo alcançado!</gold>"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "items": {
+        "bone-core": {
+          "name": "<white>Núcleo Ósseo</white>",
+          "display-name": "<white>Núcleo Ósseo</white>",
+          "lore": [
+            "<gray>Fóssil raro encontrado ao.</gray>",
+            "<gray>escavar na mina de Ametista.</gray>",
+            "",
+            "<white>Pode ser trocado com o",
+            "<white>arqueólogo na mina de Ametista."
+          ]
+        }
+      },
+      "messages": {
+        "mine": {
+          "reserved-block": "<red>Este bloco pertence a quem o encontrou por mais <white>{remaining_seconds}s</white>.</red>",
+          "haste-burst": "<yellow>A mina te deu <white>Pressa {haste_level}</white> por <white>{duration_seconds}s</white>!</yellow>"
+        },
+        "creatures": {
+          "allay-spawned": "<aqua>Um Morcego da Neve nasceu! Ele é seu por <white>{owner_window_seconds}s</white> — não deixe ele fugir.</aqua>",
+          "allay-protected": "<red>Este morcego pertence a outro jogador por mais <white>{remaining_seconds}s</white>.</red>"
+        },
+        "archaeologist": {
+          "purchased": "<green>Upgrade <white>{upgrade_name}</white> evoluído para o nível <white>{upgrade_level}</white>!</green>",
+          "missing-cost": "<red>Você não tem os itens necessários para este upgrade.</red>"
+        },
+        "mining-events": {
+          "global-start": "<aqua>Evento iniciado: <white>{event_name}</white><aqua>! Meta global: <white>{event_progress_goal}</white> fragmentos em <white>{event_duration}</white><aqua>. Minimo individual: <white>{event_min_contribution}</white>.</aqua>",
+          "global-stopped": "<yellow>O evento <white>{event_name}</white> foi interrompido.</yellow>",
+          "amethyst-order": {
+            "chat-start": [
+              "",
+              " <gradient:#a855f7:#6366f1><bold>Encomenda de Ametistas!</bold></gradient>",
+              " <gray>Colete ametistas para receber boosters de habilidade!</gray>",
+              "",
+              " <gradient:#a855f7:#6366f1>▶ <white>Progresso: <gray>{event_progress_current}/{event_progress_goal}",
+              " <gradient:#a855f7:#6366f1>▶ <white>Tempo restante: <gray>{event_remaining_time}",
+              "",
+              " <gradient:#a855f7:#6366f1>Minerem juntos para concluir a meta!</gradient>",
+              ""
+            ],
+            "bossbar": "<gradient:#a855f7:#6366f1>⛏ <bold>Encomenda de Ametistas! </bold><white>{event_progress_current}/{event_progress_goal}</white> <gradient:#a855f7:#6366f1>| <white>Duração: <gray>{event_remaining_time}",
+            "end-success": [
+              "",
+              " <gradient:#a855f7:#6366f1><bold>Meta concluida!",
+              " <gray>Os jogadores colaboraram e a meta de ametistas foi concluida!",
+              "",
+              " <gradient:#a855f7:#6366f1>▶ <white>Meta: <gray>{event_progress_current}/{event_progress_goal} ametistas;",
+              " <gradient:#a855f7:#6366f1>▶ <white>Jogadores Elegíveis: <gray>{event_qualified_players}",
+              "",
+              " <gradient:#a855f7:#6366f1>Um bonûs de <white>{event_bonus_percent}% <gradient:#a855f7:#6366f1>de XP foi atribuído por <white>{event_bonus_duration_minutes}<gradient:#a855f7:#6366f1> min."
+              
+            ],
+            "end-failed": "<red>Tempo esgotado! A meta nao foi concluida. Progresso final: <white>{event_progress_current}/{event_progress_goal}</white>.</red>",
+            "personal-reward": "<green>Voce recebeu <white>+{event_bonus_percent}%</white> de XP geral por <white>{event_bonus_duration}</white>.</green>"
+          },
+          "joint-mining": {
+            "start": "<aqua>Evento iniciado: <white>{event_name}</white><aqua>! Duracao: <white>{event_duration}</white>. Bonus: <white>+{joint_mining_bonus_per_player}%</white> de velocidade para cada aliado da mesma faccao proximo.</aqua>",
+            "chat-start": [
+              "",
+              " <gradient:#5de0e6:#004aad><bold>EVENTO DA MINA!</bold></gradient>",
+              " <gray>Mineracao conjunta iniciada.</gray>",
+              "",
+              " <gradient:#5de0e6:#004aad>▶ <white>Bonus: <aqua>+{joint_mining_bonus_per_player}%</aqua> por aliado da mesma faccao proximo",
+              " <gradient:#5de0e6:#004aad>▶ <white>Tempo restante: <aqua>{event_remaining_time}</aqua>",
+              "",
+              " <gradient:#5de0e6:#004aad>Quanto mais aliados juntos, mais rapido quebram minerios.</gradient>",
+              ""
+            ],
+            "bossbar": "<aqua>Mineracao Conjunta <gray>|</gray> <white>+{joint_mining_bonus_per_player}% por aliado proximo</white> <gray>|</gray> <white>{event_remaining_time}</white>",
+            "end": "<green>O evento <white>{event_name}</white> terminou.</green>"
+          },
+          "spider-lair": {
+            "start": "<light_purple>Evento iniciado: <white>{event_name}</white><light_purple>! Uma aranha chefe apareceu em <white>{spider_lair_x}, {spider_lair_y}, {spider_lair_z}</white>. Ela some apos <white>{spider_lair_idle_minutes} min</white> sem levar dano.</light_purple>",
+            "chat-start": [
+              "",
+              " <gradient:#c084fc:#6d28d9><bold>COVIL DE ARANHAS!</bold></gradient>",
+              " <gray>Uma aranha chefe apareceu na mina.</gray>",
+              "",
+              " <gradient:#c084fc:#6d28d9>▶ <white>Local: <light_purple>{spider_lair_x}, {spider_lair_y}, {spider_lair_z}</light_purple>",
+              " <gradient:#c084fc:#6d28d9>▶ <white>Tempo restante: <light_purple>{event_remaining_time}</light_purple>",
+              " <gradient:#c084fc:#6d28d9>▶ <white>Some apos <light_purple>{spider_lair_idle_minutes} min</light_purple> sem levar dano",
+              "",
+              " <gradient:#c084fc:#6d28d9>Derrote a aranha chefe e pegue o que ela largar no chao.</gradient>",
+              ""
+            ],
+            "bossbar": "<light_purple>Aranha Chefe <gray>|</gray> <white>{spider_lair_boss_health_percent}% de vida</white> <gray>|</gray> <white>{event_remaining_time}</white>",
+            "end-cleared": "<green>A aranha chefe do <white>{event_name}</white> caiu! Corra pegar o que ela largou no chao.</green>",
+            "end-idle": "<yellow>O <white>{event_name}</white> ficou <white>{spider_lair_idle_minutes} min</white> sem receber ataques e a aranha chefe sumiu.</yellow>",
+            "end-timeout": "<yellow>O tempo do <white>{event_name}</white> acabou e a aranha chefe sumiu.</yellow>"
+          }
+        },
+        "pvp": {
+          "enter-negative-layer": "<aqua>Voce entrou na camada negativa da mina de ametista. O PvP esta liberado aqui.</aqua>",
+          "disabled-outside-negative": "<red>O PvP so esta liberado nas camadas negativas da mina de ametista.</red>"
+        }
+      }
+    }
+  }
+}

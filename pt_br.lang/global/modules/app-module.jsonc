@@ -1,0 +1,22 @@
+{
+  "modules": {
+    "app-module": {
+      "status": {
+        "update": {
+          "starting": [
+            "<yellow>Servidor </yellow><white>{app_display_name_stripped}</white><yellow> iniciando...</yellow>"
+          ],
+          "started": [
+            "<green>Servidor </green><white>{app_display_name_stripped}</white><green> ligado!</green>"
+          ],
+          "stopping": [
+            "<red>Servidor </red><white>{app_display_name_stripped}</white><red> desligando...</red>"
+          ],
+          "stopped": [
+            "<dark_red>Servidor </dark_red><white>{app_display_name_stripped}</white><dark_red> desligado!</dark_red>"
+          ]
+        }
+      }
+    }
+  }
+}

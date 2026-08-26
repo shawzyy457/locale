@@ -1,0 +1,501 @@
+{
+  // ====================================================================
+  //  Torneio da Academy — /torneio e as seis telas da copa.
+  //
+  //  A raiz fica DENTRO da das facções (plugins.factions.tournament) pelo mesmo motivo do
+  //  simulator: a copa é disputada por facções, e um escopo separado obrigaria a duplicar tag,
+  //  nome e cargo só para o torneio.
+  //
+  //  ⚠️ A fonte de verdade da copa é a API DO SITE. Nada aqui descreve criar, abrir ou fechar
+  //  edição — isso é do painel, e o jogo só lê e executa.
+  // ====================================================================
+  "plugins": {
+    "factions": {
+      "tournament": {
+        // Traço de valor ausente. É chave, e não "-" escrito no Java, porque aparece em dezenas de
+        // linhas de lore: a cor dele é decisão daqui.
+        "none": "<dark_gray>—",
+        // Lado de um confronto que ainda não tem dono: degrau da chave à espera de quem sobe.
+        "unknown-team": "<dark_gray>a definir",
+        "team-name": "<white>[{team_tag}] {team_name}",
+        // A disputa de 3º é paralela à final, e não uma rodada da árvore — por isso tem rótulo próprio.
+        "third-place": "Disputa de 3º lugar",
+        "phases": {
+          "draft": "<dark_gray>Em montagem",
+          "registrations": "<yellow>Inscrições abertas",
+          "groups": "<green>Fase de pontos",
+          "seeded": "<aqua>Chave sorteada",
+          "running": "<red>Playoffs em andamento",
+          "finished": "<gray>Encerrada",
+          "cancelled": "<dark_red>Cancelada",
+          // Fase que esta versão do plugin ainda não conhece. Aparece quando o painel publica uma
+          // etapa nova antes de o jar subir — é informação, não erro.
+          "unknown": "<dark_gray>Indefinida"
+        },
+        "statuses": {
+          "pending": "<yellow>Aguardando análise",
+          "approved": "<green>Aprovada",
+          "rejected": "<red>Recusada",
+          "withdrawn": "<gray>Desistiu",
+          "unknown": "<dark_gray>Indefinida"
+        },
+        "match-status": {
+          "pending": "<yellow>A jogar",
+          "live": "<red>Em andamento",
+          "finished": "<green>Encerrado",
+          // Vencedor sem jogo: bye do sorteio ou W.O. por ausência.
+          "walkover": "<gray>W.O.",
+          "unknown": "<dark_gray>Indefinido"
+        },
+        "stages": {
+          "groups": "<green>Fase de pontos",
+          "playoffs": "<red>Playoffs",
+          "unknown": "<dark_gray>Indefinida"
+        },
+        // Presidência e escalação. Ser vice é uma MARCA no membro: o mesmo jogador aparece na
+        // presidência e entre os titulares ou reservas.
+        "squad-roles": {
+          "president": "<gold>Presidente",
+          "vice": "<yellow>Vice-presidente",
+          "starter": "<green>Titular",
+          "reserve": "<gray>Reserva"
+        },
+        "bracket-state": {
+          "drawn": "<green>sorteada",
+          "pending": "<yellow>ainda não sorteada"
+        },
+        // O que a PARTIDA diz aos dois quadros sobre o degrau que eles acabaram de jogar. Sai junto do
+        // anúncio do desfecho, antes de todo mundo voltar ao spawn — depois disso ninguém estaria lá
+        // para ler. As duas frases vão para as DUAS facções: quem perdeu tem o mesmo interesse em saber
+        // se o resultado subiu.
+        "messages": {
+          // A copa RECEBEU o resultado: a api respondeu que gravou (ou que já tinha este mesmo
+          // lançamento). Só sai depois da resposta — enquanto ela não vem, quem fala é a frase de
+          // baixo. Prometer o registro antes da resposta era prometer o que outro serviço faz.
+          "result-reported": [
+            "",
+            "<color:#ff2d2d>Confronto #{match_id} <gray>·</gray> <white>resultado registrado na copa",
+            "<gray>Vencedora: {winner_display_name}",
+            ""
+          ],
+          // A api não respondeu a tempo (fora do ar, rede oscilando) e o lançamento ficou na fila, que
+          // insiste sozinha até ela voltar. Nada se perdeu — o degrau é atualizado depois.
+          "result-queued": [
+            "",
+            "<color:#ff2d2d>Confronto #{match_id} <gray>·</gray> <white>resultado a caminho da copa",
+            "<gray>Vencedora: {winner_display_name}",
+            "<gray>A copa está fora do ar; o resultado entra assim que ela voltar.",
+            ""
+          ],
+          // O desfecho não pontua sozinho: cancelamento, encerramento pela staff, empate. Nada se
+          // perde — só depende de alguém lançar.
+          "result-manual": [
+            "",
+            "<color:#ff2d2d>Confronto #{match_id} <gray>·</gray> <white>sem lançamento automático",
+            "<gray>A staff precisa lançar este resultado na copa.",
+            ""
+          ],
+          // A partida é da copa mas não decide degrau da chave (fase de pontos). Frase própria porque
+          // a de cima cita o número do confronto, e aqui não existe confronto para citar.
+          "result-no-match": [
+            "",
+            "<color:#ff2d2d>Partida da copa <gray>·</gray> <white>sem lançamento automático",
+            "<gray>Esta partida não decide um confronto da chave — a staff lança o resultado.",
+            ""
+          ]
+        }
+      },
+      "commands": {
+        "tournament": {
+          "help": [
+            "<color:#ff2d2d>Comandos do torneio:",
+            "<gray>/torneio <dark_gray>·</dark_gray> /torneio faccoes <dark_gray>·</dark_gray> /torneio elenco [tag]",
+            "<gray>/torneio classificacao <dark_gray>·</dark_gray> /torneio chave <dark_gray>·</dark_gray> /torneio historico [tag]",
+            "<gray>/torneio vices <jogador> [jogador] <dark_gray>(só o presidente da inscrição)</dark_gray>",
+            "<gray>/torneio staff <dark_gray>(staff: abrir, resultado, atualizar)</dark_gray>"
+          ],
+          "errors": {
+            "no-edition": "<red>Não há nenhuma copa no ar no momento.",
+            // Serve para os DOIS casos em que a copa existe mas não chegou: o painel fora do ar e a
+            // resposta ilegível. O jogador não tem o que fazer com a diferença entre as duas.
+            "unavailable": "<red>O torneio não respondeu. Tente de novo em instantes.",
+            "team-not-found": "<red>Nenhuma facção inscrita com a tag <yellow>{team_tag}</yellow>.",
+            "no-team": "<red>Você não está escalado em nenhuma facção desta copa."
+          },
+          "vices": {
+            "success": "<green>Vice-presidência atualizada: <yellow>{vices}</yellow>.",
+            "cleared": "<yellow>Sua facção ficou sem vice-presidentes.",
+            "errors": {
+              "not-president": "<red>Só o presidente da inscrição escolhe os vice-presidentes.",
+              "too-many": "<red>São no máximo <yellow>{limit}</yellow> vice-presidentes.",
+              "not-in-squad": "<red><yellow>{player_name}</yellow> não está na escalação da sua facção.",
+              "president-is-not-vice": "<red>Você já manda na facção — vice é para outra pessoa.",
+              // A api recusa por presidência, inscrição fora da copa, escalação ou Discord não
+              // vinculado — e escreve qual das quatro foi. {reason} é essa frase: sem ela, "o Discord
+              // do seu vice não está vinculado" (que o presidente resolve) ficava igual a "o painel
+              // caiu" (que não depende dele).
+              "refused": "<red>O torneio recusou a troca: <gray>{reason}",
+              "failed": "<red>O torneio não respondeu. <gray>Tente de novo em instantes."
+            }
+          },
+          "staff": {
+            "usage": [
+              "<color:#ff2d2d>Operação do torneio:",
+              "<gray>/torneio staff abrir <dark_gray>(lista os confrontos que podem ser jogados)</dark_gray>",
+              "<gray>/torneio staff abrir <confronto> [atacante] [estilo]",
+              "<gray>/torneio staff resultado <tipo> <vencedora> [perdedora] [placar] [confirmar]",
+              "<gray>/torneio staff atualizar <dark_gray>(relê a copa em todos os servidores)</dark_gray>"
+            ],
+            "errors": {
+              "unknown-action": "<red>Ação desconhecida: <yellow>{action}</yellow>."
+            },
+            // Abrir um confronto da chave como partida do Fac x Fac. A partida é a mesma de sempre — o
+            // que a copa acrescenta é o VÍNCULO com o degrau, que é o que deixa o resultado ser lançado
+            // no confronto certo mesmo numa revanche entre as mesmas duas facções.
+            "open": {
+              "success": "<green>Confronto <yellow>#{match_id}</yellow> aberto — <yellow>[{attacker_tag}]</yellow> ataca. <gray>O quadro dos dois lados está sendo convocado.",
+              "list": {
+                "header": "<color:#ff2d2d>Confrontos que podem ser jogados <dark_gray>({total})</dark_gray><color:#ff2d2d>:",
+                "entry": "<dark_gray>▸ <yellow>#{match_id}</yellow> <gray>{round_name} <dark_gray>·</dark_gray> <white>[{home_tag}]</white> <gray>x <white>[{away_tag}]",
+                // A disputa de 3º é paralela à final e não mora em rodada nenhuma — por isso a linha
+                // dela não tem rodada para citar.
+                "third-place": "<dark_gray>▸ <yellow>#{match_id}</yellow> <gray>Disputa de 3º lugar <dark_gray>·</dark_gray> <white>[{home_tag}]</white> <gray>x <white>[{away_tag}]"
+              },
+              "errors": {
+                "invalid-match": "<red>Confronto inválido: <yellow>{match}</yellow>. <gray>Use o número que o <white>/torneio staff abrir</white> lista.",
+                "match-not-found": "<red>A chave desta copa não tem o confronto <yellow>#{match}</yellow>.",
+                // Degrau já decidido, ou ainda esperando quem sobe da rodada de baixo.
+                "match-closed": "<red>O confronto <yellow>#{match}</yellow> não pode ser jogado: <gray>ou já foi decidido, ou ainda não tem as duas facções.",
+                "no-open-match": "<yellow>Não há nenhum confronto para jogar nesta copa. <gray>A chave pode não ter sido sorteada ainda.",
+                // O Fac x Fac está desligado neste servidor: não há partida para abrir em lugar nenhum.
+                "simulator-off": "<red>O Fac x Fac está desligado neste servidor — não há como abrir a partida daqui.",
+                "team-not-found": "<red>A chave aponta para uma inscrição que não está nesta edição. <gray>Confira o painel do site.",
+                // A tag da inscrição não casa com facção nenhuma deste servidor. É o elo mais frágil
+                // entre a copa e o jogo: quem digitou a inscrição pode ter escrito a tag errada.
+                "faction-not-found": "<red>Não existe facção com a tag <yellow>[{team_tag}]</yellow> neste servidor. <gray>A inscrição no site precisa usar a tag exata da facção.",
+                "not-in-match": "<red>A facção <yellow>[{team_tag}]</yellow> não é de nenhum dos dois lados deste confronto.",
+                "busy": "<red>Uma das duas facções já está em partida ou invasão."
+              }
+            },
+            "result": {
+              "success": "<green>Resultado lançado: <yellow>[{winner_tag}] {winner_name}</yellow> venceu <yellow>[{loser_tag}] {loser_name}</yellow> <dark_gray>(<white>+{event_points}<dark_gray> pontos)",
+              // Evento sem adversária direta. Frase própria porque a de cima deixaria um "[] " vazio no
+              // lugar de quem não existe.
+              "success-solo": "<green>Resultado lançado para <yellow>[{winner_tag}] {winner_name}</yellow> <dark_gray>(<white>+{event_points}<dark_gray> pontos)",
+              // O lançamento DECIDIU um degrau da chave: a vencedora subiu na árvore e a outra saiu da
+              // copa. Frase própria porque é o único desfecho que muda a chave, e citar o confronto é o
+              // que deixa conferir no painel se foi o degrau certo.
+              "success-match": "<green>Confronto <yellow>#{match_id}</yellow> decidido: <yellow>[{winner_tag}] {winner_name}</yellow> venceu <yellow>[{loser_tag}] {loser_name}</yellow> <gray>e avança na chave.",
+              // A pergunta antes de decidir a chave. O lançamento aponta para um degrau ABERTO entre as
+              // duas facções — inclusive quando quem digitou só queria lançar um evento da liga entre
+              // elas, que é o engano que esta linha existe para impedir.
+              "confirm-match": [
+                "<yellow>Isto vai DECIDIR o confronto <white>#{match_id}</white> da chave: <white>[{winner_tag}]</white> avança e <white>[{loser_tag}]</white> sai da copa.",
+                "<gray>Se é isso mesmo, repita o comando com <white>confirmar</white> no fim."
+              ],
+              // Reenvio da MESMA partida: a api reconheceu a chave de idempotência e não tocou em
+              // nada. Não é erro — é a resposta esperada quando a primeira resposta se perdeu.
+              "duplicate": "<yellow>Este resultado já estava lançado — nada foi alterado.",
+              "errors": {
+                "usage": "<red>Use: <yellow>/torneio staff resultado <tipo> <vencedora> [perdedora] [placar] [confirmar]</yellow>. <gray>O tipo é obrigatório; o placar (<white>3-1</white>, vencedora primeiro) e o <white>confirmar</white> são obrigatórios em partida da chave.",
+                "same-team": "<red>Uma facção não joga contra ela mesma.",
+                // O degrau entre estas duas já foi decidido. Lançar assim vira evento da LIGA, com chave
+                // de idempotência nova a cada vez — por isso a confirmação, que é o que separa o evento
+                // avulso entre as duas (o X1 do Presidente) do comando redigitado por engano.
+                "match-decided": "<red>O confronto <yellow>#{match_id}</yellow> entre estas duas facções já foi decidido. <gray>Este lançamento vai contar como evento da LIGA, sem tocar na chave — se é isso mesmo, repita o comando com <white>confirmar</white> no fim. Correção do degrau é no painel do site.",
+                // Confronto ABERTO da chave: a api deriva do placar quem sobe para a rodada seguinte,
+                // e sem os dois números não tem como preencher o degrau de cima.
+                "score-required": "<red>Estas duas facções têm um confronto aberto na chave — informe o placar. <gray>Ex.: <white>3-1</white>.",
+                "score-without-loser": "<red>Placar precisa das duas facções: informe também a perdedora.",
+                "invalid-score": "<red>Placar inválido: <yellow>{score}</yellow>. <gray>Use o formato <white>3-1</white>, vencedora primeiro.",
+                "score-not-a-win": "<red>O placar precisa dar a vitória a quem foi lançada como vencedora.",
+                // A frase que a api escreveu. É o que separa um erro de digitação de uma queda do painel.
+                "refused": "<red>O torneio recusou o lançamento: <gray>{reason}",
+                "failed": "<red>O torneio não respondeu. <gray>Confira o console do servidor.",
+                "unknown-type": "<red>Tipo de evento desconhecido: <yellow>{type_key}</yellow>. <gray>Disponíveis: <white>{event_types}</white>."
+              }
+            },
+            "refresh": {
+              "success": "<green>Torneio relido em todos os servidores da Academy."
+            }
+          }
+        }
+      },
+      "views": {
+        "tournament-primary": {
+          "title": "{tournament_name}",
+          "items": {
+            "info": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>{tournament_name}",
+              "lore": [
+                "<gray>A copa oficial da Academy,",
+                "<gray>organizada pelo site.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Modo:</white> <gray>{tournament_server}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Fase:</white> {tournament_phase}",
+                " <dark_gray>▸</dark_gray> <white>Facções aprovadas:</white> <gray>{tournament_teams}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Quadro:</white> <gray>{tournament_squad_size} titulares + {tournament_reserve_slots} reservas</gray>"
+              ]
+            },
+            "teams": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Facções inscritas",
+              "lore": [
+                "<gray>Quem está na copa e quem",
+                "<gray>ainda espera análise.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Inscrições:</white> <gray>{tournament_teams_total}</gray>",
+                "",
+                "<green>Clique para ver!"
+              ]
+            },
+            "standings": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Classificação",
+              "lore": [
+                "<gray>A tabela da fase de pontos,",
+                "<gray>com as vitórias por evento.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Facções pontuando:</white> <gray>{tournament_standings}</gray>",
+                "",
+                "<green>Clique para ver!"
+              ]
+            },
+            "bracket": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Chave dos playoffs",
+              "lore": [
+                "<gray>Os confrontos que decidem",
+                "<gray>a campeã da edição.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Situação:</white> <gray>{tournament_bracket_state}</gray>",
+                "",
+                "<green>Clique para ver!"
+              ]
+            },
+            "history": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Histórico de partidas",
+              "lore": [
+                "<gray>Tudo o que já foi disputado",
+                "<gray>e lançado nesta copa.",
+                "",
+                "<green>Clique para ver!"
+              ]
+            }
+          }
+        },
+        "tournament-teams": {
+          "title": "Facções · {tournament_name}",
+          "items": {
+            "team": {
+              "name": "<white>[{team_tag}] {team_name}",
+              "lore": [
+                "<gray>Facção aprovada nesta edição.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Posição:</white> <gray>#{team_position}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Pontos:</white> <gray>{team_points}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Cabeça de chave:</white> <gray>{team_seed}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Presidente:</white> <gray>{team_president}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Vices:</white> <gray>{team_vices}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Elenco:</white> <gray>{team_starters} titulares + {team_reserves} reservas</gray>",
+                "",
+                "<green>Clique para ver o elenco!"
+              ]
+            },
+            // Inscrição viva que ainda não foi aprovada: sem posição e sem pontos para mostrar, mas
+            // já com nome, tag e nicks reservados.
+            "team-pending": {
+              "name": "<gray>[{team_tag}] {team_name}",
+              "lore": [
+                "<gray>Inscrição ainda em análise.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Situação:</white> {team_status}",
+                " <dark_gray>▸</dark_gray> <white>Presidente:</white> <gray>{team_president}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Elenco:</white> <gray>{team_starters} titulares + {team_reserves} reservas</gray>",
+                "",
+                "<green>Clique para ver o elenco!"
+              ]
+            },
+            "empty": {
+              "name": "<red>Nenhuma facção inscrita",
+              "lore": [
+                "<gray>As inscrições desta edição",
+                "<gray>ainda não receberam nenhuma facção."
+              ]
+            }
+          }
+        },
+        "tournament-squad": {
+          "title": "Elenco · [{team_tag}] {team_name}",
+          "items": {
+            "separator": {
+              "name": " "
+            },
+            "info": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>[{team_tag}] {team_name}",
+              "lore": [
+                "<gray>A inscrição desta facção",
+                "<gray>na copa.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Situação:</white> {team_status}",
+                " <dark_gray>▸</dark_gray> <white>Posição:</white> <gray>#{team_position}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Pontos:</white> <gray>{team_points}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Titulares:</white> <gray>{team_starters}/{tournament_squad_size}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Reservas:</white> <gray>{team_reserves}/{tournament_reserve_slots}</gray>"
+              ]
+            },
+            // Linha de cima: os três que a staff chama no dia da rodada.
+            "presidency": {
+              "name": "<white>{player_nick}",
+              "lore": [
+                "<gray>Quem responde pela facção",
+                "<gray>no dia da rodada.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Cargo:</white> {squad_role}"
+              ]
+            },
+            "player": {
+              "name": "<white>{player_nick}",
+              "lore": [
+                "<gray>Jogador escalado nesta copa.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Escalação:</white> {squad_role}",
+                " <dark_gray>▸</dark_gray> <white>Presidência:</white> {squad_presidency}"
+              ]
+            }
+          }
+        },
+        "tournament-standings": {
+          "title": "Classificação · {tournament_name}",
+          "items": {
+            "standing": {
+              "name": "<white>#{standing_position} <gray>·</gray> [{standing_tag}] {standing_name}",
+              "lore": [
+                "<gray>Pontuação da fase de pontos.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Pontos:</white> <gray>{standing_points}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Vitórias:</white> <gray>{standing_total_wins}</gray>",
+                "",
+                "{standing_wins}",
+                "",
+                "<green>Clique para ver o elenco!"
+              ],
+              // Uma linha por evento que pontua NESTA edição. A lista inteira entra na linha-molde
+              // {standing_wins}: o Java só escolhe os eventos, quem os formata é esta chave.
+              "win-line": " <dark_gray>▸</dark_gray> <white>{event_label} ({event_short}):</white> <gray>{event_wins} <dark_gray>× {event_points} pts</dark_gray></gray>"
+            },
+            "empty": {
+              "name": "<red>Tabela ainda vazia",
+              "lore": [
+                "<gray>Nenhuma partida da fase de",
+                "<gray>pontos foi lançada até agora."
+              ]
+            }
+          }
+        },
+        "tournament-bracket": {
+          "title": "Chave · {tournament_name}",
+          "items": {
+            "match": {
+              "name": "<white>{match_round} <dark_gray>#{match_position}",
+              "lore": [
+                "<gray>Confronto dos playoffs.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Situação:</white> {match_status}",
+                " <dark_gray>▸</dark_gray> <white>Mandante:</white> {match_home} <dark_gray>(<white>{match_home_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Visitante:</white> {match_away} <dark_gray>(<white>{match_away_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Vencedor:</white> {match_winner}",
+                " <dark_gray>▸</dark_gray> <white>Horário:</white> <gray>{match_scheduled}</gray>"
+              ]
+            },
+            "third-place": {
+              "name": "<yellow>{match_round}",
+              "lore": [
+                "<gray>Partida paralela à final,",
+                "<gray>entre os dois semifinalistas.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Situação:</white> {match_status}",
+                " <dark_gray>▸</dark_gray> <white>Mandante:</white> {match_home} <dark_gray>(<white>{match_home_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Visitante:</white> {match_away} <dark_gray>(<white>{match_away_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Vencedor:</white> {match_winner}",
+                " <dark_gray>▸</dark_gray> <white>Horário:</white> <gray>{match_scheduled}</gray>"
+              ]
+            },
+            "champion": {
+              "name": "<gradient:#FF6F00:#faa825:#FF6F00>Campeã da edição",
+              "lore": [
+                "<gray>A final já tem vencedora.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Facção:</white> {team_display_name}"
+              ]
+            },
+            "empty": {
+              "name": "<red>Chave ainda não sorteada",
+              "lore": [
+                "<gray>Os confrontos aparecem aqui",
+                "<gray>assim que o sorteio acontecer."
+              ]
+            }
+          }
+        },
+        "tournament-history": {
+          "title": "Histórico · {tournament_name}",
+          "items": {
+            "event": {
+              "name": "<white>{event_type} <dark_gray>·</dark_gray> {event_winner}",
+              "lore": [
+                "<gray>Partida já lançada no painel.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Fase:</white> {event_stage}",
+                " <dark_gray>▸</dark_gray> <white>Vencedora:</white> {event_winner} <dark_gray>(<white>{event_winner_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Derrotada:</white> {event_loser} <dark_gray>(<white>{event_loser_score}<dark_gray>)",
+                " <dark_gray>▸</dark_gray> <white>Pontos:</white> <gray>{event_points}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Quando:</white> <gray>{event_played_at}</gray>"
+              ]
+            },
+            // Os três estados de CARGA desta tela. Só ela busca sozinha — as outras recebem a edição
+            // já pronta do comando —, e por isso só ela precisa dizer "estou buscando".
+            "loading": {
+              "name": "<yellow>Carregando o histórico…",
+              "lore": [
+                "<gray>Buscando as partidas lançadas",
+                "<gray>no painel do site."
+              ]
+            },
+            // ⚠️ NÃO troque por "nenhuma partida": um jogador que lesse isso num dia de painel fora
+            // do ar concluiria que a copa foi zerada.
+            "error": {
+              "name": "<red>Histórico indisponível",
+              "lore": [
+                "<gray>O painel do site não respondeu.",
+                "<gray>As partidas continuam lá — só",
+                "<gray>não foi possível lê-las agora.",
+                "",
+                "<yellow>Tente de novo em instantes."
+              ]
+            },
+            // A consulta traz as mais recentes até o teto do plugin. Sem este aviso, uma copa com mais
+            // partidas do que isso pareceria ter só as que couberam.
+            "truncated": {
+              "name": "<yellow>Mostrando as {history_shown} mais recentes",
+              "lore": [
+                "<gray>Esta consulta já tem {history_total}",
+                "<gray>partidas lançadas.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Filtro:</white> {history_filter}",
+                "",
+                "<yellow>O histórico completo fica no site."
+              ]
+            },
+            "empty": {
+              "name": "<red>Nenhuma partida lançada",
+              "lore": [
+                "<gray>Ainda não há partida registrada",
+                "<gray>nesta consulta.",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Filtro:</white> {history_filter}"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

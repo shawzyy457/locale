@@ -1,0 +1,11 @@
+{
+    "plugins": {
+        "core": {
+            "messages": {
+                "vanish": {
+                    "actionbar": "<gradient:#f57c00:#ff9800:#ffb74d>Você está invisível! <dark_gray>[{players_vanished_count}]</dark_gray>"
+                }
+            }
+        }
+    }
+}

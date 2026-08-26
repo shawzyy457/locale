@@ -1,0 +1,317 @@
+{
+  "plugins": {
+    "mining": {
+      "npc": {
+        "hologram": [
+          "<gradient:#00acff:#00f2ff><bold>Mineração",
+          "<white>Clique para abrir!"
+        ]
+      },
+      "messages": {
+        "sniffer": {
+          "spawned": {
+            "title": "<color:#00acff>FAREJADOR CONGELADO DESPERTADO</color>",
+            "description": "<gray>Enfrente o <white>Farejador Congelado</white> e conquiste suas <white>recompensas</white>!</gray>"
+          },
+          "fled": "<red>Sem caçadores por perto, o <color:#00acff>Farejador Congelado</color><red> desapareceu na nevasca."
+        },
+        "lost-chest": {
+          "found": [
+                "",
+                "<gradient:#FFF59D:#FFD54F:#FFB300> ⚒ Você encontrou um <bold>pote perdido</bold>!",
+                "<gradient:#FFF59D:#FFD54F:#FFB300> <bold>Quebre-o</bold> para coletar suas recompensas!",
+                ""
+              ]
+        },
+        "teleport": {
+          "success": [
+                "",
+                "<gradient:#4ade80:#22c55e:#15803d> <bold>⚒</bold> Teleporte concluído!",
+                "<gradient:#4ade80:#22c55e:#15803d> <bold>Bem-vindo à Área de Mineração!",
+                ""
+              ]
+        },
+        "teleport-not-defined": "<red>Este teleporte ainda não está disponível.</red>",
+        "pvp": {
+          "enter-negative-layer": [
+            "",
+            " <red> ☠ <bold>Zona de combate!",
+            " <red> Você entrou nas Camadas Negativas!",
+            "",
+            " <red> 🗡 O PvP está ativo.",
+            ""
+          ],
+          "disabled-outside-negative": "<green>Você deixou as Camadas Negativas. PvP desabilitado!"
+        },
+        "ore-drop": {
+          "obsidian": {
+            "spawned": [
+                "",
+                "<gradient:#7C3AED:#4C1D95> ⛏ Você encontrou uma <bold>obsidiana</bold>!",
+                "<gradient:#7C3AED:#4C1D95> <bold>Quebre </bold>para coletar, pode ser usado em receitas.",
+                ""
+              ]
+          }
+        },
+        "fast-travel": {
+          "locked": "<red>Você ainda não desbloqueou <white>{area}</white><red>!</red>",
+          "unlocked": "<white>Área desbloqueada {area}",
+          "unlocked-chat": [
+            "",
+            "<bold><green> {area}</bold> <green>desbloqueada!</green>",
+            " <gray>Você desbloqueou uma nova mina.",
+            "",
+            " <green><click:run_command:'/mina'>Clique <bold>AQUI</bold> para explorar a nova mina!</click>",
+            ""
+          ],
+          "same-area": "<red>Você já está nessa área!</red>",
+          "coming-soon": "<red>A <white>{area}</white><red> ainda não abriu. <white>Em breve!</white>"
+        },
+        "skill": {
+          "requirement": {
+            "denied": "<red>Nível de mineração insuficiente para quebrar <white>{ore_name}</white><red>! Nível necessário: <white><bold>{required_level}</bold></white><red>, seu nível: <white>{current_level}</white><red>. <dark_gray>(/skills)"
+          }
+        },
+        "commands": {
+          "force-events": {
+            "usage": "<red>Uso:</red> <white>/mine force</white> <gray><all|sniffer|lostchest|orevein|orevein-global|corelair></gray>",
+            "not-mining": "<red>Este comando só pode ser usado no <white>servidor de mineração</white>.</red>",
+            "target-missing": "<red>Mire em um bloco válido para forçar o evento.</red>",
+            "sniffer": "<color:#00acff>Farejador Congelado</color> <gray>forçado com sucesso.</gray>",
+            "lost-chest": "<gold>Pote Perdido</gold> <gray>forçado com sucesso.</gray>",
+            "ore-vein": "<gradient:#00acff:#00f2ff>Jazida</gradient> <gray>forçada com sucesso.</gray>",
+            "ore-vein-global": "<gradient:#00acff:#00f2ff>Jazida Global</gradient> <gray>forçada com sucesso.</gray>",
+            "core-lair": "<gradient:#00acff:#00f2ff>Covil de Núcleo</gradient> <gray>forçado com sucesso.</gray>",
+            "failed": "<red>Não foi possível forçar:</red> <white>{event}</white><red>.</red>",
+            "all": "<green>Eventos forçados:</green> <white>{success}/{total}</white><green>.</green>"
+          }
+        },
+        "ore-vein": {
+          "copper": {
+            "name": "<gradient:#b15121:#d58f5b>Jazida de Cobre</gradient>",
+            "color": "#d58f5b"
+          },
+          "coal": {
+            "name": "<gradient:#161616:#797979>Jazida de Carvão</gradient>",
+            "color": "#797979"
+          },
+          "gold": {
+            "name": "<gradient:#ff9500:#ffc300>Jazida de Ouro</gradient>",
+            "color": "#ffc300"
+          },
+          "diamond": {
+            "name": "<gradient:#3b82f6:#a5f3fc>Jazida de Diamante</gradient>",
+            "color": "#3b82f6"
+          },
+          "global": {
+            "chat":  [
+              "",
+              "<color:{vein_color}><bold> {vein_name}</bold></color>",
+              "",
+              "<gray> Uma {vein_name} apareceu em <color:{vein_color}>{vein_x} {vein_y} {vein_z}",
+              "<gray> Corra para conseguir o drop de <white>Minérios e Errantes<gray>!",
+              "",
+              "<color:{vein_color}><click:run_command:'/mina'> Clique <bold>AQUI</bold> para ir até a mina.",
+              ""
+            ]
+          }
+        },
+        "core-lair": {
+          "global": {
+            "chat": [
+              "",
+              "<gradient:#00acff:#00f2ff><bold> Covil de Núcleo</gradient>",
+              "",
+              "<gray> Um covil de núcleo apareceu em <gradient:#00acff:#00f2ff>{lair_x} {lair_y} {lair_z}",
+              "<gray> Corra para conseguir o drop de <white>Núcleos Congelados<gray>!",
+              "",
+              "<gradient:#00acff:#00f2ff><click:run_command:'/mina'> Clique <bold>AQUI</bold> para ir até a mina.",
+              ""
+            ]
+          }
+        }
+      },
+      "views": {
+        "menu": {
+          "title": "Mineração",
+          "status": {
+            "unlocked": "<green>DESBLOQUEADO</green>",
+            "locked": "<red>BLOQUEADO</red>"
+          },
+          "items": {
+            "random": {
+              "name": "<gradient:#00acff:#00f2ff>Superfície</gradient>",
+              "lore": [
+                "<gray>Teleporte-se para uma</gray>",
+                "<gray>coordenada aleatória da</gray>",
+                "<gray>superfície<gray>.</gray>",
+                "",
+                "<color:#00acff>Clique para teleportar."
+              ]
+            },
+            "copper": {
+              "name": "<gradient:#b15121:#d58f5b>Cavernas de Cobre",
+              "lore": [
+                "<gray>Teleporte-se para uma</gray>",
+                "<gray>coordenada aleatória das",
+                "<white>Cavernas de Cobre<gray>.</gray>",
+                "",
+                "<gradient:#b15121:#d58f5b>Clique para teleportar."
+              ],
+              "locked": {
+                "name": "<red>Cavernas de Cobre",
+                "lore": [
+                  "<gray>Esta viagem rápida</gray>",
+                  "<gray>está <white>bloqueada<gray>.</gray>",
+                  "",
+                  "<red>Quebre pelo menos um",
+                  "<white>minério de Cobre<red> na mina."
+                ]
+              }
+            },
+            "coal": {
+              "name": "<gradient:#161616:#797979>Cavernas de Carvão</gradient>",
+              "lore": [
+                "<gray>Teleporte-se para uma</gray>",
+                "<gray>coordenada aleatória das",
+                "<white>Cavernas de Carvão<gray>.</gray>",
+                "",
+                "<gradient:#161616:#797979>Clique para teleportar."
+              ],
+              "locked": {
+                "name": "<red>Cavernas de Carvão",
+                "lore": [
+                  "<gray>Esta viagem rápida</gray>",
+                  "<gray>está <white>bloqueada<gray>.</gray>",
+                  "",
+                  "<red> Requisitos:",
+                  "<white> Mineração: <gray>Nível {required_level}",
+                  "",
+                  "<red>Quebre pelo menos um",
+                  "<white>minério de Carvão<red> na mina."
+                ]
+              }
+            },
+            "gold": {
+              "name": "<gradient:#ff9500:#ffc300>Cavernas de Ouro</gradient>",
+              "lore": [
+                "<gray>Teleporte-se para uma</gray>",
+                "<gray>coordenada aleatória das",
+                "<white>Cavernas de Ouro<gray>.</gray>",
+                "",
+                "<gradient:#ff9500:#ffc300>Clique para teleportar."
+              ],
+              "locked": {
+                "name": "<red>Cavernas de Ouro",
+                "lore": [
+                  "<gray>Esta viagem rápida</gray>",
+                  "<gray>está <white>bloqueada<gray>.</gray>",
+                  "",
+                  "<red> Requisitos:",
+                  "<white> Mineração: <gray>Nível {required_level}",
+                  "",
+                  "<red>Quebre pelo menos um",
+                  "<white>minério de Ouro<red> na mina."
+                ]
+              }
+            },
+            "diamond": {
+              "name": "<gradient:#3b82f6:#a5f3fc>Cavernas de Diamante</gradient>",
+              "lore": [
+                "<gray>Teleporte-se para uma</gray>",
+                "<gray>coordenada aleatória das",
+                "<white>Cavernas de Diamante<gray>.</gray>",
+                "",
+                "<red> ⚠ O PvP está ativo!",
+                "",
+                "<gradient:#3b82f6:#a5f3fc>Clique para teleportar."
+              ],
+              "locked": {
+                "name": "<red>Cavernas de Diamante",
+                "lore": [
+                  "<gray>Esta viagem rápida</gray>",
+                  "<gray>está <white>bloqueada<gray>.</gray>",
+                  "",
+                  "<red> Requisitos:",
+                  "<white> Mineração: <gray>Nível {required_level}",
+                  "",
+                  "<red>Quebre pelo menos um",
+                  "<white>minério de Diamante<red> na mina."
+                ]
+              }
+            },
+            "amethyst-block": {
+              "name": "<gradient:#a855f7:#6366f1>Mina de Ametista</gradient>",
+              "lore": [
+                "<gray>Batalhe contra monstros,</gray>",
+                "<gray>colete <white>ametista<gray>,<white> netherite<gray>,</gray>",
+                "<gray>e muito mais!</gray>",
+                "",
+                "<gradient:#a855f7:#6366f1>Em breve."
+              ]
+            },
+            "glacite": {
+              "name": "<gradient:#8FD9FF:#E8F9FF>Mina de Glacite</gradient>",
+              "lore": [
+                "<gray>O frio esconde os</gray>",
+                "<gray>melhores recursos.</gray>",
+                "<gray>Não morra congelado.</gray>",
+                "",
+                "<gradient:#8FD9FF:#E8F9FF>Em breve."
+              ]
+            },
+            "teleport-blocked-1": {
+              "name": "<red>Teleporte Bloqueado</red>",
+              "lore": [
+                "<white>Tente novamente em alguns</white>",
+                "<white>instantes.</white>"
+              ]
+            },
+            "teleport-blocked-2": {
+              "name": "<red>Teleporte Bloqueado</red>",
+              "lore": [
+                "<white>Tente novamente em alguns</white>",
+                "<white>instantes.</white>"
+              ]
+            }
+          }
+        }
+      },
+      "ores": {
+        "coal_ore": "minério de carvão",
+        "deepslate_coal_ore": "minério de carvão",
+        "gold_ore": "minério de ouro",
+        "deepslate_gold_ore": "minério de ouro",
+        "nether_gold_ore": "minério de ouro",
+        "diamond_ore": "minério de diamante",
+        "deepslate_diamond_ore": "minério de diamante"
+      },
+      "items": {
+        "frozen-core": {
+          "name": "<color:#00acff>Núcleo Congelado <white>",
+          "lore": [
+            "<gray>Componente raro utilizado na",
+            "<gray>ativação de spawners.",
+            "",
+            "<color:#00acff>Combine na <white>mesa de trabalho",
+            "<color:#00acff>com um gerador inativo."
+          ]
+        }
+      },
+      "preferences": {
+        "mining-events-global": {
+          "name": "<color:#00acff>Eventos da Mina</color>",
+          "description": [
+            "<gray>Receber avisos de</gray>",
+            "<gray>Covil de Núcleo e</gray>",
+            "<gray>Jazida neste servidor.</gray>"
+          ],
+          "options": {
+            "true": "<green>Ativado",
+            "false": "<red>Desativado"
+          }
+        }
+      }
+    }
+  }
+}

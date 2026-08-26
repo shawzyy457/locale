@@ -1,0 +1,101 @@
+{
+    "plugins": {
+        "boosters": {
+            "types": {
+                "skill": {
+                    "name": "Maestria",
+                    "boost-name": "XP em maestrias"
+                },
+                "coins": {
+                    "name": "Coins",
+                    "boost-name": "Coins"
+                },
+                "tokens": {
+                    "name": "Tokens",
+                    "boost-name": "Tokens"
+                },
+                "sparks": {
+                    "name": "Faíscas",
+                    "boost-name": "Faíscas"
+                },
+                "experience": {
+                    "name": "Experiência",
+                    "boost-name": "Experiência"
+                },
+                "gems": {
+                    "name": "Gemas",
+                    "boost-name": "Gemas"
+                }
+            },
+            "items": {
+                "booster": {
+                    "display-name": "{booster_type_color}Booster de {booster_type_name}",
+                    "name": "{booster_type_color}Booster de {booster_type_name}",
+                    "lore": [
+                        "<gray>Aumente seu ganho de</gray>",
+                        "<gray><white>{booster_type_name}</white>.</gray>",
+                        "",
+                        " {booster_type_color}Bonûs de ativação:",
+                        " <dark_gray>◇</dark_gray> <white>+{booster_multiplier}% {booster_type_boost_name}.</white>",
+                        "",
+                        "{booster_type_color}Tempo de duração: <white>{booster_duration}</white>"
+                    ],
+                    "lore-inventory": []
+                }
+            },
+            "commands": {
+                "booster-give": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que será adicionado a experiência"
+                        },
+                        "type": {
+                            "name": "type",
+                            "description": "Tipo do booster"
+                        },
+                        "duration": {
+                            "name": "duração",
+                            "description": "Duração em minutos"
+                        },
+                        "multiplier": {
+                            "name": "multiplicador",
+                            "description": "Multiplicador do booster em %"
+                        },
+                        "amount": {
+                            "name": "quantidade",
+                            "description": "Quantidade de boosters a serem enviados"
+                        }
+                    },
+                    "success": "<green>Você enviou <white>{booster_amount}x</white> booster de <white>{booster_multiplier}%</white> para o jogador {booster_target_name_with_tag}</green>"
+                },
+                "boosters": {
+                    "dont-have-boosters": "<red>Você não possui nenhum booster ativo!</red>",
+                    "booster-info": "<white>+{booster_multiplier}% de {booster_type_color}{booster_type_name} <white>por duração: <gray>{booster_remaining_duration}</gray>.</white>",
+                    "success": [
+                        "",
+                        "<dark_purple><bold>Boosters",
+                        " {boosters_lines}",
+                        ""
+                    ]
+                }
+            },
+            "messages": {
+                "items": {
+                    "booster": {
+                        "booster-already-exists-with-other-multiplier": "<red>Você já possuí um booster ativo desse tipo, porém ele tem outro multiplicador, você precisa esperar o primeiro acabar para iniciar esse novo, confira os boosters ativos em </red><white>/boosters</white>",
+                        "success": {
+                            "booster-new-success": "<green>Você ativou um booster de <white>{booster_type_name}</white> com o multiplicador de <white>{booster_multiplier}%</white> por <white>{booster_duration}</white></green>",
+                            "booster-sum-success": "<green>Seu tempo do booster de <white>{booster_type_name}</white> foi aumentado para <white>{booster_duration}</white></green>"
+                        }
+                    }
+                }
+            },
+            "views": {
+                "booster-use-confirmation": {
+                    "title": "Utilizar o booster?"
+                }
+            }
+        }
+    }
+}

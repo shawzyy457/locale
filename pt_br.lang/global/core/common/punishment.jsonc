@@ -1,0 +1,204 @@
+{
+  "plugins": {
+    "core": {
+      "punishment": {
+        "types": {
+          "warn": {
+            "name": "<yellow>aviso</yellow>"
+          },
+          "mute": {
+            "name": "<yellow>silenciamento</yellow>"
+          },
+          "ban": {
+            "name": "<red>banimento</red>"
+          },
+          "ban_ip": {
+            "name": "<red>banimento por ip</red>"
+          }
+        },
+        "categories": {
+          "abuse-bugs": {
+            "name": "Abuso de Bugs",
+            "description": [
+              "<gray>Aproveitar-se de qualquer</gray>",
+              "<gray>maneira de um erro em nossos</gray>",
+              "<gray>sistemas para benefício próprio ou ter</gray>",
+              "<gray>conhecimento de um erro e não reportá-lo</gray>"
+            ]
+          },
+          "account-hacking": {
+            "name": "Invasão de contas",
+            "description": [
+              "<gray>Invadir contas de outros jogadores</gray>",
+              "<gray>Utilizando qualquer metodo</gray>"
+            ]
+          },
+          "anti-game": {
+            "name": "Anti Jogo",
+            "description": [
+              "<gray>Atitudes que podem prejudicar</gray>",
+              "<gray>a jogabilidade de outros jogadores</gray>",
+              "<gray>dentro de nossos servidores.</gray>"
+            ]
+          },
+          "blacklist": {
+            "name": "Blacklist",
+            "description": [
+              "<gray>Este sofrerá pelo eterno</gray>",
+              "<gray>Fogo que lhe queimará</gray>",
+              "<gray>No banimento do servidor.</gray>"
+            ]
+          },
+          "business": {
+            "name": "Comércio",
+            "description": [
+              "<gray>Comércio de itens ou contas em troca</gray>",
+              "<gray>de produtos externos, jogos, VIPs ou dinheiro.</gray>"
+            ]
+          },
+          "chargeback": {
+            "name": "Estorno de Compras",
+            "description": [
+              "<gray>Tentar realizar estorno da compra</gray>",
+              "<gray>de um produto adquirido em nossa rede.</gray>"
+            ]
+          },
+          "client-alternative": {
+            "name": "Cliente Alternativo",
+            "description": [
+              "<gray>Fazer uso de clientes alternativos</gray>",
+              "<gray>ou modificações que promovam vantagens</gray>",
+              "<gray>sobre outros jogadores.</gray>"
+            ]
+          },
+          "custom": {
+            "name": "Customizado",
+            "description": [
+              "<gray>Selecionar outro motivo do banimento</gray>"
+            ]
+          },
+          "disinformation": {
+            "name": "Desinformação",
+            "description": [
+              "<gray>Espalhar informações falsas</gray>",
+              "<gray>com o intuito de prejudicar outros</gray>",
+              "<gray>jogadores ou causar baderna geral.</gray>"
+            ]
+          },
+          "divulgation": {
+            "name": "Divulgação",
+            "description": [
+              "<gray>Fazer divulgação de sites,</gray>",
+              "<gray>servidores de Discord e vídeos ou</gray>",
+              "<gray>canais em plataformas de mídia de forma comedida.</gray>"
+            ]
+          },
+          "fake-account": {
+            "name": "Conta Fake",
+            "description": [
+              "<gray>Criar uma conta com intuito</gray>",
+              "<gray>de cometer qualquer infração</gray>",
+              "<gray>para benefício próprio ou prejuízo da rede.</gray>"
+            ]
+          },
+          "fake-chat": {
+            "name": "Chat Fake",
+            "description": [
+              "<gray>Realizar ameaças a outros jogadores</gray>",
+              "<gray>com relação à sua pessoa, sua família ou sua conta.</gray>"
+            ]
+          },
+          "falsification-evidence": {
+            "name": "Falsificação de Provas",
+            "description": [
+              "<gray>Forjar provas com objetivo</gray>",
+              "<gray>de fazer jogadores inocentes</gray>",
+              "<gray>serem punidos de forma errada.</gray>"
+            ]
+          },
+          "inappropriate-build": {
+            "name": "Construção Inadequada",
+            "description": [
+              "<gray>Fazer uma construção ofensiva</gray>",
+              "<gray>ou com símbolos inapropriados em</gray>",
+              "<gray>qualquer um dos modos de jogo da rede.</gray>"
+            ]
+          },
+          "inappropriate-nickname": {
+            "name": "Nick Inapropriado",
+            "description": [
+              "<gray>Criar uma conta com nickname</gray>",
+              "<gray>com mensagem sexual, discriminatória,</gray>",
+              "<gray>ofensiva aos jogadores ou ao servidor.</gray>"
+            ]
+          },
+          "intimidation": {
+            "name": "Ameaça",
+            "description": [
+              "<gray>Realizar ameaças a outros jogadores</gray>",
+              "<gray>com relação à sua pessoa, sua família ou sua conta.</gray>"
+            ]
+          },
+          "macro": {
+            "name": "Abuso de Macros",
+            "description": [
+              "<gray>Abuso de macros é uma prática que consiste em utilizar</gray>",
+              "<gray>programas ou modificações que automatizam ações no servidor,</gray>",
+              "<gray>como por exemplo, utilizar programas que pressionam</gray>",
+              "<gray>teclas automaticamente ou que realizam ações de forma automática.</gray>"
+            ]
+          },
+          "offense": {
+            "name": "Ofensa à Jogador",
+            "description": [
+              "<gray>Ofender jogadores de qualquer cargo</gray>",
+              "<gray>utilizando o chat para enviar xingamentos.</gray>"
+            ]
+          },
+          "racism": {
+            "name": "Racismo / Discriminação",
+            "description": [
+              "<gray>Atitudes preconceituosas com outros</gray>",
+              "<gray>jogadores motivadas por sua raça, cor, sexo, idade,</gray>",
+              "<gray>religião e/ou outros fatores consolidadas</gray>",
+              "<gray>através de mensagens no chat.</gray>"
+            ]
+          },
+          "server-divulgation": {
+            "name": "Divulgação de Servidores",
+            "description": [
+              "<gray>Fazer divulgação de outros servidores</gray>",
+              "<gray>de Minecraft ou lojas do gênero como</gray>",
+              "<gray>ferramenta de marketing e de captação de</gray>",
+              "<gray>jogadores através do envio de endereços IP e links.</gray>"
+            ]
+          },
+          "spam-and-flood": {
+            "name": "Spam / Flood",
+            "description": [
+              "<gray>Fazer o uso de vários caracteres </gray>",
+              "<gray>repetidos na mesma palavra ou</gray>",
+              "<gray>enviar várias mensagens iguais.</gray>"
+            ]
+          },
+          "staff-or-server-offense": {
+            "name": "Ofensa à Equipe ou Servidor",
+            "description": [
+              "<gray>Ofender membros da equipe de</gray>",
+              "<gray>qualquer cargo ou a rede diretamente</gray>",
+              "<gray>utilizando o chat para enviar xingamentos.</gray>"
+            ]
+          },
+          "stealing": {
+            "name": "Roubo de itens",
+            "description": [
+              "<gray>Enganar jogadores para roubar</gray>",
+              "<gray>seus coins ou itens dentro do servidor.</gray>",
+              "<gray>Geralmente através de trocas falsas.</gray>"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

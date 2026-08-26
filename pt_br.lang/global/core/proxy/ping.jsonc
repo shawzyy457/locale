@@ -1,0 +1,11 @@
+{
+    "plugins": {
+        "core": {
+            "proxy": {
+                "ping": {
+                    "lowest-version": "<red>⚠ Versão 1.21+ recomendada."
+                }
+            }
+        }
+    }
+}

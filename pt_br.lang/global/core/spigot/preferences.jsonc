@@ -1,0 +1,38 @@
+{
+    "plugins": {
+        "core": {
+            "preferences": {
+                "private-messages": {
+                    "name": "<yellow>Mensagens privadas</yellow>",
+                    "description": [
+                        "<gray>Permite receber mensagens</gray>",
+                        "<gray>privadas de outros jogadores.</gray>"
+                    ]
+                },
+                "client-addons": {
+                    "name": "<yellow>Interações com clientes customizados</yellow>",
+                    "description": [
+                        "<gray>Habilita recursos extras em</gray>",
+                        "<gray>clientes customizados.</gray>"
+                    ]
+                }
+            },
+            "preference-registry-types": {
+                "global": {
+                    "name": "Preferências globais",
+                    "description": [
+                        "<gray>Acesse as preferências dos</gray>",
+                        "<gray>servidores em geral.</gray>"
+                    ]
+                },
+                "server": {
+                    "name": "Preferências do servidor",
+                    "description": [
+                        "<gray>Acesse as preferências do</gray>",
+                        "<gray>servidor especifico.</gray>"
+                    ]
+                }
+            }
+        }
+    }
+}

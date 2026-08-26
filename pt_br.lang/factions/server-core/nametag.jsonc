@@ -1,0 +1,9 @@
+{
+  "plugins": {
+    "server-core": {
+      "nametag": {
+        "health": "<white></white><color:#F22F46>{health}"
+      }
+    }
+  }
+}

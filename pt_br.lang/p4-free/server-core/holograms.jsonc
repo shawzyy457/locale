@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "server-core": {
+      "holograms": {
+        "spawn": [
+          "<color:#6e0281><bold>PRISON ECLIPSE!</bold> <dark_gray>▪</dark_gray> <white>{server_online_count}</white>",
+          "<white>Bem-vindo ao <color:#D6B3FF>P. Eclipse<white>!</white>",
+          "",
+          "<white>Este é um servidor</white> <light_purple>Overpower</light_purple> <white>com</white>",
+          "<white>diversos sistemas únicos, como,</white>",
+          "<white>mina privada,</white> <bold>the end</bold><white>, farm</white>",
+          "entre outros!",
+          "",
+          "<white>Adquira</white> <color:#6e0281>VIP <white>ou</white> <color:#6e0281>Diversos itens <white>acessando:</white>",
+          "<color:#6e0281>exe.com"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "punishment-create": {
+            "punishment-cancelled": "Você cancelou a aplicação da punição do jogador {target_name}",
+            "punishment-proof": {
+              "query": "<gray>Digite ou envie as</gray> <white><bold>provas</bold></white> <gray>do infrator.</gray>"
+            },
+            "punishment-apply": {
+              "pending": "Aplicando punição...",
+              "success": "Você puniu o jogador {punishment_target_name_with_color} com sucesso!",
+              "success-broadcast": [
+                "",
+                " <red>(!)</red> {punishment_target_name_with_tag} <red>foi punido por</red> {punishment_author_name_with_tag}",
+                " <red>(!) Motivo: {punishment_category_name}",
+                ""
+              ]
+            },
+            "punishment-category": {
+              "need-highest-group": "Você não possui o grupo mínimo para aplicar essa punição!",
+              "pending": "Espere um momento..."
+            }
+          },
+          "punishment-list": {
+            "punishment-proof-copy": "<yellow>Clique</yellow> <click:suggest_command:'{punishment_proof}'><white><bold>AQUI</bold></white></click> <yellow>para copiar a prova.</yellow>",
+            "punishment-proof-update": {
+              "query": "<yellow>Digite ou envie as novas</yellow> <white><bold>provas</bold></white> <yellow>do infrator</yellow>",
+              "success": "Você atualizou as provas com sucesso!"
+            }
+          }
+        }
+      },
+      "views": {
+        "punishment-create": {
+          "title": "Infrator {target_name_with_color}",
+          "items": {
+            "0": {
+              "name": "<red>Cancelar</red>",
+              "lore": [
+                "<gray>Clique para cancelar</gray>"
+              ]
+            },
+            "1": {
+              "with-silent": {
+                "name": "<red>Silenciar punição?</red>",
+                "lore": [
+                  "<white>Estado:</white> <green>Ativado</green>"
+                ]
+              },
+              "without-silent": {
+                "name": "<red>Silenciar punição?</red>",
+                "lore": [
+                  "<white>Estado:</white> <red>Desativado</red>"
+                ]
+              }
+            },
+            "2": {
+              "name": "<red>Provas</red>",
+              "lore": [
+                "<gray>Clique aqui para adicionar provas</gray>",
+                "<gray>sobre esta punição.</gray>"
+              ]
+            },
+            "3": {
+              "can-apply": {
+                "name": "<green>Punir infrator</green>",
+                "lore": [
+                  "<gray>Revise a punição antes de clicar aqui.</gray>",
+                  "",
+                  " <white>Infrator:</white> {punishment_target_name_with_color}",
+                  " <white>Punição:</white> <gray>{punishment_category_name}</gray>",
+                  " <white>Caso:</white> <gray>{punishment_case}ª ocorrência</gray>",
+                  " <white>Provas:</white> <gray>{punishment_proof}</gray>",
+                  "",
+                  "<yellow>Clique para punir!</yellow>"
+                ]
+              },
+              "cannot-apply": {
+                "name": "<green>Punir infrator</green>",
+                "lore": [
+                  "<gray>Revise a punição antes de clicar aqui.</gray>",
+                  "",
+                  " <white>Infrator:</white> {punishment_target_name_with_color}",
+                  " <white>Punição:</white> <gray>{punishment_category_name}</gray>",
+                  " <white>Caso:</white> <gray>{punishment_case}ª ocorrência</gray>",
+                  " <white>Provas:</white> <gray>{punishment_proof}</gray>",
+                  "",
+                  "<red>Complete as informações para punir!</red>"
+                ]
+              }
+            },
+            "4": {
+              "name": "<red>{punishment_category_name}</red>",
+              "lore": [
+                "{punishment_category_description}",
+                "",
+                " {punishment_category_cases}",
+                "",
+                "<white>Grupo mínimo:</white> {punishment_category_group_display_name}",
+                "",
+                "<yellow>Clique para aplicar esse motivo!</yellow>"
+              ],
+              "case-format": {
+                "with-expiration": {
+                  "with-next": "{punishment_category_case_color}❒ <white>{punishment_category_case_index}ª ocorrência em diante:</white> <gray>{punishment_category_case_type_name} por {punishment_category_case_duration} {punishment_category_case_time}</gray>",
+                  "without-next": "{punishment_category_case_color}❒ <white>{punishment_category_case_index}ª ocorrência:</white> <gray>{punishment_category_case_type_name} por {punishment_category_case_duration} {punishment_category_case_time}</gray>"
+                },
+                "without-expiration": "{punishment_category_case_color}❒ <white>{punishment_category_case_index}ª ocorrência:</white> <gray>{punishment_category_case_type_name} permanente</gray>"
+              }
+            }
+          }
+        },
+        "punishment-list": {
+          "title": "Punições - {punishment_target_name_with_color}",
+          "items": {
+            "0": {
+              "name": "<red>Esse jogador não possui registros de punições :)</red>",
+              "lore": []
+            },
+            "1": {
+              "with-revoke": {
+                "with-expiration": {
+                  "name": "<red>{punishment_category_name}</red>",
+                  "lore": [
+                    "<white>ID da punição: </white><dark_gray>#{punishment_id}</dark_gray>",
+                    "",
+                    "<white>Sessão: </white><yellow>{punishment_user_session_id}</yellow>",
+                    "",
+                    "<white>Autor da punição: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "",
+                    "<white>Aplicado em: </white><yellow>{punishment_created_at_date}</yellow>",
+                    "",
+                    "<white>Autor da revogação: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "<white>Revogado em: </white><yellow>{punishment_revoked_at_date}</yellow>",
+                    "",
+                    "<white>Motivo: </white><yellow>{punishment_category_name}</yellow>",
+                    "<white>Duração: </white><yellow>{punishment_case_type_name} por {punishment_case_duration} {punishment_case_time}</yellow>",
+                    "<white>Prova: </white><yellow>{punishment_proof}</yellow>",
+                    "",
+                    "<yellow>Clique esquerdo para copiar a prova.</yellow>",
+                    "<yellow>Clique direito para alterar a prova.</yellow>"
+                  ]
+                },
+                "without-expiration": {
+                  "name": "<red>{punishment_category_name}</red>",
+                  "lore": [
+                    "<white>ID da punição: </white><dark_gray>#{punishment_id}</dark_gray>",
+                    "",
+                    "<white>Sessão: </white><yellow>{punishment_user_session_id}</yellow>",
+                    "",
+                    "<white>Autor da punição: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "",
+                    "<white>Aplicado em: </white><yellow>{punishment_created_at_date}</yellow>",
+                    "",
+                    "<white>Autor da revogação: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "<white>Revogado em: </white><yellow>{punishment_revoked_at_date}</yellow>",
+                    "",
+                    "<white>Motivo: </white><yellow>{punishment_category_name}</yellow>",
+                    "<white>Duração: </white><yellow>{punishment_case_type_name} permanente</yellow>",
+                    "<white>Prova: </white><yellow>{punishment_proof}</yellow>",
+                    "",
+                    "<yellow>Clique esquerdo para copiar a prova.</yellow>",
+                    "<yellow>Clique direito para alterar a prova.</yellow>"
+                  ]
+                }
+              },
+              "without-revoke": {
+                "with-expiration": {
+                  "name": "<red>{punishment_category_name}</red>",
+                  "lore": [
+                    "<white>ID da punição: </white><dark_gray>#{punishment_id}</dark_gray>",
+                    "",
+                    "<white>Sessão: </white><yellow>{punishment_user_session_id}</yellow>",
+                    "",
+                    "<white>Autor da punição: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "",
+                    "<white>Aplicado em: </white><yellow>{punishment_created_at_date}</yellow>",
+                    "",
+                    "<white>Motivo: </white><yellow>{punishment_category_name}</yellow>",
+                    "<white>Duração: </white><yellow>{punishment_case_type_name} por {punishment_case_duration} {punishment_case_time}</yellow>",
+                    "<white>Prova: </white><yellow>{punishment_proof}</yellow>",
+                    "",
+                    "<yellow>Clique esquerdo para copiar a prova.</yellow>",
+                    "<yellow>Clique direito para alterar a prova.</yellow>"
+                  ]
+                },
+                "without-expiration": {
+                  "name": "</bold><red>{punishment_category_name}</red>",
+                  "lore": [
+                    "<white>ID da punição: </white><dark_gray>#{punishment_id}</dark_gray>",
+                    "",
+                    "<white>Sessão: </white><yellow>{punishment_user_session_id}</yellow>",
+                    "",
+                    "<white>Autor da punição: </white>{punishment_author_name_with_tag}",
+                    "<white>Sessão do autor: </white><yellow>{punishment_author_session_id}</yellow>",
+                    "",
+                    "<white>Aplicado em: </white><yellow>{punishment_created_at_date}</yellow>",
+                    "",
+                    "<white>Motivo: </white><yellow>{punishment_category_name}</yellow>",
+                    "<white>Duração: </white><yellow>{punishment_case_type_name} permanente</yellow>",
+                    "<white>Prova: </white><yellow>{punishment_proof}</yellow>",
+                    "",
+                    "<yellow>Clique esquerdo para copiar a prova.</yellow>",
+                    "<yellow>Clique direito para alterar a prova.</yellow>"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

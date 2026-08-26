@@ -1,0 +1,31 @@
+{
+    "plugins": {
+        "server-core": {
+            "messages": {
+                "spawn": {
+                    "already-connect": "<red>Você já está conectado a um spawn.",
+                    "already-connect-queue": "<red>Já existe um pedido de teletransporte para o spawn, aguarde.",
+                    "cant-find-app": "<red>Não foi possível encontrar um servidor de spawn aberto.",
+                    "join": {
+                        "title": {
+                            "title": "<color:#6e0281><bold>PRISON ECLIPSE",
+                            "subtitle": "<white>exe.com"
+                        },
+                        "chat": [
+                            "",
+                            " <color:#6e0281><bold>PRISON ECLIPSE</bold><gray> v2.0</gray>",
+                            " <gray>Navegue pela sombra do eclipse com coragem pois é na escuridão que você encontrará seu caminho para a grandeza.</gray>",
+                            "",
+                            " <color:#6e0281>Acompanhe nossas redes sociais:",
+                            " <color:#D6B3FF>▸ <white>Discord:</white> <gray>discord.gg/exe</gray>",
+                            " <color:#D6B3FF>▸ <white>TikTok:</white> <gray>@RedeEXEOficial</gray>",
+                            "",
+                            " <color:#D6B3FF>exe.com",
+                            ""
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

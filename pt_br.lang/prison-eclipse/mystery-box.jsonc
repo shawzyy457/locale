@@ -1,0 +1,291 @@
+{
+  "plugins": {
+    "mystery-box": {
+      "types": {
+        "booster-box-common": {
+          "name": "<white></white> <gradient:#03C400:#04FF00>Caixa de Boosters",
+          "description": [
+            "<gray>Ao abrir esta caixa misteriosa,",
+            "<gray>você recebe um booster de uma",
+            "<gray>categoria aleatória",
+            "",
+            " <gradient:#03C400:#04FF00>Tipos de booster:",
+            " <gradient:#03C400:#04FF00>◇<white> Tokens;",
+            " <gradient:#03C400:#04FF00>◇<white> Coins;",
+            " <gradient:#03C400:#04FF00>◇<white> Faíscas;",
+            " <gradient:#03C400:#04FF00>◇<white> Gemas;",
+            " <gradient:#03C400:#04FF00>◇<white> Maestria;",
+            " <gradient:#03C400:#04FF00>◇<white> Experiência;",
+            "",
+            "<gradient:#03C400:#04FF00>clique para abrir!"
+          ]
+        },
+        "booster-box-rare": {
+          "name": "<white></white> <gradient:#00acff:#00f2ff>Caixa de Boosters",
+          "description": [
+            "<gray>Ao abrir esta caixa misteriosa,",
+            "<gray>você recebe um booster de uma",
+            "<gray>categoria aleatória",
+            "",
+            " <gradient:#00acff:#00f2ff>Tipos de booster:",
+            " <gradient:#00acff:#00f2ff>◇<white> Tokens;",
+            " <gradient:#00acff:#00f2ff>◇<white> Coins;",
+            " <gradient:#00acff:#00f2ff>◇<white> Faíscas;",
+            " <gradient:#00acff:#00f2ff>◇<white> Gemas;",
+            " <gradient:#00acff:#00f2ff>◇<white> Maestria;",
+            " <gradient:#00acff:#00f2ff>◇<white> Experiência;",
+            "",
+            "<gradient:#00acff:#00f2ff>clique para abrir!"
+          ]
+        },
+        "booster-box-epic": {
+          "name": "<white></white> <gradient:#540bd1:#9506FC>Caixa de Boosters",
+          "description": [
+            "<gray>Ao abrir esta caixa misteriosa,",
+            "<gray>você recebe um booster de uma",
+            "<gray>categoria aleatória",
+            "",
+            " <gradient:#540bd1:#9506FC>Tipos de booster:",
+            " <gradient:#540bd1:#9506FC>◇<white> Tokens;",
+            " <gradient:#540bd1:#9506FC>◇<white> Coins;",
+            " <gradient:#540bd1:#9506FC>◇<white> Faíscas;",
+            " <gradient:#540bd1:#9506FC>◇<white> Gemas;",
+            " <gradient:#540bd1:#9506FC>◇<white> Maestria;",
+            " <gradient:#540bd1:#9506FC>◇<white> Experiência;",
+            "",
+            "<gradient:#540bd1:#9506FC>clique para abrir!"
+          ]
+        },
+        "booster-box-legendary": {
+          "name": "<white></white> <gradient:#FDA437:#FEE559>Caixa de Boosters",
+          "description": [
+            "<gray>Ao abrir esta caixa misteriosa,",
+            "<gray>você recebe um booster de uma",
+            "<gray>categoria aleatória",
+            "",
+            " <gradient:#FDA437:#FEE559>Tipos de booster:",
+            " <gradient:#FDA437:#FEE559>◇<white> Tokens;",
+            " <gradient:#FDA437:#FEE559>◇<white> Coins;",
+            " <gradient:#FDA437:#FEE559>◇<white> Faíscas;",
+            " <gradient:#FDA437:#FEE559>◇<white> Gemas;",
+            " <gradient:#FDA437:#FEE559>◇<white> Maestria;",
+            " <gradient:#FDA437:#FEE559>◇<white> Experiência;",
+            "",
+            "<gradient:#FDA437:#FEE559>clique para abrir!"
+          ]
+        },
+        "heavenly": {
+          "name": "<dark_red>Caixa de Trajes Celestial</dark_red>",
+          "description": [
+            "<gray>Ao abrir esta caixa, você</gray>",
+            "<gray>tem a chance de receber uma</gray>",
+            "<gray>peça de um traje aleatório.</gray>",
+            "",
+            "<dark_red> Possíveis recompensas:</dark_red>",
+            " <dark_purple>⋄ </dark_purple><gray>Trajes Épicos </gray><dark_purple>⋄</dark_purple>",
+            " <gold>⋄ </gold><gray>Trajes Lendários </gray><gold>⋄</gold>",
+            " <dark_red>⋄ </dark_red><gray>Trajes Divinos </gray><dark_red>⋄</dark_red>",
+            "",
+            "<dark_red>Vá até ao mestre das caixas no spawn!"
+          ]
+        },
+        "specialist": {
+          "name": "<gold>Caixa de Trajes Especialista</gold>",
+          "description": [
+            "<gray>Ao abrir esta caixa, você</gray>",
+            "<gray>tem a chance de receber uma</gray>",
+            "<gray>peça de um traje aleatório.</gray>",
+            "",
+            "<gold> Possíveis recompensas:</gold>",
+            " <dark_aqua>⋄ </dark_aqua><gray>Trajes Raros </gray><dark_aqua>⋄</dark_aqua>",
+            " <dark_purple>⋄ </dark_purple><gray>Trajes Épicos </gray><dark_purple>⋄</dark_purple>",
+            " <gold>⋄ </gold><gray>Trajes Lendários </gray><gold>⋄</gold>",
+            "",
+            "<gold>Vá até ao mestre das caixas no spawn!"
+          ]
+        },
+        "advanced": {
+          "name": "<dark_purple>Caixa de Trajes Avançada</dark_purple>",
+          "description": [
+            "<gray>Ao abrir esta caixa, você</gray>",
+            "<gray>tem a chance de receber uma</gray>",
+            "<gray>peça de um traje aleatório.</gray>",
+            "",
+            "<dark_purple> Possíveis recompensas:</dark_purple>",
+            " <green>⋄ </green><gray>Trajes Comuns </gray><green>⋄</green>",
+            " <dark_aqua>⋄ </dark_aqua><gray>Trajes Raros </gray><dark_aqua>⋄</dark_aqua>",
+            " <dark_purple>⋄ </dark_purple><gray>Trajes Épicos </gray><dark_purple>⋄</dark_purple>",
+            "",
+            "<dark_purple>Vá até ao mestre das caixas no spawn!"
+          ]
+        },
+        "basic": {
+          "name": "<aqua>Caixa de Trajes Básica</aqua>",
+          "description": [
+            "<gray>Ao abrir esta caixa, você</gray>",
+            "<gray>tem a chance de receber uma</gray>",
+            "<gray>peça de um traje aleatório.</gray>",
+            "",
+            "<aqua> Possíveis recompensas:</aqua>",
+            " <green>⋄ </green><gray>Trajes Comuns </gray><green>⋄</green>",
+            " <dark_aqua>⋄ </dark_aqua><gray>Trajes Raros </gray><dark_aqua>⋄</dark_aqua>",
+            " <dark_purple>⋄ </dark_purple><gray>Trajes Épicos </gray><dark_purple>⋄</dark_purple>",
+            "",
+            "<aqua>Vá até ao mestre das caixas no spawn!"
+          ]
+        },
+        "book-divine": {
+          "name": "<dark_purple>Caixa de Livros <bold>Divina</bold>",
+          "description": [
+            "<gray>Ao abrir essa caixa, você</gray>",
+            "<gray>recebe um encantamento de</gray>",
+            "<gray>raridade aleatória</gray>",
+            "",
+            "<dark_purple>Possíveis recompensas:</dark_purple>",
+            " <white>⋄ </white><gray>Inferno da Phoenix </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Sabedoria do Dragão </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Seis Olhos </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Guardião </gray><white>⋄</white>",
+            "",
+            " <dark_purple>Clique direito para abrir!"
+          ]
+        },
+        "book-legendary": {
+          "name": "<dark_purple>Caixa de Livros <bold>Lendária</bold>",
+          "description": [
+            "<gray>Ao abrir essa caixa, você</gray>",
+            "<gray>recebe um encantamento de</gray>",
+            "<gray>raridade aleatória</gray>",
+            "",
+            "<dark_purple>Possíveis recompensas:</dark_purple>",
+            " <white>⋄ </white><gray>Forcefield </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Explosão </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Campeão </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Execução </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Senhor do Trovão </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Vampirismo de Mana </gray><white>⋄</white>",
+            "",
+            "<dark_purple>Clique direito para abrir!"
+          ]
+        },
+        "book-advanced": {
+          "name": "<dark_purple>Caixa de Livros <bold>Avançada</bold>",
+          "description": [
+            "<gray>Ao abrir essa caixa, você</gray>",
+            "<gray>recebe um encantamento de</gray>",
+            "<gray>raridade aleatória</gray>",
+            "",
+            "<dark_purple>Possíveis recompensas:</dark_purple>",
+            " <white>⋄ </white><gray>Reflexo </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Congelar </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Sede de Sangue </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Caçador de Dragões </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>First Strike </gray><white>⋄</white>",
+            "",
+            "<dark_purple>Clique direito para abrir!"
+          ]
+        },
+        "book-basic": {
+          "name": "<dark_purple>Caixa de Livros <bold>Básica</bold>",
+          "description": [
+            "<gray>Ao abrir essa caixa, você</gray>",
+            "<gray>recebe um encantamento de</gray>",
+            "<gray>raridade aleatória</gray>",
+            "",
+            "<dark_purple>Possíveis recompensas:</dark_purple>",
+            " <white>⋄ </white><gray>Dano Crítico </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Revitalizar </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Aljava da Infinidade </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Pilhagem </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Chance de Crítico </gray><white>⋄</white>",
+            " <white>⋄ </white><gray>Agilidade </gray><white>⋄</white>",
+            "",
+            "<dark_purple>Clique direito para abrir!"
+          ]
+        }
+      },
+      "items": {
+        "mystery-box": {
+          "display-name": "{mystery_box_name}",
+          "name": "{mystery_box_name}",
+          "lore": [
+            "{mystery_box_description}"
+          ]
+        }
+      },
+      "npc": {
+        "hologram": [
+          "<color:#6e0281>Mestre das Caixas",
+          "<white>Abra as caixas de trajes aqui",
+          "",
+          "<color:#6e0281>Clique para abrir!"
+        ]
+      },
+      "commands": {
+        "mystery-box": {
+          "give": {
+            "arguments": {
+              "type": {
+                "name": "tipo",
+                "description": "Tipo da caixa que será enviada"
+              },
+              "target": {
+                "name": "all / player",
+                "description": "Jogador que irá receber as caixas"
+              },
+              "amount": {
+                "name": "quantidade",
+                "description": "Quantidade de caixas que você deseja enviar"
+              }
+            },
+            "mystery-box-not-found": "Não foi possivel encontrar nenhuma caixa com esse id!",
+            "success-all": "Foram enviadas {mystery_box_amount} caixas para todos os jogadores online",
+            "success-one": "Foram enviadas {mystery_box_amount} caixas para o jogador {mystery_box_target_name} caso ele esteja online no servidor!"
+          }
+        }
+      },
+      "messages": {
+        "animation": {
+          "already-running": "<red>Já existe uma caixa misteriosa sendo aberta.</red>"
+        }
+      },
+      "views": {
+        "mystery-box-list": {
+          "title": "Lista de caixas"
+        },
+        "mystery-box-preview": {
+          "title": "{mystery_box_name_stripped}"
+        },
+        "mystery-box-npc": {
+          "title": "Clique nas caixas que deseja abrir",
+          "items": {
+            "0": {
+              "name": "<green>Mestre das Caixas</green>",
+              "lore": [
+                "<gray>Este menu permite a abertura de várias caixas</gray>",
+                "<gray>simultaneamente, reduzindo o tempo de espera</gray>",
+                "<gray>para receber os itens da caixa.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<red>Nenhuma caixa colocada!</red>",
+              "lore": [
+                "<gray>Clique em alguma Caixa do seu</gray>",
+                "<gray>inventário para poder abri-la.</gray>"
+              ]
+            },
+            "2": {
+              "name": "<green>Abrir todas as caixas!</green>",
+              "lore": [
+                "<gray>Clique aqui para abrir todas as</gray>",
+                "<gray>caixas colocadas de uma vez.</gray>",
+                "",
+                "<green>Clique para abrir!</green>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

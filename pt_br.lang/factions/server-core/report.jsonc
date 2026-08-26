@@ -1,0 +1,136 @@
+{
+    "plugins": {
+        "server-core": {
+            "commands": {
+                "report": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "O jogador que você deseja reportar."
+                        },
+                        "reason": {
+                            "name": "motivo",
+                            "description": "O motivo do report."
+                        }
+                    },
+                    "errors": {
+                        "cooldown": "<red>Aguarde um momento antes de enviar outro report.</red>",
+                        "already-pending": "<red>Você já possui um report pendente. Aguarde a análise.</red>",
+                        "limit-reached": "<red>Você atingiu o limite de {limit} reports em {minutes} minutos. Aguarde.</red>"
+                    },
+                    "success": "<green>Report enviado com sucesso! O jogador {target_name_with_tag} <green>foi reportado.</green>",
+                    "recording": "<gray>O replay já está sendo gravado. Um moderador irá analisar em breve.</gray>",
+                    "awaiting-target": "<gray>O replay será iniciado quando o jogador entrar em um servidor válido.</gray>"
+                }
+            },
+            "messages": {
+                "report": {
+                    "moderator-watching": [
+                        "",
+                        " <green><bold>Moderador!</bold></green>",
+                        " <gray>O moderador {moderator_name_with_tag} <gray>está acompanhando</gray>",
+                        " <gray>sua denúncia. Continue jogando normalmente.</gray>",
+                        ""
+                    ],
+                    "new-report": [
+                        "",
+                        " <red>⚠ <bold>NOVO REPORT REGISTRADO!</bold></red>",
+                        " {reporter_name_with_tag} <gray>reportou {target_name_with_tag}<gray>.",
+                        "",
+                        " <red>▶ <gray>Motivo:</gray> <white>{reason}</white>",
+                        "",
+                        " <red><click:run_command:'/reports'>Clique <hover:show_text:'<gray>Abrir os reports em aberto.'><bold>AQUI</bold></hover> para visualizar.</click>",
+                        ""
+                    ],
+                    "teleport-expired": "<red>O tempo para teleporte expirou. Você ainda pode ver o replay.</red>",
+                    "teleporting": "<green>Teleportando para {reporter_name_with_tag}<green>...</green>",
+                    "teleport-failed": "<red>Falha ao teleportar. O jogador pode estar offline.</red>",
+                    "no-replay": "<red>Este report não possui replay disponível.</red>",
+                    "replay-recording": "<yellow>O replay ainda está sendo gravado. Aguarde alguns instantes.</yellow>",
+                    "connecting-replay": "<gray>Conectando ao replay...</gray>",
+                    "deleted": "<green>Report de {target_name_with_tag} <green>deletado com sucesso.</green>",
+                    "delete-failed": "<red>Falha ao deletar o report. Tente novamente.</red>"
+                }
+            },
+            "views": {
+                "reports": {
+                    "title": "Reports",
+                    "expired-text": "Expirado",
+                    "status": {
+                        "awaiting_target": "<yellow>Aguardando</yellow>",
+                        "recording": "<red>Gravando</red>",
+                        "ready": "<green>Pronto</green>",
+                        "expired": "<gray>Expirado</gray>"
+                    },
+                    "items": {
+                        "empty": {
+                            "name": "<gray>Nenhum report!</gray>",
+                            "lore": [
+                                "<gray>Não há reports pendentes.</gray>"
+                            ]
+                        },
+                        "report": {
+                            "name": "<yellow>{target_name}</yellow>",
+                            "lore": {
+                                "awaiting": [
+                                    "",
+                                    "<yellow>Reportado por:</yellow> <gray>{reporter_name_with_tag}</gray>",
+                                    "<yellow>Motivo:</yellow> <gray>{reason}</gray>",
+                                    "<yellow>Há:</yellow> <gray>{time_ago}</gray>",
+                                    "",
+                                    "<yellow>Status:</yellow> {status}",
+                                    "<gray>Aguardando jogador entrar em servidor válido.</gray>",
+                                    "",
+                                    "<dark_gray>Teleporte indisponível</dark_gray>",
+                                    "",
+                                    "<red>Botão Meio + SHIFT para deletar.</red>"
+                                ],
+                                "recording": [
+                                    "",
+                                    "<yellow>Reportado por:</yellow> <gray>{reporter_name_with_tag}</gray>",
+                                    "<yellow>Motivo:</yellow> <gray>{reason}</gray>",
+                                    "<yellow>Há:</yellow> <gray>{time_ago}</gray>",
+                                    "",
+                                    "<yellow>Status:</yellow> {status}",
+                                    "<yellow>Teleporte expira em:</yellow> <gray>{time_remaining}</gray>",
+                                    "",
+                                    "<green>Clique esquerdo para teleportar.</green>",
+                                    "<gray>Clique direito para ver replay (gravando).</gray>",
+                                    "",
+                                    "<red>Botão Meio + SHIFT para deletar.</red>"
+                                ],
+                                "ready": [
+                                    "",
+                                    "<yellow>Reportado por:</yellow> <gray>{reporter_name_with_tag}</gray>",
+                                    "<yellow>Motivo:</yellow> <gray>{reason}</gray>",
+                                    "<yellow>Há:</yellow> <gray>{time_ago}</gray>",
+                                    "",
+                                    "<yellow>Status:</yellow> {status}",
+                                    "<yellow>Teleporte expira em:</yellow> <gray>{time_remaining}</gray>",
+                                    "",
+                                    "<green>Clique esquerdo para teleportar.</green>",
+                                    "<green>Clique direito para ver replay.</green>",
+                                    "",
+                                    "<red>Botão Meio + SHIFT para deletar.</red>"
+                                ],
+                                "expired": [
+                                    "",
+                                    "<yellow>Reportado por:</yellow> <gray>{reporter_name_with_tag}</gray>",
+                                    "<yellow>Motivo:</yellow> <gray>{reason}</gray>",
+                                    "<yellow>Há:</yellow> <gray>{time_ago}</gray>",
+                                    "",
+                                    "<yellow>Status:</yellow> {status}",
+                                    "",
+                                    "<dark_gray>Teleporte expirado.</dark_gray>",
+                                    "<green>Clique direito para ver replay.</green>",
+                                    "",
+                                    "<red>Botão Meio + SHIFT para deletar.</red>"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

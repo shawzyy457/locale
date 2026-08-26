@@ -1,0 +1,377 @@
+{
+  "plugins": {
+    "auction": {
+      "messages": {
+        "bid": {
+          "temporarily-disabled": "<yellow>Lances temporariamente desabilitados!</yellow>",
+          "already-biggest": "<red>Você não pode dar um lance nesse leilão, pois seu lance já é o maior.</red>",
+          "conversation": {
+            "query": "Digite o valor que você deseja dar de lance",
+            "needs-higher-value": "<red>Os lances desse leilão começam a partir de </red>{auction_starting_bid_value_formatted}<red>.</red>",
+            "needs-value-greater-than-the-first": "<red>Você precisa dar um lance maior que o primeiro colocado nos lances.</red>",
+            "not-have-this-value": "<red>Você não possui essa quantidade de </red>{auction_currency_adaptively_name_lower_case}<red> para dar um lance!</red>",
+            "creating": {
+              "error": "<red>Não foi possível processar seu lance, tente novamente!</red>",
+              "success": "<green>Seu lance foi computado com sucesso.</green>"
+            }
+          }
+        },
+        "auction": {
+          "on-create": [
+            "",
+            " <hover:show_text:'{auction_item_description}'><click:run_command:'/auction'><gold><bold>[Leilão]</bold></gold> {auction_owner_name_with_color} <gray>acaba de anunciar um item no leilão.</gray></click></hover>",
+            ""
+          ],
+          "on-bid-overtaken": [
+            "",
+            "<red>OPS! Parece que alguém deu um lance maior que o seu em um leilão que você estava participando, porém foi adicionado </red><white>30 segundos </white><red>no leilão para você tentar recuperar o seu lugar.</red>",
+            ""
+          ],
+          "on-cancel-bidders": [
+            "",
+            "<red>OPS! Parece que o dono de um leilão que você deu um lance cancelou o mesmo, portanto seu dinheiro foi devolvido!</red>",
+            ""
+          ],
+          "on-end": {
+            "loser": [
+              "",
+              "<red>OPS! Parece que você não conseguiu ganhar um leilão, e seu dinheiro foi devolvido!</red>",
+              ""
+            ],
+            "winner": [
+              "",
+              "<green>YAY! Você foi o vencedor de um leilão, para coletá-lo basta acessar o seu correio.</green>",
+              ""
+            ],
+            "owner": {
+              "with-winner": [
+                "",
+                "<green>Seu item foi leiloado para o jogador </green>{auction_winner_name_with_name}<green>.</green>",
+                ""
+              ],
+              "without-winner": [
+                "",
+                "<yellow>Seu leilão não recebeu nenhum lance, o seu item foi enviado para seu correio.</yellow>",
+                ""
+              ]
+            }
+          }
+        },
+        "views": {
+          "auction-create": {
+            "item-selection": {
+              "invalid-item": "<red>Esse item não pode ser utilizado em leilões!</red>"
+            },
+            "create": {
+              "need-select-item": "<red>Você precisa selecionar o item para criar o leilão!</red>"
+            },
+            "update-starting-bid": {
+              "conversation": {
+                "query": "Digite um valor como seu lance inicial:"
+              }
+            },
+            "update-duration": {
+              "conversation": {
+                "query": "Digite o tempo que seu leilão ficará anunciado:",
+                "invalid-time": "<red>Você precisa selecionar um tempo entre 5m e 12h!</red>"
+              }
+            }
+          },
+          "auction-create-confirmation": {
+            "success": "<green>Você adicionou com sucesso um item ao leilão.</green>",
+            "cancelled": "<red>Operação de criar leilão cancelada.</red>"
+          },
+          "auction-bids-self-list": {
+            "not-allowed-in-self": "<red>Você não pode dar um lance em seu próprio leilão!</red>",
+            "already-finished": "<red>Parece que esse leilão foi finalizado :(</red>"
+          },
+          "auction-list": {
+            "not-allowed-in-self": "<red>Você não pode dar um lance em seu próprio leilão!</red>",
+            "already-finished": "<red>Parece que esse leilão foi finalizado :(</red>"
+          },
+          "auction-self-list": {
+            "create": {
+              "auction-temporary-disabled": "<yellow>A criação de leilões está temporariamente desabilitada!</yellow>",
+              "auction-limit-exceeded": "<red>Você atingiu o número máximo de leilões permitidos!</red>"
+            },
+            "cancel": {
+              "auction-not-running": "<red>Você não pode finalizar um leilão que já terminou!</red>",
+              "conversation": {
+                "query": "Você tem certeza que deseja finalizar esse leilão?",
+                "error": "<red>Não foi possível processar sua solicitação, tente novamente em instantes!</red>",
+                "success": "<green>Você finalizou o leilão com sucesso!</green>"
+              }
+            }
+          }
+        }
+      },
+      "views": {
+        "auction-create-currency-select": {
+          "title": "Escolha a sua economia",
+          "items": {
+            "0": {
+              "name": "{auction_create_currency_color}{auction_create_currency_name_plural_with_capitalize_first_letter}",
+              "lore": [
+                "",
+                "{auction_create_currency_color}Clique para selecionar."
+              ]
+            }
+          }
+        },
+        "auction-create": {
+          "title": "Iniciar leilão",
+          "items": {
+            "0": {
+              "name": "<yellow>Clique em algum item do seu inventário</yellow>",
+              "lore": [
+                "<gray>Selecione algum item para leiloar.</gray>"
+              ]
+            },
+            "1": {
+              "without-item": {
+                "name": "<red>Iniciar leilão</red>",
+                "lore": [
+                  "<gray>Selecione um item do seu inventário</gray>",
+                  "<gray>para iniciar este leilão.</gray>"
+                ]
+              },
+              "with-item": {
+                "name": "<green>Iniciar leilão</green>",
+                "lore": [
+                  "<gray>Esse item será leiloado para</gray>",
+                  "<gray>outros jogadores comprarem.</gray>",
+                  "",
+                  "<dark_gray>▶ </dark_gray><white>Item: </white><gray>{auction_create_item_display_name}</gray>",
+                  "<dark_gray>▶ </dark_gray><white>Duração: </white><gold>{auction_create_duration}</gold>",
+                  "<dark_gray>▶ </dark_gray><white>Lance inicial: </white><white>{auction_create_starting_bid_value_formatted}</white>",
+                  "",
+                  "<yellow>Clique para leiloar</yellow>"
+                ]
+              }
+            },
+            "2": {
+              "name": "<gold>Lance inicial</gold>",
+              "lore": [
+                "<gray>Defina o valor mínimo que um jogador</gray>",
+                "<gray>pode oferecer pelo seu item.</gray>",
+                "",
+                "<gray>Lance inicial: </gray><white>{auction_create_starting_bid_value_formatted}</white>",
+                "",
+                "<yellow>Clique para modificar.</yellow>"
+              ]
+            },
+            "3": {
+              "name": "<green>Duração customizada</green>",
+              "lore": [
+                "<gray>Defina um tempo específico</gray>",
+                "<gray>para a duração do seu leilão.</gray>",
+                "",
+                "<gray>Duração: </gray><gold>{auction_create_duration}</gold>",
+                "",
+                "<yellow>Clique para modificar.</yellow>"
+              ]
+            }
+          }
+        },
+        "auction-create-confirmation": {
+          "title": "Iniciar leilão - Confirmação",
+          "items": {
+            "0": {
+              "name": "<green>Iniciar leilão</green>",
+              "lore": [
+                "<gray>Esse item será leiloado para</gray>",
+                "<gray>outros jogadores comprarem.</gray>",
+                "",
+                "<dark_gray>▶ </dark_gray><white>Item: </white><gray>{auction_create_item_display_name}</gray>",
+                "<dark_gray>▶ </dark_gray><white>Duração: </white><gold>{auction_create_duration}</gold>",
+                "<dark_gray>▶ </dark_gray><white>Lance inicial: </white><white>{auction_create_starting_bid_value_formatted}</white>",
+                "",
+                "<yellow>Clique para leiloar</yellow>"
+              ]
+            }
+          }
+        },
+        "auction-bids-self-list": {
+          "title": "Meus lances",
+          "items": {
+            "0": {
+              "name": "<red>OPS!</red>",
+              "lore": [
+                "<red>Parece que você não tem</red>",
+                "<red>nenhum lance até o momento.</red>"
+              ]
+            },
+            "1": {
+              "auction-bid-format": " <gray>▶</gray> <white>{auction_bid_position}º {auction_bid_user_name_with_tag}</white><gray>:</gray> <white>{auction_bid_value_formatted}</white>",
+              "lore": [
+                "",
+                " <white>Leiloador: </white>{auction_owner_name_with_color}",
+                "",
+                " <yellow>Maiores lances:</yellow>",
+                "{auction_bids_formatted}",
+                "",
+                "<dark_gray>▶ </dark_gray><white>Termina em: </white><gray>{auction_duration_time_remaining}</gray>",
+                "<dark_gray>▶ </dark_gray><white>Seu lance: </white><gray>{auction_viewer_bid_value_formatted}</gray>",
+                "",
+                "<yellow>Clique para aumentar o seu lance.</yellow>"
+              ]
+            }
+          }
+        },
+        "auction-list": {
+          "title": "Central de Leilões",
+          "items": {
+            "0": {
+              "name": "<red>OPS!</red>",
+              "lore": [
+                "<red>Parece que não tem leilões acontecendo agora :(</red>"
+              ]
+            },
+            "1": {
+              "without-bids": {
+                "lore": [
+                  "",
+                  " <white>Leiloador: </white>{auction_owner_name_with_tag}",
+                  "",
+                  " <red>Nenhum lance até o momento.</red>",
+                  "",
+                  "<dark_gray>▶ </dark_gray><white>Termina em: </white><gray>{auction_duration_time_remaining}</gray>",
+                  "<dark_gray>▶ </dark_gray><white>Lance inicial: </white><white>{auction_starting_bid_value_formatted}</white>",
+                  "",
+                  "<yellow>Clique para dar um lance.</yellow>"
+                ]
+              },
+              "with-bids": {
+                "auction-bid-format": " <gray>▶</gray> <white>{auction_bid_position}º {auction_bid_user_name_with_tag}</white><gray>:</gray> <white>{auction_bid_value_formatted}</white>",
+                "lore": [
+                  "",
+                  " <white>Leiloador: </white>{auction_owner_name_with_tag}",
+                  "",
+                  " <yellow>Maiores lances:</yellow>",
+                  "{auction_bids_formatted}",
+                  "",
+                  "<dark_gray>▶ </dark_gray><white>Termina em: </white><gray>{auction_duration_time_remaining}</gray>",
+                  "",
+                  "<yellow>Clique para dar um lance.</yellow>"
+                ]
+              }
+            }
+          }
+        },
+        "auction-self-list": {
+          "title": "Meus leilões",
+          "items": {
+            "0": {
+              "name": "<red>OPS!</red>",
+              "lore": [
+                "<red>Parece que você ainda não</red>",
+                "<red>tem nenhum leilão criado até o momento!</red>"
+              ]
+            },
+            "1": {
+              "auction-bid-format": " <gray>▶</gray> <white>{auction_bid_position}º {auction_bid_user_name_with_tag}</white><gray>:</gray> <white>{auction_bid_value_formatted}</white>",
+              "running": {
+                "without-bids": {
+                  "lore": [
+                    "",
+                    " <red>Nenhum lance até o momento.</red>",
+                    "",
+                    "<dark_gray>▶ </dark_gray><white>Termina em: </white><gray>{auction_duration_time_remaining}</gray>",
+                    "<dark_gray>▶ </dark_gray><white>Lance inicial: </white><white>{auction_starting_bid_value_formatted}</white>",
+                    "",
+                    "<yellow>Clique para remover o leilão.</yellow>"
+                  ]
+                },
+                "with-bids": {
+                  "lore": [
+                    "",
+                    " <yellow>Maiores lances:</yellow>",
+                    "{auction_bids_formatted}",
+                    "",
+                    "<dark_gray>▶ </dark_gray><white>Termina em: </white><gray>{auction_duration_time_remaining}</gray>",
+                    "",
+                    "<yellow>Clique para remover o leilão.</yellow>"
+                  ]
+                }
+              },
+              "not-running": {
+                "without-bids": {
+                  "lore": [
+                    "",
+                    " <red>Nenhum lance.</red>",
+                    "",
+                    "<red>Esse leilão já foi finalizado.</red>"
+                  ]
+                },
+                "with-bids": {
+                  "lore": [
+                    "",
+                    " <yellow>Maiores lances:</yellow>",
+                    "{auction_bids_formatted}",
+                    "",
+                    "<red>Esse leilão já foi finalizado.</red>"
+                  ]
+                }
+              }
+            },
+            "2": {
+              "name": "<green>Iniciar um leilão</green>",
+              "lore": [
+                "<gray>Faça um leilão do seu item para</gray>",
+                "<gray>ver quem paga mais por ele.</gray>",
+                "",
+                "<green>Clique para iniciar.</green>"
+              ]
+            }
+          }
+        },
+        "auction-primary": {
+          "title": "Casa de Leilões",
+          "items": {
+            "0": {
+              "name": "<yellow>Central de leilões</yellow>",
+              "lore": [
+                "<gray>Aqui você pode encontrar os</gray>",
+                "<gray>itens que estão sendo leiloados</gray>",
+                "<gray>pelos jogadores do servidor.</gray>",
+                "",
+                "<gray>Caso você consiga ter maior</gray>",
+                "<gray>lance até o fim do leilão de um</gray>",
+                "<gray>item, ele será seu.</gray>",
+                "",
+                "<yellow>Clique para ver os leilões.</yellow>"
+              ]
+            },
+            "1": {
+              "with": {
+                "name": "<yellow>Meus lances</yellow>",
+                "lore": [
+                  "<gray>Você possui </gray><white>{auctions_count} </white><gray>lance(s) no momento. :)</gray>",
+                  "",
+                  "<yellow>Clique para ver seus lances.</yellow>"
+                ]
+              },
+              "without": {
+                "name": "<yellow>Meus lances</yellow>",
+                "lore": [
+                  "<gray>Você não possui nenhum</gray>",
+                  "<gray>lance no momento. :(</gray>"
+                ]
+              }
+            },
+            "2": {
+              "name": "<yellow>Meus leilões</yellow>",
+              "lore": [
+                "<gray>Anuncie seus itens na casa de</gray>",
+                "<gray>leilões para que outros jogadores</gray>",
+                "<gray>possam comprá-los.</gray>",
+                "",
+                "<yellow>Clique para leiloar.</yellow>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "plugins": {
+    "currencies": {
+      "features": {
+        "check": {
+          "item": {
+            "display-name": "Cheque de {currency_plural_name_lower_case}",
+            "name": "{currency_check_feature_color}Cheque de {currency_plural_name}",
+            "lore": {
+              "value": [
+                "",
+                "{currency_check_feature_color} ▎ <white>Valor: {currency_check_feature_formatted_value}</white>"
+              ],
+              "percentage": [
+                "<gray>Utilize este cheque para receber</gray>",
+                "<gray>{currency_plural_name_lower_case} em sua conta.</gray>"
+              ]
+            }
+          },
+          "activated": "{currency_check_feature_color}Cheque ativado! (+{currency_check_feature_formatted_value}{currency_check_feature_color})"
+        }
+      },
+      "types": {
+        "coins": {
+          "name": {
+            "singular": "Coin",
+            "plural": "Coins"
+          },
+          "features": {
+            "check": {
+              "visualization": "<dark_green>{currency_icon}</dark_green><white>{currency_formatted_value}</white>"
+            }
+          },
+          "views": {
+            "top-view": {
+              "title": "Ranking de Coins"
+            }
+          },
+          "visualization": "<dark_green>{currency_icon}</dark_green><white>{currency_formatted_value}</white>"
+        },
+        "points": {
+          "name": {
+            "singular": "Ponto",
+            "plural": "Pontos"
+          },
+          "features": {
+            "check": {
+              "visualization": "{currency_color}{currency_icon}{currency_formatted_value}"
+            }
+          },
+          "views": {
+            "top-view": {
+              "title": "Ranking de Pontos"
+            }
+          },
+          "visualization": "{currency_color}{currency_icon}{currency_formatted_value}"
+        },
+        "runes": {
+          "name": {
+            "singular": "Runa",
+            "plural": "Runas"
+          },
+          "features": {
+            "check": {
+              "visualization": "<{currency_color}><bold>{currency_icon}</bold></{currency_color}><{currency_color}>{currency_formatted_value}</{currency_color}>"
+            }
+          },
+          "views": {
+            "top-view": {
+              "title": "Ranking de Runas"
+            }
+          },
+          "visualization": "<{currency_color}><bold>{currency_icon}</bold></{currency_color}><{currency_color}>{currency_formatted_value}</{currency_color}>"
+        },
+        "tokens": {
+          "name": {
+            "singular": "Token",
+            "plural": "Tokens"
+          },
+          "features": {
+            "check": {
+              "visualization": "<{currency_color}>{currency_icon}</{currency_color}><{currency_color}>{currency_formatted_value}</{currency_color}>"
+            }
+          },
+          "views": {
+            "top-view": {
+              "title": "Ranking de Tokens"
+            }
+          },
+          "visualization": "<{currency_color}>{currency_icon}</{currency_color}><{currency_color}>{currency_formatted_value}</{currency_color}>"
+        }
+      }
+    }
+  },
+  "commands": {
+    "currencies": {
+      "description": "Veja o saldo de um usuário.",
+      "visualize": {
+        "same": {
+          "success": "<{currency_color}>Você possui </{currency_color}><white>{currency_formatted_value}</white><{currency_color}>{currency_adaptively_joiner} {currency_adaptively_name_lower_case}</{currency_color}>.",
+          "without-balance": "<{currency_color}>Você não possui {currency_plural_name_lower_case}.</{currency_color}>"
+        },
+        "target": {
+          "success": "{currency_target_name_with_color} <{currency_color}>possui </{currency_color}><white>{currency_formatted_value}</white><{currency_color}>{currency_adaptively_joiner} {currency_adaptively_name_lower_case}</{currency_color}>.",
+          "without-balance": "{currency_target_name_with_color} <{currency_color}>não possui {currency_plural_name_lower_case}.</{currency_color}>"
+        }
+      },
+      "add": {
+        "description": "Dê {currency_plural_name_lower_case} para um usuário.",
+        "arguments": {
+          "target": {
+            "name": "jogador",
+            "description": "Nome do jogador que irá receber {currency_plural_name_lower_case}"
+          },
+          "value": {
+            "name": "quantidade",
+            "description": "Quantidade de {currency_plural_name_lower_case} que o jogador irá receber"
+          }
+        },
+        "success": "<{currency_color}>Você adicionou </{currency_color}><white>{currency_formatted_value}</white><{currency_color}>{currency_adaptively_joiner} {currency_adaptively_name}</{currency_color}> ao jogador {currency_target_name_with_color}"
+      },
+      "pay": {
+        "success-sender": "<green>Você enviou </green><{currency_color}>{currency_icon}{currency_formatted_value}</{currency_color}><green> para {currency_target_name_with_color}.</green>",
+        "success-target": "<green>Você recebeu </green><{currency_color}>{currency_icon}{currency_formatted_value}</{currency_color}><green> de {currency_sender_name_with_color}.</green>",
+        "description": "Envie {currency_plural_name_lower_case} para um usuário.",
+        "arguments": {
+          "target": {
+            "name": "jogador",
+            "description": "Nome do jogador que irá receber {currency_plural_name_lower_case}"
+          },
+          "value": {
+            "name": "quantidade",
+            "description": "Quantidade de {currency_plural_name_lower_case} que o jogador irá receber"
+          }
+        },
+        "ignores": {
+          "sender": "Você não pode enviar {currency_plural_name_lower_case} para um jogador ignorado.",
+          "target": "Você não pode enviar {currency_plural_name_lower_case} para esse jogador pois ele te ignorou."
+        },
+        "preferences": {
+          "disabled": {
+            "sender": "Você não pode enviar {currency_plural_name_lower_case} pois desabilitou seu recebimento.",
+            "target": "Esse jogador desabilitou o recebimento de {currency_plural_name_lower_case}."
+          }
+        },
+        "without-balance": "Você não possui {currency_plural_name_lower_case} para enviar para o jogador.",
+        "dialog": {
+          "title": "{currency_color}Enviar {currency_plural_name_lower_case}",
+          "body": "<yellow>Você realmente deseja enviar </yellow><white>{currency_formatted_value}</white><yellow>{currency_adaptively_joiner} {currency_adaptively_name} para {currency_target_name_with_color}?</yellow>",
+          "expired": "Você demorou muito para responder!",
+          "cancelled": "Ação de envio de {currency_plural_name_lower_case} cancelada."
+        }
+      },
+      "remove": {
+        "description": "Remova {currency_plural_name_lower_case} de um usuário.",
+        "arguments": {
+          "target": {
+            "name": "jogador",
+            "description": "Nome do jogador que serão removidos {currency_plural_name_lower_case}"
+          },
+          "value": {
+            "name": "quantidade",
+            "description": "Quantidade de {currency_plural_name_lower_case} serão removidos do jogador"
+          }
+        },
+        "success": "<{currency_color}>Você removeu </{currency_color}><white>{currency_formatted_value}</white><{currency_color}>{currency_adaptively_joiner} {currency_adaptively_name}</{currency_color}> do jogador {currency_target_name_with_color}"
+      },
+      "set": {
+        "description": "Defina {currency_plural_name_lower_case} para um usuário.",
+        "arguments": {
+          "target": {
+            "name": "jogador",
+            "description": "Nome do jogador que serão definidos {currency_plural_name_lower_case}"
+          },
+          "value": {
+            "name": "quantidade",
+            "description": "Quantidade de {currency_plural_name_lower_case} que será setado ao jogador"
+          }
+        },
+        "success": "<{currency_color}>Você definiu </{currency_color}><white>{currency_formatted_value}</white><{currency_color}>{currency_adaptively_joiner} {currency_adaptively_name}</{currency_color}> para jogador {currency_target_name_with_color}"
+      },
+      "top": {
+        "description": "Veja os jogadores mais ricos do servidor"
+      },
+      "update": {
+        "success": "Solicitação de atualização enviada com sucesso"
+      }
+    }
+  }
+}

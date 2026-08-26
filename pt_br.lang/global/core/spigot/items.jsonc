@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "core": {
+      "items": {
+        "inventory-full-dropped": "<red>Inventário cheio! O item caiu no chão aos seus pés.",
+        "back": {
+          "name": "<yellow>Voltar</yellow>",
+          "lore": []
+        },
+        "next": {
+          "name": "<yellow>Próximo</yellow>",
+          "lore": []
+        },
+        "previous": {
+          "name": "<yellow>Anterior</yellow>",
+          "lore": []
+        }
+      }
+    }
+  }
+}

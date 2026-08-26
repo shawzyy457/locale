@@ -1,0 +1,86 @@
+{
+    "plugins": {
+        "essentials": {
+            "warps": {
+                "shop": {
+                    "name": "<color:#ff8200>loja de itens",
+                    "description": [
+                        "<gray>Aqui você encontra a",
+                        "<gray>loja de itens.",
+                        "",
+                        "<color:#ff8200> ▸ <white>Atalho:<gray> /loja",
+                        "",
+                        "<color:#ff8200>Clique para acessar!"
+                    ]
+                },
+                "goldshop": {
+                    "name": "<color:#ff8200>Mercado de Gold",
+                    "description": [
+                        "<gray>Aqui você encontra o",
+                        "<gray>mercado de gold.",
+                        "",
+                        "<color:#ff8200> ▸ <white>Atalho:<gray> /goldshop",
+                        "",
+                        "<color:#ff8200>Clique para acessar!"
+                    ]
+                },
+                "vip": {
+                    "name": "<color:#ff8200>Área VIP",
+                    "description": [
+                        "<gray>Área exclusiva para",
+                        "<gray>jogadores VIP.",
+                        "",
+                        "<color:#ff8200> ▸ <white>Atalho:<gray> /vip",
+                        "<color:#ff8200> ▸ <white>Requer:<gray> PRO ou superior",
+                        "",
+                        "<color:#ff8200>Clique para acessar!"
+                    ]
+                },
+                "mundo": {
+                    "name": "<color:#ff8200>Mundo Aberto",
+                    "description": [
+                        "<gray>Te envia para um ponto",
+                        "<gray>aleatório do mundo aberto.",
+                        "",
+                        "<color:#ff8200> ▸ <white>Atalho:<gray> /mundo",
+                        "",
+                        "<color:#ff8200>Clique para acessar!"
+                    ]
+                },
+                "arena": {
+                    "name": "<color:#ff8200>Mundo Aberto",
+                    "description": [
+                        "<gray>Te envia para a arena",
+                        "<gray>do servidor!",
+                        "",
+                        "<color:#ff8200> ▸ <white>Atalho:<gray> /arena",
+                        "",
+                        "<color:#ff8200>Clique para acessar!"
+                    ]
+                }
+            },
+            "commands": {
+                "warp": {
+                    "app-not-available": "OPS! Parece que o local que você seria enviado está indisponível no momento, tente novamente mais tarde."
+                },
+                "warps": {
+                    "app-not-available": "<red>Os warps não estão disponíveis neste servidor.</red>",
+                    "minimum-group": "Você precisa ser no mínimo {group} <red>para usar este warp.</red>"
+                }
+            },
+            "views": {
+                "warps": {
+                    "title": "Localizações",
+                    "items": {
+                        "0": {
+                            "name": "{warp_name}",
+                            "lore": [
+                                "{warp_description}"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

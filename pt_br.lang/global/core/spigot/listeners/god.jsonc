@@ -1,0 +1,11 @@
+{
+    "plugins": {
+        "core": {
+            "messages": {
+                "god": {
+                    "not-allowed-in-god-mode": "Você não pode fazer isso enquanto estiver no modo Deus."
+                }
+            }
+        }
+    }
+}

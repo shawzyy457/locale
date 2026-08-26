@@ -1,0 +1,119 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "admin": {
+                    "ban": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador que deseja banir" },
+                            "duration": { "name": "tempo", "description": "Duração (ex.: 7d, 1h30m, permanent)" },
+                            "reason": { "name": "motivo", "description": "O motivo da punição" }
+                        },
+                        "usage": "Uso correto: /admin ban jogador tempo motivo",
+                        "invalid-duration": "Duração inválida. Use por exemplo 7d, 1h30m ou permanent.",
+                        "error": "Não foi possível aplicar a punição.",
+                        "success": "{target_name} foi banido com sucesso."
+                    },
+                    "mute": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador que deseja silenciar" },
+                            "duration": { "name": "tempo", "description": "Duração (ex.: 7d, 1h30m, permanent)" },
+                            "reason": { "name": "motivo", "description": "O motivo da punição" }
+                        },
+                        "usage": "Uso correto: /admin mute jogador tempo motivo",
+                        "invalid-duration": "Duração inválida. Use por exemplo 7d, 1h30m ou permanent.",
+                        "error": "Não foi possível aplicar a punição.",
+                        "success": "{target_name} foi silenciado com sucesso."
+                    },
+                    "ip-ban": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador que deseja banir por IP" },
+                            "duration": { "name": "tempo", "description": "Duração (ex.: 7d, 1h30m, permanent)" },
+                            "reason": { "name": "motivo", "description": "O motivo da punição" }
+                        },
+                        "usage": "Uso correto: /admin ip-ban jogador tempo motivo",
+                        "invalid-duration": "Duração inválida. Use por exemplo 7d, 1h30m ou permanent.",
+                        "error": "Não foi possível aplicar a punição.",
+                        "success": "{target_name} teve o IP banido com sucesso."
+                    },
+                    "cuboid": {
+                        "select-first-conner": "Clique no primeiro canto!",
+                        "select-second-conner": "Clique no segundo canto!",
+                        "success": "<yellow>Clique <green><bold><click:suggest_command:'{cuboid_serialized}'>AQUI</click></bold></green><yellow> para copiar.</yellow>"
+                    },
+                    "debug": {
+                        "update-active": "O modo de debug foi alterado para habilitado",
+                        "update-deactivate": "O modo de debug foi alterado para desabilitado"
+                    },
+                    "frame": {
+                        "arguments": {
+                            "url": {
+                                "name": "link",
+                                "description": "Insira o link da imagem"
+                            }
+                        },
+                        "loading": "Iniciando frame...",
+                        "select-frame": "Clique com o botão direito sobre a frame que deseja colocar!",
+                        "error": "Não foi possivel carregar o frame: {frame_command_error}"
+                    },
+                    "location": {
+                        "success": "<yellow>Clique <green><bold><click:suggest_command:'{location_serialized}'>AQUI</click></bold></green><yellow> para copiar.</yellow>"
+                    },
+                    "mode": {
+                        "success-active": "O modo admin foi alterado para habilitado",
+                        "success-deactivate": "O modo admin foi alterado para desabilitado"
+                    },
+                    "original": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador que terá a conta marcada como original" }
+                        },
+                        "already-original": "{target_name} já possui uma conta original.",
+                        "account-is-offline": "A conta de {target_name} não é premium (não encontrada na Mojang).",
+                        "already-synchronized": "Já existe uma conta sincronizada com essa original.",
+                        "success": "{target_name} agora é original."
+                    },
+                    "cracked": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador que terá a conta convertida para pirata" },
+                            "password": { "name": "senha", "description": "A nova senha da conta" }
+                        },
+                        "usage": "Uso correto: /admin cracked jogador senha",
+                        "dont-have-original": "{target_name} não possui uma conta original.",
+                        "password-invalid": "Senha inválida. Use de 5 a 32 caracteres.",
+                        "error": "Não foi possível atualizar a senha de {target_name}.",
+                        "success": "{target_name} agora é pirata."
+                    },
+                    "reload": {
+                        "usage": "Uso correto: /admin reload <--app | --server | --global>",
+                        "success-app": "Reload de configs solicitado para este app ({app_id}).",
+                        "no-server": "Este app não pertence a um server.",
+                        "success-server": "Reload de configs solicitado para {app_amount} app(s) do server '{server_id}'.",
+                        "success-global": "Reload de configs solicitado para {app_amount} app(s) online.",
+                        "unknown-scope": "Escopo desconhecido. Use: --app | --server | --global"
+                    },
+                    "packetdump": {
+                        "arguments": {
+                            "target": { "name": "jogador", "description": "Jogador cujo buffer de pacotes será exportado" }
+                        },
+                        "usage": "Uso correto: /admin packetdump <jogador>",
+                        "generating": "Gerando packet dump de {target_name}...",
+                        "no-data": "Sem pacotes em buffer para {target_name} (sem tráfego recente ou offline há mais de 1min).",
+                        "error": "Falha ao gerar o packet dump: {error}",
+                        "success": "<green>Packet dump de <white>{target_name}</white> pronto! <hover:show_text:'<gray>{url}</gray>'><click:open_url:'{url}'><aqua><underlined>abrir no navegador</underlined></aqua></click></hover>"
+                    },
+                    "dump": {
+                        "generating": "Gerando dump...",
+                        "no-target": "Olhe para um container (até 6 blocos) ou segure um item na mão principal.",
+                        "empty": "Nada para exportar (container vazio ou item inválido).",
+                        "error": "Falha ao gerar o dump: {error}",
+                        "container-success": "<green>Dump do container pronto! <hover:show_text:'<gray>{url}</gray>'><click:open_url:'{url}'><aqua><underlined>abrir no navegador</underlined></aqua></click></hover>",
+                        "item-success": "<green>Dump do item pronto! <hover:show_text:'<gray>{url}</gray>'><click:open_url:'{url}'><aqua><underlined>abrir no navegador</underlined></aqua></click></hover>"
+                    },
+                    "worlds": {
+                        "success": "Mundos disponíveis: {world_names}"
+                    }
+                }
+            }
+        }
+    }
+}

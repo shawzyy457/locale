@@ -1,0 +1,87 @@
+{
+  "plugins": {
+    "wither": {
+      "messages": {
+        "spawn": {
+          "blocked-territory": "<red>O Wither só pode ser invocado em território claimado de uma facção.</red>",
+          "blocked-world": "<red>O Wither só pode ser invocado no mundo principal.</red>"
+        },
+        "boss": {
+          "summoning": {
+            "chat": [
+              "",
+              " <gradient:#7c3aed:#312e81><bold>ALGO SOMBRIO ESTÁ SENDO INVOCADO...</bold></gradient>",
+              " <gray>O ar fica pesado. Afaste-se ou prepare-se para lutar.</gray>",
+              ""
+            ]
+          },
+          "awakened": {
+            "title": "<dark_purple><bold>O WITHER</bold></dark_purple>",
+            "subtitle": "<gray>despertou</gray>",
+            "chat": [
+              "",
+              " <gradient:#7c3aed:#312e81><bold>O WITHER DESPERTOU!</bold></gradient>",
+              " <gray>Ele congela quem for atingido pelas explosões e caveiras.</gray>",
+              " <gray>Mantenha distância das rajadas — e não deixe ele te encurralar.</gray>",
+              ""
+            ]
+          },
+          "phase-two": {
+            "title": "<dark_purple><bold>FASE II</bold></dark_purple>",
+            "subtitle": "<gray>os servos despertam</gray>",
+            "chat": [
+              "",
+              " <gradient:#7c3aed:#312e81><bold>FASE II — OS SERVOS DESPERTAM</bold></gradient>",
+              " <gray>▶ O Wither invocou <white>servos esqueletos</white> para defendê-lo.",
+              " <gray>▶ Cuidado com a <white>investida</white>: quando ele parar no ar e carregar, saia da frente!",
+              " <gray>▶ <white>Círculos de fogo</white> no chão explodem e congelam — não pise neles.",
+              ""
+            ]
+          },
+          "phase-three": {
+            "title": "<dark_purple><bold>FASE III</bold></dark_purple>",
+            "subtitle": "<red>mate os servos para quebrar o escudo</red>",
+            "chat": [
+              "",
+              " <gradient:#7c3aed:#312e81><bold>FASE III — O ESCUDO DAS ALMAS</bold></gradient>",
+              " <red>▶ MATE OS SERVOS PRIMEIRO: enquanto viverem, o Wither só toma metade do dano!",
+              " <gray>▶ As caveiras dele agora <white>roubam vida</white> — não deixe elas acertarem.",
+              " <gray>▶ <white>Chuva de caveiras</white> cai do céu: fique em movimento.",
+              ""
+            ]
+          },
+          "enraged": {
+            "title": "<dark_red><bold>ENFURECIDO</bold></dark_red>",
+            "subtitle": "<red>acabe com ele agora!</red>",
+            "chat": [
+              " <dark_red><bold>O WITHER ESTÁ ENFURECIDO!</bold> <gray>Tudo mais rápido — é agora ou nunca.</gray>"
+            ]
+          },
+          "grounded": {
+            "title": "<yellow><bold>EXAUSTO</bold></yellow>",
+            "subtitle": "<gray>ataquem com a espada!</gray>",
+            "chat": [
+              " <yellow><bold>O WITHER DESCEU!</bold> <gray>Ele parou de atacar — encham ele de espada enquanto dá.</gray>"
+            ]
+          },
+          "defeated": {
+            "title": "<gold><bold>WITHER DERROTADO</bold></gold>",
+            "subtitle": "<gray>por {killer_name}</gray>",
+            "chat": [
+              "",
+              " <gold><bold>O WITHER FOI DERROTADO!</bold></gold>",
+              " <gray>Golpe final de <white>{killer_name}</white>.",
+              " <gray>A <white>estrela de nível</white> caiu no chão — e talvez algo mais...",
+              ""
+            ]
+          },
+          "vanished": {
+            "chat": [
+              " <gray>O Wither perdeu o interesse e desapareceu nas sombras...</gray>"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

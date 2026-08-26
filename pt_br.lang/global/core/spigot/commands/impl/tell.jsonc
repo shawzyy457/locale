@@ -1,0 +1,41 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "reply": {
+                    "arguments": {
+                        "message": {
+                            "name": "mensagem",
+                            "description": "Mensagem que deseja enviar de volta"
+                        }
+                    },
+                    "reply-not-found": "Não há pessoas para responder. :S",
+                    "sender-preference-disabled": "Você desabilitou suas mensagens privadas! Utilize /preferencias para habilitar esta função novamente.",
+                    "target-preference-disabled": "O jogador {target_name} está com o recebimento de mensagens privadas desativado.",
+                    "sender-ignored-target": "Você não pode enviar mensagens para um jogador ignorado!",
+                    "target-ignored-sender": "Você não pode enviar mensagens para o jogador {target_name} pois ele te adicionou na lista de ignorados!",
+                    "message-sender": "<yellow>[✉]</yellow> <dark_gray>[{target_connected_app}]</dark_gray> <white>Mensagem para</white> {target_name_with_tag}<yellow>:</yellow> <white>{target_message}</white>",
+                    "message-target": "<yellow>[✉]</yellow> <dark_gray>[{sender_connected_app}]</dark_gray> <white>Mensagem de</white> {sender_name_with_tag}<yellow>:</yellow> <white>{sender_message}</white>"
+                },
+                "tell": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que você deseja enviar a mensagem"
+                        },
+                        "message": {
+                            "name": "mensagem",
+                            "description": "Mensagem que deseja enviar de volta"
+                        }
+                    },
+                    "sender-preference-disabled": "Você desabilitou suas mensagens privadas! Utilize /preferencias para habilitar esta função novamente.",
+                    "target-preference-disabled": "O jogador {target_name} está com o recebimento de mensagens privadas desativado.",
+                    "sender-ignored-target": "Você não pode enviar mensagens para um jogador ignorado!",
+                    "target-ignored-sender": "Você não pode enviar mensagens para o jogador {target_name} pois ele te adicionou na lista de ignorados!",
+                    "message-sender": "<yellow>[✉]</yellow> <dark_gray>[{target_connected_app}]</dark_gray> <white>Mensagem para</white> {target_name_with_tag}<yellow>:</yellow> <white>{target_message}</white>",
+                    "message-target": "<yellow>[✉]</yellow> <dark_gray>[{sender_connected_app}]</dark_gray> <white>Mensagem de</white> {sender_name_with_tag}<yellow>:</yellow> <white>{sender_message}</white>"
+                }
+            }
+        }
+    }
+}

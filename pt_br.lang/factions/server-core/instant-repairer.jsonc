@@ -1,0 +1,28 @@
+{
+  "plugins": {
+    "server-core": {
+      "items": {
+        "instant-repairer": {
+          "name": "<color:#55FF55>Reparador Instantâneo<color:#55FF55>",
+          "lore": [
+            "<gray>Repara instantaneamente o item</gray>",
+            "<gray>do seu inventário com menor</gray>",
+            "<gray>durabilidade, priorizando armaduras.</gray>",
+            "",
+            "<color:#55FF55> Propriedades:<color:#55FF55>",
+            "<color:#55FF55> 🔧 <white>Tipo: <gray>Armaduras e items<gray>",
+            "<color:#55FF55> ⚡ <white>Efeito: <gray>Reparo total<gray>",
+            "",
+            "<color:#55FF55>Clique para usar!<color:#55FF55>"
+          ]
+        }
+      },
+      "messages": {
+        "instant-repairer": {
+          "repaired": "<green>{item_name} <green>reparado com sucesso!</green>",
+          "no-items": "<red>Nenhum item reparável encontrado no inventário.</red>"
+        }
+      }
+    }
+  }
+}

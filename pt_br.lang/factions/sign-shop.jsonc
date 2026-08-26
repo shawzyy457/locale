@@ -1,0 +1,200 @@
+{
+  "plugins": {
+    "sign-shop": {
+      "sign": {
+        "only-buy": [
+          "<black>Loja</black>",
+          "<dark_green><bold>C </bold></dark_green>{sign_shop_currency_color}{sign_shop_currency_icon}<white>{sign_shop_buy_formatted_value}</white>",
+          "<black>{sign_shop_amount}</black>",
+          "<black>{sign_shop_item_name_stripped}</black>"
+        ],
+        "only-sell": [
+          "<black>Loja</black>",
+          "<dark_red><bold>V </bold></dark_red>{sign_shop_currency_color}{sign_shop_currency_icon}<white>{sign_shop_sell_formatted_value}</white>",
+          "<black>{sign_shop_amount}</black>",
+          "<black>{sign_shop_item_name_stripped}</black>"
+        ],
+        "buy-and-sell": [
+          "<black>Loja</black>",
+          "<dark_red><bold>V </bold></dark_red>{sign_shop_currency_color}{sign_shop_currency_icon}<white>{sign_shop_sell_formatted_value}</white> <dark_green><bold>C </bold></dark_green>{sign_shop_currency_color}{sign_shop_currency_icon}<white>{sign_shop_buy_formatted_value}</white> ",
+          "<black>{sign_shop_amount}</black>",
+          "<black>{sign_shop_item_name_stripped}</black>"
+        ]
+      },
+      "messages": {
+        "on-break": {
+          "sign-cannot-be-broken": "Você não pode quebrar essa placa pois ela é uma loja!",
+          "other-cannot-be-broken": "Você não pode quebrar esse bloco pois ele faz parte de uma loja!"
+        },
+        "sell": {
+          "not-allowed": "Essa loja não está aceitando vendas!",
+          "not-enough-items": "Você não possui itens suficientes para vender nessa loja!",
+          "sell-user": "<gradient:#4ade80:#22c55e:#15803d><bold>Loja!</bold> Você vendeu <gradient:#ffffff:#e5e7eb>x{sign_shop_sell_amount} {sign_shop_item_name} <gradient:#4ade80:#22c55e:#15803d>por {sign_shop_sell_value}."
+        },
+        "buy": {
+          "not-allowed": "Essa loja não está aceitando compras!",
+          "user-no-has-money": "Você não possui dinheiro suficiente realizar essa compra!",
+          "buy-user": "<gradient:#4ade80:#22c55e:#15803d><bold>Loja!</bold> Você comprou <gradient:#ffffff:#e5e7eb>x{sign_shop_buy_amount} {sign_shop_item_name} <gradient:#4ade80:#22c55e:#15803d>por {sign_shop_buy_value}."
+        },
+        "views": {
+          "sign-shop-create": {
+            "buy-value": {
+              "conversation": {
+                "query": "Digite o valor que você deseja que os jogadores comprem na sua loja:"
+              }
+            },
+            "sell-value": {
+              "conversation": {
+                "query": "Digite o valor que você deseja que os jogadores vendam na sua loja:"
+              }
+            },
+            "item-not-selected": "Você precisa selecionar um item para concluir a loja!",
+            "value-not-selected": "Você precisa selecionar um valor de compra ou venda para concluir a loja!",
+            "sign-not-found": "A placa em que a loja estava sendo criada foi quebrada!",
+            "success": "<green>Loja criada com sucesso!</green>"
+          },
+          "sign-shop-edit": {
+            "buy-value": {
+              "conversation": {
+                "query": "Digite o valor que você deseja que os jogadores comprem na sua loja:"
+              }
+            },
+            "sell-value": {
+              "conversation": {
+                "query": "Digite o valor que você deseja que os jogadores vendam na sua loja:"
+              }
+            },
+            "delete": {
+              "success": "<green>Loja deletada com sucesso!</green>"
+            }
+          }
+        }
+      },
+      "views": {
+        "sign-shop-create": {
+          "title": "Configurando sua loja",
+          "items": {
+            "0": {
+              "name": "<red>Erro!</red>",
+              "lore": [
+                "<gray>Selecione um item primeiro</gray>",
+                "<gray>para criar uma loja.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<green>Compra</green>",
+              "lore": [
+                "<gray>Defina um valor que o jogador</gray>",
+                "<gray>irá comprar o item na sua loja.</gray>",
+                "",
+                " <green>▸ </green><white>Valor de compra: {sign_shop_buy_formatted_value}</white>",
+                "",
+                "<green>Clique para definir o valor.</green>"
+              ]
+            },
+            "2": {
+              "name": "<red>Vender</red>",
+              "lore": [
+                "<gray>Defina um valor que o jogador</gray>",
+                "<gray>irá vender o item na sua loja.</gray>",
+                "",
+                " <red>▸ </red><white>Valor de venda: {sign_shop_sell_formatted_value}</white>",
+                "",
+                "<red>Clique para definir o valor.</red>"
+              ]
+            },
+            "3": {
+              "without": {
+                "name": "<red>Erro!</red>",
+                "lore": [
+                  "<gray>Selecione um item primeiro</gray>",
+                  "<gray>para criar uma loja.</gray>"
+                ]
+              },
+              "with": {
+                "name": "<green>Confirmação</green>",
+                "lore": [
+                  "<gray>Clique para criar sua loja!</gray>"
+                ]
+              }
+            }
+          }
+        },
+        "sign-shop-select-currency": {
+          "title": "Escolha a sua economia",
+          "items": {
+            "0": {
+              "name": "{sign_shop_currency_color}{sign_shop_currency_name_plural_with_capitalize_first_letter}",
+              "lore": [
+                "",
+                "{sign_shop_currency_color}Clique para selecionar."
+              ]
+            }
+          }
+        },
+        "sign-shop-edit": {
+          "title": "Sua loja",
+          "items": {
+            "0": {
+              "name": "<green>Compra</green>",
+              "lore": [
+                "<gray>Defina um valor que o jogador</gray>",
+                "<gray>irá comprar o item na sua loja.</gray>",
+                "",
+                " <green>▸ </green><white>Valor de compra: {sign_shop_buy_value_formatted}</white>",
+                "",
+                "<green>Clique para definir o valor.</green>"
+              ]
+            },
+            "1": {
+              "name": "<red>Vender</red>",
+              "lore": [
+                "<gray>Defina um valor que o jogador</gray>",
+                "<gray>irá vender o item na sua loja.</gray>",
+                "",
+                " <red>▸ </red><white>Valor de venda: {sign_shop_sell_value_formatted}</white>",
+                "",
+                "<red>Clique para definir o valor.</red>"
+              ]
+            },
+            "2": {
+              "name": "<red>Destruir loja</red>",
+              "lore": [
+                "<gray>Clique para destruir a loja.</gray>"
+              ]
+            }
+          }
+        },
+        "sign-shop-visualize": {
+          "title": "Informações da Loja",
+          "items": {
+            "0": {
+              "both": {
+                "lore": [
+                  "",
+                  " <dark_gray>► </dark_gray><white>Compra: {sign_item_buy_value_formatted}</white>",
+                  " <dark_gray>► </dark_gray><white>Venda: {sign_item_sell_value_formatted}</white>",
+                  " <dark_gray>► </dark_gray><white>Quantia: </white><gray>{sign_item_amount}</gray>"
+                ]
+              },
+              "only-buy": {
+                "lore": [
+                  "",
+                  " <dark_gray>► </dark_gray><white>Compra: {sign_item_buy_value_formatted}</white>",
+                  " <dark_gray>► </dark_gray><white>Quantia: </white><gray>{sign_item_amount}</gray>"
+                ]
+              },
+              "only-sell": {
+                "lore": [
+                  "",
+                  " <dark_gray>► </dark_gray><white>Venda: {sign_item_sell_value_formatted}</white>",
+                  " <dark_gray>► </dark_gray><white>Quantia: </white><gray>{sign_item_amount}</gray>"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

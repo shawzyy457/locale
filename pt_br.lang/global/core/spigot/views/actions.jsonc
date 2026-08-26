@@ -1,0 +1,161 @@
+{
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "app-action": {
+            "need-apps-selection": "Você precisa selecionar os servidores!",
+            "maintenance": {
+              "dialog": {
+                "query": "Digite o grupo minimo para acessar o servidor:",
+                "group-not-found": "Não foi possivel encontrar nenhum grupo com esse id!",
+                "success": "Manutenção alterada com sucesso."
+              }
+            },
+            "execute-action": {
+              "confirmation": {
+                "query": "Tem certeza que deseja {action_name} {action_apps_size} servidor(es)?"
+              },
+              "select-time": {
+                "query": "Qual o tempo que você deseja para {action_name} o(s) {action_apps_size} servidor(es)?",
+                "invalid-time": "Digite um tempo em segundos de 1s a 120s!"
+              },
+              "success": "Sua solicitação de {action_name} {action_apps_size} servidor(es) foi enviada com sucesso!"
+            }
+          },
+          "app-nodes-action": {
+            "node-offline": "Você não pode acessar um node desabilitado!"
+          }
+        }
+      },
+      "views": {
+        "app-action": {
+          "title": "{app_node_name}",
+          "items": {
+            "0": {
+              "name": "<dark_gray><bold>Definir manutenção</dark_gray>",
+              "lore": [
+                "<gray>Clique para definir.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<green>Ligar</green>",
+              "lore": [
+                "<gray>Clique para ligar.</gray>"
+              ]
+            },
+            "2": {
+              "name": "<yellow>Reiniciar</yellow>",
+              "lore": [
+                "<gray>Clique para reiniciar.</gray>"
+              ]
+            },
+            "3": {
+              "name": "<red>Desligar</red>",
+              "lore": [
+                "<gray>Clique para desligar.</gray>"
+              ]
+            },
+            "4": {
+              "online": {
+                "selected": {
+                  "name": "<green>{app_display_name}</green>",
+                  "lore": [
+                    "<white>Jogadores:</white> <gray>{app_connected_users_count}</gray>",
+                    "",
+                    " <white>CPU:</white> <gray>{app_statistic_jvm_cpu_utilization}%</gray>",
+                    " <white>Threads:</white> <gray>{app_statistic_jvm_thread_count}</gray>",
+                    " <white>Memória:</white> <gray>{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}</gray>",
+                    "",
+                    " <white>Uso de memória:</white>",
+                    " {app_statistic_jvm_memory_utilization_progress_bar}",
+                    "",
+                    " <white>TPS (5s, 10s, 1m, 5m, 15m):</white>",
+                    " <gray>{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}</gray>",
+                    "",
+                    "  <white>Manutenção:</white> <gray>{app_statistic_maintenance_group_display_name}</gray>",
+                    "",
+                    "<green>Selecionado.</green>"
+                  ]
+                },
+                "unselected": {
+                  "name": "<green>{app_display_name}</green>",
+                  "lore": [
+                    "<white>Jogadores:</white> <gray>{app_connected_users_count}</gray>",
+                    "",
+                    " <white>CPU:</white> <gray>{app_statistic_jvm_cpu_utilization}%</gray>",
+                    " <white>Threads:</white> <gray>{app_statistic_jvm_thread_count}</gray>",
+                    " <white>Memória:</white> <gray>{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}</gray>",
+                    "",
+                    " <white>Uso de memória:</white>",
+                    " {app_statistic_jvm_memory_utilization_progress_bar}",
+                    "",
+                    " <white>TPS (5s, 10s, 1m, 5m, 15m):</white>",
+                    " <gray>{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}</gray>",
+                    "",
+                    "  <white>Manutenção:</white> <gray>{app_statistic_maintenance_group_display_name}</gray>",
+                    "",
+                    "<yellow>Clique para selecionar!</yellow>"
+                  ]
+                }
+              },
+              "offline": {
+                "selected": {
+                  "name": "<red>{app_display_name}</red>",
+                  "lore": [
+                    "",
+                    "<red>Servidor fechado.</red>",
+                    "",
+                    "<green>Selecionado.</green>"
+                  ]
+                },
+                "unselected": {
+                  "name": "<red>{app_display_name}</red>",
+                  "lore": [
+                    "",
+                    "<red>Servidor fechado.</red>",
+                    "",
+                    "<yellow>Clique para selecionar!</yellow>"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "app-nodes-action": {
+          "title": "Nodes",
+          "items": {
+            "0": {
+              "online": {
+                "name": "<green>{app_node_name}</green>",
+                "lore": [
+                  "<white>Uptime:</white> <gray>{app_node_statistic_uptime}</gray>",
+                  "",
+                  " <white>OS:</white> <gray>{app_node_statistic_os_name}</gray>",
+                  " <white>Version:</white> <gray>{app_node_statistic_os_version}</gray>",
+                  "",
+                  " <white>CPU:</white> <gray>{app_node_statistic_cpu_utilization}%</gray>",
+                  " <white>Memória:</white> <gray>{app_node_statistic_usage_memory}/{app_node_statistic_max_memory}</gray>",
+                  " <white>Disco:</white> <gray>{app_node_statistic_usage_disk}/{app_node_statistic_max_disk}</gray>",
+                  "",
+                  " <white>Network:</white>",
+                  " <white>In:</white> <gray>{app_node_statistic_network_in_traffic} ({app_node_statistic_network_in_packets_count})</gray>",
+                  " <white>Out:</white> <gray>{app_node_statistic_network_out_traffic} ({app_node_statistic_network_out_packets_count})</gray>",
+                  ""
+                ]
+              },
+              "offline": {
+                "name": "<red>{app_node_name}</red>",
+                "lore": [
+                  "",
+                  "<red>Node desligado.</red>",
+                  ""
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,234 @@
+{
+  "plugins": {
+    "website-shop": {
+      "shop": {
+        "categories": {
+          "laboratory": {
+            "name": "<gold>Laboratório</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>laboratório<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Relógio Acelerador."
+            ]
+          },
+          "mining": {
+            "name": "<gold>Mina</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>mineração<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Cristal Congelado;",
+              "<gold> ▸<white> Picareta Reaper;",
+              "<gold> ▸<white> Picareta Criomante;",
+              "<gold> ▸<white> Picareta Infernal;",
+              "<gold> ▸<white> Picareta Zeus;",
+              "<gold> ▸<white> Picareta Viper."
+            ]
+          },
+          "crates": {
+            "name": "<gold>Chaves</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>chaves<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Bolsa de Chaves Comum;",
+              "<gold> ▸<white> Bolsa de Chaves Raro;",
+              "<gold> ▸<white> Bolsa de Chaves Épico;",
+              "<gold> ▸<white> Bolsa de Chaves Lendário;",
+              "<gold> ▸<white> Bolsa de Chaves Divino."
+            ]
+          },
+          "farm": {
+            "name": "<gold>Fazenda</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>fazenda<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Cabeça da Fênix;",
+              "<gold> ▸<white> Venda automática Farm."
+            ]
+          },
+          "others": {
+            "name": "<gold>Outros</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>outros<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Booster de Maestria;",
+              "<gold> ▸<white> Venda com Shift;",
+              "<gold> ▸<white> Chave Global;",
+              "<gold> ▸<white> Bolsa de Chaves;",
+              "<gold> ▸<white> Limpador de Terreno."
+            ]
+          },
+          "boxes": {
+            "name": "<gold>Caixas</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>caixas<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Trajes Especialista;",
+              "<gold> ▸<white> Trajes Avançada."
+            ]
+          },
+          "machines": {
+            "name": "<gold>Máquinas</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>da categoria <white>máquinas<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Máquina de Poder Suprema;",
+              "<gold> ▸<white> Combustível Infinito."
+            ]
+          },
+          "bosses": {
+            "name": "<gold>Bosses</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>bosses<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Hit Kill;",
+              "<gold> ▸<white> Boss Supremo."
+            ]
+          },
+          "pets": {
+            "name": "<gold>Pets</gold>",
+            "description": [
+              "<gray>Aqui você encontra itens",
+              "<gray>categoria <white>pets<gray>.",
+              "",
+              "<gold> Itens disponíveis",
+              "<gold> ▸<white> Ovo Pet Épico;",
+              "<gold> ▸<white> Ovo Lendário."
+            ]
+          }
+        }
+      },
+      "messages": {
+        "notification-order-approved-item": {
+          "title": {
+            "title": "<green><bold>COMPRAS</bold></green>",
+            "subtitle": "<white>Utilize </white><green>/compras</green><white> para resgatar seu produto.</white>"
+          },
+          "chat": [
+            "",
+            " <green><bold>Compras</bold></green>",
+            "",
+            " <green>▎ </green><white>Você possui </white><green>{count} produto(s)</green><white> para resgatar.</white>",
+            " <green>▎ </green><white>Utilize </white><green>/compras</green>",
+            ""
+          ]
+        },
+        "views": {
+          "shop-order-approval-items": {
+            "without-inventory-space": "Você não possui espaço suficiente em seu inventário para coletar essa compra!",
+            "cancelled": "Operação cancelada com sucesso!"
+          },
+          "shop-category": {
+            "buy": {
+              "dont-have-gold": "Você não possui Gold suficiente para fazer essa compra.",
+              "inventory-full": "Você não possui espaço suficiente em seu inventário para fazer essa compra.",
+              "cancelled": "Você cancelou a compra desse item.",
+              "success": "Você adquiriu <white>{website_shop_category_item_amount}</white>x <white>{website_shop_category_item_name}</white> <green>por </green><gold>{website_shop_category_item_cost} Gold</gold>."
+            }
+          }
+        }
+      },
+      "views": {
+        "shop-order-approval-items": {
+          "title": "Produtos adquiridos",
+          "items": {
+            "0": {
+              "name": "<red>Estoque vazio!</red>",
+              "lore": [
+                "<gray>Você não tem nenhum produto</gray>",
+                "<gray>para ser ativado!</gray>",
+                "",
+                "<white>Adquira VIPs e Itens acessando:</white>",
+                "<gray>exe.com</gray>"
+              ]
+            },
+            "1": {
+              "lore": [
+                "",
+                "<green>Clique para coletar!</green>"
+              ]
+            }
+          }
+        },
+        "shop-categories": {
+          "title": "Mercado de Gold",
+          "items": {
+            "0": {
+              "name": "<yellow>Para que serve este Mercado?</yellow>",
+              "lore": [
+                "<gray>Neste mercado é possível encontrar</gray>",
+                "<gray>os </gray><white>itens especiais </white><gray>e </gray><white>VIPs</white><gray> disponíveis</gray>",
+                "<gray>para venda, utilizando a nova moeda </gray><gold>Gold</gold><gray>.</gray>",
+                "",
+                "<yellow>Como eu consigo essa moeda?</yellow>",
+                "<gray>Essa moeda é exclusiva do nosso </gray><white>site</white>",
+                "<gray>e pode ser adquirida a partir de </gray><white>R$9,90</white><gray>.</gray>",
+                "",
+                "<yellow>Clique para acessar nosso site!</yellow>"
+              ]
+            },
+            "1": {
+              "name": "<green><bold>Carrinho de Compras",
+              "lore": [
+                "<gray>Aqui você encontra os",
+                "<gray>produtos que adquiriu.",
+                "",
+                "<green>Clique para acessar."
+              ]
+            },
+            "2": {
+              "name": "{website_shop_category_name}",
+              "lore": [
+                "{website_shop_category_description}",
+                "",
+                "<gold>Clique para conferir!</gold>"
+              ]
+            }
+          }
+        },
+        "shop-category-item-amount-selection": {
+          "title": "Selecione a quantidade",
+          "items": {
+            "0": {
+              "name": "<gold>{website_shop_category_item_amount}</gold>",
+              "lore": [
+                "",
+                " <dark_gray>▸</dark_gray> <white>Custo: </white><gold>{website_shop_item_cost} Gold</gold>",
+                "",
+                "<gold>Clique para adquirir!</gold>"
+              ]
+            }
+          }
+        },
+        "shop-category": {
+          "title": "Mercado de Gold - {website_shop_category_name_stripped}",
+          "items": {
+            "0": {
+              "lore": [
+                "",
+                " <dark_gray>▸</dark_gray> <white>Custo: </white><gold>{website_shop_item_cost} Gold</gold>",
+                "",
+                "<gold>Clique para adquirir!</gold>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

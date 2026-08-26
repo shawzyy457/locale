@@ -1,0 +1,55 @@
+{
+  "plugins": {
+    "core": {
+      "actions": {
+        "types": {
+          "start": {
+            "name": "ligar"
+          },
+          "cancel": {
+            "name": "cancelar"
+          },
+          "restart": {
+            "name": "reiniciar",
+            "title": {
+              "title": "<color:#FF8200><bold>REINICIANDO</bold></color>",
+              "subtitle": "<white>em {action_countdown}</white>"
+            },
+            "gerund": "reiniciando",
+            "past": "reiniciado"
+          },
+          "stop": {
+            "name": "desligar",
+            "title": {
+              "title": "<color:#FF8200><bold>DESLIGANDO</bold></color>",
+              "subtitle": "<white>em {action_countdown}"
+            },
+            "gerund": "desligando",
+            "past": "desligado"
+          }
+        }
+      },
+      "messages": {
+        "actions": {
+          "action-message": [
+            "",
+            "<yellow>Este servidor será {action_name_past} em {action_countdown}!</yellow>",
+            ""
+          ],
+          "disabled-actions": [
+            "",
+            "O servidor está {action_name_gerund} e por isso algumas funções foram desabilitadas.",
+            ""
+          ],
+          "kick": {
+            "no-available-apps": [
+              "<red><bold>Rede EXE</bold></red>",
+              "",
+              "<red>Não foi encontrado nenhum servidor para você se conectar.</red>"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

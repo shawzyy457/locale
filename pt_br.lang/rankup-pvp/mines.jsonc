@@ -1,0 +1,186 @@
+{
+  "plugins": {
+    "mines": {
+        "items": {
+            "pickaxe": {
+                "name": "<cff8820>picareta</color>",
+                "lore": [
+                    "{enchantments}",
+                    "",
+                    " <color:#ff8820>cristais encantados:</color>",
+                    " {enchanted_crystals}",
+                    "",
+                    "<color:#ff8820>clique shift + direito </color>"
+                ]
+            },
+            "enchanted-book": {
+                "name": "<gold>{enchantment_name} {level}</gold>",
+                "lore": [
+                    "<gray>Arraste esse livro em cima</gray>",
+                    "<gray>de uma picareta.</gray>"
+                ]
+            },
+            "enchanted-crystal": {
+                "name": "<color:#ff8820>cristal encantado</color>",
+                "lore": [
+                    "<gray>os cristais encantados</gray>",
+                    "<gray>escondem encantamentos</gray>",
+                    "<gray>exclusivos.</gray>",
+                    "",
+                    " <color:#ff8820>possíveis drops:</color>",
+                    " {rewards}",
+                    "",
+                    "<color:#ff8820>clique para ativa-lo.</color>"
+                ]
+            }
+        },
+        "views": {
+            "mine-view": {
+                "title": "MINAS",
+                "items": {
+                    "0": {
+                        "name": "{mine_color}{mine_display_name}",
+                        "lore": [
+                            "<gray>suba de rank e desbloqueie</gray>",
+                            "<gray>novas minas e recompensas.</gray>",
+                            "",
+                            " {mine_color}benefícios da mina:",
+                            " {mine_benefits}",
+                            "",
+                            "{mine_color}clique para ir!"
+                        ]
+                    },
+                    "1": {
+                        "name": "<color:#ff8820>boosters de skills</color>",
+                        "lore": [
+                            "<gray>os boosters de sills são</gray>",
+                            "<gray>ótimos para maximizar seus</gray>",
+                             "<gray>lucros enquanto minera.</gray>",
+                            "",
+                            "<color:#ff8820>adquira gold acessando:</color>",
+                            "<white>exe.com</white>"
+                        ]
+                    },
+                    "2": {
+                        "name": "<red>minapvp</red>",
+                        "lore": [
+                            "<gray>uma mina peculiar com um</gray>",
+                            "<gray>lucro mais alto por bloco.</gray>",
+                            "",
+                            " <white>atenção!</white> <red>☣</red>",
+                            " <gray>o pvp está ativo apartir.</gray>",
+                            " <gray>da linha vermelha.</gray>",
+                            "",
+                            "<red>clique para ir!</red>"
+                        ]
+                    }
+                }
+            },
+            "pickaxe-view": {
+                "title": "PICARETA",
+                "items": {
+                    "0": {
+                        "name": "{enchantment_name}",
+                        "lore": [
+                            "{enchantment_lore}",
+                            "",
+                            "<color:#ff8820> ▾ custo e informações</color>",
+                            "   <white>tokens:</white> <yellow>{enchantment_price}</yellow>",
+                            "   <white>nível:</white> <gray>{enchantment_current_level}</gray><dark_gray> / </dark_gray><white>{enchantment_maxlevel}</white>",
+                            "",
+                            "<color:#ff8820>opções de encantar</color>",
+                            "<dark_gray>▸</dark_gray> <white>esquerdo:</white> <gray>1 nível</gray>",
+                            "<dark_gray>▸</dark_gray> <white>direito:</white> <gray>50 nível</gray>",
+                            "<dark_gray>▸</dark_gray> <white>botão 'Q':</white> <gray>máximo possível</gray>"
+                        ]
+                    },
+                    "1": {
+                        "name": "<color:#ff8820>renomear picareta</color>",
+                        "lore": [
+                            "<gray>Dê um nome diferente à</gray>",
+                            "<gray>sua picareta.</gray>",
+                            "",
+                            "<color:#ff8820>Clique para renomear.</color>"
+                        ]   
+                    },
+                    "2": {
+                        "name": "<color:#ff8820>desencantar</color>",
+                        "lore": [
+                            "<gray>desencante a sua picareta</gray>",
+                            "<gray>e receba 65% dos tokens e</gray>",
+                            "<gray>xp de volta.</gray>",
+                            "",
+                            " <white>atenção!</white> <red>☣</red>",
+                            " <gray>os cristais encantados podem</gray>",
+                            " <gray>ser destruídos no processo.</gray>",
+                            "",
+                            "<color:#ff8820>Clique para desencantar.</color>"
+                        ]   
+                    },
+                    "3": {
+                        "name": "<color:#ff8820>cristal encantado</color>",
+                        "lore": [
+                            "<gray>os cristais encantados</gray>",
+                            "<gray>escondem encantamentos</gray>",
+                            "<gray>exclusivos.</gray>",
+                            "",
+                            "{enchanted_crystal_information}"
+                        ],
+                        "has-enchanted-crystal": [
+                            "<color:#ff8820>progresso</color>",
+                            "<white>{progress} blocos quebrados </white>",
+                            "{progress_bar} <gray>{progress_percentage}%</gray>"
+                        ],
+                        "hasnt-enchanted-crystal": [
+                             "<color:#ff8820>minere para conseguir cristais.</color>"
+                        ]
+                    },
+                    "4": {
+                         "name": "<color:#ff8820>reparar a picareta</color>",
+                        "lore": [
+                            "<gray>clicandom sua picareta será</gray>",
+                            "<gray>reparada por um custo.</gray>",
+                            "",
+                            " <dark_gray>▸</dark_gray> <white>custo:</white> <gray>{cost} xp</gray>",
+                            "",
+                            "<color:#ff8820>clique para reparar.</color>"
+                        ]   
+                    }
+                }
+            }
+        },
+        "messages": {
+            "views": {
+                    "pickaxe-view": {
+                        "enchantment": {
+                            "dont-have-currency": "Você não possui Tokens suficientes.",
+                            "max-level": "Não é possível encantar a mais que o nível máximo.",
+                            "purchased": "Você comprou {levels} {level_plural} de {enchantment_name}"
+                        },
+                        "repair": {
+                            "dont-have-exp": "Você não possui EXP suficiente para reparar.",
+                            "already-repaired": "A sua picareta já está reparada."
+                        },
+                        "conversation": {
+                            "rename-pickaxe": {
+                                    "query": "Digite o novo nome da sua picareta.",
+                                    "expired": "Você demorou muito para responder.",
+                                    "cancelled": "Operação de renomear a picareta cancelada!",
+                                    "success": "GG! A sua picareta foi renomeada para {pickaxe_name}!"
+                            }
+                        }
+                    }
+            },
+            "block-break": {
+                "need-repair": "<red>Repare a sua picareta!</red>",
+                "gains": "<yellow>+{xp} EXP</yellow> & <aqua>+{drop_amount} Drops</aqua>"
+            },
+            "enchanted-crystal": {
+                "invalid-item-in-hand": "É necessário estar segurando uma picareta.",
+                "already-activated": "Essa picareta já possui um cristal encantado ativo.",
+                "completed": "<yellow>você recebeu {enchantment_level} níveis de {enchantment_name} do cristal encantado!"
+            }
+        }
+    }
+  }
+}

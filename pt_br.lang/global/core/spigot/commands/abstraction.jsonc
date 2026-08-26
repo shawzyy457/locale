@@ -1,0 +1,27 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "abstraction": {
+                    "restriction": {
+                        "only-console": "Este comando só pode ser usado pelo console.",
+                        "only-player": "Este comando só pode ser usado por jogadores."
+                    },
+                    "command-in-delay": [
+                        "Você deve esperar {remaining_time} para usar esse comando novamente."
+                    ],
+                    "command-usage": [
+                        "<red>Utilize /{command_label}{command_arguments}</red>"
+                    ],
+                    "subcommand-usage": [
+                        "",
+                        "<gold>Comandos disponíveis:</gold>",
+                        "",
+                        "{subcommands}",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

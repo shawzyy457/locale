@@ -1,0 +1,990 @@
+{
+  "plugins": {
+    "cosmetics": {
+      "rarities": {
+        "common": {
+          "name": "<white></white>"
+        },
+        "rare": {
+          "name": "<white></white>"
+        },
+        "epic": {
+          "name": "<white></white>"
+        },
+        "legendary": {
+          "name": "<white></white>"
+        },
+        "divine": {
+          "name": "<white></white>"
+        }
+      },
+      "types": {
+        "death_particle": {
+          "name": "Partícula de Morte",
+          "description": [
+            "<gray>Partículas que aparecem quando</gray>",
+            "<gray>você mata outro jogador.</gray>"
+          ]
+        },
+        "trail_particle": {
+          "name": "Rastro",
+          "description": [
+            "<gray>Partículas que seguem você</gray>",
+            "<gray>enquanto se move.</gray>"
+          ]
+        },
+        "aura_particle": {
+          "name": "Aura",
+          "description": [
+            "<gray>Efeitos visuais que aparecem</gray>",
+            "<gray>ao ficar parado por 6 segundos.</gray>"
+          ]
+        },
+        "arrow_particle": {
+          "name": "Rastro de Flecha",
+          "description": [
+            "<gray>Partículas que seguem</gray>",
+            "<gray>suas flechas.</gray>"
+          ]
+        }
+      },
+      "categories": {
+        "gold_armor": "Armadura de Ouro",
+        "diamond_armor": "Armadura de Diamante",
+        "netherite_armor": "Armadura de Netherite",
+        "glacite_armor": "Armadura de Glacite",
+        "sword": "Espada",
+        "pickaxe": "Picareta",
+        "axe": "Machado",
+        "hoe": "Enxada",
+        "shovel": "Pá"
+      },
+      "tiers": {
+        "gold": "Ouro",
+        "diamond": "Diamante",
+        "netherite": "Netherite",
+        "glacite": "Glacite"
+      },
+      "slots": {
+        "helmet": "Capacete",
+        "chestplate": "Peitoral",
+        "leggings": "Calças",
+        "boots": "Botas"
+      },
+      "cosmetics": {
+        "explosion": {
+          "name": "Explosão",
+          "description": [
+            "<gray>Uma explosão de partículas</gray>",
+            "<gray>na morte do inimigo.</gray>"
+          ]
+        },
+        "flame_death": {
+          "name": "Chamas",
+          "description": [
+            "<gray>Partículas de fogo</gray>",
+            "<gray>consomem o inimigo.</gray>"
+          ]
+        },
+        "soul_ascend": {
+          "name": "Ascensão da Alma",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "conqueror_death": {
+          "name": "Aura do Conquistador",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "snowy_firework": {
+          "name": "Foguete Gelado",
+          "description": [
+            "<gray>Um foguete gelado</gray>",
+            "<gray>aparece ao eliminar.</gray>"
+          ]
+        },
+        "ice_shards": {
+          "name": "Estilhaços de Gelo",
+          "description": [
+            "<gray>Partículas de estilhaços</gray>",
+            "<gray>de gelo.</gray>"
+          ]
+        },
+        "frostbite": {
+          "name": "Congelamento",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "frozen_burst": {
+          "name": "Explosão congelada",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "glacial": {
+          "name": "glacial",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "blizzard": {
+          "name": "Nevasca",
+          "description": [
+            "<gray>A alma do inimigo</gray>",
+            "<gray>ascende aos céus.</gray>"
+          ]
+        },
+        "lightning": {
+          "name": "Relâmpago",
+          "description": [
+            "<gray>Um raio atinge</gray>",
+            "<gray>o inimigo derrotado.</gray>"
+          ]
+        },
+        "blood_splatter": {
+          "name": "Sangue",
+          "description": [
+            "<gray>Partículas de sangue</gray>",
+            "<gray>espalham pelo chão.</gray>"
+          ]
+        },
+        "totem": {
+          "name": "Totem",
+          "description": [
+            "<gray>Efeito de totem</gray>",
+            "<gray>na morte do inimigo.</gray>"
+          ]
+        },
+        "wither": {
+          "name": "Wither",
+          "description": [
+            "<gray>Partículas sombrias</gray>",
+            "<gray>do wither.</gray>"
+          ]
+        },
+        "dragon_breath": {
+          "name": "Sopro do Dragão",
+          "description": [
+            "<gray>Partículas do sopro</gray>",
+            "<gray>do Ender Dragon.</gray>"
+          ]
+        },
+        "firework": {
+          "name": "Fogos de Artifício",
+          "description": [
+            "<gray>Fogos de artifício</gray>",
+            "<gray>celebram sua vitória.</gray>"
+          ]
+        },
+        "heart_break": {
+          "name": "Coração Partido",
+          "description": [
+            "<gray>Corações partidos</gray>",
+            "<gray>saem do inimigo.</gray>"
+          ]
+        },
+        "flame_trail": {
+          "name": "Rastro de Chamas",
+          "description": [
+            "<gray>Deixe um rastro</gray>",
+            "<gray>de fogo por onde passa.</gray>"
+          ]
+        },
+        "enchant_trail": {
+          "name": "Rastro Encantado",
+          "description": [
+            "<gray>Partículas mágicas</gray>",
+            "<gray>seguem seus passos.</gray>"
+          ]
+        },
+        "snowflake_trail": {
+          "name": "Rastro de Neve",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "enchantress_trail": {
+          "name": "Rastro de Encantadora",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "frost_trail": {
+          "name": "Rastro congelado",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "glacier_trail": {
+          "name": "Rastro de Geleira",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "conqueror_trail": {
+          "name": "Rastro de Conquistador",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "ice_storm_trail": {
+          "name": "Rastro Tempestade Gélida",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "mystic_trail": {
+          "name": "Rastro Mistico",
+          "description": [
+            "<gray>Flocos de neve</gray>",
+            "<gray>caem ao seu redor.</gray>"
+          ]
+        },
+        "angel_wings": {
+          "name": "Asas Angelicais",
+          "description": [
+            "<gray>Asas etéreas de luz</gray>",
+            "<gray>com penas caindo suavemente.</gray>"
+          ]
+        },
+        "spiral_aura": {
+          "name": "Espiral Mística",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "ice_crystal_aura": {
+          "name": "Aura Cristal Gélido",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "blizzard_aura": {
+          "name": "Nevasca",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "angelic_aura": {
+          "name": "Aura angelical",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "arcane_aura": {
+          "name": "Aura Arcana",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "conqueror_aura": {
+          "name": "Aura de Conquistador",
+          "description": [
+            "<gray>Espirais coloridas</gray>",
+            "<gray>dançam ao seu redor.</gray>"
+          ]
+        },
+        "floating_rings": {
+          "name": "Anéis Flutuantes",
+          "description": [
+            "<gray>Anéis orbitam</gray>",
+            "<gray>em diferentes alturas.</gray>"
+          ]
+        },
+        "flame_aura": {
+          "name": "Aura de Chamas",
+          "description": [
+            "<gray>Chamas intensas</gray>",
+            "<gray>ardem ao seu redor.</gray>"
+          ]
+        },
+        "divine_aura": {
+          "name": "Aura Divina",
+          "description": [
+            "<gray>Raios de luz celestial</gray>",
+            "<gray>e uma auréola dourada.</gray>"
+          ]
+        },
+        "ender_aura": {
+          "name": "Aura do Ender",
+          "description": [
+            "<gray>Partículas sombrias</gray>",
+            "<gray>do void te cercam.</gray>"
+          ]
+        },
+        "frost_aura": {
+          "name": "Aura Glacial",
+          "description": [
+            "<gray>Flocos de neve e</gray>",
+            "<gray>névoa gelada te envolvem.</gray>"
+          ]
+        },
+        "enchanted_aura": {
+          "name": "Aura Encantada",
+          "description": [
+            "<gray>Runas mágicas flutuam</gray>",
+            "<gray>ao seu redor.</gray>"
+          ]
+        },
+        "wisp_aura": {
+          "name": "Fogo-Fátuo",
+          "description": [
+            "<gray>Fogos-fátuos dançam</gray>",
+            "<gray>misteriosamente ao redor.</gray>"
+          ]
+        },
+        "flame_arrow": {
+          "name": "Flecha Flamejante",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>um rastro de fogo.</gray>"
+          ]
+        },
+        "ender_arrow": {
+          "name": "Flecha do Ender",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "angelic_arrow": {
+          "name": "Flecha Angelical",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "conqueror_arrow": {
+          "name": "Flecha do Conquistador",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "wisp_arrow": {
+          "name": "Flecha do Wisp",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "arcane_arrow": {
+          "name": "Flecha Arcana",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "ice_arrow": {
+          "name": "Flecha Gélida",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "mystic_arrow": {
+          "name": "Flecha Mística",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        },
+        "snowflake_arrow": {
+          "name": "Flecha Floco de neve",
+          "description": [
+            "<gray>Suas flechas deixam</gray>",
+            "<gray>partículas do End.</gray>"
+          ]
+        }
+      },
+      "skins": {
+        "reforged_diamond": {
+          "name": "Reforjada",
+          "description": "<gray>Skin Reforjada para armadura de diamante.</gray>"
+        },
+        "reforged_netherite": {
+          "name": "Reforjada",
+          "description": "<gray>Skin Reforjada para armadura de netherite.</gray>"
+        },
+        "reforged_gold": {
+          "name": "Reforjada",
+          "description": "<gray>Skin Reforjada para armadura de Ouro.</gray>"
+        }
+      },
+      "trim-materials": {
+        "quartz": "Quartzo",
+        "iron": "Ferro",
+        "netherite": "Netherite",
+        "redstone": "Redstone",
+        "copper": "Cobre",
+        "gold": "Ouro",
+        "emerald": "Esmeralda",
+        "diamond": "Diamante",
+        "lapis": "Lápis-Lazúli",
+        "amethyst": "Ametista"
+      },
+      "trim-patterns": {
+        "sentry": "Sentinela",
+        "dune": "Duna",
+        "coast": "Costa",
+        "wild": "Selvagem",
+        "ward": "Guardião",
+        "eye": "Olho",
+        "vex": "Vex",
+        "tide": "Maré",
+        "snout": "Focinho",
+        "rib": "Costela",
+        "spire": "Espiral",
+        "wayfinder": "Orientador",
+        "shaper": "Modelador",
+        "silence": "Silêncio",
+        "raiser": "Elevador",
+        "host": "Hospedeiro",
+        "flow": "Fluxo",
+        "bolt": "Relâmpago"
+      },
+      "commands": {
+        "cosmetics": {
+          "admin": {
+            "arguments": {
+              "action": {
+                "name": "ação",
+                "description": "list/unlock/unlockall/activate/deactivate/status"
+              },
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador"
+              },
+              "value": {
+                "name": "valor",
+                "description": "ID do cosmético ou tipo"
+              }
+            },
+            "errors": {
+              "player-not-found": "<red>Jogador não encontrado.</red>"
+            },
+            "list": {
+              "usage": "<red>Uso: /cosmetics admin list <jogador></red>",
+              "header": "<yellow>═══ Cosméticos de {target} ═══</yellow>",
+              "type-header": "<yellow>▸ {type}:</yellow>",
+              "status": {
+                "active": "<yellow>[ATIVO]</yellow>",
+                "unlocked": "<aqua>[DESBLOQUEADO]</aqua>",
+                "locked": "<red>[BLOQUEADO]</red>"
+              },
+              "cosmetic": "  <gray>- {id}: {name} ({rarity}) {status}</gray>"
+            },
+            "unlock": {
+              "usage": "<red>Uso: /cosmetics admin unlock <jogador> <id></red>",
+              "not-found": "<red>Cosmético '{id}' não encontrado.</red>",
+              "already-unlocked": "<red>Cosmético '{id}' já está desbloqueado para {target}.</red>",
+              "success": "<yellow>Cosmético '{cosmetic}' desbloqueado para {target}!</yellow>",
+              "failed": "<red>Falha ao desbloquear o cosmético.</red>"
+            },
+            "unlockall": {
+              "usage": "<red>Uso: /cosmetics admin unlockall <jogador></red>",
+              "success": "<yellow>{count} cosméticos desbloqueados para {target}!</yellow>"
+            },
+            "activate": {
+              "usage": "<red>Uso: /cosmetics admin activate <jogador> <id></red>",
+              "not-found": "<red>Cosmético '{id}' não encontrado.</red>",
+              "not-unlocked": "<red>Cosmético '{id}' não está desbloqueado para {target}.</red>",
+              "success": "<yellow>Cosmético '{cosmetic}' ({type}) ativado para {target}!</yellow>",
+              "failed": "<red>Falha ao ativar o cosmético.</red>"
+            },
+            "deactivate": {
+              "usage": "<red>Uso: /cosmetics admin deactivate <jogador> <tipo></red>",
+              "invalid-type": "<red>Tipo '{type}' inválido. Use: DEATH_PARTICLE, TRAIL_PARTICLE, AURA_PARTICLE, ARROW_PARTICLE</red>",
+              "success": "<yellow>Cosmético do tipo '{type}' desativado para {target}!</yellow>"
+            },
+            "status": {
+              "usage": "<red>Uso: /cosmetics admin status <jogador></red>",
+              "header": "<yellow>═══ Status de {target} ═══</yellow>",
+              "unlocked-count": "<gray>Cosméticos desbloqueados: {count}</gray>",
+              "active-cosmetic": "<gray>{type}: {cosmetic}</gray>",
+              "none": "<gray>{type}: Nenhum</gray>"
+            }
+          }
+        }
+      },
+      "messages": {
+        "skin-removed": "<yellow>Skin removida com sucesso!</yellow>",
+        "skin-locked": "<red>Você não tem acesso a esta skin! Requer: {cosmetic_skin_required_group}</red>",
+        "skin-selected": "<yellow>Skin <white>{cosmetic_skin_name}</white> selecionada!</yellow>",
+        "trim-removed": "<yellow>Trim removido com sucesso!</yellow>",
+        "trim-pattern-locked": "<red>Você não tem acesso a este padrão! Requer: {cosmetic_trim_pattern_required_group}</red>",
+        "trim-pattern-selected": "<yellow>Padrão <white>{cosmetic_trim_pattern_name}</white> selecionado! Agora escolha a cor.</yellow>",
+        "trim-material-locked": "<red>Você não tem acesso a esta cor! Requer: {cosmetic_trim_material_required_group}</red>",
+        "trim-material-selected": "<yellow>Trim aplicado: <white>{cosmetic_trim_pattern_name}</white> + <white>{cosmetic_trim_material_name}</white>!</yellow>",
+        "particle-removed": "<yellow>Partícula removida com sucesso!</yellow>",
+        "particle-locked": "<red>Você não desbloqueou este cosmético! Custo: {cosmetic_rarity}</red>",
+        "particle-group-locked": "<red>Você não tem acesso a este cosmético! Requer: {cosmetic_required_group}</red>",
+        "particle-selected": "<yellow>Partícula <white>{cosmetic_name}</white> selecionada!</yellow>",
+        "preview-started": "<yellow>Mostrando <white>{cosmetic_name}</white> em instantes...</yellow>",
+        "purchase": {
+          "success": "<yellow>Você comprou <white>{cosmetic_name}</white> por <gold>{cosmetic_price} gold</gold>!</yellow>",
+          "failed": "<red>Ocorreu um erro ao processar a compra. Tente novamente.</red>",
+          "cancelled": "<gray>Compra cancelada.</gray>",
+          "insufficient-gold": "<red>Você não tem gold suficiente!",
+          "already-owned": "<red>Você já possui este cosmético!</red>"
+        },
+        "refund": {
+          "success": "<yellow>Reembolso realizado! Você recebeu <gold>{cosmetic_price} gold</gold> de volta.</yellow>",
+          "failed": "<red>Ocorreu um erro ao processar o reembolso. Tente novamente.</red>",
+          "cancelled": "<gray>Reembolso cancelado.</gray>",
+          "expired": "<red>O período de reembolso expirou! Você só pode reembolsar dentro de 1 hora após a compra.</red>"
+        }
+      },
+      "views": {
+        "main": {
+          "title": "Cosméticos",
+          "items": {
+            "armor": {
+              "name": "<yellow>Armaduras</yellow>",
+              "lore": [
+                "<gray>Personalize suas armaduras</gray>",
+                "<gray>com skins e trims exclusivos.</gray>",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            },
+            "tools": {
+              "name": "<yellow>Ferramentas</yellow>",
+              "lore": [
+                "<gray>Personalize suas ferramentas</gray>",
+                "<gray>com skins exclusivas.</gray>",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            },
+            "player": {
+              "name": "<yellow>Jogador</yellow>",
+              "lore": [
+                "<gray>Personalize seus efeitos</gray>",
+                "<gray>visuais de partículas.</gray>",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            },
+            "info": {
+              "name": "<yellow>Informações</yellow>",
+              "lore": [
+                "<gray>Os cosméticos aplicam</gray>",
+                "<gray>efeitos visuais aos seus itens.</gray>",
+                "",
+                "<gray>Para usar, basta selecionar</gray>",
+                "<gray>e equipar o item correspondente.</gray>"
+              ]
+            }
+          }
+        },
+        "armor-tier": {
+          "title": "Selecione o Tier",
+          "items": {
+            "tier": {
+              "name": "<yellow>{cosmetic_armor_tier}</yellow>",
+              "lore": [
+                "<gray>Configure skins e trims</gray>",
+                "<gray>para este tier de armadura.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            }
+          }
+        },
+        "armor-pieces": {
+          "title": "Armadura - {cosmetic_armor_tier}",
+          "items": {
+            "slot": {
+              "name": "<yellow>{cosmetic_armor_slot}</yellow>",
+              "lore": [
+                "<gray>Configure a skin desta</gray>",
+                "<gray>peça de armadura.</gray>",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            },
+            "trim": {
+              "name": "<red>Trim",
+              "lore": [
+                "<gray>Nenhum trim selecionado.</gray>",
+                "",
+                "<red>Clique para configurar."
+              ]
+            },
+            "trim-selected": {
+              "name": "<yellow>Trim: {cosmetic_trim_pattern_name}</yellow>",
+              "lore": [
+                "<gray>Trim configurado.</gray>",
+                "",
+                "<yellow>Clique para alterar.</yellow>"
+              ]
+            }
+          }
+        },
+        "armor-skins": {
+          "title": "{cosmetic_armor_tier} - {cosmetic_armor_slot}",
+          "items": {
+            "selected": {
+              "name": "<yellow>{cosmetic_skin_name}</yellow>",
+              "lore": [
+                "<gray>Esta skin está equipada.</gray>",
+                "",
+                "<yellow>Clique para desequipar.</yellow>"
+              ]
+            },
+            "available": {
+              "name": "<yellow>{cosmetic_skin_name}</yellow>",
+              "lore": [
+                "<gray>Clique para equipar</gray>",
+                "<gray>esta skin.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            },
+            "locked": {
+              "name": "<red>{cosmetic_skin_name}</red>",
+              "lore": [
+                "<gray>Você não tem acesso</gray>",
+                "<gray>a esta skin.</gray>",
+                "",
+                "<red>Requer: {cosmetic_skin_required_group}</red>"
+              ]
+            },
+            "remove": {
+              "name": "<red>Remover Skin</red>",
+              "lore": [
+                "<gray>Remove a skin atual</gray>",
+                "<gray>desta peça de armadura.</gray>",
+                "",
+                "<red>Clique para remover."
+              ]
+            }
+          }
+        },
+        "trim-pattern": {
+          "title": "Padrão - {cosmetic_armor_tier} {cosmetic_armor_slot}",
+          "items": {
+            "selected": {
+              "name": "<yellow>{cosmetic_trim_pattern_name}</yellow>",
+              "lore": [
+                "<gray>Este padrão está selecionado.</gray>",
+                "",
+                "<yellow>Clique para escolher novamente.</yellow>"
+              ]
+            },
+            "available": {
+              "name": "<yellow>{cosmetic_trim_pattern_name}</yellow>",
+              "lore": [
+                "<gray>Clique para selecionar</gray>",
+                "<gray>este padrão de trim.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            },
+            "locked": {
+              "name": "<red>{cosmetic_trim_pattern_name}</red>",
+              "lore": [
+                "<gray>Você não tem acesso</gray>",
+                "<gray>a este padrão.</gray>",
+                "",
+                "<red>Requer: {cosmetic_trim_pattern_required_group}</red>"
+              ]
+            },
+            "remove": {
+              "name": "<red>Remover Trim</red>",
+              "lore": [
+                "<gray>Remove o trim desta</gray>",
+                "<gray>peça de armadura.</gray>",
+                "",
+                "<red>Clique para remover."
+              ]
+            }
+          }
+        },
+        "trim-material": {
+          "title": "Cor - {cosmetic_armor_tier} {cosmetic_armor_slot}",
+          "items": {
+            "selected": {
+              "name": "<yellow>{cosmetic_trim_material_name}</yellow>",
+              "lore": [
+                "<gray>Esta cor está selecionada.</gray>",
+                "",
+                "<yellow>Clique para escolher novamente.</yellow>"
+              ]
+            },
+            "available": {
+              "name": "<yellow>{cosmetic_trim_material_name}</yellow>",
+              "lore": [
+                "<gray>Clique para selecionar</gray>",
+                "<gray>esta cor de trim.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            },
+            "locked": {
+              "name": "<red>{cosmetic_trim_material_name}</red>",
+              "lore": [
+                "<gray>Você não tem acesso</gray>",
+                "<gray>a esta cor.</gray>",
+                "",
+                "<red>Requer: {cosmetic_trim_material_required_group}</red>"
+              ]
+            },
+            "remove": {
+              "name": "<red>Voltar</red>",
+              "lore": [
+                "<gray>Voltar para seleção</gray>",
+                "<gray>de padrão.</gray>",
+                "",
+                "<yellow>Clique para voltar.</yellow>"
+              ]
+            }
+          }
+        },
+        "tool-tier": {
+          "title": "Selecione o Tier",
+          "items": {
+            "tier": {
+              "name": "<yellow>{cosmetic_tool_tier}</yellow>",
+              "lore": [
+                "<gray>Configure skins para</gray>",
+                "<gray>este tier de ferramenta.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            }
+          }
+        },
+        "tool-pieces": {
+          "title": "Ferramentas - {cosmetic_tool_tier}",
+          "items": {
+            "tool": {
+              "name": "<yellow>{cosmetic_tool_category}</yellow>",
+              "lore": [
+                "<gray>Configure a skin desta</gray>",
+                "<gray>ferramenta.</gray>",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            }
+          }
+        },
+        "tool-skins": {
+          "title": "{cosmetic_tool_tier} - {cosmetic_tool_category}",
+          "items": {
+            "selected": {
+              "name": "<yellow>{cosmetic_skin_name}</yellow>",
+              "lore": [
+                "<gray>Esta skin está equipada.</gray>",
+                "",
+                "<yellow>Clique para desequipar.</yellow>"
+              ]
+            },
+            "available": {
+              "name": "<yellow>{cosmetic_skin_name}</yellow>",
+              "lore": [
+                "<gray>Clique para equipar</gray>",
+                "<gray>esta skin.</gray>",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            },
+            "locked": {
+              "name": "<red>{cosmetic_skin_name}</red>",
+              "lore": [
+                "<gray>Você não tem acesso</gray>",
+                "<gray>a esta skin.</gray>",
+                "",
+                "<red>Requer: {cosmetic_skin_required_group}</red>"
+              ]
+            },
+            "remove": {
+              "name": "<red>Remover Skin</red>",
+              "lore": [
+                "<gray>Remove a skin atual</gray>",
+                "<gray>desta ferramenta.</gray>",
+                "",
+                "<red>Clique para remover."
+              ]
+            }
+          }
+        },
+        "player": {
+          "title": "Efeitos do Jogador",
+          "items": {
+            "particle-type": {
+              "name": "<yellow>{cosmetic_type_name}</yellow>",
+              "lore": [
+                "{cosmetic_type_description}",
+                "",
+                "<yellow>Clique para abrir.</yellow>"
+              ]
+            }
+          }
+        },
+        "particles": {
+          "title": "{cosmetic_type_name}",
+          "items": {
+            "selected": {
+              "name": "<yellow>{cosmetic_name}</yellow>",
+              "lore": [
+                "<gray>Este efeito está equipado.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "",
+                "<yellow>Clique para desequipar.</yellow>"
+              ]
+            },
+            "available": {
+              "name": "<yellow>{cosmetic_name}</yellow>",
+              "lore": [
+                "<gray>Clique para equipar</gray>",
+                "<gray>este efeito.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "",
+                "<yellow>Clique para selecionar.</yellow>"
+              ]
+            },
+            "locked": {
+              "name": "<red>{cosmetic_name}</red>",
+              "lore": [
+                "<gray>Você não desbloqueou</gray>",
+                "<gray>este efeito.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "<dark_gray>▸</dark_gray> <white>Preço:</white> <gold>{cosmetic_price} gold</gold>",
+                "",
+                "<red>Gold insuficiente para comprar.</red>",
+                "<yellow>Clique direito para ver o efeito.</yellow>"
+              ]
+            },
+            "purchasable": {
+              "name": "<yellow>{cosmetic_name}",
+              "lore": [
+                "<gray>Clique para comprar</gray>",
+                "<gray>este efeito.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "<dark_gray>▸</dark_gray> <white>Preço:</white> <gold>{cosmetic_price} gold</gold>",
+                "",
+                "<yellow>Clique esquerdo para comprar!</yellow>",
+                "<yellow>Clique direito para ver o efeito.</yellow>"
+              ]
+            },
+            "selected-refundable": {
+              "name": "<yellow>{cosmetic_name}</yellow>",
+              "lore": [
+                "<gray>Este efeito está equipado.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "",
+                "<gold>⚠ Reembolsável por {refund_time_remaining}</gold>",
+                "<dark_gray>▸</dark_gray> <white>Valor:</white> <gold>{cosmetic_price} gold</gold>",
+                "",
+                "<yellow>Clique esquerdo para desequipar.</yellow>",
+                "<red>Clique direito para reembolsar.</red>"
+              ]
+            },
+            "available-refundable": {
+              "name": "<yellow>{cosmetic_name}</yellow>",
+              "lore": [
+                "<gray>Clique para equipar</gray>",
+                "<gray>este efeito.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "",
+                "<gold>⚠ Reembolsável por {refund_time_remaining}</gold>",
+                "<dark_gray>▸</dark_gray> <white>Valor:</white> <gold>{cosmetic_price} gold</gold>",
+                "",
+                "<yellow>Clique esquerdo para selecionar.</yellow>",
+                "<red>Clique direito para reembolsar.</red>"
+              ]
+            },
+            "group-locked": {
+              "name": "<red>{cosmetic_name}</red>",
+              "lore": [
+                "<gray>Você não tem acesso</gray>",
+                "<gray>a este efeito.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "",
+                "<red>Requer: {cosmetic_required_group}</red>",
+                "<yellow>Clique direito para ver o efeito.</yellow>"
+              ]
+            },
+            "remove": {
+              "name": "<red>Remover Efeito</red>",
+              "lore": [
+                "<gray>Remove o efeito atual</gray>",
+                "<gray>deste tipo de partícula.</gray>",
+                "",
+                "<red>Clique para remover."
+              ]
+            }
+          }
+        },
+        "purchase-confirmation": {
+          "title": "Confirmar Compra",
+          "items": {
+            "confirm": {
+              "name": "<yellow>Comprar {cosmetic_name}</yellow>",
+              "lore": [
+                "<gray>Você está prestes a comprar</gray>",
+                "<gray>este cosmético.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "<dark_gray>▸</dark_gray> <white>Preço:</white> <gold>{cosmetic_price} gold</gold>",
+                "",
+                "<gold>⚠ Você terá 1 hora para reembolsar.</gold>",
+                "",
+                "<yellow>Clique para confirmar!</yellow>"
+              ]
+            }
+          }
+        },
+        "refund-confirmation": {
+          "title": "Confirmar Reembolso",
+          "items": {
+            "confirm": {
+              "name": "<red>Reembolsar {cosmetic_name}</red>",
+              "lore": [
+                "<gray>Você está prestes a reembolsar</gray>",
+                "<gray>este cosmético.</gray>",
+                "",
+                "<dark_gray>▸</dark_gray> <white>Raridade:</white> {cosmetic_rarity}",
+                "<dark_gray>▸</dark_gray> <white>Valor:</white> <gold>{cosmetic_price} gold</gold>",
+                "<dark_gray>▸</dark_gray> <white>Tempo restante:</white> <yellow>{refund_time_remaining}</yellow>",
+                "",
+                "<red>⚠ Esta ação não pode ser desfeita!</red>",
+                "<red>O cosmético será removido.</red>",
+                "",
+                "<yellow>Clique para confirmar!</yellow>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

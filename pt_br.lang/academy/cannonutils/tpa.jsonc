@@ -1,0 +1,109 @@
+{
+  "plugins": {
+    "cannonutils": {
+      "commands": {
+        // /tpa <jogador> — pede teleporte até outro jogador.
+        "tpa": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador para quem o pedido será enviado."
+            }
+          },
+          "already-exists": "<red>Você já possui um pedido pendente para {tpa_target_name_with_tag}<red>.</red>"
+        },
+        // /tpaccept (/tpaceitar) [jogador|all]
+        "tpaccept": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador cujo pedido será aceito (ou 'all' para todos)."
+            }
+          },
+          "dont-have-request": "<red>Você não possui um pedido de teleporte de {tpa_sender_name_with_tag}<red>.</red>",
+          "no-pending-requests": "<red>Você não possui nenhum pedido de teleporte pendente.</red>",
+          "not-allowed-app": "<red>Você não pode aceitar pedidos de teleporte neste servidor.</red>",
+          // Dentro do Fac x Fac o teleporte só vale entre quem está na MESMA partida — senão o TPA
+          // seria a porta lateral da arena.
+          "not-in-match": "<red>Você só pode aceitar pedidos de quem está na sua partida.</red>",
+          // Você está num plot que não é seu (e não está aberto a visitas), ou quem pediu não pode entrar nele.
+          "cannot-accept-here": "<red>Você não pode aceitar pedidos de teleporte neste local.</red>",
+          "accepted-all-requests": "<green>Você aceitou <yellow>{count}</yellow> pedido(s) de teleporte.</green>"
+        },
+        // /tpdeny (/tpnegar) <jogador>
+        "tpdeny": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador cujo pedido será negado."
+            }
+          },
+          "dont-have-request": "<red>Você não possui um pedido de teleporte de {tpa_sender_name_with_tag}<red>.</red>"
+        },
+        // /tpcancel (/tpcancelar) <jogador>
+        "tpcancel": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador para quem você enviou o pedido."
+            }
+          },
+          "dont-have-request": "<red>Você não possui um pedido pendente para {tpa_target_name_with_tag}<red>.</red>"
+        }
+      },
+      "messages": {
+        // Avisos das duas pontas do pedido. Chegam por Echo, então funcionam entre os apps do Academy.
+        // Placeholders disponíveis em TODAS as chaves: {tpa_sender_name}, {tpa_sender_name_with_color},
+        // {tpa_sender_name_with_tag}, {tpa_target_name}, {tpa_target_name_with_color},
+        // {tpa_target_name_with_tag} e {tpa_expire_seconds}.
+        "tpa": {
+          "send": {
+            "sender": [
+              "<green>Pedido de teleporte enviado para {tpa_target_name_with_tag}<green>.</green>"
+            ],
+            "target": [
+              "",
+              " {tpa_sender_name_with_tag} <white>deseja se teleportar até você.</white>",
+              " <gray>O pedido expira em <white>{tpa_expire_seconds}</white> segundos.</gray>",
+              "",
+              " <hover:show_text:'<green>Aceitar o teleporte'><click:run_command:'/tpaccept {tpa_sender_name}'><green><bold>[ACEITAR]</bold></green></click></hover>   <hover:show_text:'<red>Negar o teleporte'><click:run_command:'/tpdeny {tpa_sender_name}'><red><bold>[NEGAR]</bold></red></click></hover>",
+              ""
+            ]
+          },
+          "accepted": {
+            "sender": [
+              "<green>{tpa_target_name_with_tag} <green>aceitou seu pedido de teleporte.</green>"
+            ],
+            "target": [
+              "<green>Você aceitou o pedido de {tpa_sender_name_with_tag}<green>.</green>"
+            ]
+          },
+          "deny": {
+            "sender": [
+              "<red>{tpa_target_name_with_tag} <red>negou seu pedido de teleporte.</red>"
+            ],
+            "target": [
+              "<yellow>Você negou o pedido de {tpa_sender_name_with_tag}<yellow>.</yellow>"
+            ]
+          },
+          "cancel": {
+            "sender": [
+              "<yellow>Você cancelou o pedido para {tpa_target_name_with_tag}<yellow>.</yellow>"
+            ],
+            "target": [
+              "<yellow>{tpa_sender_name_with_tag} <yellow>cancelou o pedido de teleporte.</yellow>"
+            ]
+          },
+          "expired": {
+            "sender": [
+              "<red>Seu pedido para {tpa_target_name_with_tag} <red>expirou.</red>"
+            ],
+            "target": [
+              "<red>O pedido de {tpa_sender_name_with_tag} <red>expirou.</red>"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

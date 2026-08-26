@@ -1,0 +1,202 @@
+{
+  "plugins": {
+    "battle-pass": {
+    "rewards": {
+      "mystery-box-common": {
+        "name": "<gradient:#00acff:#00f2ff>Caixa Misteriosa Comum"
+      },
+      "mystery-box-rare": {
+        "name": "<gradient:#00acff:#00f2ff>Caixa Misteriosa Rara"
+      },
+      "flow-armor-trim": {
+        "name": "<gradient:#00acff:#00f2ff>Trim de Armadura Fluxo"
+      }
+    },
+      "commands": {
+        "battle-pass": {
+          "reset": {
+            "arguments": {
+              "target": {
+                "description": "O jogador terá o passe de batalha redefinido.",
+                "name": "Jogador"
+              }
+            },
+            "success": "<green>Passe de Batalha de</green> <white>{battle_pass_user_name_with_color}</white> <green>redefinido com sucesso!</green>"
+          }
+        }
+      },
+      "messages": {
+        "level-unlocked": [
+        "",
+        " <gradient:#5EDFFF:#DFF6FF>⭐ <bold>Passe de Batalha!",
+        " <gray>Você evoluiu de nível do passe.",
+        "",
+        " <white>Novo Nível</white><gradient:#5EDFFF:#DFF6FF> ➟</gradient> <gray><bold>{battle_pass_level}",
+        "",
+        "<gradient:#5EDFFF:#DFF6FF><click:run_command:'/passe'> Clique <bold>AQUI</bold> para visualizar o passe!</gradient>",
+        ""
+        ],
+        "already-claimed": "<red>Você já resgatou esta recompensa!</red>",
+        "level-required": "<red>Você precisa alcançar este nível primeiro!</red>",
+        "premium-required": "<red>Você precisa do passe premium para resgatar esta recompensa!</red>",
+        "reward-claimed": "<green>Recompensa resgatada com sucesso!</green>",
+        "reward-sent-to-mail": "<yellow>Sua recompensa foi enviada para o correio pois seu inventário estava cheio.</yellow>",
+        "reward-delivery-failed": "<red>Ocorreu um erro ao entregar sua recompensa. Contate um administrador!</red>",
+        "already-has-premium": "<red>Você já possui o passe premium!</red>",
+        "insufficient-gold": "<red>Você não possui gold suficiente! <red>Falta <gold>{battle_pass_missing_gold} <red>de Gold.",
+        "purchase-failed": "<red>Ocorreu um erro ao processar sua compra. Tente novamente!</red>",
+        "premium-purchased": "<green>Você comprou o passe premium por</green> <gold>{battle_pass_premium_price} Gold<green>! Aproveite as recompensas exclusivas!</green>",
+        "collect-all": {
+          "success": "<green>Você resgatou</green> <white>{battle_pass_collected_amount} <green>recompensas do Passe de Batalha!</green>",
+          "no-rewards": "<red>Você não possui recompensas disponíveis para resgatar!</red>"
+        },
+        "infinite-reward": {
+          "claimed": "<green>Você resgatou a recompensa infinita</green> <yellow>x{battle_pass_claim_amount}</yellow><green>! Cada resgate consumiu</green> <yellow>{battle_pass_xp_required}</yellow> <green>XP.</green>",
+          "insufficient-xp": "<red>Você precisa de mais <yellow>{battle_pass_xp_missing}</yellow> XP para resgatar esta recompensa!</red> <gray>(Total necessário:</gray> <yellow>{battle_pass_xp_required}</yellow><gray>)</gray>"
+        }
+      },  
+      "views": {
+        "main": {
+          "title": "Passe de Batalha",
+          "items": {
+            "no-reward": {
+              "name": "<gray>Sem recompensa</gray>",
+              "lore": [
+                "",
+                "<gray>Nenhuma recompensa configurada para este slot.</gray>"
+              ]
+            },
+            "collect-all": {
+              "name": "<gradient:#22c55e:#16a34a><bold>RESGATAR TUDO</bold></gradient>",
+              "lore": [
+                "",
+                "<gray>Coleta todas as recompensas disponíveis</gray>",
+                "<gray>do Passe de Batalha de uma só vez.</gray>",
+                "",
+                "<green>Clique para resgatar tudo!</green>"
+              ]
+            },
+            "free-reward": {
+              "claimed": {
+                "lore": [
+                  "",
+                  "<green>Recompensa já resgatada!</green>"
+                ]
+              },
+              "available": {
+                "lore": [
+                  "",
+                  "<green>Clique para resgatar!</green>"
+                ]
+                },
+              "locked": {
+                "lore": [
+                  "",
+                  "<red>alcance este nível primeiro!</red>"
+                ]
+              }
+            },
+            "premium-reward": {
+              "no-premium": {
+                "lore": [
+                  "",
+                  "<red>Você precisa do passe premium!</red>"
+                ]
+              },
+              "claimed": {
+                "lore": [
+                  "",
+                  "<green>✓ Recompensa já resgatada!</green>"
+                ]
+              },
+              "available": {
+                "lore": [
+                  "",
+                  "<green>Clique para resgatar!</green>"
+                ]
+              },
+              "locked": {
+                "lore": [
+                  "",
+                  "<red>Você precisa alcançar este nível!</red>"
+                ]
+              }
+            },
+            "level": {
+              "name": "<gradient:#00acff:#00f2ff>Passe Nível {battle_pass_level}",
+              "lore": [
+                "<gray>A cada <white>10 níveis<gray> evoluídos",
+                "<gray>em skills, você recebe <white>1 nível",
+                "<gray>no passe de batalha.",
+                "",
+                "<gradient:#00acff:#00f2ff>Nível total de skills: <white>{battle_pass_user_level}</white>",
+                "<gradient:#00acff:#00f2ff>Nível necessário: <white>{battle_pass_required_skill_level}</white>"
+              ]
+            },
+            "premium-purchase": {
+              "activated": {
+                "name": "<green><bold>PASSE PREMIUM ATIVADO</bold></green>",
+                "lore": [
+                  "",
+                  "<green>Você possui o passe premium!</green>",
+                  "<green>Aproveite as recompensas exclusivas!</green>",
+                  ""
+                ]
+              },
+              "available": {
+                "name": "<gradient:#00acff:#00f2ff>Passe Premium!",
+                "lore": [
+                  "<gray>Ao adquirir, todas as recompensas",
+                  "<gray>já desbloqueadas anteriormente são",
+                  "<gray>coletáveis.",
+                  "",
+                  "<white> Preço: <gold>{battle_pass_premium_price} Gold",
+                  "<white> Seu gold: <gold>{battle_pass_player_gold}",
+                  "",
+                  "<gradient:#00acff:#00f2ff>Clique para comprar!"
+                ]
+              },
+              "insufficient": {
+                "name": "<red>Passe Premium!",
+                "lore": [
+                  "<gray>Ao adquirir, todas as recompensas",
+                  "<gray>já desbloqueadas anteriormente são",
+                  "<gray>coletáveis.",
+                  "",
+                  "<white> Preço: <gold>{battle_pass_premium_price} Gold",
+                  "<white> Seu gold: <gold>{battle_pass_player_gold}",
+                  "",
+                  "<red>Você não possui gold suficiente!</red>",
+                  ""
+                ]
+              }
+            },
+            "infinite-reward": {
+              "name": "<gradient:#d946ef:#a21caf>Recompensa Infinita</gradient>",
+              "lore": [
+                "",
+                "<gradient:#d946ef:#a21caf>Progresso: <white>{battle_pass_xp_progress}/{battle_pass_xp_required} XP</white>",
+                "<gradient:#d946ef:#a21caf>Quantidade por resgate: <white>{amount}x</white>",
+                "",
+                "<gradient:#d946ef:#a21caf>Clique para resgatar!"
+              ],
+              "ready-lore": [
+                "",
+                "<white>{battle_pass_xp_progress}/{battle_pass_xp_required} XP</white>",
+                "<green>Recompensa pronta para resgatar!</green>",
+                "",
+                "<gray>Clique para receber o prêmio!</gray>"
+              ],
+              "panel": {
+                "name": "<gradient:#7e22ce:#a855f7>Recompensa Infinita</gradient>",
+                "lore": [
+                  "<gray>Recompensa especial do nível final.</gray>"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

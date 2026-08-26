@@ -1,0 +1,574 @@
+{
+  "plugins": {
+    "fishing": {
+      "enchantments": {
+        "experience": {
+          "name": "Experiente",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>multiplicará a quantidade de XP</gray>",
+            "<gray>que irá receber enquanto pesca.</gray>"
+          ]
+        },
+        "key": {
+          "name": "Chaveiro",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>terá mais chance de receber</gray>",
+            "<gray>chaves enquanto pesca.</gray>"
+          ]
+        },
+        "luck": {
+          "name": "Sortudo",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>terá mais chance de receber</gray>",
+            "<gray>pérolas enquanto pesca.</gray>"
+          ]
+        },
+        "poseidon": {
+          "name": "Poseidon",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>multiplica o número de peixes</gray>",
+            "<white>pescados por 2.</white>"
+          ]
+        },
+        "sailor": {
+          "name": "Marinheiro",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>aumenta a chance de ganhar</gray>",
+            "<gray>mais que 1 peixe por pescada.</gray>"
+          ]
+        },
+        "tsunami": {
+          "name": "Tsunami",
+          "description": [
+            "<gray>Com este encantamento, você</gray>",
+            "<gray>multiplicará a quantidade de </gray>",
+            "<gray>peixes que irá receber.</gray>"
+          ]
+        }
+      },
+      "oceans": {
+        "default": {
+          "name": "Default",
+          "description": []
+        },
+        "artic": {
+          "name": "Oceano Ártico",
+          "description": [
+            "<white>Pérola Vermelha</white>",
+            "<white>Megalodon</white>"
+          ]
+        },
+        "atlantic": {
+          "name": "Oceano Atlântico",
+          "description": [
+            "<white>Pérola Rosa</white>",
+            "<white>Pérola Roxa</white>",
+            "<white>Golfinho</white>"
+          ]
+        },
+        "pacific": {
+          "name": "Oceano Pacífico",
+          "description": [
+            "<white>Pérola Amarela</white>",
+            "<white>Pérola Azul</white>",
+            "<white>Peixe-Gato</white>"
+          ]
+        }
+      },
+      "pearls": {
+        "blue": {
+          "name": "Pérola azul",
+          "simple-name": "Azul",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<blue>Tsunami </blue><gray>em sua vara de pesca.</gray>"
+          ]
+        },
+        "green": {
+          "name": "Pérola verde",
+          "simple-name": "Verde",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<green>Sortudo </green><gray>em sua vara de pesca.</gray>"
+          ]
+        },
+        "pink": {
+          "name": "Pérola rosa",
+          "simple-name": "Rosa",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<light_purple>Chaveiro </light_purple><gray>em sua vara de pesca.</gray>"
+          ]
+        },
+        "purple": {
+          "name": "Pérola roxa",
+          "simple-name": "Roxa",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<dark_purple>Marinheiro </dark_purple><gray>em sua vara de pesca.</gray>"
+          ]
+        },
+        "red": {
+          "name": "Pérola vermelha",
+          "simple-name": "Vermelha",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<red>Poseidon </red><gray>em sua vara de pesca.</gray>"
+          ]
+        },
+        "yellow": {
+          "name": "Pérola amarela",
+          "simple-name": "Amarela",
+          "description": [
+            "<gray>Esta pérola é usada para</gray>",
+            "<gray>desbloquear o encantamento</gray>",
+            "<yellow>Experiente </yellow><gray>em sua vara de pesca.</gray>"
+          ]
+        }
+      },
+      "fishes": {
+        "fishing_1": {
+          "name": "Peixe"
+        },
+        "fishing_2": {
+          "name": "Peixe Gato"
+        },
+        "fishing_3": {
+          "name": "Golfinho"
+        },
+        "fishing_4": {
+          "name": "Megalodon"
+        }
+      },
+      "items": {
+        "fishing-pearl": {
+          "display-name": "{fishing_pearl_color}{fishing_pearl_name}",
+          "name": "{fishing_pearl_color}{fishing_pearl_name}",
+          "lore": [
+            "{fishing_pearl_description}"
+          ]
+        },
+        "fishing-rod": {
+          "name": "<aqua>Vara de pesca</aqua>",
+          "lore": [
+            "",
+            "<white>Nível: </white><gray>{fishing_rod_level}</gray>",
+            "{fishing_rod_experience_progress_bar} <gray>{fishing_rod_experience_percentage}%</gray>",
+            "",
+            "<aqua>Encantamentos:</aqua>",
+            " <dark_gray>▸ </dark_gray><white>Durabilidade ∞</white>",
+            " <dark_gray>▸ </dark_gray><white>{fishing_rod_enchantments}</white>",
+            ""
+          ]
+        },
+        "fishing-rod-inventory": {
+          "name": "",
+          "lore": [
+            "<gray>Shift + botão direito para</gray>",
+            "<gray>acessar o menu da vara.</gray>"
+          ]
+        },
+        "fishing-exit-inventory": {
+          "name": "<red>Sair da pesca.</red>",
+          "lore": [
+            "<gray>Clique para sair da pesca.</gray>"
+          ]
+        }
+      },
+      "scoreboard": {
+        "title": [
+          "<dark_purple><bold>ECLIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>E</bold></light_purple><dark_purple><bold>CLIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>E</bold></dark_purple><light_purple><bold>C</bold></light_purple><dark_purple><bold>LIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>EC</bold></dark_purple><light_purple><bold>L</bold></light_purple><dark_purple><bold>IPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECL</bold></dark_purple><light_purple><bold>I</bold></light_purple><dark_purple><bold>PSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLI</bold></dark_purple><light_purple><bold>P</bold></light_purple><dark_purple><bold>SE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLIP</bold></dark_purple><light_purple><bold>S</bold></light_purple><dark_purple><bold>E </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLIPS</bold></dark_purple><light_purple><bold>E </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>E</bold></light_purple><dark_purple><bold>CLIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>EC</bold></light_purple><dark_purple><bold>LIPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECL</bold></light_purple><dark_purple><bold>IPSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLI</bold></light_purple><dark_purple><bold>PSE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIP</bold></light_purple><dark_purple><bold>SE </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIPS</bold></light_purple><dark_purple><bold>E </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>E</bold></dark_purple><light_purple><bold>CLIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>E</bold></light_purple><dark_purple><bold>C</bold></dark_purple><light_purple><bold>LIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>EC</bold></light_purple><dark_purple><bold>L</bold></dark_purple><light_purple><bold>IPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECL</bold></light_purple><dark_purple><bold>I</bold></dark_purple><light_purple><bold>PSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLI</bold></light_purple><dark_purple><bold>P</bold></dark_purple><light_purple><bold>SE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIP</bold></light_purple><dark_purple><bold>S</bold></dark_purple><light_purple><bold>E </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIPS</bold></light_purple><dark_purple><bold>E </bold></dark_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<light_purple><bold>ECLIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>E</bold></dark_purple><light_purple><bold>CLIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>EC</bold></dark_purple><light_purple><bold>LIPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECL</bold></dark_purple><light_purple><bold>IPSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLI</bold></dark_purple><light_purple><bold>PSE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLIP</bold></dark_purple><light_purple><bold>SE </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>",
+          "<dark_purple><bold>ECLIPS</bold></dark_purple><light_purple><bold>E </bold></light_purple><dark_gray>▪ </dark_gray><white>{server_online_count}</white>"
+        ],
+        "lines": [
+          "",
+          " <dark_purple>│ </dark_purple><white>Nível da vara: </white><gray>{fishing_user_rod_level}</gray>",
+          " {fishing_user_rod_progress_bar} <gray>{fishing_user_rod_progress_percent}%</gray>",
+          "",
+          " <white>Pérolas:</white>",
+          "  <light_purple>▸ </light_purple><white>{fishing_pearl_simple_name}: </white><gray>{fishing_pearl_count}</gray>",
+          "",
+          " <dark_purple>│ </dark_purple><white>Pontos: </white>{currency_points_cached_account_value_visualization}",
+          " <dark_purple>│ </dark_purple><white>Coins: </white>{currency_coins_cached_account_value_visualization}",
+          "",
+          "<dark_purple>exe.com</dark_purple>"
+        ]
+      },
+      "npc": {
+        "shop": {
+          "hologram": [
+            "<dark_purple><bold>PESCA</bold></dark_purple>",
+            "<white>Clique aqui para</white>",
+            "<white>visualizar o conteúdo da loja.</white>"
+          ]
+        }
+      },
+      "messages": {
+        "titles": {
+          "on-join": {
+            "title": "<aqua>PESCA</aqua>",
+            "subtitle": "<white>Aproveite o seu tempo aqui.</white>"
+          },
+          "on-fishing": {
+            "title": "<aqua>PESCA</aqua>",
+            "subtitle": "<white>+{fishing_amount} {fishing_type_name}</white>"
+          },
+          "on-pearl": {
+            "title": "<aqua>PESCA</aqua>",
+            "subtitle": "<white>Você encontrou uma pérola!</white>"
+          }
+        },
+        "actionbar": {
+          "fishing-in-progress": "<aqua>PESCA</aqua> <dark_gray>➟</dark_gray> <white>Você está pescando</white>{fishing_animation}"
+        },
+        "connection": {
+          "already-requested": "Você já possui uma solicitação de entrar na pesca!",
+          "no-fishing-server": "Não foi possível encontrar um servidor de pesca para você se conectar. Tente novamente em instantes.",
+          "hotbar-not-empty": "Você precisa estar com sua hotbar limpa para acessar a área de pesca!"
+        },
+        "fishing-stop": "<aqua>Você parou de pescar!</aqua>",
+        "fishing-start": "<aqua>Você começou a pescar!</aqua>",
+        "items": {
+          "fishing-pearl": {
+            "fishing-pearl-stored": "Pérolas armazenadas com sucesso!"
+          }
+        },
+        "views": {
+          "fishing-boat-upgrades": {
+            "upgrade-not-enough-points": "Você não tem pontos suficientes para comprar esta melhoria.",
+            "upgrade-already-have": "Você já possui este upgrade.",
+            "upgrade-need-before": "Você precisa comprar as melhorias anteriores.",
+            "upgrade-buy-success": "<aqua>Você comprou a melhoria Barco de navegação </aqua><dark_gray>▸ </dark_gray><aqua>Nível {fishing_ocean_level}</aqua><white>.</white>"
+          },
+          "fishing-oceans": {
+            "need-boat-level": "Você precisa do barco de navegação <aqua>Nível {fishing_ocean_level}</aqua> para acessar este oceano."
+          },
+          "fishing-pearl-storage": {
+            "collect-success-one": "Você coletou sua pérola com sucesso!",
+            "collect-success-multiple": "Você coletou suas pérolas com sucesso!"
+          },
+          "fishing-points-shop": {
+            "not-enough-points": "Você não possui pontos suficientes para comprar este item.",
+            "success": "Você adquiriu esse item com sucesso!"
+          },
+          "fishing-rod": {
+            "fish-sold": {
+              "not-enough": "Você não possui peixes suficientes para vender.",
+              "success": "Você vendeu <white>{fishing_sell_amount}x</white> peixes por {fishing_sell_points}."
+            },
+            "enchantment": {
+              "already-have": "Você já possui este encantamento em sua vara de pesca.",
+              "pearls-not-enough": "Você não possui pérolas suficientes para adquirir este encantamento.",
+              "success": "Você adquiriu o encantamento {fishing_enchantment_color}{fishing_enchantment_name} <green>com sucesso!"
+            }
+          }
+        }
+      },
+      "views": {
+        "fishing-boat-upgrades": {
+          "title": "Melhorias do barco",
+          "items": {
+            "0": {
+              "need-unlock-before": {
+                "name": "<aqua>Barco de navegação</aqua> <dark_gray>▸</dark_gray> <aqua>Nível {fishing_ocean_level}</aqua>",
+                "lore": [
+                  "<gray>Adquira melhorias em seu barco</gray>",
+                  "<gray>e explore novos oceanos!</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Custo: </white><dark_gray>⁂{fishing_ocean_cost}</dark_gray>",
+                  "",
+                  "<aqua>Libera acesso ao:</aqua>",
+                  " <dark_gray>▸ </dark_gray><white>{fishing_ocean_name}</white>",
+                  "",
+                  "<red>Você precisa liberar o oceano anterior.</red>"
+                ]
+              },
+              "no-currency": {
+                "name": "<aqua>Barco de navegação</aqua> <dark_gray>▸</dark_gray> <aqua>Nível {fishing_ocean_level}</aqua>",
+                "lore": [
+                  "<gray>Adquira melhorias em seu barco</gray>",
+                  "<gray>e explore novos oceanos!</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Custo: </white><dark_gray>⁂{fishing_ocean_cost}</dark_gray>",
+                  "",
+                  "<aqua>Libera acesso ao:</aqua>",
+                  " <dark_gray>▸ </dark_gray><white>{fishing_ocean_name}</white>",
+                  "",
+                  "<red>Você não possui os requisitos para evoluir.</red>"
+                ]
+              },
+              "allowed": {
+                "name": "<aqua>Barco de navegação</aqua> <dark_gray>▸</dark_gray> <aqua>Nível {fishing_ocean_level}</aqua>",
+                "lore": [
+                  "<gray>Adquira melhorias em seu barco</gray>",
+                  "<gray>e explore novos oceanos!</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Custo: </white><dark_gray>⁂{fishing_ocean_cost}</dark_gray>",
+                  "",
+                  "<aqua>Libera acesso ao:</aqua>",
+                  " <dark_gray>▸ </dark_gray><white>{fishing_ocean_name}</white>",
+                  "",
+                  "<green>Clique para adquirir!</green>"
+                ]
+              }
+            }
+          }
+        },
+        "fishing-boat": {
+          "title": "Barco de navegação",
+          "items": {
+            "0": {
+              "name": "<aqua>Melhorias</aqua>",
+              "lore": [
+                "<gray>Adquira melhorias em seu barco</gray>",
+                "<gray>para poder visitar novos oceanos.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<aqua>Oceanos</aqua>",
+              "lore": [
+                "<gray>Explore novos oceanos e se habilite</gray>",
+                "<gray>a ganhar recompensas bem melhores!</gray>"
+              ]
+            }
+          }
+        },
+        "fishing-oceans": {
+          "title": "Oceanos",
+          "items": {
+            "0": {
+              "need-unlock-boat": {
+                "name": "<aqua>{fishing_ocean_name}</aqua>",
+                "lore": [
+                  "<gray>Quem sabe eu encontre novas</gray>",
+                  "<gray>espécies de peixes e pérolas</gray>",
+                  "<gray>mais raras por aqui...</gray>",
+                  "",
+                  "<white>Novidades do {fishing_ocean_name}:</white>",
+                  " <dark_gray>▸ </dark_gray>{fishing_ocean_description}",
+                  "",
+                  "<red>Você precisa melhorar seu barco para acessar.</red>"
+                ]
+              },
+              "allowed": {
+                "name": "<aqua>{fishing_ocean_name}</aqua>",
+                "lore": [
+                  "<gray>Quem sabe eu encontre novas</gray>",
+                  "<gray>espécies de peixes e pérolas</gray>",
+                  "<gray>mais raras por aqui...</gray>",
+                  "",
+                  "<white>Novidades do {fishing_ocean_name}:</white>",
+                  " <dark_gray>▸ </dark_gray>{fishing_ocean_description}",
+                  "",
+                  "<green>Clique aqui para explorar...</green>"
+                ]
+              }
+            }
+          }
+        },
+        "fishing-pearl-storage": {
+          "title": "Armazém de Pérolas",
+          "items": {
+            "0": {
+              "name": "<red>OPS!</red>",
+              "lore": [
+                "<red>Parece que você não possui pérolas :(</red>"
+              ]
+            },
+            "1": {
+              "name": "{fishing_pearl_color}{fishing_pearl_name} <dark_gray>▸ </dark_gray><white>x{fishing_user_pearl_storage_count}</white>",
+              "lore": [
+                "{fishing_pearl_description}",
+                "",
+                "<yellow>Opções para recolher:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Esquerdo: </white><gray>Recolher 1x</gray>",
+                " <dark_gray>▸ </dark_gray><white>Botão 'Q': </white><gray>Recolher todas</gray>"
+              ]
+            }
+          }
+        },
+        "fishing-points-shop": {
+          "title": "Loja de pontos",
+          "items": {
+            "0": {
+              "no-currency": {
+                "lore": [
+                  "",
+                  " <gray>▸ </gray><white>Custo: </white>{fishing_shop_item_cost}",
+                  "",
+                  "<red>Você não possui pontos suficientes!</red>"
+                ]
+              },
+              "allowed": {
+                "lore": [
+                  "",
+                  " <gray>▸ </gray><white>Custo: </white>{fishing_shop_item_cost}",
+                  "",
+                  "<green>Clique para comprar.</green>"
+                ]
+              }
+            }
+          }
+        },
+        "fishing-rod": {
+          "title": "Pesca",
+          "items": {
+            "0": {
+              "storage-line": "{fishing_pearl_color}▸ <white>{fishing_pearl_name}: </white><gray>{fishing_pearl_count}</gray>",
+              "name": "<aqua>Armazém de Pérolas</aqua>",
+              "lore": [
+                "<gray>Aqui você encontra todas</gray>",
+                "<gray>as pérolas que você armazenou.</gray>",
+                "{fishing_user_storage}",
+                "",
+                "<green>Clique para gerenciar.</green>"
+              ]
+            },
+            "1": {
+              "ranking-line": "<white>{fishing_user_ranking_position}º </white><dark_gray>▸ </dark_gray><white>{fishing_user_name_with_tag} </white><dark_gray>➟ </dark_gray><gray>{fishing_user_ranking_amount} peixes</gray>",
+              "name": "<aqua>TOP Pescadores</aqua>",
+              "lore": [
+                "<gray>Consulte o TOP de jogadores</gray>",
+                "<gray>que mais pescaram no servidor.</gray>",
+                "",
+                "{fishing_general_ranking}",
+                "",
+                "<white>Sua posição </white><dark_gray>∇</dark_gray>",
+                "{fishing_user_ranking}",
+                ""
+              ]
+            },
+            "2": {
+              "allowed": {
+                "name": "<aqua>Vender Peixes</aqua>",
+                "lore": [
+                  "<gray>Clique neste ícone para</gray>",
+                  "<gray>vender os seus peixes.</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Peixes: </white><gray>{fishing_sell_amount}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Pontos p/ peixe: </white><gray>{fishing_sell_points_per_unit}</gray>",
+                  "",
+                  "<green>Clique para vender.</green>"
+                ]
+              },
+              "empty": {
+                "name": "<aqua>Vender Peixes</aqua>",
+                "lore": [
+                  "<gray>Clique neste ícone para</gray>",
+                  "<gray>vender os seus peixes.</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Peixes: </white><gray>{fishing_sell_amount}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Pontos p/ peixe: </white><gray>{fishing_sell_points_per_unit}</gray>",
+                  "",
+                  "<red>Você não possui peixes para vender.</red>"
+                ]
+              }
+            },
+            "3": {
+              "already-have": {
+                "name": "{fishing_enchantment_color}{fishing_enchantment_name}",
+                "lore": [
+                  "{fishing_enchantment_description}",
+                  "",
+                  "<red>Você já possui esse encantamento.</red>"
+                ]
+              },
+              "allowed": {
+                "name": "{fishing_enchantment_color}{fishing_enchantment_name}",
+                "lore": [
+                  "{fishing_enchantment_description}",
+                  "",
+                  " <white>Requisitos de pérolas:</white>",
+                  " <dark_gray>▸ </dark_gray><gray>x{fishing_enchantment_pearl_cost} </gray>{fishing_enchantment_pearl_color}{fishing_enchantment_pearl_name}",
+                  "",
+                  "<green>Clique para evoluir.</green>"
+                ]
+              },
+              "dont-have-requirements": {
+                "name": "{fishing_enchantment_color}{fishing_enchantment_name}",
+                "lore": [
+                  "{fishing_enchantment_description}",
+                  "",
+                  " <white>Requisitos de pérolas:</white>",
+                  " <dark_gray>▸ </dark_gray><gray>x{fishing_enchantment_pearl_cost} </gray>{fishing_enchantment_pearl_color}{fishing_enchantment_pearl_name}",
+                  "",
+                  "<red>Pérolas insuficientes.</red>"
+                ]
+              }
+            }
+          }
+        },
+        "fishing-primary": {
+          "title": "Pesca",
+          "items": {
+            "0": {
+              "name": "<aqua>Loja da pesca</aqua>",
+              "lore": [
+                "<gray>Clique neste ícone para</gray>",
+                "<gray>visualizar o conteúdo da loja.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<aqua>Barco de navegação</aqua>",
+              "lore": [
+                "<gray>Adquira melhorias em seu barco</gray>",
+                "<gray>e explore novos oceanos!</gray>"
+              ]
+            },
+            "2": {
+              "name": "<aqua>Bora pescar!</aqua>",
+              "lore": [
+                "<gray>Clique neste ícone para</gray>",
+                "<gray>acessar a área de pesca.</gray>",
+                "",
+                "<aqua>Estatísticas pescando:</aqua>",
+                " <dark_gray>▸ </dark_gray><white>Peixes pescados: </white><gray>{fishing_user_fish_count}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Tempo pescando: </white><gray>{fishing_user_fishing_time}</gray>",
+                "",
+                "<green>Clique para ir até a pesca.</green>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

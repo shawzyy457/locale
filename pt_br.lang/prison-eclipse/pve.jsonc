@@ -1,0 +1,54 @@
+{
+    "plugins": {
+        "pve": {
+            "commands": {
+                "pve-apocalyptic-teleport": {
+                    "app-not-available": "Não foi possível encontrar um servidor do mundo apocalíptico para te enviar. Tente novamente mais tarde."
+                },
+                "pve-cemetery-teleport": {
+                    "app-not-available": "Não foi possível encontrar um servidor do mundo cemitério para te enviar. Tente novamente mais tarde.",
+                    "dont-have-requirements": "Você não tem os requisitos necessários para acessar o mundo cemitério, utilize <white>/mundos</white> para ver os requisitos."
+                },
+                "pve-nether-teleport": {
+                    "app-not-available": "Não foi possível encontrar um servidor do mundo nether para te enviar. Tente novamente mais tarde.",
+                    "dont-have-requirements": "Você não tem os requisitos necessários para acessar o mundo nether, utilize <white>/mundos</white> para ver os requisitos."
+                }
+            },
+            "messages": {
+                "player-slime-jump": {
+                    "block": {
+                        "dont-have-requirements": "Você não pode ir para esse mundo ainda, utilize <white>/mundos</white> para ver os requisitos."
+                    },
+                    "hologram": {
+                        "next": {
+                            "dont-have-requirements": [
+                                "<red><bold>Requisitos insuficientes!",
+                                "<white>Consulte o menu de <red>/mundos",
+                                "<white>para saber como voar até",
+                                "<white>ao próximo mundo."
+                            ],
+                            "has-requirements": [
+                                "<green><bold>Voe até ao próximo mundo!",
+                                "<white>Passe em cima da slime",
+                                "<green>↓↓↓"
+                            ]
+                        },
+                        "back": {
+                            "has-requirements": [
+                                "<green><bold>Volte ao mundo anterior!",
+                                "<white>Passe em cima da slime",
+                                "<green>↓↓↓"
+                            ],
+                            "dont-have-requirements": [
+                                "<red><bold>Requisitos insuficientes!",
+                                "<white>Consulte o menu de <red>/mundos",
+                                "<white>para saber como voar até",
+                                "<white>o mundo anteior."
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

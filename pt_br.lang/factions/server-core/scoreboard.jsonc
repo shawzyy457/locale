@@ -1,0 +1,82 @@
+{
+  "plugins": {
+    "server-core": {
+      "scoreboards": {
+        "titles": {
+          "spawn": [
+            " <bold><gradient:#7ABAFF:#9FE2FF:#7ABAFF>FACTIONS ICE</gradient> "
+          ],
+          "claim": [
+            " <bold>{faction_claim_faction_color}CLAIM [{faction_claim_faction_tag}] "
+          ],
+          "zones": {
+            "war": [
+              " <bold><gradient:#ff0000:#f5075a>Z. DE GUERRA</gradient> "
+            ],
+            "protected": [
+              " <bold><gradient:#ff6c03:#ff9e03>Z. PROTEGIDA</gradient> "
+            ],
+            "free": [
+              " <bold><gradient:#03C400:#04FF00>ZONA LIVRE</gradient> "
+            ],
+            "lost-fortress": [
+              " <bold><gradient:#0370ff:#03eeff>BASE PERDIDA</gradient> "
+            ]
+          }
+        },
+        "without-faction": {
+          "lines": [
+            " <gray>sv. Dia {server_day} <dark_gray>{server_time}",
+            "",
+            "  <white>Nível <color:#7abaff>{skill_total_level}",
+            "  <white>Passe <color:#7abaff>{battle_pass_player_level}",
+            "",
+            " <color:#BDC3C7>Crie sua facção!",
+            "",
+            " <white>Coins:</white> <color:#fbca15>{currency_coins_cached_account_value_formatted}",
+            " <white>Gold:</white> <color:#FFAA00>{user_gold_formatted}",
+            "",
+            "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>exe.com</gradient>  "
+          ]
+        },
+        "with-faction": {
+          "lines": [
+            "  <gray>sv. Dia {server_day} <dark_gray>{server_time}",
+            "",
+            "  <white>Nível <color:#7abaff>{skill_total_level}",
+            "  <white>Passe <color:#7abaff>{battle_pass_player_level}",
+            "",
+            " <gray> Facção <bold>[{faction_tag}]",
+            " <white> Membros: <color:#BDC3C7>{faction_members_online_count}/{faction_members_count}",
+            " <white> Tier: <color:#BDC3C7>{faction_level}",
+            "  {faction_level_progress_bar}<gray> {faction_level_progress_percentage}%",
+            "",
+            " <white>Coins:</white> <color:#fbca15>{currency_coins_cached_account_value_formatted}",
+            " <white>Gold:</white> <color:#FFAA00>{user_gold_formatted}",
+            "",
+            "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>exe.com</gradient> "
+          ]
+        },
+        "mining": {
+          "titles": {
+            "surface": [
+              " <bold><gradient:#7ABAFF:#9FE2FF:#7ABAFF>Superfície</gradient> "
+            ],
+            "copper-caves": [
+              " <bold><gradient:#b15121:#d58f5b>Mina de Cobre</gradient> "
+            ],
+            "coal-caves": [
+              " <bold><gradient:#161616:#797979>Mina de Carvão</gradient> "
+            ],
+            "gold-caves": [
+              " <bold><gradient:#ff9500:#ffc300>Mina de Ouro</gradient> "
+            ],
+            "diamond-caves": [
+              " <bold><gradient:#3b82f6:#a5f3fc>Mina de Diamante</gradient> "
+            ]
+          }
+        }
+      }
+    }
+  }
+}

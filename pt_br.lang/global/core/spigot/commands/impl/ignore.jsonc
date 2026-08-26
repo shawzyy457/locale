@@ -1,0 +1,30 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "ignore": {
+                    "add": {
+                        "arguments": {
+                            "target": {
+                                "name": "jogador",
+                                "description": "Jogador que você deseja ignorar"
+                            }
+                        },
+                        "already-ignored": "O jogador {target_name} já está em sua lista de jogadores ignorados!",
+                        "success": "<green>O jogador<green> <white>{target_name}</white> <green>foi adicionado da sua lista de ignorados.</green>"
+                    },
+                    "remove": {
+                        "arguments": {
+                            "target": {
+                                "name": "jogador",
+                                "description": "Jogador que você deseja remover da lista de ignorados"
+                            }
+                        },
+                        "not-ignored": "O jogador {target_name} não está em sua lista de jogadores ignorados!",
+                        "success": "<green>O jogador<green> <white>{target_name}</white> <green>foi removido da sua lista de ignorados.</green>"
+                    }
+                }
+            }
+        }
+    }
+}

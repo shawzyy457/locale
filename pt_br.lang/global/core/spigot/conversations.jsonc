@@ -1,0 +1,56 @@
+// Perguntas de chat do core (Conversation). O texto é o MESMO em toda a rede.
+//
+// ⚠️ O valor do `click:run_command` TEM que começar por `/conversation ` — é esse prefixo que o
+// ConversationChatListener intercepta antes do dispatch, e é por isso que o comando nunca aparece no
+// Brigadier. Um valor solto (era `cancelar`, sem barra) vira comando desconhecido no cliente:
+// "Unknown or incomplete command", e a pergunta continua aberta.
+//
+// `/conversation cancelar` responde NULO (isCanceled). `/conversation true|false` responde booleano —
+// só use esses dois na pergunta do tipo `boolean`, porque uma pergunta de número não sabe o que fazer
+// com um booleano.
+//
+// O valor vai entre ASPAS SIMPLES porque tem espaço: sem elas o MiniMessage pode cortar o argumento e
+// mandar só `/conversation`, que é um comando válido de corpo vazio — o clique "funcionaria" sem fazer
+// nada, que é pior de diagnosticar do que o erro vermelho.
+{
+    "plugins": {
+        "core": {
+            "conversations": {
+                "adapters": {
+                    "chat": {
+                        "types": {
+                            "boolean": [
+                                "",
+                                "<yellow>{conversation_query}</yellow>",
+                                "<gray>Clique</gray> <hover:show_text:'<green>Concordar</green>'><click:run_command:'/conversation true'><green><bold>AQUI</bold></green></click></hover> <gray>para concordar e</gray> <hover:show_text:'<red>Negar</red>'><click:run_command:'/conversation false'><red><bold>AQUI</bold></red></click></hover> <gray>para negar.</gray>",
+                                "<gray>Você possui um minuto para responder.</gray>",
+                                ""
+                            ],
+                            "text": [
+                                "",
+                                "<yellow>{conversation_query}</yellow>",
+                                "<gray>Responda no chat ou clique</gray> <hover:show_text:'<red>Cancelar</red>'><click:run_command:'/conversation cancelar'><red><bold>AQUI</bold></red></click></hover> <gray>para cancelar.</gray>",
+                                "<gray>Você possui um minuto para responder.</gray>",
+                                ""
+                            ],
+                            "double": [
+                                "",
+                                "<yellow>{conversation_query}</yellow>",
+                                "<gray>Responda no chat ou clique</gray> <hover:show_text:'<red>Cancelar</red>'><click:run_command:'/conversation cancelar'><red><bold>AQUI</bold></red></click></hover> <gray>para cancelar.</gray>",
+                                "<gray>Você possui um minuto para responder.</gray>",
+                                ""
+                            ],
+                            "integer": [
+                                "",
+                                "<yellow>{conversation_query}</yellow>",
+                                "<gray>Responda no chat ou clique</gray> <hover:show_text:'<red>Cancelar</red>'><click:run_command:'/conversation cancelar'><red><bold>AQUI</bold></red></click></hover> <gray>para cancelar.</gray>",
+                                "<gray>Você possui um minuto para responder.</gray>",
+                                ""
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

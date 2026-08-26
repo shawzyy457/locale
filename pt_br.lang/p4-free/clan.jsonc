@@ -1,0 +1,900 @@
+{
+  "plugins": {
+    "clans": {
+      "roles": {
+        "leader": {
+          "name": "Líder",
+          "prefix": "#"
+        },
+        "vice_leader": {
+          "name": "Vice Líder",
+          "prefix": "@"
+        },
+        "captain": {
+          "name": "Capitão",
+          "prefix": "*"
+        },
+        "member": {
+          "name": "Membro",
+          "prefix": "+"
+        },
+        "recruit": {
+          "name": "Recruta",
+          "prefix": "-"
+        },
+        "none": {
+          "name": "Nenhum",
+          "prefix": ""
+        }
+      },
+      "storage": {
+        "actions": {
+          "increment": {
+            "name": "adicionou"
+          },
+          "decrement": {
+            "name": "removeu"
+          }
+        }
+      },
+      "items": {
+        "member-head": {
+          "name": "{member_name_with_tag}",
+          "lore": [
+            "",
+            "<yellow>Suas informações:</yellow>",
+            " <dark_gray>▸ </dark_gray><white>Cargo: </white><gray>{member_role_prefix}{member_role_name}</gray>",
+            " <dark_gray>▸ </dark_gray><white>KDR: </white><gray>{member_kdr}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Abates: </white><gray>{member_deaths}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Mortes: </white><gray>{member_kills}</gray>"
+          ]
+        },
+        "clan-banner": {
+          "name": "{clan_color_tag_code}[{clan_tag}] {clan_name}",
+          "lore": [
+            "",
+            " {clan_color_tag_code}Informações do clã:",
+            " <dark_gray>▸ </dark_gray><white>Líder: </white><gray>{clan_leader_name_with_tag}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Membros: </white><gray>({clan_members_size}/{clan_max_members_size}) {clan_online_members_size} online</gray>",
+            " <dark_gray>▸ </dark_gray><white>KDR: </white><gray>{clan_kdr}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Abates: </white><gray>{clan_deaths}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Mortes: </white><gray>{clan_kills}</gray>"
+          ]
+        },
+        "empty-item": {
+          "name": "<red>Vazio!</red>",
+          "lore": [
+            "<gray>Nada encontrado por aqui :(</gray>"
+          ]
+        }
+      },
+      "commands": {
+        "restrict": {
+          "clan-command-restrict": {
+            "error": "<red>Você não faz parte de um clã.</red>"
+          },
+          "clan-out-command-restrict": {
+            "error": "<red>Você já faz parte de um clã.</red>"
+          }
+        },
+        "clan": {
+          "create": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Defina a tag que você deseja dar ao seu clã"
+              },
+              "name": {
+                "name": "nome",
+                "description": "Defina o nome que você deseja dar ao seu clã"
+              }
+            },
+            "errors": {
+              "tag-length": "<red>Você precisa escolher uma tag de 3 caracteres!</red>",
+              "name-length": "<red>Você precisa escolher um nome de 5 a 24 caracteres!</red>",
+              "invalid-pattern": "<red>Você só pode utilizar letras e numeros para a tag e o nome.</red>",
+              "tag-in-use": "<red>Você precisa escolher uma tag que nenhum outro clã esteja usando!</red>",
+              "name-in-use": "<red>Você precisa escolher um nome que nenhum outro clã esteja usando!</red>"
+            },
+            "success": "<green>Você criou seu clã com sucesso!</green>"
+          },
+          "demote": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja rebaixar"
+              }
+            },
+            "errors": {
+              "not-same-clan": "<red>Você só pode rebaixar jogadores que estão em seu próprio clã!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para rebaixar esse jogador!</red>",
+              "target-in-lowest-role": "<red>Esse jogador já está no cargo mais baixo!</red>"
+            },
+            "success": "<green>Você rebaixou o jogador {target_name} para {target_role_name} com sucesso!</green>"
+          },
+          "disband": {
+            "errors": {
+              "need-leader-role": "<red>Você precisa ser o líder do clã para poder desfaze-lo!</red>"
+            }
+          },
+          "info": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Tag do clã que você deseja buscar"
+              }
+            },
+            "member-format": {
+              "online": "<green>{target_role_prefix}{target_name_with_color}</green>",
+              "offline": "<red>{target_role_prefix}{target_name_with_color}</red>"
+            },
+            "success": [
+              "",
+              " <yellow>Informações do clã:</yellow>",
+              "",
+              "  <white>Clã: </white>{clan_color_tag_code}[{clan_tag}] {clan_name}",
+              "  <white>Líder: </white>{clan_leader_name_with_tag}",
+              "  <white>Membros: </white><gray>{clan_members_size}/{clan_max_members_size} ({clan_online_members_size} online)</gray>",
+              "  {clan_members}",
+              "",
+              "  <white>KDR: </white><gray>{clan_kdr}</gray>",
+              "  <white>Mortes: </white><gray>{clan_deaths}</gray>",
+              "  <white>Abates: </white><gray>{clan_kills}</gray>",
+              ""
+            ]
+          },
+          "invitation": {
+            "accept": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag do clã que você deseja aceitar o convite"
+                }
+              },
+              "errors": {
+                "clan-not-found": "<red>Não foi possível encontrar um clã com essa tag!</red>",
+                "clan-not-invited": "<red>Você não possui nenhum convite de entrada desse clã!</red>",
+                "clan-max-members-exceeded": "<red>O clã que te convidou está cheio!</red>"
+              },
+              "success": "<green>Você se juntou ao clã {clan_color_tag_code}[{clan_tag}]</green>"
+            },
+            "deny": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag do clã que você deseja aceitar o convite"
+                }
+              },
+              "errors": {
+                "clan-not-found": "<red>Não foi possível encontrar um clã com essa tag!</red>",
+                "clan-not-invited": "<red>Você não possui nenhum convite de entrada desse clã!</red>"
+              },
+              "success": "<green>Você negou o pedido do clã {clan_color_tag_code}[{clan_tag}]</green>"
+            }
+          },
+          "invite": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "jogador que deseja convidar para seu clã"
+              }
+            },
+            "errors": {
+              "target-always-have-clan": "<red>Esse jogador já possui um clã.</red>",
+              "already-invited": "<red>Você já enviou um pedido para esse jogador!</red>"
+            },
+            "success": "<green>Você convidou o jogador {target_name} para o seu clã.</green>"
+          },
+          "join": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Tag do clã que você deseja entrar"
+              }
+            },
+            "errors": {
+              "already-in-clan": "<red>Você já faz parte de um clã.</red>"
+            },
+            "success": "<green>Você se juntou ao clã {clan_color_tag_code}[{clan_tag}]</green>"
+          },
+          "kick": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja expulsar"
+              }
+            },
+            "errors": {
+              "not-same-clan": "<red>Você só pode expulsar jogadores que estão em seu próprio clã!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para expulsar esse jogador!</red>"
+            },
+            "success": "<green>Você expulsou o jogador {target_name}</green>"
+          },
+          "leave": {
+            "errors": {
+              "is-leader": "<red>O líder do clã não pode abandoná-lo. Caso queira deletá-lo utilize /clan desfazer.</red>"
+            }
+          },
+          "profile": {
+            "success-with-clan": [
+              "",
+              " <yellow>Informações do jogador:</yellow>",
+              "",
+              "  <white>Jogador: </white>{target_name_with_tag}",
+              "  <white>Clã: </white><gray>{target_clan_tag}</gray>",
+              "  <white>Cargo: </white><gray>{target_role_name}</gray>",
+              "  <white>KDR: </white><gray>{target_kdr}</gray>",
+              "  <white>Mortes: </white><gray>{target_deaths}</gray>",
+              "  <white>Abates: </white><gray>{target_kills}</gray>",
+              ""
+            ],
+            "success-without-clan": [
+              "",
+              " <yellow>Informações do jogador:</yellow>",
+              "",
+              "  <white>Jogador: </white>{target_name_with_tag}",
+              "  <white>Clã: </white><gray>Sem clã.</gray>",
+              "  <white>KDR: </white><gray>{target_kdr}</gray>",
+              "  <white>Mortes: </white><gray>{target_deaths}</gray>",
+              "  <white>Abates: </white><gray>{target_kills}</gray>",
+              ""
+            ]
+          },
+          "promote": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja promover"
+              }
+            },
+            "errors": {
+              "not-same-clan": "<red>Você só pode promover jogadores que estão em seu próprio clã!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para promover esse jogador!</red>",
+              "target-in-upper-role": "<red>Esse jogador já está no cargo mais alto!</red>"
+            },
+            "success": "<green>Você promoveu o jogador {target_name} para {target_role_name} com sucesso!</green>"
+          },
+          "transfer": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você transferir o clã"
+              }
+            },
+            "errors": {
+              "not-leader": "<red>Somente o líder pode transferir a liderança do clã.</red>",
+              "not-same-clan": "<red>Você só pode transferir jogadores que estão em seu próprio clã!</red>"
+            },
+            "success": "<green>Você transferiu a liderança do clã para {target_name} com sucesso.</green>"
+          }
+        }
+      },
+      "messages": {
+        "clan": {
+          "new-leader": [
+            "",
+            "{user_name_with_tag} <green>é o novo líder do clã!</green>",
+            ""
+          ],
+          "on-member-chat": [
+            "<green>[{user_clan_tag}] </green><gray>{user_role_prefix}{user_name}</gray><white>: </white><green>{user_chat_message}</green>"
+          ],
+          "on-member-demote": [
+            "",
+            "{user_name_with_tag} <green>foi rebaixado a</green> <white>{user_role_name}</white><green>.</green>",
+            ""
+          ],
+          "on-member-promote": [
+            "",
+            "{user_name_with_tag} <green>foi promovido a</green> <white>{user_role_name}</white><green>.</green>",
+            ""
+          ],
+          "on-member-leave": [
+            "",
+            "{user_name_with_tag} <red>abandonou o clã.</red>",
+            ""
+          ],
+          "on-member-kick": [
+            "",
+            "{user_name_with_tag} <red>foi expulso do clã.</red>",
+            ""
+          ],
+          "on-member-join": [
+            "",
+            "{user_name_with_tag} <green>é o mais novo membro do clã!</green>",
+            ""
+          ]
+        },
+        "member": {
+          "on-invite-receive": [
+            "",
+            " <yellow>Você recebeu um pedido para entrar no clã \"{clan_tag}\".</yellow>",
+            " <yellow>Clique</yellow> <hover:show_text:'<gray>Clique aqui para abrir o menu de convites.</gray>'><click:run_command:'/clan invites'><yellow><bold>AQUI</bold></yellow></click></hover> <yellow>para abrir o menu de convites.</yellow>",
+            ""
+          ]
+        },
+        "views": {
+          "clan-color": {
+            "banner": {
+              "already-defined": "<red>A cor da bandeira do seu clã já está definida para essa cor.</red>",
+              "success": "<green>A cor da bandeira do seu clã foi alterada com sucesso.</green>"
+            },
+            "tag": {
+              "already-defined": "<red>A cor da tag do seu clã já está definida para essa cor.</red>",
+              "success": "<green>A cor da tag do seu clã foi alterada com sucesso.</green>"
+            },
+            "already-opened": "<red>Já existe um membro do seu clã com esse menu aberto!</red>"
+          },
+          "clan-member-role-manage": {
+            "target-already-in-role": "<red>Este membro já pertence a este cargo.</red>",
+            "member-insufficient-role": "<red>Você não pode definir o cargo desse jogador para </red><white>{target_role_name}</white><red> com seu cargo.</red>",
+            "success-promote": "<green>Você promoveu o jogador {target_name_with_tag} para o cargo </green><white>{target_role_name}</white><green>.</green>",
+            "success-demote": "<green>Você rebaixou o jogador {target_name_with_tag} para o cargo </green><white>{target_role_name}</white><green>.</green>"
+          },
+          "clan-member-permission-manage": {
+            "target-need-more-role": "<red>Esse jogador não possui o cargo mínimo para liberar essa permissão.</red>",
+            "redefined-success": "<green>Permissões redefinidas com sucesso!</green>",
+            "defined-success": "<green>Permissão alterada com sucesso.</green>"
+          },
+          "clan-storage-bosses": {
+            "already-opened": "<red>Já existe um membro do seu clã com esse menu aberto!</red>",
+            "collect-all": {
+              "empty": "<red>Você não possui bosses para coletar!</red>",
+              "success": {
+                "title": {
+                  "title": "Bosses!",
+                  "subtitle": "<white>Bosses recolhidas com sucesso!</white>"
+                }
+              }
+            },
+            "collect-one": {
+              "empty": "<red>Você não possui bosses para coletar!</red>",
+              "success": {
+                "title": {
+                  "title": "Bosses!",
+                  "subtitle": "<white>Bosses recolhidas com sucesso!</white>"
+                }
+              }
+            }
+          },
+          "clan-storage-chest": {
+            "already-opened": "<red>Já existe um membro do seu clã com esse menu aberto!</red>",
+            "number-keys-not-allowed": "<red>Você não pode utilizar as teclas numéricas nesse inventário!</red>",
+            "item-not-allowed": "<red>Você não pode armazenar esse item!</red>"
+          },
+          "clan-storage-crates": {
+            "already-opened": "<red>Já existe um membro do seu clã com esse menu aberto!</red>",
+            "collect-all": {
+              "empty": "<red>Você não possui chaves para coletar!</red>",
+              "success": {
+                "title": {
+                  "title": "Chaves!",
+                  "subtitle": "<white>Chaves recolhidas com sucesso!</white>"
+                }
+              }
+            },
+            "collect-one": {
+              "empty": "<red>Você não possui chaves para coletar!</red>",
+              "success": {
+                "title": {
+                  "title": "Chaves!",
+                  "subtitle": "<white>Chaves recolhidas com sucesso!</white>"
+                }
+              }
+            }
+          },
+          "clan-storage": {
+            "already-open": "<red>Um jogador de seu clã está visualizando esse menu no momento.</red>"
+          },
+          "clan-disband-confirmation": {
+            "need-storage-empty": "<red>Você precisa esvaziar o armazém do clã para desfaze-lo</red>",
+            "success": "<green>Seu clã foi desfeito com sucesso!</green>"
+          },
+          "clan-invites": {
+            "delete": {
+              "success": "<green>Convite apagado com sucesso!</green>"
+            }
+          },
+          "member-primary": {
+            "clan-name-selection": {
+              "conversation": {
+                "query": "Digite o nome que você deseja colocar em seu clã:",
+                "responses": {
+                  "invalid-length": "<red>O nome do clã deve conter entre 5 a 16 caracteres.</red>",
+                  "invalid-pattern": "<red>O nome do clã não pode conter caracteres especiais.</red>",
+                  "already-in-use": "<red>Já existe um clã utilizando esse nome.</red>"
+                }
+              }
+            },
+            "clan-tag-selection": {
+              "conversation": {
+                "query": "Digite a tag que você deseja colocar em seu clã:",
+                "responses": {
+                  "invalid-length": "<red>A tag do clã deve conter 3 caracteres.</red>",
+                  "invalid-pattern": "<red>A tag do clã não pode conter caracteres especiais.</red>",
+                  "already-in-use": "<red>Já existe um clã utilizando essa tag.</red>"
+                }
+              }
+            }
+          },
+          "member-leave-confirmation": {
+            "success": "<green>Você saiu de seu clã.</green>"
+          }
+        }
+      },
+      "views": {
+        "clan-member-list-manage": {
+          "title": "[{clan_tag}] Membros",
+          "items": {
+            "0": {
+              "lore": [
+                "",
+                "<green>Clique para gerenciar esse jogador.</green>"
+              ]
+            }
+          }
+        },
+        "clan-member-manage": {
+          "title": "[{clan_tag}] - {target_name}",
+          "items": {
+            "0": {
+              "name": "<yellow>Gerenciar cargo</yellow>",
+              "lore": [
+                "",
+                "<green>Clique para gerenciar o cargo do jogador.</green>"
+              ]
+            },
+            "1": {
+              "name": "<yellow>Gerenciar permissões</yellow>",
+              "lore": [
+                "",
+                "<green>Clique para gerenciar as permissões do jogador.</green>"
+              ]
+            }
+          }
+        },
+        "clan-member-permission-manage": {
+          "title": "Permissões de {target_name}",
+          "items": {
+            "0": {
+              "name": "<red>Redefinir permissões</red>",
+              "lore": [
+                "<gray>Ao clicar aqui todas as permissões</gray>",
+                "<gray>desse jogador voltarão ao padrão.</gray>"
+              ]
+            },
+            "1": {
+              "allow": {
+                "name": "<green>{permission_name}</green>",
+                "lore": [
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Estado: </white><green>Liberado</green>",
+                  " <dark_gray>▸ </dark_gray><white>Cargo mínimo: </white><gray>{permission_required_role_name}</gray>",
+                  "",
+                  "<green>Clique para bloquear</green>"
+                ]
+              },
+              "deny": {
+                "name": "<red>{permission_name}</red>",
+                "lore": [
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Estado: </white><red>Bloqueado</red>",
+                  " <dark_gray>▸ </dark_gray><white>Cargo mínimo: </white><gray>{permission_required_role_name}</gray>",
+                  "",
+                  "<red>Clique para liberar</red>"
+                ]
+              }
+            }
+          }
+        },
+        "clan-member-role-manage": {
+          "title": "[{clan_tag}] - {target_name}",
+          "items": {
+            "0": {
+              "allowed": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em seu clã.</gray>",
+                  "",
+                  "<green>Clique para definir este cargo.</green>"
+                ]
+              },
+              "dont-have-permission": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em seu clã.</gray>",
+                  "",
+                  "<red>Você não pode definir isso com seu cargo.</red>"
+                ]
+              },
+              "already-in-role": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em seu clã.</gray>",
+                  "",
+                  "<red>Este membro já pertence a este cargo.</red>"
+                ]
+              }
+            }
+          }
+        },
+        "clan-member-list": {
+          "title": "[{clan_tag}] Membros",
+          "items": {}
+        },
+        "clan-storage-bosses": {
+          "title": "[{clan_tag}] Armazém | Bosses",
+          "items": {
+            "0": {
+              "empty": {
+                "name": "<yellow>Coletar todos!</yellow>",
+                "lore": [
+                  "<gray>Aqui você consegue coletar</gray>",
+                  "<gray>todos os bosses de uma vez!</gray>",
+                  "",
+                  "<red>Você não possui bosses para coletar!</red>"
+                ]
+              },
+              "collect": {
+                "name": "<yellow>Coletar todas!</yellow>",
+                "lore": [
+                  "<gray>Aqui você consegue coletar</gray>",
+                  "<gray>todos os bosses de uma vez!</gray>",
+                  "",
+                  "<green>Clique para coletar!</green>"
+                ]
+              }
+            },
+            "1": {
+              "name": "{boss_name}",
+              "lore": [
+                "{boss_description}",
+                "",
+                "<white>Quantia: </white><gray>{boss_amount}</gray>"
+              ]
+            }
+          }
+        },
+        "clan-storage-chest": {
+          "title": "[{clan_tag}] Armazém | Baú",
+          "items": {}
+        },
+        "clan-storage-crates": {
+          "title": "[{clan_tag}] Armazém | Chaves",
+          "items": {
+            "0": {
+              "empty": {
+                "name": "<yellow>Coletar todas!</yellow>",
+                "lore": [
+                  "<gray>Aqui você consegue coletar</gray>",
+                  "<gray>todas as chaves de uma vez!</gray>",
+                  "",
+                  "<red>Você não possui crates para coletar!</red>"
+                ]
+              },
+              "collect": {
+                "name": "<yellow>Coletar todas!</yellow>",
+                "lore": [
+                  "<gray>Aqui você consegue coletar</gray>",
+                  "<gray>todas as chaves de uma vez!</gray>",
+                  "",
+                  "<green>Clique para coletar!</green>"
+                ]
+              }
+            },
+            "1": {
+              "name": "{crate_name}",
+              "lore": [
+                "{crate_description}",
+                "",
+                "<white>Quantia: </white><gray>{crate_amount}</gray>"
+              ]
+            }
+          }
+        },
+        "clan-storage-logs": {
+          "title": "[{clan_tag}] Armazém | Histórico",
+          "items": {
+            "0": {
+              "name": "<dark_gray>[{clan_storage_log_time_formatted}] {clan_storage_log_target_with_tag}</dark_gray>",
+              "lore": [
+                "{clan_storage_log_actions}"
+              ]
+            }
+          }
+        },
+        "clan-storage": {
+          "title": "[{clan_tag}] Armazém",
+          "items": {
+            "0": {
+              "name": "<aqua>Chaves</aqua>",
+              "lore": [
+                "<gray>Acesse o armazém de chaves</gray>",
+                "<gray>do seu clã.</gray>",
+                "",
+                "<green>Clique para abrir</green>"
+              ]
+            },
+            "1": {
+              "name": "<green>Bosses</green>",
+              "lore": [
+                "<gray>Acesse o armazém de bosses</gray>",
+                "<gray>do seu clã.</gray>",
+                "",
+                "<green>Clique para abrir</green>"
+              ]
+            },
+            "2": {
+              "name": "<gold>Baú do clã</gold>",
+              "lore": [
+                "<gray>Armazene os mais importantes itens</gray>",
+                "<gray>de seu clã nesse baú.</gray>",
+                "",
+                "<green>Clique para abrir</green>"
+              ]
+            },
+            "3": {
+              "name": "<aqua>Histórico de movimentações</aqua>",
+              "lore": [
+                "<gray>Acesse o histórico de movimentações</gray>",
+                "<gray>do armazém do seu clã.</gray>",
+                "",
+                "<green>Clique para ver o histórico.</green>"
+              ]
+            }
+          }
+        },
+        "clan-color": {
+          "title": "[{clan_tag}] Cores",
+          "items": {
+            "0": {
+              "name": "{clan_color_tag_code}[{clan_tag}] {clan_name}",
+              "lore": [
+                "<gray>Clique em alguma das cores</gray>",
+                "<gray>disponíveis para mudá-la.</gray>",
+                "",
+                " <yellow>Colorização atual:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Sigla: </white>{clan_color_tag_code}{clan_color_tag_name}",
+                " <dark_gray>▸ </dark_gray><white>Bandeira: </white>{clan_color_banner_code}{clan_color_banner_name}"
+              ]
+            },
+            "1": {
+              "name": "{color_code}{color_name}",
+              "lore": [
+                "<gray>Clique para modificar as</gray>",
+                "<gray>cores do seu clã.</gray>",
+                "",
+                "<yellow>Opções de colorização:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Esquerdo: </white><gray>Bandeira do clã</gray>",
+                " <dark_gray>▸ </dark_gray><white>Direito: </white><gray>Sigla do clã</gray>"
+              ]
+            }
+          }
+        },
+        "clan-disband-confirmation": {
+          "title": "[{clan_tag}] Confirmar exclusão",
+          "items": {
+            "0": {
+              "name": "<green>Confirmar</green>",
+              "lore": [
+                "<gray>Ao clicar nesse botão você não</gray>",
+                "<gray>poderá voltar essa ação!</gray>",
+                "",
+                "<green>Clique para apagar o clã.</green>"
+              ]
+            },
+            "1": {
+              "name": "<red>Cancelar</red>",
+              "lore": [
+                "<gray>Clique para cancelar esta ação.</gray>"
+              ]
+            }
+          }
+        },
+        "clan-primary": {
+          "title": "[{clan_tag}] {clan_name}",
+          "items": {
+            "0": {
+              "name": "<green>Membros</green>",
+              "lore": [
+                "<gray>Confira informações sobre todos</gray>",
+                "<gray>membros presentes no seu clã</gray>",
+                "",
+                " <dark_gray>▸ </dark_gray><white>Membros no clã: </white><gray>{clan_members_size}/{clan_max_members_size}</gray>",
+                "",
+                "<green>Clique para visualizar.</green>"
+              ]
+            },
+            "1": {
+              "name": "<green>Cores</green>",
+              "lore": [
+                "<gray>Personalize, mude cores tanto da sigla</gray>",
+                "<gray>do clã e da bandeira que os representa.</gray>",
+                "",
+                " <yellow>Coloração atual:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Sigla: </white>{clan_color_tag_code}{clan_color_tag_name}",
+                " <dark_gray>▸ </dark_gray><white>Bandeira: </white>{clan_color_banner_code}{clan_color_banner_name}"
+              ]
+            },
+            "2": {
+              "name": "<green>Armazém</green>",
+              "lore": [
+                "<gray>Deposite recursos importantes</gray>",
+                "<gray>do clã aqui.</gray>",
+                "",
+                "<green>Clique para acessar.</green>"
+              ]
+            },
+            "3": {
+              "name": "<green>Convites enviados</green>",
+              "lore": [
+                "<gray>Confira os jogadores convidados</gray>",
+                "<gray>para fazer parte do seu clã.</gray>",
+                "",
+                "<green>Clique para visualizar.</green>"
+              ]
+            },
+            "4": {
+              "name": "<red>Desfazer clã</red>",
+              "lore": [
+                "<gray>Desfaça seu clã e desista</gray>",
+                "<gray>de dominar este mundo</gray>",
+                "",
+                "<red>Clique para desfazer.</red>"
+              ]
+            },
+            "5": {
+              "name": "<red>Sair do clã</red>",
+              "lore": [
+                "<gray>Abandone o seu clã em busca</gray>",
+                "<gray>de novos objetivos.</gray>",
+                "",
+                "<red>Clique para sair.</red>"
+              ]
+            }
+          }
+        },
+        "clan-invites": {
+          "title": "[{clan_tag}] Convites",
+          "items": {
+            "0": {
+              "name": "<green>Convite de {clan_color_tag_code}[{clan_tag}] {clan_name}</green>",
+              "lore": [
+                "",
+                "<gray>Botão esquerdo: </gray><white>Entrar no clã</white>",
+                "<gray>Botão direito: </gray><white>Negar convite</white>"
+              ]
+            }
+          }
+        },
+        "member-primary": {
+          "title": "Sem clã",
+          "items": {
+            "0": {
+              "without-invites": {
+                "name": "<green>Convites recebidos</green>",
+                "lore": [
+                  "<gray>Confira os convites recebidos</gray>",
+                  "<gray>para ingressar em clãs.</gray>",
+                  "",
+                  "<red>Você não tem nenhum convite.</red>"
+                ]
+              },
+              "with-invites": {
+                "name": "<green>Convites recebidos</green>",
+                "lore": [
+                  "<gray>Confira os convites recebidos</gray>",
+                  "<gray>para ingressar em clãs.</gray>",
+                  "",
+                  "<green>Clique para visualizar.</green>"
+                ]
+              }
+            },
+            "1": {
+              "name": "<green>Crie seu clã</green>",
+              "lore": [
+                "<gray>Funde o seu clã, domine o servidor</gray>",
+                "<gray>e deixe sua marca no mundo.</gray>",
+                "",
+                "<green>Clique para criar.</green>"
+              ]
+            }
+          }
+        },
+        "member-invites": {
+          "title": "Convites",
+          "items": {
+            "0": {
+              "name": "<green>Convite de {clan_color_tag_code}[{clan_tag}] {clan_name}</green>",
+              "lore": [
+                "",
+                "<gray>Botão esquerdo: </gray><white>Entrar no clã</white>",
+                "<gray>Botão direito: </gray><white>Negar convite</white>"
+              ]
+            }
+          }
+        },
+        "member-leave-confirmation": {
+          "title": "Deseja mesmo sair?",
+          "items": {
+            "0": {
+              "name": "<green>Confirmar</green>",
+              "lore": [
+                "<gray>Ao clicar nesse botão você não</gray>",
+                "<gray>poderá voltar essa ação!</gray>",
+                "",
+                "<green>Clique para sair do clã.</green>"
+              ]
+            },
+            "1": {
+              "name": "<red>Cancelar</red>",
+              "lore": [
+                "<gray>Clique para cancelar esta ação.</gray>"
+              ]
+            }
+          }
+        }
+      },
+      "permissions": {
+        "clan_member_manager": {
+          "name": "Gerenciar membros",
+          "description": [
+            "<gray>Promover e rebaixar os</gray>",
+            "<gray>membros do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para gerenciar os membros do clã."
+        },
+        "clan_color_manager": {
+          "name": "Gerenciar cor",
+          "description": [
+            "<gray>Trocar a cor da tag e</gray>",
+            "<gray>da bandeira do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para mudar a cor do clã."
+        },
+        "clan_member_invite_manager": {
+          "name": "Gerenciar convites",
+          "description": [
+            "<gray>Convidar jogadores e</gray>",
+            "<gray>cancelar convites abertos.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para gerenciar os convites do clã."
+        },
+        "clan_member_kick_manager": {
+          "name": "Expulsar membros",
+          "description": [
+            "<gray>Remover membros do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para expulsar membros do clã."
+        },
+        "clan_storage_chest_manager": {
+          "name": "Baú do clã",
+          "description": [
+            "<gray>Guardar e retirar itens</gray>",
+            "<gray>do baú do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para mexer no baú do clã."
+        },
+        "clan_storage_bosses_manager": {
+          "name": "Bosses do clã",
+          "description": [
+            "<gray>Guardar e retirar bosses</gray>",
+            "<gray>do estoque do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para mexer nos bosses do clã."
+        },
+        "clan_storage_crates_manager": {
+          "name": "Caixas do clã",
+          "description": [
+            "<gray>Guardar e retirar caixas</gray>",
+            "<gray>do estoque do clã.</gray>"
+          ],
+          "without-permission": "Você não tem permissão para mexer nas caixas do clã."
+        }
+      }
+    }
+  }
+}

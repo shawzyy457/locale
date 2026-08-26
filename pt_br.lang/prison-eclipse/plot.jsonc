@@ -1,0 +1,225 @@
+{
+  "plugins": {
+    "plot": {
+      "items": {
+        "plot-clear": {
+          "display-name": "<gold>Limpador de Terreno</gold>",
+          "name": "<gold>Limpador de Terreno</gold>",
+          "lore": [
+            "<gray>Limpe o seu terreno com</gray>",
+            "<gray>apenas um clique utilizando</gray>",
+            "<gray>essa pá.</gray>"
+          ]
+        }
+      },
+      "commands": {
+        "restriction": {
+          "only-in-plot": "Você precisa estar em um terreno para executar esse comando!"
+        },
+        "plot": {
+          "usage": [
+            "",
+            " <dark_purple><bold>PRISON ECLIPSE</bold></dark_purple> <dark_gray>➡</dark_gray> <white>Terrenos</white>",
+            "",
+            "  <white>/plot home</white>",
+            "  <white>/plot home <jogador></white>",
+            "  <white>/plot auto</white>",
+            "  <white>/plot info</white>",
+            "  <white>/plot reset</white>",
+            "  <white>/plot add <jogador></white>",
+            "  <white>/plot remove <jogador></white>",
+            "  <white>/plot trust <jogador></white>",
+            "  <white>/plot untrust <jogador></white>",
+            "  <white>/plot deny <jogador></white>",
+            "  <white>/plot undeny <jogador></white>",
+            "  <white>/plot setspawn</white>",
+            ""
+          ],
+          "usage-home": [
+            "Você precisa digitar uma plot mais que 1.",
+            "Utilize: <white>/plot home:<id> [jogador]</white>"
+          ],
+          "no-plots-self": "Você não possui nenhum terreno.",
+          "no-plots-target": "Esse jogador não possui nenhum terreno.",
+          "plot-index-out-of-range": "Insira um terreno entre: (1, {plots_count})",
+          "add": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será adicionado na lista de membros de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode adicionar jogadores em seu terreno.",
+            "already-has-everyone": "Esse terreno já está com todos os jogadores adicionados.",
+            "already-has-target": "O jogador {target_name_with_tag} já está adicionado em seu terreno.",
+            "success-everyone": "Todos os jogadores foram adicionado em seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi adicionado ao seu terreno."
+          },
+          "auto": {
+            "limit-reached": "Você já atingiu o seu limite de plots.",
+            "no-apps-available": "Não foi possível encontrar um servidor de plot para você se conectar. Tente novamente em instantes."
+          },
+          "deny": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será banido de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode banir jogadores em seu terreno.",
+            "already-denied-everyone": "Seu terreno já está com todos os jogadores banidos.",
+            "already-denied-target": "O jogador {target_name_with_tag} já está banido de seu terreno.",
+            "success-everyone": "Todos os jogadores foram banidos de seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi banido de seu terreno."
+          },
+          "info": {
+            "everyone": "Todos",
+            "nobody": "Ninguém",
+            "success": [
+              "",
+              " <dark_purple><bold>ECLIPSE</bold></dark_purple> <dark_gray>➡</dark_gray> <white>Informações do terreno</white>",
+              "",
+              "  <white>Proprietário: </white><gray>{plot_owner_name_with_tag}</gray>",
+              "  <white>Membros do terreno: </white><gray>{plot_members}</gray>",
+              "  <white>Jogadores com permissão: </white><gray>{plot_administrators}</gray>",
+              "  <white>Jogador banidos: </white><gray>{plot_denies}</gray>",
+              ""
+            ]
+          },
+          "remove": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será removido dos membros de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode remover jogadores em seu terreno.",
+            "not-member-everyone": "Seu terreno não está com todos os jogadores adicionados à lista de membros.",
+            "not-member-target": "O jogador {target_name_with_tag} não está adicionado à lista de membros de seu terreno.",
+            "success-everyone": "Todos os jogadores foram removidos da lista de membros de seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi removido da lista de membros de seu terreno."
+          },
+          "reset": {
+            "not-in-plot": "Você não está em um terreno.",
+            "not-owner": "Você não é o dono deste terreno.",
+            "confirm": [
+              "",
+              "Você tem certeza que deseja resetar o terreno? Caso sim, utilize o comando novamente para confirmar.",
+              ""
+            ],
+            "success": "Terreno resetado com sucesso."
+          },
+          "set-spawn": {
+            "dont-have-permission": "Você só pode definir o spawn em seu terreno.",
+            "success": "Localização de spawn atualizada com sucesso!"
+          },
+          "trust": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será adicionado à lista de administradores de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode adicionar jogadores em seu terreno.",
+            "already-has-everyone": "Esse terreno já está com todos os jogadores como administradores.",
+            "already-has-target": "O jogador {target_name_with_tag} já está adicionado na lista de administradores de seu terreno.",
+            "success-everyone": "Todos os jogadores foram adicionados à lista de administradores de seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi adicionado à lista de administradores de seu terreno."
+          },
+          "undeny": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será desbanido de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode desbanir jogadores em seu terreno.",
+            "not-denied-everyone": "Seu terreno não está com todos os jogadores banidos.",
+            "not-denied-target": "O jogador {target_name_with_tag} não está banido de seu terreno.",
+            "success-everyone": "Todos os jogadores foram desbanidos de seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi desbanido de seu terreno."
+          },
+          "untrust": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que será removido da lista de administradores de seu terreno."
+              }
+            },
+            "dont-have-permission": "Você só pode remover jogadores em seu terreno.",
+            "not-administrator-everyone": "Seu terreno não está com todos os jogadores definidos como administrador.",
+            "not-administrator-target": "O jogador {target_name_with_tag} não está definido como administrador de seu terreno.",
+            "success-everyone": "Todos os jogadores foram removidos da lista de administradores de seu terreno.",
+            "success-target": "O jogador {target_name_with_tag} foi removido da lista de administradores de seu terreno."
+          }
+        }
+      },
+      "messages": {
+        "join": {
+          "title": {
+            "title": "<dark_purple><bold>PRISON ECLIPSE</bold></dark_purple>",
+            "subtitle": "<white>Terreno de {plot_owner_name_with_color}</white>"
+          }
+        },
+        "listeners": {
+          "on-drop": {
+            "confirmation": "Você tem certeza que deseja dropar esse item? Apenas jogadores adicionados nesse terreno podem coletar itens!"
+          },
+          "on-pickup": {
+            "dont-have-permission": "Você não pode coletar itens desse terreno pois você não tem permissão."
+          }
+        },
+        "items": {
+          "plot-clear": {
+            "only-in-plot": "Você precisa estar em um terreno para utilizar esse item!",
+            "only-plot-owner-can-use": "Somente o dono do terreno pode utilizar um limpador de terreno!",
+            "confirmation": {
+              "icon": {
+                "name": "<yellow>Limpar terreno</yellow>",
+                "lore": [
+                  "<gray>Tem certeza que deseja limpar</gray>",
+                  "<gray>seu terreno?</gray>"
+                ]
+              },
+              "cancelled": "Você cancelou a limpeza do seu terreno."
+            },
+            "success": "Seu terreno foi limpo com sucesso!"
+          }
+        },
+        "connection": {
+          "initializing": "O terreno está sendo iniciado, você será teleportado em instantes!",
+          "success": [
+            "",
+            "<green>Conectado ao terreno de {plot_owner_name_with_tag}</green>",
+            ""
+          ],
+          "errors": {
+            "in-connection-delay": [
+              "Você precisa esperar mais {remaining_time} para tentar acessar um terreno novamente!"
+            ],
+            "already-have-request": [
+              "Você já possui uma solicitação de acesso a uma plot, espere um pouco!"
+            ],
+            "not-available-apps": [
+              "",
+              "Não foi possivel encontrar um servidor de terreno para você se conectar, tente novamente em instantes.",
+              ""
+            ],
+            "locked-plot": [
+              "",
+              "Espere um pouco antes de acessar essa plot, parece que ela foi descarregada recentemente, tente novamente em instantes!",
+              ""
+            ],
+            "internal": [
+              "",
+              "<red>Ocorreu um erro ao tentar iniciar sua mina!</red>",
+              "<red>* Os membros da nossa equipe foram notificados sobre o erro</red>",
+              "<red>você pode tentar isso novamente em alguns instantes!</red>",
+              ""
+            ]
+          }
+        }
+      }
+    }
+  }
+}

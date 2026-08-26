@@ -1,0 +1,15 @@
+{
+    "plugins": {
+        "core": {
+            "messages": {
+                "custom-item": {
+                    "dupe-detected": [
+                        "",
+                        "<click:run_command:'/tp {player_name}'><hover:show_text:'<gray>Clique para teleportar até <white>{player_name}</white>'><red><bold>[ANTI-DUPE]</bold></red> <white>{player_name}</white> <gray>({app_id})</gray> <white>foi flagrado com</white> <red>{found_amount}/{max_amount}</red> <white>unidades do item</white> <yellow>{custom_item_key}</yellow></hover> <gray><hover:show_text:'<gray>ID do exemplar: <white>{unique_item_id}'>[detalhes]</hover></gray></click>",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

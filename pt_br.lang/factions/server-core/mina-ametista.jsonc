@@ -1,0 +1,89 @@
+{
+  // Guia da mina de ametista, aberto pelo NPC guia (/guiadaminaametista). Base no molde do tutorial —
+  // itens só informativos. O game design refaz o texto e os ícones depois.
+  "plugins": {
+    "server-core": {
+      "views": {
+        "mina-ametista": {
+          "title": "Mina de Ametista",
+          "items": {
+            "ametista": {
+              "name": "<gradient:#a855f7:#6366f1>Ametista</gradient>",
+              "lore": [
+                "<gray>Quebre blocos de ametista para</gray>",
+                "<gray>coletar fragmentos. Quanto maior a</gray>",
+                "<gray>sua Fortuna, mais fragmentos caem.</gray>",
+                "",
+                "<gray>O bloco vira bedrock e regenera</gray>",
+                "<gray>sozinho em instantes.</gray>"
+              ]
+            },
+            "terra-enraizada": {
+              "name": "<gradient:#a855f7:#6366f1>Terra Enraizada</gradient>",
+              "lore": [
+                "<gray>Escave a terra enraizada para</gray>",
+                "<gray>encontrar o núcleo ósseo, a moeda</gray>",
+                "<gray>que o arqueólogo aceita.</gray>",
+                "",
+                "<gray>Ela também regenera depois de</gray>",
+                "<gray>quebrada.</gray>"
+              ]
+            },
+            "detrito": {
+              "name": "<gradient:#a855f7:#6366f1>Detrito Ancestral</gradient>",
+              "lore": [
+                "<gray>De vez em quando a ametista vira</gray>",
+                "<gray>detrito ancestral, que dropa uma</gray>",
+                "<gray>barra de netherite.</gray>",
+                "",
+                "<gray>Ele é seu por alguns segundos:</gray>",
+                "<gray>ninguém mais consegue quebrar.</gray>"
+              ]
+            },
+            "allay": {
+              "name": "<gradient:#a855f7:#6366f1>Allay de Ametista</gradient>",
+              "lore": [
+                "<gray>Quebrar o detrito pode acordar um</gray>",
+                "<gray>Allay de Ametista, que carrega uma</gray>",
+                "<gray>cabeça de wither.</gray>",
+                "",
+                "<gray>Ele toma o triplo de dano de arcos</gray>",
+                "<gray>e some se ficar sem levar hit.</gray>"
+              ]
+            },
+            "arqueologo": {
+              "name": "<gradient:#a855f7:#6366f1>Arqueólogo</gradient>",
+              "lore": [
+                "<gray>Troque núcleos ósseos por upgrades</gray>",
+                "<gray>permanentes de mineração.</gray>",
+                "",
+                "<gray>Chances melhores, mais fragmentos</gray>",
+                "<gray>por bloco e mais velocidade.</gray>"
+              ]
+            },
+            "criaturas": {
+              "name": "<gradient:#a855f7:#6366f1>Criaturas</gradient>",
+              "lore": [
+                "<gray>Goblins na zona de ouro e aranhas</gray>",
+                "<gray>nas teias.</gray>",
+                "",
+                "<gray>Todas dão XP de combate e têm</gray>",
+                "<gray>drops próprios.</gray>"
+              ]
+            },
+            "eventos": {
+              "name": "<gradient:#a855f7:#6366f1>Eventos da Mina</gradient>",
+              "lore": [
+                "<gray>De tempos em tempos a mina entra</gray>",
+                "<gray>em evento: metas coletivas, bônus</gray>",
+                "<gray>de XP e mineração conjunta.</gray>",
+                "",
+                "<gray>Fique de olho no aviso no chat.</gray>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

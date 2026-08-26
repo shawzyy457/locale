@@ -1,0 +1,30 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "skin": {
+                    "reset": {
+                        "need-equipped-skin": "Você não está com nenhuma skin equipada, se quiser atualizar utiliza /skin atualizar",
+                        "loading": "Buscando sua skin...",
+                        "success": "Skin alterada com sucesso!"
+                    },
+                    "update": {
+                        "loading": "Buscando sua skin...",
+                        "success": "Skin alterada com sucesso!"
+                    },
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Nome do jogador com a skin que deseja"
+                        }
+                    },
+                    "cannot-use-self": "Você não pode selecionar sua própria skin, para equipa-la utilize /skin resetar",
+                    "need-original-account": "O jogador selecionado precisa ter um minecraft original!",
+                    "already-equipped": "Você já está utilizando essa skin!",
+                    "loading": "Buscando sua skin...",
+                    "success": "Skin alterada com sucesso!"
+                }
+            }
+        }
+    }
+}

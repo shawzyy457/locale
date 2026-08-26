@@ -1,0 +1,27 @@
+{
+  "plugins": {
+    "server-core": {
+      "items": {
+        "launcher": {
+          "name": "<color:#FF7B00>Lançador<color:#FF7B00>",
+          "lore": [
+            "<gray>Arremessa você para o alto. </gray>",
+            "<gray>A queda não causa dano.</gray>",
+            "",
+            "<color:#FF7B00> Propriedades:<color:#FF7B00>",
+            "<color:#FF7B00> 🚀 <white>Altura: <gray>{launcher_height} blocos<gray>",
+            "<color:#FF7B00> ⌚ <white>Recarga: <gray>{launcher_cooldown}<gray>",
+            "",
+            "<color:#FF7B00>Clique para lançar!<color:#FF7B00>"
+          ]
+        }
+      },
+      "messages": {
+        "launcher": {
+          "already-flying": "<red>Você ainda está no ar!</red>",
+          "in-cooldown": "<red>Você precisa esperar <white>{remaining_time}</white> para conseguir usar o lançador novamente!</red>"
+        }
+      }
+    }
+  }
+}

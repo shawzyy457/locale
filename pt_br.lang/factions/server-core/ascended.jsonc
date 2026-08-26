@@ -1,0 +1,31 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "ascended": {
+          "freeze": {
+            "applied": "<aqua>❄ Congelamento <gray>aplicado em <white>{player_name}<gray>!"
+          },
+          "conductivity": {
+            "applied": "<yellow>⚡ Condutividade <gray>atingiu <white>{player_name}<gray>!"
+          },
+          "deep-cut": {
+            "applied": "<dark_red>🩸 Corte Profundo <gray>aplicado em <white>{player_name}<gray>!"
+          },
+          "cut": {
+            "applied": "<red>⚔ Corte <gray>atingiu <white>{player_name}<gray>!"
+          },
+          "sharp-shadow": {
+            "applied": "<dark_purple>🌑 Sombra Afiada <gray>atingiu <white>{player_name} <gray>pelas costas!"
+          },
+          "execution": {
+            "applied": "<dark_red>💀 Execução <gray>atingiu <white>{player_name}<gray>!"
+          },
+          "swap": {
+            "cooldown": "<red>Aguarde <white>{time}</white> <red>para trocar de lugar novamente.</red>"
+          }
+        }
+      }
+    }
+  }
+}

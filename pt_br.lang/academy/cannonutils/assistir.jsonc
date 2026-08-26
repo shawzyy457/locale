@@ -1,0 +1,129 @@
+{
+  "plugins": {
+    "cannonutils": {
+      // ======================================================================
+      //  ARQUIBANCADA — /assistir
+      //
+      //  Qualquer jogador vendo o que está acontecendo agora: as invasões do Fac x Fac (app
+      //  <primário>-simulator) e os duelos 1x1 (app <primário>-practice). A escolha acontece onde o
+      //  jogador estiver; a travessia leva junto a intenção, e no destino ele entra em espectador.
+      //
+      //  Em modo espectador ninguém toma dano, queda ou empurrão, e ninguém em jogo o enxerga.
+      // ======================================================================
+      "spectate": {
+        "messages": {
+          "connecting": "Levando você até lá…",
+          "not-spectating": "Você não está assistindo a nada.",
+          "unavailable": "Não deu para te levar até lá agora. Tente de novo em instantes."
+        }
+      },
+
+      "views": {
+        "spectate": {
+          "title": "Assistir",
+          "items": {
+            "facxfac": {
+              "name": "<red>Fac x Fac</red> <dark_gray>({partidas} agora)</dark_gray>",
+              "lore": [
+                "<gray>As invasões entre facções que estão</gray>",
+                "<gray>acontecendo neste momento.</gray>",
+                "",
+                "<yellow>Clique para escolher</yellow>"
+              ]
+            },
+            "duelos": {
+              "name": "<gold>Duelos 1x1</gold> <dark_gray>({duelos} agora)</dark_gray>",
+              "lore": [
+                "<gray>As lutas do PvP Practice que estão</gray>",
+                "<gray>rolando neste momento.</gray>",
+                "",
+                "<yellow>Clique para escolher</yellow>"
+              ]
+            },
+            "sair": {
+              "name": "<green>Parar de assistir</green>",
+              "lore": [
+                "<gray>Sai do modo espectador e te leva</gray>",
+                "<gray>de volta ao spawn.</gray>",
+                "",
+                "<yellow>Clique para sair</yellow>"
+              ]
+            },
+            "fechar": {
+              "name": "<red>Fechar</red>",
+              "lore": [ "<gray>Fecha o menu.</gray>" ]
+            }
+          }
+        },
+
+        "spectate-matches": {
+          "title": "Assistir — Fac x Fac ({total})",
+          "items": {
+            "partida": {
+              "name": "{atacante} <dark_gray>x</dark_gray> {defensor}",
+              "lore": [
+                " <dark_gray>▸</dark_gray> <white>Arena:</white> <gray>{arena}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Tempo:</white> <gray>{duracao}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Times:</white> <gray>{atacantes} x {defensores}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Assistindo:</white> <gray>{publico}</gray>",
+                "",
+                "<gray>Você entra em modo espectador: não</gray>",
+                "<gray>toma dano e ninguém te vê.</gray>",
+                "",
+                "<yellow>Clique para assistir</yellow>"
+              ],
+              // A lore muda inteira quando a partida é da facção de quem olha: em vez de convidar, ela
+              // explica por que não dá.
+              "own-lore": [
+                " <dark_gray>▸</dark_gray> <white>Arena:</white> <gray>{arena}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Tempo:</white> <gray>{duracao}</gray>",
+                "",
+                "<red>Sua facção está nesta partida.</red>",
+                "<gray>Quem assiste atravessa parede e vê a</gray>",
+                "<gray>base inteira — por isso não dá.</gray>"
+              ]
+            },
+            "vazio": {
+              "name": "<red>Nenhuma invasão agora</red>",
+              "lore": [
+                "<gray>Quando duas facções se enfrentarem,</gray>",
+                "<gray>a partida aparece aqui.</gray>"
+              ]
+            }
+          }
+        },
+
+        "spectate-duels": {
+          "title": "Assistir — Duelos ({total})",
+          "items": {
+            "duelo": {
+              "name": "<white>{primeiro}</white> <dark_gray>x</dark_gray> <white>{segundo}</white>",
+              "lore": [
+                " <dark_gray>▸</dark_gray> <white>Tempo:</white> <gray>{duracao}</gray>",
+                "",
+                "<gray>Você entra em modo espectador e vê</gray>",
+                "<gray>apenas esta luta.</gray>",
+                "",
+                "<yellow>Clique para assistir</yellow>"
+              ],
+              "own-lore": [
+                " <dark_gray>▸</dark_gray> <white>Tempo:</white> <gray>{duracao}</gray>",
+                "",
+                "<red>Este duelo é seu.</red>",
+                "<gray>Lute — sair para assistir seria</gray>",
+                "<gray>abandonar o adversário.</gray>"
+              ]
+            },
+            "vazio": {
+              "name": "<red>Nenhum duelo agora</red>",
+              "lore": [
+                "<gray>Entre na fila com <white>/practice</white> ou</gray>",
+                "<gray>espere alguém começar uma luta.</gray>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

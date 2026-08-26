@@ -1,0 +1,535 @@
+{
+    "plugins": {
+        "armory": {
+            "registry": {
+                "wooden_sword": {
+                    "name": "{armory_color}Espada de Madeira",
+                    "description": [
+                        "<gray>Uma espada simples feita",
+                        "<gray>de madeira."
+                    ]
+                },
+                "wooden_axe": {
+                    "name": "{armory_color}Machado de Madeira",
+                    "description": [
+                        "<gray>Um machado simples feita",
+                        "<gray>de madeira."
+                    ]
+                },
+                "wooden_pickaxe": {
+                    "name": "{armory_color}Picareta de Madeira",
+                    "description": [
+                        "<gray>Uma picareta simples feita",
+                        "<gray>de madeira."
+                    ]
+                },
+                "wooden_shovel": {
+                    "name": "{armory_color}Pá de Madeira",
+                    "description": [
+                        "<gray>Uma pá simples feita",
+                        "<gray>de madeira."
+                    ]
+                },
+                "wooden_hoe": {
+                    "name": "{armory_color}Enxada de Madeira",
+                    "description": [
+                        "<gray>Uma enxada simples feita",
+                        "<gray>de madeira."
+                    ]
+                },
+                "stone_sword": {
+                    "name": "{armory_color}Espada de Pedra",
+                    "description": [
+                        "<gray>Lâmina afiada feita de",
+                        "<gray>pedra."
+                    ]
+                },
+                "stone_axe": {
+                    "name": "{armory_color}Machado de Pedra",
+                    "description": [
+                        "<gray>Machado afiado feito de",
+                        "<gray>pedra."
+                    ]
+                },
+                "stone_pickaxe": {
+                    "name": "{armory_color}Picareta de Pedra",
+                    "description": [
+                        "<gray>Ferramenta básica feita para",
+                        "<gray>mineração"
+                    ]
+                },
+                "stone_shovel": {
+                    "name": "{armory_color}Pá de Pedra",
+                    "description": [
+                        "<gray>Ferramenta básica feita para",
+                        "<gray>escavação."
+                    ]
+                },
+                "stone_hoe": {
+                    "name": "{armory_color}Enxada de Pedra",
+                    "description": [
+                        "<gray>Ferramenta básica feita para",
+                        "<gray>cultivação."
+                    ]
+                },
+                "iron_sword": {
+                    "name": "{armory_color}Espada de Ferro",
+                    "description": [
+                        "<gray>Lâmina de ferro afiada",
+                        "<gray>e resistente."
+                    ]
+                },
+                "iron_axe": {
+                    "name": "{armory_color}Machado de Ferro",
+                    "description": [
+                        "<gray>Ferramenta de ferro eficiente",
+                        "<gray>para corte e combate."
+                    ]
+                },
+                "iron_pickaxe": {
+                    "name": "{armory_color}Picareta de Ferro",
+                    "description": [
+                        "<gray>Ferramenta essencial de",
+                        "<gray>ferro para mineradores."
+                    ]
+                },
+                "iron_shovel": {
+                    "name": "{armory_color}Pá de Ferro",
+                    "description": [
+                        "<gray>Ferramenta para uma escavação",
+                        "<gray>rápida e eficiente."
+                    ]
+                },
+                "iron_hoe": {
+                    "name": "{armory_color}Enxada de Ferro",
+                    "description": [
+                        "<gray>Ferramenta de ferro para",
+                        "<gray>preparar grandes plantações."
+                    ]
+                },
+                "iron_helmet": {
+                    "name": "{armory_color}Elmo de Ferro",
+                    "description": [
+                        "<gray>Armadura sólida de ferro",
+                        "<gray>que protege sua cabeça."
+                    ]
+                },
+                "iron_chestplate": {
+                    "name": "{armory_color}Peitoral de Ferro",
+                    "description": [
+                        "<gray>Armadura sólida de ferro",
+                        "<gray>que protege seu peito."
+                    ]
+                },
+                "iron_leggings": {
+                    "name": "{armory_color}Calças de Ferro",
+                    "description": [
+                        "<gray>Armadura sólida de ferro",
+                        "<gray>que protege suas pernas."
+                    ]
+                },
+                "iron_boots": {
+                    "name": "{armory_color}Botas de Ferro",
+                    "description": [
+                        "<gray>Armadura sólida de ferro",
+                        "<gray>que protege seus pés."
+                    ]
+                },
+                "golden_sword": {
+                    "name": "{armory_color}Espada Dourada",
+                    "description": [
+                        "<gray>Lâmina forjada em",
+                        "<gray>ouro puro."
+                    ]
+                },
+                "golden_axe": {
+                    "name": "{armory_color}Machado Dourado",
+                    "description": [
+                        "<gray>Machado forjado em",
+                        "<gray>ouro puro."
+                    ]
+                },
+                "golden_pickaxe": {
+                    "name": "{armory_color}Picareta Dourada",
+                    "description": [
+                        "<gray>Picareta forjada em",
+                        "<gray>ouro puro."
+                    ]
+                },
+                "golden_shovel": {
+                    "name": "{armory_color}Pá Dourada",
+                    "description": [
+                        "<gray>Pá forjada em",
+                        "<gray>ouro puro."
+                    ]
+                },
+                "golden_hoe": {
+                    "name": "{armory_color}Enxada Dourada",
+                    "description": [
+                        "<gray>Enxada forjada em",
+                        "<gray>ouro puro."
+                    ]
+                },
+                "golden_helmet": {
+                    "name": "{armory_color}Elmo Dourado",
+                    "description": [
+                        "<gray>Armadura sólida de ouro",
+                        "<gray>que protege sua cabeça."
+                    ]
+                },
+                "golden_chestplate": {
+                    "name": "{armory_color}Peitoral Dourado",
+                    "description": [
+                        "<gray>Armadura sólida de ouro",
+                        "<gray>que protege seu peito."
+                    ]
+                },
+                "golden_leggings": {
+                    "name": "{armory_color}Calças Douradas",
+                    "description": [
+                        "<gray>Armadura sólida de ouro",
+                        "<gray>que protege suas pernas."
+                    ]
+                },
+                "golden_boots": {
+                    "name": "{armory_color}Botas Douradas",
+                    "description": [
+                        "<gray>Armadura sólida de ouro",
+                        "<gray>que protege seus pés."
+                    ]
+                },
+                "diamond_sword": {
+                    "name": "{armory_color}Espada de Diamante",
+                    "description": [
+                        "<gray>Lâmina afiada de ",
+                        "<gray>diamante puro."
+                    ]
+                },
+                "diamond_axe": {
+                    "name": "{armory_color}Machado de Diamante",
+                    "description": [
+                        "<gray>Machado forjado em",
+                        "<gray>diamante puro."
+                    ]
+                },
+                "diamond_pickaxe": {
+                    "name": "{armory_color}Picareta de Diamante",
+                    "description": [
+                        "<gray>Picareta forjada em",
+                        "<gray>diamante puro."
+                    ]
+                },
+                "diamond_shovel": {
+                    "name": "{armory_color}Pá de Diamante",
+                    "description": [
+                        "<gray>Pá forjada em ",
+                        "<gray>diamante puro."
+                    ]
+                },
+                "diamond_hoe": {
+                    "name": "{armory_color}Enxada de Diamante",
+                    "description": [
+                        "<gray>Enxada forjada em",
+                        "<gray>diamante puro."
+                    ]
+                },
+                "diamond_helmet": {
+                    "name": "{armory_color}Elmo de Diamante",
+                    "description": [
+                        "<gray>Armadura sólida de diamante",
+                        "<gray>que protege sua cabeça."
+                    ]
+                },
+                "diamond_chestplate": {
+                    "name": "{armory_color}Peitoral de Diamante",
+                    "description": [
+                        "<gray>Armadura sólida de diamante",
+                        "<gray>que protege seu peito."
+                    ]
+                },
+                "diamond_leggings": {
+                    "name": "{armory_color}Calças de Diamante",
+                    "description": [
+                        "<gray>Armadura sólida de diamante",
+                        "<gray>que protege suas pernas."
+                    ]
+                },
+                "diamond_boots": {
+                    "name": "{armory_color}Botas de Diamante",
+                    "description": [
+                        "<gray>Armadura sólida de diamante",
+                        "<gray>que protege seus pés."
+                    ]
+                },
+                "netherite_sword": {
+                    "name": "{armory_color}Espada de Netherite",
+                    "description": [
+                        "<gray>Lâmina forjada nas",
+                        "<gray>profundezas do Nether."
+                    ]
+                },
+                "netherite_axe": {
+                    "name": "{armory_color}Machado de Netherite",
+                    "description": [
+                        "<gray>Machado forjado nas",
+                        "<gray>profundezas do Nether."
+                    ]
+                },
+                "netherite_pickaxe": {
+                    "name": "{armory_color}Picareta de Netherite",
+                    "description": [
+                        "<gray>Picareta forjada nas",
+                        "<gray>profundezas do Nether."
+                    ]
+                },
+                "netherite_shovel": {
+                    "name": "{armory_color}Pá de Netherite",
+                    "description": [
+                        "<gray>Pá forjada nas profundezas",
+                        "<gray>do Nether."
+                    ]
+                },
+                "netherite_hoe": {
+                    "name": "{armory_color}Enxada de Netherite",
+                    "description": [
+                        "<gray>Enxada forjada nas",
+                        "<gray>profundezas do Nether."
+                    ]
+                },
+                "netherite_helmet": {
+                    "name": "{armory_color}Elmo de Netherite",
+                    "description": [
+                        "<gray>Proteção ancestral",
+                        "<gray>do Nether."
+                    ]
+                },
+                "netherite_chestplate": {
+                    "name": "{armory_color}Peitoral de Netherite",
+                    "description": [
+                        "<gray>Proteção ancestral",
+                        "<gray>do Nether."
+                    ]
+                },
+                "netherite_leggings": {
+                    "name": "{armory_color}Calças de Netherite",
+                    "description": [
+                        "<gray>Proteção ancestral",
+                        "<gray>do Nether."
+                    ]
+                },
+                "netherite_boots": {
+                    "name": "{armory_color}Botas de Netherite",
+                    "description": [
+                        "<gray>Proteção ancestral",
+                        "<gray>do Nether."
+                    ]
+                },
+                "glacite_sword": {
+                    "name": "{armory_color}Espada de glacite",
+                    "description": [
+                        "<gray>Lâmina forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_axe": {
+                    "name": "{armory_color}Machado de glacite",
+                    "description": [
+                        "<gray>Machado forjado em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_pickaxe": {
+                    "name": "{armory_color}Picareta de glacite",
+                    "description": [
+                        "<gray>Picareta forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_shovel": {
+                    "name": "{armory_color}Pá de glacite",
+                    "description": [
+                        "<gray>Pá forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_hoe": {
+                    "name": "{armory_color}Enxada de glacite",
+                    "description": [
+                        "<gray>Enxada forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_helmet": {
+                    "name": "{armory_color}Elmo de glacite",
+                    "description": [
+                        "<gray>Armadura forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_chestplate": {
+                    "name": "{armory_color}Peitoral de glacite",
+                    "description": [
+                        "<gray>Armadura forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_leggings": {
+                    "name": "{armory_color}Calças de glacite",
+                    "description": [
+                        "<gray>Armadura forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "glacite_boots": {
+                    "name": "{armory_color}Botas de glacite",
+                    "description": [
+                        "<gray>Armadura forjada em",
+                        "<gray>gelo eterno."
+                    ]
+                },
+                "leather_helmet": {
+                    "name": "{armory_color}Capacete de Couro",
+                    "description": [
+                        "<gray>Proteção leve e confortável.",
+                        "<gray>Ideal para iniciantes."
+                    ]
+                },
+                "leather_chestplate": {
+                    "name": "{armory_color}Túnica de Couro",
+                    "description": [
+                        "<gray>Proteção leve e confortável.",
+                        "<gray>Ideal para iniciantes."
+                    ]
+                },
+                "leather_leggings": {
+                    "name": "{armory_color}Calças de Couro",
+                    "description": [
+                        "<gray>Proteção leve e confortável.",
+                        "<gray>Ideal para iniciantes."
+                    ]
+                },
+                "leather_boots": {
+                    "name": "{armory_color}Botas de Couro",
+                    "description": [
+                        "<gray>Proteção leve e confortável.",
+                        "<gray>Ideal para iniciantes."
+                    ]
+                },
+                "fishing_rod": {
+                    "name": "{armory_color}Vara de Pesca",
+                    "description": [
+                        "<gray>Uma simples Vara de Pesca."
+                    ]
+                },
+                "bow": {
+                    "name": "{armory_color}Arco",
+                    "description": [
+                        "<gray>Dispara flechas contra seus",
+                        "<gray>inimigos à distância."
+                    ]
+                },
+                "crossbow": {
+                    "name": "{armory_color}Besta",
+                    "description": [
+                        "<gray>Dispara flechas com mais força,",
+                        "<gray>mas exige recarga."
+                    ]
+                }
+            },
+            "enchantments": {
+                "hot-touch": "Toque quente",
+                "super-area": "Super área ☆",
+                "heavy-touch": "Toque pesado ☆",
+                "freeze": "Congelamento ☆",
+                "cut": "Corte ☆",
+                "deep-cut": "Corte profundo ☆",
+                "sharp-shadow": "Sombra afiada ☆",
+                "duel": "Duelo ☆",
+                "skull-crush": "Quebra crânio ☆",
+                "iceberg": "Iceberg ☆",
+                "conductivity": "Condutividade ☆",
+                "execution": "Execução ☆",
+                "viking": "Viking ☆",
+                "explosive": "Explosivo ☆",
+                "tenacity": "Tenacidade ☆",
+                "reinforcement": "Reforço ☆",
+                "indestructible": "Indestrutível ☆",
+                "armored": "Blindado ☆",
+                "stealth": "Furtividade ☆",
+                "warmer": "Aquecimento ☆",
+                "anchor": "Âncora ☆",
+                "swap": "Troca ☆",
+                "recomposition": "Recomposição ☆"
+            },
+            "items": {
+                "armory-item": {
+                    "display-name": "{armory_name}",
+                    "worn-suffix": [
+                        " <red>(desgastado)"
+                    ],
+                    "kill-counter": [
+                        "{armory_color} ☠ Abates: <gray>{count}</gray>",
+                        ""
+                    ],
+                    "with-enchantments": {
+                        "name": "{armory_name}{armory_worn_suffix}",
+                        "lore": [
+                            "{armory_description}",
+                            "",
+                            "{armory_color} Encantamentos:",
+                            "<gray> {armory_enchantments}",
+                            "",
+                            "{armory_kill_counter}",
+                            "{armory_reforge_name}"
+                        ]
+                    },
+                    "without-enchantments": {
+                        "name": "{armory_name}{armory_worn_suffix}",
+                        "lore": [
+                            "{armory_description}",
+                            "",
+                            "{armory_kill_counter}",
+                            "{armory_reforge_name}"
+                        ]
+                    }
+                },
+                "armory-kill-counter-activator": {
+                    "display-name": "<red>Contador de Abates",
+                    "name": "<red>Contador de Abates",
+                    "lore": [
+                        "<gray>Arraste este item sobre uma",
+                        "<gray>espada ou machado para ativar",
+                        "<gray>um contador de abates permanente.",
+                        "",
+                        "<dark_gray>O contador nunca é perdido."
+                    ]
+                }
+            },
+            "messages": {
+                "kill-counter": {
+                    "applied": "<green>Contador de abates ativado na arma!",
+                    "already-applied": "<red>Esta arma já possui um contador de abates.",
+                    "not-a-weapon": "<red>Você só pode ativar o contador em espadas ou machados."
+                },
+                "requirements": {
+                    "cannot-use": [
+                        "Você ainda não pode usar {armory_name}<red>. Requisitos:",
+                        "{armory_requirements}"
+                    ]
+                },
+                "reforge": {
+                    "apply-success": "<green>Item forjado com sucesso!",
+                    "already-reforged": "<red>Este item já está forjado com este forjamento."
+                }
+            },
+            "reforge": {
+                "refined-amethyst": {
+                    "message": [
+                        "{armory_color}Fundido em {custom_item_display_name}<gray>,",
+                        "{armory_color}não desgasta ao reparar."
+                    ]
+                }
+            }
+        }
+    }
+}

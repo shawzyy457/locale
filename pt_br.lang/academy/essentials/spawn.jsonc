@@ -1,0 +1,38 @@
+{
+  "plugins": {
+    "essentials": {
+      "messages": {
+        // Módulo spawn do Shared Essentials (PlayerSpawnConnectionListener + SpawnUtil +
+        // SpawnFishingProtectionListener). O join manda o título (TitleAPI sufixa .title/.subtitle)
+        // e o bloco de chat (array = uma linha por item). As duas primeiras chaves do bloco spawn
+        // são do SpawnUtil, que também é acionado pelo /plot kick e pelo resgate do CannonUtils.
+        "fishing": {
+          "cannot-fish-on-spawn": "<red>Você não pode pescar no spawn."
+        },
+        "spawn": {
+          "already-connect-queue": "<red>Já existe um pedido de teletransporte para o spawn, aguarde.",
+          "cant-find-app": "<red>Não foi possível encontrar um servidor de spawn aberto.",
+          "join": {
+            "title": {
+              "title": "<gradient:#FF6F00:#faa825:#FF6F00><bold>EXE ACADEMY",
+              "subtitle": "<white>exe.com"
+            },
+            "chat": [
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00><bold>EXE ACADEMY</bold>",
+              " <gray>Monte, treine e dispare os seus canhões.</gray>",
+              " <gray>Novo aqui? Use <white>/plot</white> para começar.</gray>",
+              "",
+              " <color:#FF6F00>Acompanhe nossas redes sociais:",
+              " <color:#FF6F00>▶ <white>Discord:</white> <gray>discord.gg/exe</gray>",
+              " <color:#FF6F00>▶ <white>TikTok:</white> <gray>@RedeEXEOficial</gray>",
+              "",
+              " <gradient:#FF6F00:#faa825:#FF6F00>exe.com",
+              ""
+            ]
+          }
+        }
+      }
+    }
+  }
+}

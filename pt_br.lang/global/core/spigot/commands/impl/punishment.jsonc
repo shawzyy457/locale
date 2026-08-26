@@ -1,0 +1,47 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "checkpunish": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que deseja verificar as punições"
+                        }
+                    }
+                },
+                "punishment": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que deseja punir"
+                        },
+                        "category": {
+                            "name": "categoria de punição",
+                            "description": "A categoria da sua punição"
+                        },
+                        "proof": {
+                            "name": "prova",
+                            "description": "A prova da sua punição"
+                        }
+                    },
+                    "punishment-category-not-found": "Não foi possível encontrar a categoria desejada"
+                },
+                "punishment-revoke": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que deseja removar as punições"
+                        }
+                    },
+                    "dialog": {
+                        "query": "<yellow>Deseja realmente <bold>revogar</bold> a punição de {target_name}?</yellow>"
+                    },
+                    "punishment-not-found": "Não foi possível encontrar nenhuma punição para o usuário.",
+                    "need-highest-group": "Você não pode revogar punições de usuários com um cargo maior ou igual ao seu.",
+                    "success": "Punição revogada com sucesso."
+                }
+            }
+        }
+    }
+}

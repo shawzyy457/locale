@@ -1,0 +1,59 @@
+{
+    "plugins": {
+        "core": {
+            "commands": {
+                "edititem": {
+                    "hideall": {
+                        "success": "Atributos removidos com sucesso!"
+                    },
+                    "lore": {
+                        "add": {
+                            "arguments": {
+                                "line": {
+                                    "name": "conteudo",
+                                    "description": "conteudo que deseja adicionar"
+                                }
+                            },
+                            "success": "Linha de lore adicionada com sucesso!"
+                        },
+                        "remove": {
+                            "arguments": {
+                                "index": {
+                                    "name": "posição",
+                                    "description": "posição que você deseja remover"
+                                }
+                            },
+                            "no-lore": "Este item não possui lore para remover.",
+                            "index-out-of-bounds": "Não existe nenhuma linha de lore nesse índice.",
+                            "success": "Linha de lore removida com sucesso!"
+                        },
+                        "set": {
+                            "arguments": {
+                                "index": {
+                                    "name": "posição",
+                                    "description": "posição que você deseja remover"
+                                },
+                                "content": {
+                                    "name": "conteudo",
+                                    "description": "conteudo que deseja definir"
+                                }
+                            },
+                            "no-lore": "Este item não possui lore para editar.",
+                            "index-out-of-bounds": "Não existe nenhuma linha de lore nesse índice.",
+                            "success": "Linha de lore editada com sucesso!"
+                        }
+                    },
+                    "rename": {
+                        "arguments": {
+                            "name": {
+                                "name": "nome",
+                                "description": "nome que deseja definir"
+                            }
+                        },
+                        "success": "Item renomeado com sucesso!"
+                    }
+                }
+            }
+        }
+    }
+}

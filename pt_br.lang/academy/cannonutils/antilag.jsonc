@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "cannonutils": {
+      "antilag": {
+        // Alertas de staff (MODERATOR+), com silêncio por categoria+plot controlado pelo
+        // UserCooldown do core. Placeholders vêm do CannonAntiLagNotifier:
+        //   cap         -> {world}, {type}, {limit}
+        //   containment -> {world}, {amount}
+        // O {world} é o nome do mundo-plot (plot_<key>), já que no cannoning o plot É o mundo.
+        //
+        // Chat não leva fonte pequena: a tarja e a cor já separam o alerta do resto da conversa.
+        "alerts": {
+          "cap": "<red>[ANTI-LAG]</red> <white>Limite de <yellow>{type}</yellow> atingido em <yellow>{world}</yellow> <gray>({limit})</gray><white>. Novos spawns foram recusados.</white>",
+          "containment": "<red>[ANTI-LAG]</red> <white>Removidas <yellow>{amount}</yellow> entidades que saíram do plot em <yellow>{world}</yellow><white>.</white>"
+        },
+        // Enviado ao jogador que tenta colocar um bloco de antilag.blocos-proibidos.
+        "blocked-placement": "<red>Você não pode colocar <yellow>{block}</yellow> neste servidor.</red>"
+      }
+    }
+  }
+}

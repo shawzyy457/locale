@@ -1,0 +1,371 @@
+{
+  // Estilo (padrão do servidor de factions): chat sem fonte, com a cor dizendo o resultado; item de
+  // menu SEMPRE com a fonte pequena; dado em bullet " ▸ <white>Rótulo:</white> <gray>valor</gray>".
+  "plugins": {
+    "cannon": {
+      "commands": {
+        "tnt": {
+          "errors": {
+            "invalid-key": "<red>O ajuste <yellow>{key}</yellow> não existe. Use <white>/tnt values</white> para ver a lista.</red>",
+            "no-plot": "<red>Você precisa estar em uma plot para ajustar a TNT.</red>",
+            "no-plot-permission": "<red>Você não possui permissão para ajustar a TNT desta plot.</red>"
+          },
+          "set": {
+            "usage": "<red>Uso: <white>/tnt set <chave> <valor></white> <gray>Chaves: {keys}</gray></red>",
+            "invalid-value": "<red>O valor <yellow>{value}</yellow> é inválido para o ajuste <yellow>{key}</yellow>.</red>",
+            "done": "<green>Ajuste <yellow>{key}</yellow> definido para <white>{value}</white> nesta plot!</green>"
+          },
+          "unset": {
+            "usage": "<red>Uso: <white>/tnt unset <chave></white></red>",
+            "done": "<green>Ajuste <yellow>{key}</yellow> removido! Esta plot voltou ao valor global.</green>",
+            "no-override": "<red>Esta plot não possui ajuste próprio para <yellow>{key}</yellow>.</red>"
+          },
+          "values": {
+            // {scope} e {marker} são resolvidos via Lang pelo CannonTntCommand (nada de PT hardcoded no Java).
+            "scope": {
+              "plot": "desta plot",
+              "global": "global"
+            },
+            "marker": " <yellow>(plot)</yellow>",
+            "header": "<yellow>Ajustes da TNT <gray>({scope})</gray>:</yellow>",
+            "line": " <dark_gray>▸</dark_gray> <white>{key}:</white> <gray>{value}</gray>{marker}"
+          },
+          "help": "<yellow>Uso: <white>/tnt dano | impulso | set <chave> <valor> | unset <chave> | values</white></yellow>",
+          "give": {
+            "damage": "<green>Você recebeu <yellow>1 TNT de Dano</yellow>!</green>",
+            "impulse": "<green>Você recebeu <yellow>1 TNT de Impulso</yellow>!</green>"
+          }
+        },
+        "durabilidade": {
+          // {block} é o nome do BLOCO DE PROTEÇÃO quando ele tem um ("Rocha Congelada"), reusando a lang
+          // do próprio CustomItem — a mesma que o item mostra no inventário, para os dois não divergirem.
+          // Sem item próprio (bedrock, gelo azul, lodestone), chega como Component traduzível
+          // (Material#translationKey) e o cliente mostra o nome no idioma dele, em vez do enum cru
+          // "END_STONE". Ver CannonDurabilityBlockNames.
+          // ⚠️ O nome vem com COR própria (o azul dos blocos de proteção) e sem fonte: não o envolva em
+          // uma cor aqui esperando que ela valha — o <white> abaixo só alcança quem não traz a sua.
+          "no-target": "<red>Olhe para um bloco para inspecionar a durabilidade.</red>",
+          "not-durable": "<red>O bloco <yellow>{block}</yellow> não possui durabilidade.</red>",
+          "info": "<yellow>O bloco <white>{block}</white> está com <white>{current}</white><gray>/</gray><white>{max}</white> de durabilidade.</yellow>",
+          // O menu passou a ser POR PLOT em 14/08/2026 — antes ele editava um catálogo do servidor que
+          // não valia dentro de plot nenhuma. Os dois erros abaixo são os mesmos do /tnt, com o mesmo
+          // texto: os dois comandos ajustam a MESMA plot e não podem divergir sobre quem pode isso.
+          "errors": {
+            "no-plot": "<red>Você precisa estar em uma plot para ajustar a durabilidade.</red>",
+            "no-plot-permission": "<red>Você não possui permissão para ajustar a durabilidade desta plot.</red>"
+          },
+          "reset": {
+            "done": "<green>A durabilidade desta plot voltou ao padrão, e todo bloco já colocado está com a vida cheia.</green>",
+            "nothing": "<red>Esta plot já está no padrão — não há nada para restaurar.</red>"
+          }
+        }
+      },
+      // Bloco ÚNICO de itens do plugin. Já existiu um segundo "items" no fim do arquivo (impulse-tnt),
+      // e como JSON resolve chave repetida pelo ÚLTIMO valor, o bloco de cima era descartado inteiro:
+      // CannonDurabilityStickCustomItem.java:48-49 lê items.durability-checker.name/lore e o jogador
+      // via a chave crua. Os dois foram fundidos aqui — não reintroduza um "items" separado.
+      "items": {
+        // ── Blocos de proteção ────────────────────────────────────────────────────────────────────
+        // Mesmos blocos do servidor de factions (nome, cor e durabilidade), registrados pelo
+        // CannonDurabilityBlockCustomItem com a chave `durability-block-<id>`. Os ids e os HP vêm do
+        // perfil `simulador` do config.yml do cannon-plugin; {durability_block_max_durability} mostra o
+        // valor do MUNDO em que o jogador está, então a mesma lore serve dentro e fora da partida.
+        //
+        // ⚠️ O AZUL (#00acff) destes cinco é de propósito, e é a única exceção à paleta da Academy: são
+        // os MESMOS itens do factions, com o mesmo nome e a mesma cor. Quem treina aqui tem de
+        // reconhecê-los lá sem reparar na diferença.
+        // ⚠️ Sem os selos de congelamento do factions (): a Academy não tem TNT
+        // congelada e o glifo não existe no pacote daqui — chamá-lo viraria "[NULL: ...]" vermelho.
+        "durability-block-glacite-block": {
+          "name": "<color:#00acff>Bloco de Glacite</color>",
+          "lore": [
+            "<gray>Compósito cristalino de</gray>",
+            "<gray>altíssima rigidez.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durability_block_max_durability}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Ao ser colocado:</white> <gray>{durability_block_initial_durability}</gray>",
+            "",
+            "<color:#00acff>Recupera 1 de durabilidade a cada 5 minutos.</color>"
+          ]
+        },
+        "durability-block-protective-rock": {
+          "name": "<color:#00acff>Rocha Protetora</color>",
+          "lore": [
+            "<gray>Material denso, excelente para</gray>",
+            "<gray>reforçar áreas vulneráveis.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durability_block_max_durability}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Ao ser colocado:</white> <gray>{durability_block_initial_durability}</gray>",
+            "",
+            "<color:#00acff>Recupera 1 de durabilidade a cada 5 minutos.</color>"
+          ]
+        },
+        "durability-block-frozen-rock": {
+          "name": "<color:#00acff>Rocha Congelada</color>",
+          "lore": [
+            "<gray>Uma rocha gelada e extremamente</gray>",
+            "<gray>compacta, difícil de quebrar.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durability_block_max_durability}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Ao ser colocado:</white> <gray>{durability_block_initial_durability}</gray>",
+            "",
+            "<color:#00acff>Recupera 1 de durabilidade a cada 5 minutos.</color>"
+          ]
+        },
+        "durability-block-end-stone-bricks": {
+          "name": "<color:#00acff>Tijolos de Pedra do Fim</color>",
+          "lore": [
+            "<gray>Bloco estrutural resistente</gray>",
+            "<gray>feito de Pedra do Fim.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durability_block_max_durability}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Ao ser colocado:</white> <gray>{durability_block_initial_durability}</gray>",
+            "",
+            "<color:#00acff>Recupera 1 de durabilidade a cada 5 minutos.</color>"
+          ]
+        },
+        "durability-block-tinted-glass": {
+          "name": "<color:#00acff>Vidro Blindado</color>",
+          "lore": [
+            "<gray>Estético e funcional em</gray>",
+            "<gray>estruturas defensivas.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durability_block_max_durability}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Ao ser colocado:</white> <gray>{durability_block_initial_durability}</gray>",
+            "",
+            "<color:#00acff>Recupera 1 de durabilidade a cada 5 minutos.</color>"
+          ]
+        },
+        "durability-checker": {
+          // Sem <bold>: nenhum nome de item de marca da rede usa negrito
+          // (factions/durability.jsonc:45,57,69). O negrito era resquício do fork comprado.
+          "name": "<color:#ff2d2d>Verificador de Durabilidade</color>",
+          "lore": [
+            "<gray>Mostra a durabilidade atual e a</gray>",
+            "<gray>máxima de um bloco durável.</gray>",
+            "",
+            "<green>Clique com o botão direito no bloco!</green>"
+          ]
+        },
+        "impulse-tnt": {
+          "name": "<color:#ff2d2d>TNT de Impulso</color>",
+          "lore": [
+            "<gray>Não quebra blocos e empurra</gray>",
+            "<gray>as TNTs que estiverem por perto.</gray>",
+            "",
+            " <dark_gray>▸</dark_gray> <white>Quebra blocos:</white> <gray>Não</gray>",
+            " <dark_gray>▸</dark_gray> <white>Empurrão:</white> <gray>Ampliado</gray>",
+            "",
+            "<green>Posicione para carregar o canhão!</green>"
+          ]
+        }
+      },
+      "views": {
+        "tnt": {
+          "title": "Configurações da TNT",
+          // TODO Mensagem de chat disparada da view: pelo style guide deveria morar em
+          // messages.views.tnt.reset-done, mas CannonTntMenuView.java:161 monta BASE + ".reset-done".
+          // Mover exige editar o Java.
+          "reset-done": "<green>Configurações desta plot redefinidas ao padrão do servidor!</green>",
+          "state": {
+            "on": "<green>Ativado</green>",
+            "off": "<red>Desativado</red>"
+          },
+          "items": {
+            "plus": {
+              "name": "<green>+{step}</green>",
+              "lore": [
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "minus": {
+              "name": "<red>-{step}</red>",
+              "lore": [
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "tnt-knockback-multiplier": {
+              "name": "<color:#ff2d2d>Força do empurrão</color>",
+              "lore": [
+                "<gray>Multiplicador do empurrão</gray>",
+                "<gray>da TNT de impulso.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Valor atual:</white> <gray>{value}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "block-damage": {
+              "name": "<color:#ff2d2d>Dano nos blocos duráveis</color>",
+              "lore": [
+                "<gray>Durabilidade que cada explosão</gray>",
+                "<gray>tira dos blocos duráveis.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Valor atual:</white> <gray>{value}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "block-radius": {
+              "name": "<color:#ff2d2d>Raio de destruição</color>",
+              "lore": [
+                "<gray>Alcance da explosão da TNT.</gray>",
+                "<gray>1 é o padrão do vanilla.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Valor atual:</white> <gray>{value}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "water-push-multiplier": {
+              "name": "<color:#ff2d2d>Força da correnteza</color>",
+              "lore": [
+                "<gray>Multiplicador do empurrão que a</gray>",
+                "<gray>água dá na TNT. 1 é o do vanilla.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Valor atual:</white> <gray>{value}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            // Tira do pavio (fuse-ticks). Só aparece para quem tem cannon.set.fuse-ticks (cargo VIP);
+            // sem a permissão os três slots ficam vazios e esta chave não é resolvida.
+            "fuse-ticks": {
+              "name": "<color:#ff2d2d>Pavio da TNT</color>",
+              "lore": [
+                "<gray>Quantos ticks a TNT leva para</gray>",
+                "<gray>explodir depois de armada.</gray>",
+                "<gray>20 ticks = 1 segundo; 80 é o padrão.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Valor atual:</white> <gray>{value} ticks</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>"
+              ]
+            },
+            "water-pushes-tnt": {
+              "name": "<color:#ff2d2d>Água empurra TNT</color>",
+              "lore": [
+                "<gray>Define se a correnteza da água</gray>",
+                "<gray>empurra as TNTs.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Estado:</white> {state}",
+                "",
+                "<green>Clique para alternar.</green>"
+              ]
+            },
+            "player-knockback": {
+              "name": "<color:#ff2d2d>Empurrar jogadores</color>",
+              "lore": [
+                "<gray>Define se a explosão da TNT</gray>",
+                "<gray>empurra jogadores.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Estado:</white> {state}",
+                "",
+                "<green>Clique para alternar.</green>"
+              ]
+            },
+            "impulse-tnt-pushes-impulse-tnt": {
+              "name": "<color:#ff2d2d>Impulso empurra impulso</color>",
+              "lore": [
+                "<gray>Define se a TNT de impulso</gray>",
+                "<gray>empurra outra TNT de impulso.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Estado:</white> {state}",
+                "",
+                "<green>Clique para alternar.</green>"
+              ]
+            },
+            "normal-tnt-pushes-impulse-tnt": {
+              "name": "<color:#ff2d2d>TNT normal empurra impulso</color>",
+              "lore": [
+                "<gray>Define se a TNT normal</gray>",
+                "<gray>empurra a TNT de impulso.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Estado:</white> {state}",
+                "",
+                "<green>Clique para alternar.</green>"
+              ]
+            },
+            "normal-tnt-pushes-tnt": {
+              "name": "<color:#ff2d2d>TNT normal empurra TNT</color>",
+              "lore": [
+                "<gray>Define se a TNT normal</gray>",
+                "<gray>empurra outra TNT normal.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Estado:</white> {state}",
+                "",
+                "<green>Clique para alternar.</green>"
+              ]
+            },
+            "reset": {
+              "name": "<red>Redefinir configurações</red>",
+              "lore": [
+                "<gray>Remove os ajustes próprios da sua</gray>",
+                "<gray>plot e volta ao padrão do servidor.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Força do empurrão:</white> <gray>{knockback}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Dano nos blocos:</white> <gray>{block_damage}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Raio de destruição:</white> <gray>{block_radius}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Empurrar jogadores:</white> {player_knockback}",
+                " <dark_gray>▸</dark_gray> <white>Impulso empurra impulso:</white> {impulse_pushes_impulse}",
+                " <dark_gray>▸</dark_gray> <white>TNT normal empurra impulso:</white> {normal_pushes_impulse}",
+                " <dark_gray>▸</dark_gray> <white>TNT normal empurra TNT:</white> {normal_pushes_tnt}",
+                " <dark_gray>▸</dark_gray> <white>Água empurra TNT:</white> {water_pushes_tnt}",
+                " <dark_gray>▸</dark_gray> <white>Força da correnteza:</white> <gray>{water_push_multiplier}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Pavio da TNT:</white> <gray>{fuse_ticks} ticks</gray>",
+                "",
+                "<red>Clique para redefinir.</red>"
+              ]
+            }
+          }
+        },
+        "durabilidade": {
+          "title": "Durabilidade dos Blocos",
+          // Mensagens de chat disparadas pela view (mesmo idioma do views.tnt.reset-done acima):
+          // CannonDurabilityMenuView monta BASE + ".<chave>".
+          "added": "<green>Bloco <yellow>{bloco}</yellow> cadastrado com <white>{durabilidade}</white> de durabilidade!</green>",
+          "already-durable": "<red>O bloco <yellow>{bloco}</yellow> já possui durabilidade.</red>",
+          "not-a-block": "<red>Isso não é um bloco.</red>",
+          "removed": "<green>Bloco <yellow>{bloco}</yellow> descadastrado! Ele volta a quebrar como bloco comum.</green>",
+          "items": {
+            "bloco": {
+              "name": "<color:#ff2d2d>{bloco}</color>",
+              "lore": [
+                "<gray>Quantas explosões de TNT este</gray>",
+                "<gray>bloco aguenta antes de quebrar.</gray>",
+                "",
+                " <dark_gray>▸</dark_gray> <white>Durabilidade:</white> <gray>{durabilidade}</gray>",
+                " <dark_gray>▸</dark_gray> <white>Variações:</white> <gray>{materiais}</gray>",
+                "",
+                "<green>Botão esquerdo</green> <dark_gray>▸</dark_gray> <white>Aumentar</white>",
+                "<yellow>Botão direito</yellow> <dark_gray>▸</dark_gray> <white>Diminuir</white>",
+                "<yellow>Shift</yellow> <dark_gray>▸</dark_gray> <white>Passo 10x</white>",
+                "<red>Botão do meio</red> <dark_gray>▸</dark_gray> <white>Descadastrar</white>"
+              ]
+            },
+            "add": {
+              "name": "<color:#ff2d2d>Adicionar bloco</color>",
+              "lore": [
+                "<gray>Cadastra um bloco novo na lista</gray>",
+                "<gray>de blocos com durabilidade.</gray>",
+                "",
+                "<green>Clique no bloco dentro do</green>",
+                "<green>seu inventário para cadastrá-lo!</green>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

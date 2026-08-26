@@ -1,0 +1,31 @@
+{
+    "plugins": {
+        "server-core": {
+            "messages": {
+                "spawn": {
+                    "already-connect": "<red>Você já está conectado a um spawn.",
+                    "already-connect-queue": "<red>Já existe um pedido de teletransporte para o spawn, aguarde.",
+                    "cant-find-app": "<red>Não foi possível encontrar um servidor de spawn aberto.",
+                    "join": {
+                        "title": {
+                            "title": "<color:#6e0281><bold>????",
+                            "subtitle": "<white>exe.com"
+                        },
+                        "chat": [
+                            "",
+                            " <gradient:#FF6F00:#faa825><bold>P4 FREE</bold></gradient> <dark_gray>⚡<gradient:#FF6F00:#faa825> Disponível nas últimas versões!</gradient>",
+                            // " <gray>Navegue pela sombra do eclipse com coragem pois é na escuridão que você encontrará seu caminho para a grandeza.</gray>",
+                            "",
+                            " <color:#ff9100>Acompanhe nossas redes sociais:",
+                            " <color:#ff9100>▸ <white>Discord:</white> <gray>discord.gg/exe</gray>",
+                            " <color:#ff9100>▸ <white>TikTok:</white> <gray>@RedeEXEOficial</gray>",
+                            "",
+                            " <gradient:#FF6F00:#faa825>exe.com</gradient>",
+                            ""
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

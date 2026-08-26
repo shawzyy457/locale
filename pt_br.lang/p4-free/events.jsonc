@@ -1,0 +1,627 @@
+{
+    "plugins": {
+        "events": {
+            "values": {
+                "none": "nenhum",
+                "cancelled": "cancelado",
+                "finalized": "finalizado",
+                "time": {
+                    "seconds": "{value}s",
+                    "minutes": "{value}min",
+                    "hours": "{value}h"
+                }
+            },
+            "placeholders": {
+                "winner-tag": "<dark_red>[Gladiador] ",
+                "border-status": "Borda ",
+                "deathmatch": "<dark_red><bold>DEATHMATCH",
+                "border-timer": "estágio <red>{stage}",
+                "active-rush": "{rushes} rush(es) ativo(s)",
+                "rush-status": "Rushes ativos ({rushes}):",
+                "chase-status": "<white>Clan alvo: <yellow>{clan_tag}"
+            },
+            "stages": {
+                "waiting_players": "<green>disponível para entrar",
+                "preparing_time": "<yellow>em preparação",
+                "running": "<red>em andamento",
+                "deathmatch": "<dark_red>mata-mata",
+                "finalized": "<gray>finalizado"
+            },
+            "commands": {
+                "glad": {
+                    "cabin-join": {
+                        "unavailable": "Nenhuma instância do Gladiador está disponível.",
+                        "failed": "Não foi possível entrar no camarote. Tente novamente.",
+                        "inventory-not-empty": "Esvazie seu inventário antes de entrar no camarote."
+                    },
+                    "event-force-join": {
+                        "arguments": {
+                            "player": { "name": "jogador", "description": "Jogador que será enviado ao Gladiador." }
+                        },
+                        "user-not-found": "Jogador não encontrado.",
+                        "unavailable": "Nenhuma instância do Gladiador está disponível.",
+                        "failed": "Não foi possível enviar o jogador ao Gladiador."
+                    },
+                    "event-join": {
+                        "unavailable": "Nenhuma instância do Gladiador está disponível.",
+                        "failed": "Não foi possível entrar no Gladiador. Tente novamente."
+                    },
+                    "event-rejoin": {
+                        "processing": "Pedido de reentrada enviado."
+                    },
+                    "sair": {
+                        "not-running": "Não há um Gladiador em andamento.",
+                        "processing": "Processando sua saída do Gladiador..."
+                    },
+                    "camarote": {
+                        "usage": "Use /glad camarote <entrar/sair>.",
+                        "exit": {
+                            "not-running": "Não há um Gladiador em andamento.",
+                            "processing": "Processando sua saída do camarote..."
+                        }
+                    },
+                    "status": {
+                        "unavailable": "Ainda não há dados do Gladiador.",
+                        "message": "<yellow>Gladiador: {event_status} <dark_gray>| <yellow>{event_players} jogadores <dark_gray>| <yellow>{event_clans} clans <dark_gray>| <yellow>borda {event_border} <dark_gray>| <yellow>{event_rushes} rush(es) <dark_gray>| <yellow>{event_time}s"
+                    },
+                    "beast": {
+                        "arguments": {
+                            "action": { "name": "ação", "description": "top, set ou reset." },
+                            "player": { "name": "jogador", "description": "Jogador que receberá a tag Mito." },
+                            "record": { "name": "contar", "description": "Use count para somar ao ranking de Mitos." }
+                        },
+                        "unavailable": "Ainda não há dados do Gladiador.",
+                        "none": "<dark_purple>Mito atual: <gray>nenhum",
+                        "message": "<dark_purple>Mito atual: <light_purple>{player_name} <gray>({player_kills} abates)",
+                        "no-permission": "Você não tem permissão para alterar o Mito.",
+                        "usage": "Use /mito, /mito top, /mito set <jogador> [count] ou /mito reset.",
+                        "user-not-found": "Jogador não encontrado.",
+                        "query-failed": "Não foi possível consultar esse jogador.",
+                        "processing": "Processando a alteração do Mito..."
+                    },
+                    "stacked": {
+                        "unavailable": "Ainda não há dados do Gladiador.",
+                        "message": "<gold>Teias ativas detectadas: <yellow>{webs}"
+                    },
+                    "web-monitor": {
+                        "loading": "Consultando as teias detectadas no Gladiador..."
+                    },
+                    "reversal-monitor": {
+                        "loading": "Consultando as viradas dos rushes ativos..."
+                    },
+                    "stacked-control": {
+                        "arguments": {
+                            "action": { "name": "ação", "description": "ativar, desativar ou limite." },
+                            "value": { "name": "valor", "description": "Novo mínimo de jogadores empilhados." }
+                        },
+                        "usage": "Use /stackedplayers <on/off/stackedThreshold> [valor].",
+                        "invalid-value": "Informe um limite inteiro de pelo menos 2 jogadores.",
+                        "processing": "Atualizando o sistema de jogadores empilhados..."
+                    },
+                    "rush-list": {
+                        "query-failed": "Não foi possível consultar os rushes."
+                    },
+                    "rush-watch": {
+                        "arguments": {
+                            "clan": { "name": "clan", "description": "Tag do clan cujo rush deseja assistir." },
+                            "second-clan": { "name": "segundo clan", "description": "Segunda tag opcional para /teleportrush." }
+                        },
+                        "query-failed": "Não foi possível consultar esse clan.",
+                        "clan-not-found": "Clan não encontrado."
+                    },
+                    "history": {
+                        "arguments": {
+                            "id": { "name": "id", "description": "ID opcional da edição do Gladiador." }
+                        },
+                        "invalid-id": "ID de edição inválido.",
+                        "loading": "Consultando o histórico do Gladiador..."
+                    },
+                    "topwins": { "loading": "Consultando o ranking do Gladiador..." },
+                    "topkills": { "loading": "Consultando o ranking do Gladiador..." },
+                    "toprush": { "loading": "Consultando o ranking do Gladiador..." },
+                    "topviradas": { "loading": "Consultando o ranking do Gladiador..." },
+                    "topmyths": { "loading": "Consultando o ranking de Mitos..." },
+                    "rush-score": {
+                        "arguments": {
+                            "clan": { "name": "clan ou todos", "description": "Tag do clan ou todos os confrontos." }
+                        },
+                        "loading": "Consultando o placar de rushes...",
+                        "clan-not-found": "Clan não encontrado no placar de rushes.",
+                        "query-failed": "Não foi possível consultar esse clan."
+                    },
+                    "recent-actions": {
+                        "loading": "Consultando as ações recentes do Gladiador..."
+                    },
+                    "revive": {
+                        "arguments": {
+                            "player": { "name": "jogador", "description": "Jogador que será revivido." }
+                        }
+                    },
+                    "kick": {
+                        "arguments": {
+                            "player": { "name": "jogador", "description": "Jogador que será expulso do Gladiador." }
+                        }
+                    },
+                    "kickclan": {
+                        "arguments": {
+                            "clan": { "name": "clan", "description": "Tag do clan que será expulso." }
+                        }
+                    },
+                    "setrush": {
+                        "arguments": {
+                            "action": { "name": "iniciar/parar", "description": "Ação que será aplicada ao rush." },
+                            "first-clan": { "name": "primeiro clan", "description": "Primeira tag do confronto." },
+                            "second-clan": { "name": "segundo clan", "description": "Segunda tag do confronto." }
+                        }
+                    },
+                    "togglerejoin": {
+                        "arguments": {
+                            "action": { "name": "ativar/desativar", "description": "Novo estado da reentrada." }
+                        }
+                    },
+                    "maxmembers": {
+                        "arguments": {
+                            "amount": { "name": "quantia", "description": "Novo limite de participantes por clan." }
+                        }
+                    },
+                    "setloc": {
+                        "arguments": {
+                            "type": { "name": "tipo ou borda", "description": "entrada, camarote, deathmatch ou tipo legado de borda." },
+                            "location": { "name": "local", "description": "entrada, camarote ou deathmatch na sintaxe legada." }
+                        },
+                        "invalid-type": "Use entrada, camarote ou deathmatch.",
+                        "processing": "Salvando a localização na instância do Gladiador..."
+                    },
+                    "deaths": {
+                        "arguments": {
+                            "player": { "name": "jogador", "description": "Jogador cuja última morte será consultada." }
+                        },
+                        "loading": "Consultando a última morte registrada..."
+                    },
+                    "control": {
+                        "processing": "Processando a ação na instância do Gladiador...",
+                        "query-failed": "Não foi possível consultar os dados solicitados.",
+                        "user-not-found": "Jogador não encontrado.",
+                        "clan-not-found": "Clan não encontrado.",
+                        "clans-not-found": "Um dos clans não foi encontrado.",
+                        "toggle-usage": "Use ativar ou desativar.",
+                        "rush-usage": "Use iniciar ou parar.",
+                        "invalid-amount": "Informe uma quantia inteira maior que zero."
+                    }
+                }
+            },
+            "messages": {
+                "commands": {
+                    "already-stopped": "Esse evento já está parado.",
+                    "cant-start": "Já existe um evento ocorrendo!",
+                    "need-clan": "Para entrar no evento é necessário possuir um clan!",
+                    "cant-join-event": "O Gladiador não está disponível para entrada."
+                },
+                "events": {
+                    "gladiator": {
+                        "rush-rule": {
+                            "immunity": "<red>[Gladiador] <white>Um clan ficou com poucos membros vivos e está imune por 1 minuto.",
+                            "end-immunity": "<red>[Gladiador] <white>A imunidade acabou."
+                        },
+                        "start": "<green>O Evento Gladiador foi iniciado! Use <click:run_command:'/glad entrar'><yellow>/glad entrar</yellow></click>.",
+                        "cancel": "<red>[Gladiador] <white>Minigame cancelado! O evento foi cancelado por falta de jogadores ou por um membro da administração.",
+                        "event-lock": "<red>[Gladiador] <white>Evento trancado! A entrada está fechada para novos guerreiros. Boa sorte aos participantes!",
+                        "preparing-time": "<red>[Gladiador] <white>Preparem-se! O combate será liberado em <gold>{seconds} <white>segundos!",
+                        "allow-pvp": "<red>[Gladiador] <white>Combate liberado. Que vença o melhor!",
+                        "waiting-players": [
+                            "",
+                            "<color:#f77b72> ⚔<color:#d15249><bold> GLADIADOR!</bold>",
+                            "<color:#d1d1d1> A batalha começa em <color:#d15249>{seconds} segundos<color:#d1d1d1>.",
+                            "",
+                            "<color:#f77b72> 🪓 <color:#d1d1d1>Participantes: <color:#d15249>{event_players_size}",
+                            "<color:#f77b72> ✔ <color:#d1d1d1>Clans confirmados: <color:#d15249>{event_clans_size}",
+                            "",
+                            "<gradient:#d15249:#f77b72><click:run_command:'/glad entrar'> Vá para o evento agora mesmo! Clique <bold>AQUI!</gradient>",
+                            ""
+                        ],
+                        "win": [
+                            "",
+                            "<color:#f77b72> ⚔<color:#d15249><bold> GLADIADOR!</bold>",
+                            "<color:#d1d1d1> O evento foi encerrado e o clan <color:#d15249>{clan_winner_display_name}<color:#d1d1d1> foi o",
+                            "<color:#d1d1d1> vencedor com <color:#d15249>{clan_winner_members_alive} jogadores vivos<color:#d1d1d1>.",
+                            "",
+                            " <color:#f77b72>Ranking de abates por clan:",
+                            " {event_kills_leaderboard}",
+                            "",
+                            " <color:#d1d1d1>Mito: <color:#d15249>{event_myth}",
+                            ""
+                        ],
+                        "player": {
+                            "join-event": "{player_name} <yellow>entrou no Gladiador. ({event_players} participantes)",
+                            "return-event": "<yellow>{player_name} retornou ao Gladiador.",
+                            "revived": "<green>{player_name} foi revivido no Gladiador.",
+                            "quit-warning": "<yellow>Você desconectou do Gladiador. Use /glad rejoin em até {seconds} segundos.",
+                            "combat-immunity": "Você não pode atacar esse jogador durante a imunidade!",
+                            "combat-leave": "Você não pode sair do Gladiador em combate.",
+                            "command-blocked": "Você não pode usar comandos durante o Gladiador.",
+                            "removed-from-clan": "Você foi removido do clan enquanto participava de um evento de clans.",
+                            "rejoin-command-blocked": "Você não pode reentrar porque utilizou um comando que bloqueia a reentrada.",
+                            "rejoin-validation-failed": "Não foi possível validar sua reentrada. Tente novamente.",
+                            "rejoin-disabled": "A reentrada no Gladiador está desativada.",
+                            "rejoin-expired": "Seu tempo para reentrar no Gladiador expirou.",
+                            "rejoin-countdown": "Você retornará ao Gladiador em 5 segundos. Prepare-se!",
+                            "rejoin-failed": "Não foi possível retornar ao Gladiador.",
+                            "need-clan": "Você precisa estar em um clan para participar do Gladiador.",
+                            "clan-limit": "Seu clan já atingiu o limite de participantes.",
+                            "removed": "{reason}"
+                        },
+                        "kill": "<red>{killer_name} eliminou {victim_name} <gray>({victim_clan_alive} membros do clan ainda vivos).",
+                        "rush": {
+                            "none": "Nenhum rush está acontecendo no momento.",
+                            "list-header": "<gold>Rushes ativos ({rush_count}):",
+                            "list-entry": "<yellow> • [{first_clan}] {first_deaths} x {second_deaths} [{second_clan}]",
+                            "spectator-required": "Você precisa estar no camarote para assistir a um rush.",
+                            "not-active": "Esse clan não está em um rush ativo.",
+                            "no-online-player": "Não há jogadores online nesse rush.",
+                            "teleported": "<yellow>Você foi teleportado para o rush [{first_clan}] x [{second_clan}].",
+                            "watch-stopped": "<green>Você parou de assistir ao rush e voltou a ver todos os jogadores.",
+                            "started": "<gold>Rush iniciado: [{first_clan}] vs [{second_clan}].",
+                            "finished": "<gold>Rush finalizado: [{first_clan}] {first_deaths} x {second_deaths} [{second_clan}]. <gray>Os clans têm {immunity_seconds} segundos de imunidade contra terceiros.",
+                            "immunity-ended": "<yellow>A imunidade do rush entre [{first_clan}] e [{second_clan}] terminou."
+                        },
+                        "deathmatch": "<dark_red><bold>MATA-MATA INICIADO!</bold> <red>O PvP será reativado em 30 segundos.",
+                        "pvp-enabled": "<green>O PvP foi ligado!",
+                        "finish-summary": "<gold>Gladiador finalizado! Clan vencedor: [{clan_winner}] — Mito: {event_myth} ({event_myth_kills} abates).",
+                        "border": {
+                            "eliminated": "<red>O clan [{clan_tag}] foi eliminado. Restam {remaining_clans} clans."
+                        },
+                        "chase": {
+                            "kill": "<gold>O clan [{killer_clan}] eliminou um membro do alvo [{target_clan}] durante a caçada.",
+                            "postponed": "<red>A caçada não encontrou um clan elegível e foi adiada.",
+                            "started": "<gold>O clan [{target_clan}] foi marcado como alvo da caçada por {seconds} segundos!",
+                            "survived": "<green>O clan [{target_clan}] sobreviveu à caçada e recebeu a recompensa!",
+                            "reward-hover": "<gray>Passe o mouse aqui para ver as recompensas."
+                        },
+                        "stacked": {
+                            "warning": "<red>[TEIA] <white>O clan [{clan_tag}] atingiu {players} jogadores empilhados.",
+                            "reversal": "<gold>VIRADA DE RUSH! <white>O clan [{winner_clan}] virou contra [{loser_clan}]. <gray>Jogadores na teia: <white>[{loser_clan}] {loser_players}."
+                        },
+                        "title": {
+                            "win-event": {
+                                "title": "<red>GLADIADOR ACABOU",
+                                "subtitle": "<green>[{clan_winner}] <white>venceu o evento!"
+                            },
+                            "allow-pvp": {
+                                "title": "<red>Combate liberado!",
+                                "subtitle": "<white>A batalha começou!"
+                            },
+                            "preparing-time": {
+                                "title": "<gold>Preparem-se!",
+                                "subtitle": "<white>O combate será liberado em {seconds} segundos"
+                            },
+                            "border-warn": {
+                                "title": "<red>Atenção!",
+                                "subtitle": "<white>Borda diminuindo em {seconds} segundos!"
+                            },
+                            "border-change": {
+                                "title": "<red>Atenção!",
+                                "subtitle": "<white>A borda está diminuindo!"
+                            },
+                            "rejoin": {
+                                "title": "<red>5",
+                                "subtitle": "<yellow>Retorno ao Gladiador"
+                            },
+                            "cancel-event": {
+                                "title": "<red>Atenção!",
+                                "subtitle": "<white>Evento cancelando em {seconds} segundos!"
+                            }
+                        }
+                    }
+                }
+            },
+            "queries": {
+                "unavailable": "<red>A instância do Gladiador não está disponível.",
+                "failed": "<red>Não foi possível consultar os dados do Gladiador.",
+                "action": {
+                    "deathmatch-success": "<green>O mata-mata foi iniciado.",
+                    "deathmatch-failure": "<red>O Gladiador não está em andamento.",
+                    "border-success": "<green>O avanço da borda foi iniciado.",
+                    "border-failure": "<red>Não há uma próxima borda ou já existe um avanço em andamento.",
+                    "border-manual": "<green>A borda passou para o modo manual.",
+                    "border-automatic": "<green>A borda passou para o modo automático.",
+                    "rejoin-enabled": "<green>A reentrada foi ativada.",
+                    "rejoin-disabled": "<yellow>A reentrada foi desativada.",
+                    "rejoin-failure": "<red>Não foi possível alterar a reentrada.",
+                    "revive-success": "<green>O jogador foi revivido.",
+                    "revive-failure": "<red>Não foi possível reviver esse jogador.",
+                    "kick-player-success": "<green>O jogador foi expulso.",
+                    "kick-player-failure": "<red>Esse jogador não está no Gladiador.",
+                    "leave-success": "<green>Você saiu do Gladiador.",
+                    "leave-failure": "<red>Não foi possível sair do Gladiador.",
+                    "rejoin-success": "<green>O pedido de reentrada foi aceito.",
+                    "rejoin-failure-player": "<red>Não foi possível reentrar no Gladiador.",
+                    "kick-clan-success": "<green>O clan foi expulso.",
+                    "kick-clan-failure": "<red>Esse clan não está no Gladiador.",
+                    "rush-start-success": "<green>O rush foi iniciado.",
+                    "rush-start-failure": "<red>Não foi possível iniciar o rush.",
+                    "rush-stop-success": "<green>O rush foi encerrado.",
+                    "rush-stop-failure": "<red>Não foi possível encerrar o rush.",
+                    "watch-rush-success": "<green>Modo de visualização do rush atualizado.",
+                    "watch-rush-failure": "<red>Não foi possível assistir a esse rush.",
+                    "max-members-success": "<green>O limite de participantes por clan foi atualizado.",
+                    "max-members-failure": "<red>Não foi possível atualizar o limite de participantes por clan.",
+                    "set-location-success": "<green>A localização do Gladiador foi salva.",
+                    "set-location-failure": "<red>Não foi possível salvar a localização do Gladiador.",
+                    "stacked-enabled": "<green>O sistema de jogadores empilhados foi ativado.",
+                    "stacked-disabled": "<yellow>O sistema de jogadores empilhados foi desativado.",
+                    "stacked-failure": "<red>Não foi possível alterar o sistema de jogadores empilhados.",
+                    "stacked-threshold-success": "<green>O limite de jogadores empilhados foi atualizado.",
+                    "stacked-threshold-failure": "<red>Não foi possível atualizar o limite de jogadores empilhados.",
+                    "beast-set-success": "<green>O Mito foi definido com sucesso.",
+                    "beast-reset-success": "<green>O Mito foi removido com sucesso.",
+                    "beast-update-failure": "<red>Não foi possível atualizar o Mito.",
+                    "player-offline": "<red>O jogador não está online na instância do Gladiador."
+                },
+                "history": {
+                    "title": "<gold>Histórico do Gladiador",
+                    "entry": "<click:run_command:'/glad historico {event_id}'><yellow>{event_date} — [{clan_winner}]</yellow></click>",
+                    "cancelled-entry": "<click:run_command:'/glad historico {event_id}'><red>{event_date} — [cancelado]</red></click>",
+                    "not-found": "<red>Edição não encontrada.",
+                    "detail": "<gold>Gladiador {event_id}\n<white>Vencedor: [{clan_winner}]\nMito: {event_myth} ({event_myth_kills})\nParticipantes: {event_players}\nMortes: {event_deaths} | Saídas: {event_exits} | Rushes: {event_rushes} | Eliminações: {event_eliminations}"
+                },
+                "death": {
+                    "not-found": "<red>Não há informações de morte desse jogador na partida atual.",
+                    "detail-combat": ["", "<yellow>Morte de {player_name}:", "", "<white>Data: {death_date}", "<white>Morte em combate: <green>sim", "<white>Clan no momento: {clan_tag}", "<white>Comandos recentes: <gray>{recent_commands}", ""],
+                    "detail-normal": ["", "<yellow>Morte de {player_name}:", "", "<white>Data: {death_date}", "<white>Morte em combate: <red>não", "<white>Clan no momento: {clan_tag}", "<white>Comandos recentes: <gray>{recent_commands}", ""]
+                },
+                "beast": {
+                    "none": "<dark_purple>Mito atual: <gray>nenhum",
+                    "current": "<dark_purple>Mito atual: <light_purple>{player_name}"
+                },
+                "leaderboard": {
+                    "clan-wins": "<gold>Vitórias de clans",
+                    "player-kills": "<gold>Abates de jogadores",
+                    "rush-wins": "<gold>Vitórias em rush",
+                    "rush-reversals": "<gold>Viradas de rush",
+                    "entry": "<yellow>{position}º {name} — {value}"
+                }
+            },
+            "views": {
+                "gladiator": {
+                    "primary": {
+                        "title": "Gladiador",
+                        "commands-message": [
+                            "",
+                            "<yellow><bold>Comandos do Gladiador</bold>",
+                            "<red>/gladiador entrar <gray>- <white>Entra no evento Gladiador.",
+                            "<red>/gladiador sair <gray>- <white>Sai do evento e volta ao spawn.",
+                            "<red>/gladiador rejoin <gray>- <white>Reentra após uma desconexão.",
+                            "<red>/gladiador rush <gray>- <white>Mostra os rushes ativos.",
+                            "<red>/gladiador verrush <clan> <gray>- <white>Assiste ao rush de um clan no camarote.",
+                            "<red>/gladiador status <gray>- <white>Mostra o estado atual do evento.",
+                            "<red>/gladiador camarote entrar <gray>- <white>Entra como espectador.",
+                            ""
+                        ],
+                        "items": {
+                            "ranking": {
+                                "name": "<yellow>Ranking",
+                                "lore": ["<gray>Consulte o ranking competitivo", "<gray>dos eventos Gladiador.", "", "<yellow>Clique para abrir!"]
+                            },
+                            "schedule": {
+                                "name": "<yellow>Horários",
+                                "lore": ["<gray>Confira os horários dos", "<gray>eventos competitivos.", "", "<yellow>Clique para abrir!"]
+                            },
+                            "commands": {
+                                "name": "<yellow>Comandos",
+                                "lore": ["<gray>Veja todos os comandos", "<gray>disponíveis do Gladiador.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "history": {
+                                "name": "<yellow>Histórico",
+                                "lore": ["<gray>Consulte as edições anteriores", "<gray>do evento Gladiador.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "event": {
+                                "inactive": {
+                                    "name": "<red>Nenhum evento em andamento",
+                                    "lore": ["<gray>Nenhum Gladiador está acontecendo", "<gray>neste momento. Fique atento ao Discord."]
+                                },
+                                "waiting": {
+                                    "name": "<gold>Gladiador",
+                                    "lore": ["<white>O evento está {event_status}<white>.", "", "<red>• <white>Tag <dark_red>[Gladiador] <white>para o clan vencedor", "<red>• <white>Tag <light_purple>[Mito] <white>para quem conseguir mais abates", "", "<gray>Participantes: <white>{event_players}", "<gray>Clans: <white>{event_clans}", "", "<yellow>Clique esquerdo para entrar", "<yellow>Clique direito para assistir"]
+                                },
+                                "running": {
+                                    "name": "<red>Gladiador em andamento",
+                                    "lore": ["<white>O evento está {event_status}<white>.", "", "<gray>Participantes vivos: <white>{event_players}", "<gray>Clans vivos: <white>{event_clans}", "<gray>Rushes ativos: <white>{event_rushes}", "", "<yellow>Clique direito para assistir"]
+                                }
+                            }
+                        }
+                    },
+                    "schedule": {
+                        "title": "Horários do Gladiador",
+                        "items": {
+                            "monday": {
+                                "name": "<yellow>Segunda-feira",
+                                "lore": ["<gray>O evento ocorre às <white>19:00 <gray>e", "<gray>vale ponto na tabela.", "", "<red>• <white>Com regra de rush", "<red>• <white>Se um membro do clan for banido,", "<white>  o clan inteiro será expulso do evento."]
+                            },
+                            "thursday": {
+                                "name": "<yellow>Quinta-feira",
+                                "lore": ["<gray>O evento ocorre às <white>21:00 <gray>e", "<gray>vale ponto na tabela.", "", "<red>• <white>Com regra de rush", "<red>• <white>Se um membro do clan for banido,", "<white>  o clan inteiro será expulso do evento."]
+                            },
+                            "sunday": {
+                                "name": "<yellow>Domingo",
+                                "lore": ["<gray>O evento ocorre às <white>19:00 <gray>e", "<gray>vale ponto na tabela.", "", "<red>• <white>Com regra de rush", "<red>• <white>Se um membro do clan for banido,", "<white>  o clan inteiro será expulso do evento."]
+                            },
+                            "information": {
+                                "name": "<yellow>Informações",
+                                "lore": ["<gray>Os horários referem-se aos eventos", "<gray>que valem pontuação na temporada.", "", "<gray>Outros eventos podem ocorrer durante", "<gray>a semana e serão anunciados no Discord."]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    },
+                    "ranking": {
+                        "title": "Rankings do Gladiador",
+                        "items": {
+                            "clan-wins": {
+                                "name": "<yellow>Vitórias de clans",
+                                "lore": ["<gray>Veja os clans com mais vitórias", "<gray>no evento Gladiador.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "player-kills": {
+                                "name": "<yellow>Abates de jogadores",
+                                "lore": ["<gray>Veja os jogadores com mais", "<gray>abates no Gladiador.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "rush-wins": {
+                                "name": "<yellow>Vitórias em rush",
+                                "lore": ["<gray>Veja os clans que mais", "<gray>venceram rushes.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "rush-reversals": {
+                                "name": "<yellow>Viradas de rush",
+                                "lore": ["<gray>Veja os clans com mais", "<gray>viradas confirmadas em rush.", "", "<yellow>Clique para consultar!"]
+                            },
+                            "myths": {
+                                "name": "<light_purple>Mitos",
+                                "lore": ["<gray>Veja os jogadores que mais", "<gray>terminaram o Gladiador como Mito.", "", "<light_purple>Clique para consultar!"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    },
+                    "leaderboard": {
+                        "title": "Ranking do Gladiador",
+                        "items": {
+                            "entry": {
+                                "name": "<yellow>#{position} <white>{name}",
+                                "lore": ["<gray>Total: <white>{value}"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à seleção de rankings."]
+                            }
+                        }
+                    },
+                    "history": {
+                        "title": "Histórico do Gladiador",
+                        "items": {
+                            "entry": {
+                                "name": "<green>Gladiador — {event_date}",
+                                "lore": ["<gray>Data: <white>{event_date}", "<gray>Duração: <white>{event_duration}", "<gray>Participantes: <white>{event_players}", "<gray>Clan vencedor: <white>{clan_winner}", "<gray>Mito: <white>{event_myth} <dark_gray>({event_myth_kills} abates)", "", "<yellow>Clique para ver os detalhes!"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    },
+                    "history-detail": {
+                        "title": "Detalhes do Gladiador",
+                        "items": {
+                            "overview": {
+                                "name": "<gold><bold>Resumo do evento",
+                                "lore": ["<gray>ID: <white>{event_id}", "<gray>Estado: <white>{event_status}", "<gray>Clan vencedor: <white>{clan_winner}", "<gray>Mito: <white>{event_myth} <dark_gray>({event_myth_kills} abates)", "<gray>Participantes: <white>{event_players}"]
+                            },
+                            "deaths": {
+                                "name": "<red><bold>Mortes",
+                                "lore": ["<gray>Total registrado: <white>{event_deaths}"]
+                            },
+                            "rushes": {
+                                "name": "<gold><bold>Rushes",
+                                "lore": ["<gray>Total registrado: <white>{event_rushes}"]
+                            },
+                            "exits": {
+                                "name": "<yellow><bold>Saídas",
+                                "lore": ["<gray>Total registrado: <white>{event_exits}"]
+                            },
+                            "lineup": {
+                                "name": "<green><bold>Lineup",
+                                "lore": ["<gray>Jogadores registrados: <white>{event_lineup}"]
+                            },
+                            "eliminations": {
+                                "name": "<red><bold>Eliminações de clans",
+                                "lore": ["<gray>Total registrado: <white>{event_eliminations}"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta ao histórico do Gladiador."]
+                            }
+                        }
+                    },
+                    "web-monitor": {
+                        "title": "Teias do Gladiador",
+                        "world-unavailable": "O mundo dessa teia não está disponível nesta instância.",
+                        "items": {
+                            "entry": {
+                                "name": "<red>Teia com {players} jogadores",
+                                "lore": ["<gray>Mundo: <white>{world}", "<gray>Posição: <white>{x}, {y}, {z}", "<gray>Clans: <white>{clans}", "", "<yellow>Clique para teleportar!"]
+                            },
+                            "refresh": {
+                                "name": "<yellow>Atualizar",
+                                "lore": ["<gray>Consulta novamente as teias", "<gray>detectadas na instância do evento."]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    },
+                    "reversal-monitor": {
+                        "title": "Viradas do Gladiador",
+                        "items": {
+                            "shifting": {
+                                "name": "<red>Virada em andamento",
+                                "lore": ["<white>[{first_clan}] <gray>{first_players} x {second_players} <white>[{second_clan}]", "", "<gray>Confirmação: <yellow>{progress}%", "<gray>Tempo restante: <yellow>{remaining}s"]
+                            },
+                            "stable": {
+                                "name": "<green>Rush estável",
+                                "lore": ["<white>[{first_clan}] <gray>{first_players} x {second_players} <white>[{second_clan}]", "", "<gray>Nenhuma virada está sendo confirmada."]
+                            },
+                            "refresh": {
+                                "name": "<yellow>Atualizar",
+                                "lore": ["<gray>Consulta novamente os rushes", "<gray>ativos na instância do evento."]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    },
+                    "rush-score": {
+                        "title": "Placar de Rushes",
+                        "items": {
+                            "entry": {
+                                "name": "<yellow>[{first_clan}] <white>vs <yellow>[{second_clan}]",
+                                "lore": ["<white>{first_clan}: <gold>{first_wins} vitórias", "<white>{second_clan}: <gold>{second_wins} vitórias"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à seleção de rankings."]
+                            }
+                        }
+                    },
+                    "recent-actions": {
+                        "title": "Ações Recentes",
+                        "items": {
+                            "exit": {
+                                "name": "<yellow>{player_name} saiu do evento",
+                                "lore": ["<gray>Clan: <white>{clan_tag}", "<gray>Há <white>{time_ago}"]
+                            },
+                            "exit-web": {
+                                "name": "<gold>{player_name} saiu dentro de uma teia",
+                                "lore": ["<gray>Clan: <white>{clan_tag}", "<gray>Há <white>{time_ago}"]
+                            },
+                            "logout-combat": {
+                                "name": "<red>{player_name} desconectou em combate",
+                                "lore": ["<gray>Clan: <white>{clan_tag}", "<gray>Há <white>{time_ago}"]
+                            },
+                            "logout-web": {
+                                "name": "<dark_red>{player_name} desconectou na teia",
+                                "lore": ["<gray>Clan: <white>{clan_tag}", "<gray>Há <white>{time_ago}"]
+                            },
+                            "back": {
+                                "name": "<red>Voltar",
+                                "lore": ["<gray>Volta à central do Gladiador."]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

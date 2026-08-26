@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "cannonutils": {
+      "messages": {
+        // Recusa da ender pearl enquanto o jogador está marcado em combate
+        // (`combate.pearl-bloqueada-em-combate` do config.yml, CannonPearlCombatListener).
+        //
+        // ⚠️ PONTE: a regra pertence ao essentials, e a mensagem de lá é a
+        // `plugins.essentials.messages.ender-pearl.blocked-in-combat` — igual a esta, de propósito, para
+        // o jogador não notar a troca quando o jar compartilhado subir. Quando isso acontecer, esta
+        // chave e o listener daqui podem ser apagados.
+        //
+        // O texto manda tentar de novo porque é verdade: a pearl NÃO é consumida e o cooldown NÃO
+        // começa — era exatamente o contrário disso que acontecia antes.
+        "ender-pearl": {
+          "blocked-in-combat": "<red>Você não pode usar <white>Ender Pearl<red> em combate! Tente de novo quando sair."
+        }
+      }
+    }
+  }
+}

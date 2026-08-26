@@ -1,0 +1,172 @@
+{
+    "plugins": {
+        "tab": {
+            "types": {
+                "auth": {
+                    "header": [
+                        "",
+                        "<gradient:#FF6F00:#faa825><bold>Rede EXE</bold></gradient><dark_gray> ⚡ <color:#BDC3C7>%network_online-count% jogadores",
+                        "<white>exe.com</white>",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "    <color:#f08d24>Ajude o servidor a se manter ativo adquirindo produtos.    ",
+                        "<color:#f08d24>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "lobby": {
+                    "header": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "     <gradient:#FF6F00:#faa825:#FF6F00>Ajude o servidor a se manter ativo adquirindo produtos.     ",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "replay": {
+                    "header": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "     <gradient:#FF6F00:#faa825:#FF6F00>Ajude o servidor a se manter ativo adquirindo produtos.     ",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "dev": {
+                    "header": [
+                        "",
+                        "<gradient:#FF6F00:#faa825><bold>DESENVOLVILMENTO</bold></gradient><dark_gray> ⚡ <color:#BDC3C7>%network_online-count% jogadores",
+                        "<white>exe.com</white>",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "    <color:#f08d24>Ajude o servidor a se manter ativo adquirindo produtos.    ",
+                        "<color:#f08d24>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "prison-eclipse": {
+                    "header": [
+                        "",
+                        "<color:#FF6F00><bold>RANKUP PHOENIX</bold> <dark_gray>🔥</dark_gray> <color:#BDC3C7>%server_online-count% jogadores",
+                        "<white>exe.com</white>",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<color:#FF6F00>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "     <color:#ff8424>Ajude o servidor a se manter ativo adquirindo produtos.     ",
+                        "<color:#ff8424>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "rankup-pvp": {
+                    "header": [
+                        "",
+                        "<red><bold>RANKUP PVP</bold></red> <color:#BDC3C7>%server_online-count% jogadores",
+                        "<white>exe.com</white>",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<dark_purple>Discord:</dark_purple> <white>discord.gg/exe</white>",
+                        "",
+                        "    <yellow>Ajude o servidor a se manter ativo adquirindo produtos.</yellow>     ",
+                        "<yellow>Adquira acessando o nosso site: </yellow><white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "factions": {
+                    "header": [
+                        "",
+                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>FACTIONS ICE</bold></gradient> <white></white> <color:#BDC3C7>{server_online_count} jogadores",
+                        "<white>exe.com</white>",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "     <color:#7ea3f7>Ajude o servidor a se manter ativo adquirindo produtos.     ",
+                        "<color:#7ea3f7>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "p4-free": {
+                    "header": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "    <gradient:#FF6F00:#faa825:#FF6F00>Ajude o servidor a se manter ativo adquirindo produtos.    ",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                },
+                "academy": {
+                    "header": [
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "footer": [
+                        "",
+                        "<gradient:#FF6F00:#faa825:#FF6F00>Discord: <white>discord.gg/exe</white>",
+                        "",
+                        "     <color:#f08d24>Ajude o servidor a se manter ativo adquirindo produtos.     ",
+                        "<color:#f08d24>Adquira acessando o nosso site: <white>exe.com</white>",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

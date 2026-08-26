@@ -1,0 +1,60 @@
+{
+  "plugins": {
+    "essentials": {
+      "holograms": {
+        "spawn": [
+          "<gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>FACTIONS ICE</bold></gradient> <dark_gray>▪</dark_gray> <white>{server_online_count}</white>",
+          "<white>Bem-vindo ao <gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>Factions Ice</bold></gradient>!",
+          "",
+          "<white>Invasões, pets, passe,</white>",
+          "<white>eventos e sistemas únicos</white>",
+          "<white>em um só servidor.</white>",
+          "",
+          "<white>Adquira</white> <gradient:#00acff:#00f2ff>VIP</gradient> <white>ou</white> <gradient:#7ABAFF:#9FE2FF:#7ABAFF>Diversos itens</gradient> <white>acessando:</white>",
+          "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>exe.com</gradient>"
+        ],
+        "vault-1":[
+          "<gradient:#FF6F00:#ff9d00:#FF6F00><bold>▼ COFRE ▼</bold></gradient>"
+        ],
+        "vault-2":[
+          "<gradient:#FF6F00:#ff9d00:#FF6F00><bold>▼ COFRE ▼</bold></gradient>"
+        ],
+        "shop":[
+          "<gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>▼ LOJA ▼</bold></gradient>"
+        ],
+        "amethyst":[
+          "<gradient:#a855f7:#6366f1><bold>▼ MINAS ▼</bold></gradient>"
+        ],
+        "vip":[
+          "<gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>▼ VIP ▼</bold></gradient>"
+        ],
+        "arena-above":[
+          "<gradient:#b31500:#de1a00><bold>▼ ARENA ▼</bold></gradient>",
+          "<white>Pule para entrar!</white>"
+        ],
+        "arena-below-1":[
+          "<gradient:#b31500:#de1a00><bold>▼ PVP ATIVADO ▼</bold></gradient>"
+        ],
+        "arena-below-2":[
+          "<gradient:#b31500:#de1a00><bold>▼ PVP ATIVADO ▼</bold></gradient>"
+        ],
+        "market-1":[
+          "<gradient:#2EAD62:#6EDC8C><bold>Mercado</bold></gradient>",
+          "<gradient:#2EAD62:#6EDC8C><bold>▶▶▶"
+        ],
+        "market-2":[
+          "<gradient:#2EAD62:#6EDC8C><bold>Mercado</bold></gradient>",
+          "<gradient:#2EAD62:#6EDC8C><bold>◀◀◀"
+        ],
+        "market-3":[
+          "<gradient:#2EAD62:#6EDC8C><bold>Mercado</bold></gradient>",
+          "<gradient:#2EAD62:#6EDC8C><bold>◀◀◀"
+        ],
+        "market-4":[
+          "<gradient:#2EAD62:#6EDC8C><bold>Mercado</bold></gradient>",
+          "<gradient:#2EAD62:#6EDC8C><bold>▶▶▶ "
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+    "plugins": {
+        "the-end": {
+            "items": {
+                "the-end-dragon-altar-eye": {
+                    "display-name": "<dark_purple>Olho do Ender Dragon</dark_purple>",
+                    "name": "<dark_purple>Olho do Ender Dragon</dark_purple>",
+                    "lore": [
+                        "<gray>Um item de extrema raridade,</gray>",
+                        "<gray>utilizado pra invocar o boss</gray>",
+                        "<gray>do <white>the end</white>.</gray>",
+                        "",
+                        "<dark_purple>Vá até ao altar do dragão</dark_purple>",
+                        "<dark_purple>e clique direito em um portal.</dark_purple>"
+                    ]
+                },
+                "the-end-dragon-altar-sleep-eye": {
+                    "display-name": "<dark_purple>Olho do Ender Dragon Adormecido</dark_purple>",
+                    "name": "<dark_purple>Olho do Ender Dragon Adormecido</dark_purple>",
+                    "lore": [
+                        "<gray>Este olho adormecido tem o poder</gray>",
+                        "<gray>de remover um olho de dragão que</gray>",
+                        "<gray>você colocou em um portal.</gray>",
+                        "",
+                        "<dark_purple>Clique direito em um olho do dragão.</dark_purple>"
+                    ]
+                }
+            },
+            "commands": {
+                "the-end": {
+                    "dont-have-requirements": "Você não tem os requisitos necessários para acessar o mundo do end, utilize <white>/mundos</white> para ver os requisitos."
+                }
+            },
+            "messages": {
+                "areas": {
+                    "dragon": {
+                        "altar": {
+                            "delay": "<red>Você precisa esperar para remover esse olho.</red>",
+                            "not-eye-owner": "<red>Esse olho pertence a outro jogador.</red>"
+                        }
+                    }
+                },
+                "connection": {
+                    "farming": {
+                        "no-apps-available": "Não foi possível encontrar um servidor de Farm no The End para você se conectar, aguarde alguns instantes e tente novamente!",
+                        "in-combat": "Você não pode atravessar esse lugar em combate!"
+                    },
+                    "dragon": {
+                        "no-apps-available": "Não foi possível encontrar um servidor de Dragão no The End para você se conectar, aguarde alguns instantes e tente novamente!",
+                        "in-combat": "Você não pode atravessar esse lugar em combate!"
+                    }
+                }
+            },
+            "areas": {
+                "farming": {
+                    "npc": {
+                        "hologram": [
+                            "<dark_purple>Loja de XP</dark_purple>"
+                        ]
+                    }
+                },
+                "dragon": {
+                    "messages": {
+                        "dragon": {
+                            "on-spawn": [
+                                "",
+                                " <dark_purple><bold>O DRAGÃO FOI INVOCADO!</bold></dark_purple>",
+                                "",
+                                " <white>Todos os olhos de dragão necessários foram utilizados</white>",
+                                " <white>e o dragão spawnou!</white>",
+                                "",
+                                " <dark_purple>▾ </dark_purple><white>O portão da sala dos bosses encontra-se</white>",
+                                "   <white>agora trancado, bata com a sua espada para o demolir.</white>",
+                                "",
+                                "<dark_purple>Clique <bold>AQUI</bold> para ir até à sala de bosses do end.</dark_purple>",
+                                ""
+                            ],
+                            "on-death": [
+                                "",
+                                " <dark_purple><bold>O DRAGÃO FOI DERROTADO!</bold></dark_purple>",
+                                "",
+                                " {dragon_killer_name_with_tag} <white>executou o último hit!</white>",
+                                "",
+                                "  <dark_purple>▾</dark_purple> <white>Jogadores que mais causaram dano:</white>",
+                                "",
+                                "  <dark_purple>1º {dragon_damager_first_user_with_tag}: </dark_purple><red>{dragon_damager_first_damage_formatted} ❤</red>",
+                                "  <dark_purple>2º {dragon_damager_second_user_with_tag}: </dark_purple><red>{dragon_damager_second_damage_formatted} ❤</red>",
+                                "  <dark_purple>3º {dragon_damager_third_user_with_tag}: </dark_purple><red>{dragon_damager_third_damage_formatted} ❤</red>",
+                                "",
+                                " <dark_purple>O altar de invocação será restaurado em 30 segundos.</dark_purple>",
+                                ""
+                            ],
+                            "attack": {
+                                "lighting-effect": [
+                                    "<red>Você foi atingido por um raio do dragão. <dark_red>(-❤{dragon_damage})</dark_red></red>"
+                                ],
+                                "rush": [
+                                    "<red>Você foi atingido por uma investida do dragão. <dark_red>(-❤{dragon_damage})</dark_red></red>"
+                                ],
+                                "fireball": [
+                                    "<red>Você foi atingido por uma Vórtice de Fogo do dragão. <dark_red>(-❤{dragon_damage})</dark_red></red>"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

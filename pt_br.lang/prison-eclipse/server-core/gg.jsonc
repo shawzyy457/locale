@@ -1,0 +1,21 @@
+{
+    "plugins": {
+        "server-core": {
+            "messages": { 
+                "gg": {
+                    "on-transaction": [
+                        "",
+                        " <green><bold>Nova compra confirmada!</bold></green>",
+                        " <dark_gray>exe.com/shop</dark_gray>",
+                        "",
+                        " <green>▰</green> {order_owner_user_name_with_color} <white>acaba de adquirir</white>",
+                        " <white>um novo item em nosso site.</white>",
+                        "",
+                        " <green>Clique <bold><click:run_command:'/g gg'>AQUI</click></bold> para comemorar a compra!",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

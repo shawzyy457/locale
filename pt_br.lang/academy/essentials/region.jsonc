@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "essentials": {
+      "messages": {
+        "region": {
+          "not-allowed": {
+            // Enviado pelo RegionProtectionListener quando o comando executado está na lista
+            // 'deny-commands' de uma region que cobre o jogador. MODERATOR+ nunca chega aqui.
+            // Sem placeholders: o listener não passa Map.
+            "command": "<red>Você não pode executar esse comando aqui!"
+          }
+        }
+      }
+    }
+  }
+}

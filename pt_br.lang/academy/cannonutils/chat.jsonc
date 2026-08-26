@@ -1,0 +1,83 @@
+{
+  // Chats da Academy. São DOIS canais:
+  //
+  //  - proximidade (CannonChatService): o que o jogador digita sem comando. Duas formas da MESMA
+  //    mensagem — dentro do plot ela alcança o plot inteiro, fora dele vale o raio de 'chat.alcance'
+  //    no config.yml;
+  //  - global (CannonGlobalChatService, /g): alcança TODOS os apps da Academy (spawn, plot, invasão e
+  //    practice). Formato copiado do chat global do servidor de factions, glifo `chat_global` incluso.
+  //
+  // Cada canal tem variante `with-faction` e `without-faction`, igual ao chat do servidor de factions.
+  //
+  // Arquivo próprio na subpasta cannonutils/ — a raiz plugins.cannonutils é reaberta e fundida por
+  // merge, então autores diferentes mexem em features diferentes sem colidir no mesmo arquivo.
+  //
+  // Placeholders das seis chaves de mensagem:
+  //   sender_name             nome cru do jogador
+  //   sender_name_with_tag    nome com a tag do cargo (glifo) — é o que o resto da rede usa no chat
+  //   sender_name_with_color  nome com o gradiente do cargo, sem tag
+  //   chat_message            o texto digitado
+  //
+  // Só nas variantes `with-faction` (vêm do academy-factions; sem facção a mensagem cai na outra):
+  //   sender_faction_tag          tag da facção, sem colchetes
+  //   sender_faction_name         nome completo da facção
+  //   sender_faction_role_prefix  ÍCONE do cargo na facção (o glifo de plugins.factions.roles.*.prefix)
+  //   sender_faction_role_name    nome do cargo ("Líder", "Capitão"...)
+  "plugins": {
+    "cannonutils": {
+      "chat": {
+        // Chat global (/g): lido em todos os apps da Academy. O glifo abre o próprio /g no clique,
+        // como no servidor de factions, e o nome abre um /tell — os dois atalhos que o jogador usa
+        // sem sair da conversa.
+        "global": {
+          "with-faction": "<gray><hover:show_text:'<dark_gray>Chat global</dark_gray>'><click:suggest_command:'/g '></click></hover></gray> <hover:show_text:'<gray>{sender_faction_name}<newline><yellow>Clique para ver a facção!'><click:suggest_command:'/faccao info {sender_faction_tag}'><gray>[{sender_faction_tag}]</gray></click></hover> <hover:show_text:'<gray>{sender_faction_role_name}'>{sender_faction_role_prefix}</hover> <hover:show_text:'<yellow>Clique para enviar uma mensagem!</yellow>'><click:suggest_command:'/tell {sender_name}'>{sender_name_with_tag}</click></hover><white>:</white> <gray>{chat_message}</gray>",
+          "without-faction": "<gray><hover:show_text:'<dark_gray>Chat global</dark_gray>'><click:suggest_command:'/g '></click></hover></gray> <hover:show_text:'<yellow>Clique para enviar uma mensagem!</yellow>'><click:suggest_command:'/tell {sender_name}'>{sender_name_with_tag}</click></hover><white>:</white> <gray>{chat_message}</gray>"
+        },
+
+        // Dentro do plot: todo mundo que estiver no plot lê. O prefixo diz de onde veio a fala,
+        // porque a mesma tela mostra as duas formas conforme o jogador anda.
+        "plot": {
+          "with-faction": "<color:#ff2d2d></color> <hover:show_text:'<gray>{sender_faction_name}<newline><yellow>Clique para ver a facção!'><click:suggest_command:'/faccao info {sender_faction_tag}'><gray>[{sender_faction_tag}]</gray></click></hover> <hover:show_text:'<gray>{sender_faction_role_name}'>{sender_faction_role_prefix}</hover> {sender_name_with_tag}<dark_gray>:</dark_gray> <white>{chat_message}",
+          "without-faction": "<color:#ff2d2d></color> {sender_name_with_tag}<dark_gray>:</dark_gray> <white>{chat_message}"
+        },
+
+        // Fora do plot (hub/spawn): só quem está dentro do raio lê.
+        "local": {
+          "with-faction": "<gray></gray> <hover:show_text:'<gray>{sender_faction_name}<newline><yellow>Clique para ver a facção!'><click:suggest_command:'/faccao info {sender_faction_tag}'><gray>[{sender_faction_tag}]</gray></click></hover> <hover:show_text:'<gray>{sender_faction_role_name}'>{sender_faction_role_prefix}</hover> {sender_name_with_tag}<dark_gray>:</dark_gray> <white>{chat_message}",
+          "without-faction": "<gray></gray> {sender_name_with_tag}<dark_gray>:</dark_gray> <white>{chat_message}"
+        },
+
+        // Ninguém além do próprio jogador recebeu a mensagem.
+        "sem-ninguem-perto": "<gray>Ninguém por perto ouviu você.</gray>"
+      },
+
+      "commands": {
+        // /g (/global) <mensagem> — CannonGlobalChatCommand.
+        "global": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem enviada para todos os servidores da Academy."
+            }
+          },
+          "message-cannot-be-empty": "<red>Você não pode enviar uma mensagem vazia!</red>",
+          // {remaining_time} já vem formatado ("3 segundos"). O cooldown vem de chat.global no config.yml.
+          "in-cooldown": "<red>Você precisa esperar mais {remaining_time} para enviar outra mensagem!</red>"
+        }
+      },
+
+      "preferences": {
+        // Registrada pelo CannonChatSetup (e não pelo CannonPreferencesRegistry.register(), que só roda
+        // nos apps com mecânica de canhão) — o /g existe em todos os apps.
+        "chat-global": {
+          "name": "<color:#ff2d2d>Chat Global",
+          "description": [
+            "<gray>Receber as mensagens do /g,</gray>",
+            "<gray>enviadas de qualquer servidor</gray>",
+            "<gray>da Academy.</gray>"
+          ]
+        }
+      }
+    }
+  }
+}

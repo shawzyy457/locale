@@ -1,0 +1,190 @@
+{
+  // ════════════════════════════════════════════════════════════════════════════════════════════════
+  // ARSENAL DA ACADEMY — armaduras, armas e ferramentas do Fac x Fac
+  // ════════════════════════════════════════════════════════════════════════════════════════════════
+  // Raiz `plugins.armory`, a MESMA do servidor de factions. Não colide: quem separa os dois é o escopo
+  // da pasta (`pt_br.lang/factions/` contra `pt_br.lang/academy/`), exatamente como já acontece com
+  // `plugins.factions`. A raiz não é configurável — está escrita no Java (ArmoryConstants.LANG_KEY).
+  //
+  // A CHAVE DE CADA PEÇA NÃO TEM O PREFIXO `armory-`. O CustomItem registrado é
+  // `armory-netherite_sword`, mas o texto dele mora em `registry.netherite_sword`. É a única chave do
+  // projeto em que as duas formas divergem, e é assim no factions também.
+  //
+  // ── Sobre a cor ──────────────────────────────────────────────────────────────────────────────────
+  // AS CORES AQUI SÃO AS DO FACTIONS (diamante #34ebc9, netherite em gradiente #31292a→#5a5455) e não
+  // a paleta laranja/vermelha da Academy. É a mesma exceção deliberada dos cinco `durability-block-*`
+  // em academy/cannon.jsonc, e pelo mesmo motivo: são os MESMOS itens do factions, e quem treina aqui
+  // tem de reconhecê-los lá sem reparar na diferença. O equipamento do treino não pode parecer outro
+  // equipamento.
+  //
+  // A cor não está escrita nestas linhas: ela chega pelo placeholder {armory_color}, que vem do campo
+  // `cores` de cada peça em `armory.pecas` (config.yml do cannon-utils). Mudar a cor aqui não faz
+  // nada — mude no config. E {armory_color} é gradiente ABERTO: pinta tudo até o fim da linha ou até
+  // a próxima tag de cor.
+  "plugins": {
+    "armory": {
+      // ── Nome e descrição de cada peça ─────────────────────────────────────────────────────────
+      // Texto idêntico ao de pt_br.lang/factions/armory.jsonc. Cada chave tem de casar 1:1 com uma
+      // entrada de `armory.pecas` no config.yml — peça sem entrada aqui mostra a chave crua no item.
+      "registry": {
+        "diamond_helmet": {
+          "name": "{armory_color}Elmo de Diamante",
+          "description": [
+            "<gray>Armadura sólida de diamante",
+            "<gray>que protege sua cabeça."
+          ]
+        },
+        "diamond_chestplate": {
+          "name": "{armory_color}Peitoral de Diamante",
+          "description": [
+            "<gray>Armadura sólida de diamante",
+            "<gray>que protege seu peito."
+          ]
+        },
+        "diamond_leggings": {
+          "name": "{armory_color}Calças de Diamante",
+          "description": [
+            "<gray>Armadura sólida de diamante",
+            "<gray>que protege suas pernas."
+          ]
+        },
+        "diamond_boots": {
+          "name": "{armory_color}Botas de Diamante",
+          "description": [
+            "<gray>Armadura sólida de diamante",
+            "<gray>que protege seus pés."
+          ]
+        },
+        "diamond_sword": {
+          "name": "{armory_color}Espada de Diamante",
+          "description": [
+            "<gray>Lâmina afiada de",
+            "<gray>diamante puro."
+          ]
+        },
+        "diamond_axe": {
+          "name": "{armory_color}Machado de Diamante",
+          "description": [
+            "<gray>Machado forjado em",
+            "<gray>diamante puro."
+          ]
+        },
+        "diamond_pickaxe": {
+          "name": "{armory_color}Picareta de Diamante",
+          "description": [
+            "<gray>Picareta forjada em",
+            "<gray>diamante puro."
+          ]
+        },
+        "diamond_shovel": {
+          "name": "{armory_color}Pá de Diamante",
+          "description": [
+            "<gray>Pá forjada em",
+            "<gray>diamante puro."
+          ]
+        },
+        "diamond_hoe": {
+          "name": "{armory_color}Enxada de Diamante",
+          "description": [
+            "<gray>Enxada forjada em",
+            "<gray>diamante puro."
+          ]
+        },
+        "netherite_helmet": {
+          "name": "{armory_color}Elmo de Netherite",
+          "description": [
+            "<gray>Proteção ancestral",
+            "<gray>do Nether."
+          ]
+        },
+        "netherite_chestplate": {
+          "name": "{armory_color}Peitoral de Netherite",
+          "description": [
+            "<gray>Proteção ancestral",
+            "<gray>do Nether."
+          ]
+        },
+        "netherite_leggings": {
+          "name": "{armory_color}Calças de Netherite",
+          "description": [
+            "<gray>Proteção ancestral",
+            "<gray>do Nether."
+          ]
+        },
+        "netherite_boots": {
+          "name": "{armory_color}Botas de Netherite",
+          "description": [
+            "<gray>Proteção ancestral",
+            "<gray>do Nether."
+          ]
+        },
+        "netherite_sword": {
+          "name": "{armory_color}Espada de Netherite",
+          "description": [
+            "<gray>Lâmina forjada nas",
+            "<gray>profundezas do Nether."
+          ]
+        },
+        "netherite_axe": {
+          "name": "{armory_color}Machado de Netherite",
+          "description": [
+            "<gray>Machado forjado nas",
+            "<gray>profundezas do Nether."
+          ]
+        },
+        "netherite_pickaxe": {
+          "name": "{armory_color}Picareta de Netherite",
+          "description": [
+            "<gray>Picareta forjada nas",
+            "<gray>profundezas do Nether."
+          ]
+        },
+        "netherite_shovel": {
+          "name": "{armory_color}Pá de Netherite",
+          "description": [
+            "<gray>Pá forjada nas profundezas",
+            "<gray>do Nether."
+          ]
+        },
+        "netherite_hoe": {
+          "name": "{armory_color}Enxada de Netherite",
+          "description": [
+            "<gray>Enxada forjada nas",
+            "<gray>profundezas do Nether."
+          ]
+        }
+      },
+
+      // ── O molde do item ───────────────────────────────────────────────────────────────────────
+      // É AQUI que a fonte pequena entra — as entradas de `registry` acima não a levam, porque elas
+      // são pedaço de texto, não item. Placeholders, todos vindos de ArmoryPieceCustomItem:
+      //   {armory_name}          nome da peça (já com a cor do tier)
+      //   {armory_description}   descrição da peça (2 linhas)
+      //   {armory_color}         a cor do tier, como gradiente aberto
+      //   {armory_enchantments}  uma linha por encantamento, com o nível em romano
+      //
+      // O bloco de encantamentos some sozinho quando a peça não tem nenhum: são dois moldes, e quem
+      // escolhe entre eles é o Java.
+      "items": {
+        "armory-item": {
+          "display-name": "{armory_name}",
+          "with-enchantments": {
+            "name": "{armory_name}",
+            "lore": [
+              "{armory_description}",
+              "",
+              "{armory_color} Encantamentos:",
+              "<gray> {armory_enchantments}"
+            ]
+          },
+          "without-enchantments": {
+            "name": "{armory_name}",
+            "lore": [
+              "{armory_description}"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

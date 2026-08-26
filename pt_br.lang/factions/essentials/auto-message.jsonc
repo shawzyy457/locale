@@ -1,0 +1,92 @@
+{
+    "plugins": {
+        "essentials": {
+            "messages": {
+                "auto-messages": {
+                    "1": [
+                        "",
+                        "<color:#FF8200><bold> Tem alguma dúvida?<reset>",
+                        "",
+                        "<white> Abra um ticket em nosso discord e",
+                        "<white> ficaremos muito felizes em responder.",
+                        "",
+                        "<color:#FF8200> discord.gg/exe",
+                        ""
+                    ],
+                    "2": [
+                        "",
+                        "<color:#2ECC71><bold> Métodos de pagamento disponíveis<reset>",
+                        "<white> exe.com",
+                        "",
+                        "<dark_gray> <white>Nossas formas de pagamentos são:",
+                        "<gray> PIX, PayPal, Cartão de Crédito & MbWay.",
+                        "",
+                        "<white> Qualquer dúvida sobre compras, abra um ticket.",
+                        "<color:#2ECC71> discord.gg/exe",
+                        ""
+                    ],
+                    "3": [
+                        "",
+                        "",
+                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold> ✦ OFERTA ESPECIAL DE ABERTURA ✦</bold>",
+                        "",
+                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Cupom <bold>ABERTURA<reset><white> disponível com <gradient:#7ABAFF:#9FE2FF:#7ABAFF><bold>20%</bold>",
+                        "<white> de desconto em qualquer produto do site.",
+                        "",
+                        "<dark_gray> <color:#7ea3f7>15.000 Gold<white> de <dark_gray><strikethrough>R$343,50<reset><gray> ➟ <color:#7ea3f7>R$199,90<reset>",
+                        "<dark_gray> <color:#7ea3f7>5.000 Gold<white> de <dark_gray><strikethrough>R$114,50<reset><gray> ➟ <color:#7ea3f7>R$79,90<reset>",
+                        "<dark_gray> <color:#7ea3f7>3.500 Gold<white> de <dark_gray><strikethrough>R$80,15<reset><gray> ➟ <color:#7ea3f7>R$59,90<reset>",
+                        "<dark_gray> <color:#7ea3f7>1.000 Gold<white> de <dark_gray><strikethrough>R$26,90<reset><gray> ➟ <color:#7ea3f7>R$22,90<reset>",
+                        "<dark_gray> <color:#7ea3f7>500 Gold<white> de <dark_gray><strikethrough>R$13,45<reset><gray> ➟ <color:#7ea3f7>R$12,10<reset>",
+                        "",
+                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Adquira acessando: <white>exe.com",
+                        ""
+                    ],
+                    "0": [
+                        "",
+                        "<gradient:#404EED:#5865F2:#7289DA><bold> Discord Oficial!</gradient>",
+                        "",
+                        "<white> Entre já em nosso discord e fique por dentro",
+                        "<white> de todas as atualizações do servidor.",
+                        "",
+                        "<gradient:#404EED:#5865F2:#7289DA> discord.gg/exe</gradient>",
+                        ""
+                    ],
+                    "4": [
+                        ""
+                    ],
+                    "5": [
+                        "",
+                        "<color:#FF8200> <bold>Faça parte da equipe do EXE!",
+                        "",
+                        "<white> As vagas para adentrar a equipe do",
+                        "<white> servidor estão abertas, aplique-se já!.",
+                        "",
+                        "<color:#FF8200> discord.gg/exe #formulários",
+                        ""
+                    ],
+                    "6": [
+                        "",
+                        "<color:#00acff><bold> Rede EXE</bold> <white>",
+                        "",
+                        "<white> Obrigado aos mais de <color:#00acff>{server_online_count} jogadores online<white>!",
+                        "<white> Divirta-se e mantenha o respeito com outros.",
+                        "",
+                        "<color:#00acff> Novidades e Sorteios: <white>discord.gg/exe",
+                        ""
+                    ],
+                    "7": [
+                        "",
+                        "<gold><bold> Mercado de Gold",
+                        "",
+                        "<white> Você pode adquirir itens especiais e",
+                        "<white> outros com <gold>Gold<white> digitando <gold>/goldshop",
+                        "",
+                        "<gold> Adquira Gold acessando: <white>exe.com",
+                        ""
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "plugins": {
+        "essentials": {
+            "messages": {
+                "region": {
+                    "not-allowed": {
+                        "command": "Você não pode executar esse comando aqui!"
+                    }
+                }
+            }
+        }
+    }
+}

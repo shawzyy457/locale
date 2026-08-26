@@ -1,0 +1,2594 @@
+{
+  "plugins": {
+    "factions": {
+      "roles": {
+        "leader": {
+          "name": "Líder",
+          "prefix": ""
+        },
+        "captain": {
+          "name": "Capitão",
+          "prefix": ""
+        },
+        "member": {
+          "name": "Membro",
+          "prefix": ""
+        },
+        "recruit": {
+          "name": "Recruta",
+          "prefix": ""
+        },
+        "none": {
+          "name": "Nenhum",
+          "prefix": ""
+        }
+      },
+      "experience": {
+        "spawner-kill-gain": "<color:#3ef7aa><bold>+{experience_amount}</bold></color> <white>pontos"
+      },
+      "ranking": {
+        "types": {
+          "spawners": {
+            "name": "Spawners",
+            "description": [
+              "<gray>Ranking baseado no valor</gray>",
+              "<gray>total de geradores.</gray>"
+            ]
+          },
+          "points": {
+            "name": "Pontos",
+            "description": [
+              "<gray>Ranking baseado nos pontos</gray>",
+              "<gray>acumulados pela facção.</gray>"
+            ]
+          },
+          "coins": {
+            "name": "Coins",
+            "description": [
+              "<gray>Ranking baseado na soma das</gray>",
+              "<gray>coins de todos os membros.</gray>"
+            ]
+          },
+          "invasion_wins": {
+            "name": "Vitórias em Invasão",
+            "description": [
+              "<gray>Ranking baseado nas vitórias</gray>",
+              "<gray>em invasões.</gray>"
+            ]
+          },
+          "general": {
+            "name": "Geral",
+            "description": [
+              "<gray>Ranking geral, somando os pontos</gray>",
+              "<gray>da colocação nos demais rankings.</gray>"
+            ]
+          }
+        }
+      },
+      "storage": {
+        "actions": {
+          "increment": {
+            "name": "Adicionou"
+          },
+          "decrement": {
+            "name": "Removeu"
+          }
+        }
+      },
+      "faction-permissions": {
+        "icon": {
+          "enabled": {
+            "name": "<green>{permission_name}</green>",
+            "lore": [
+              "<gray>{permission_description}</gray>",
+              "",
+              "<dark_gray>▸ </dark_gray><white>Estado: </white><green>Habilitado</green>",
+              "",
+              "<red>Clique para desabilitar.</red>"
+            ]
+          },
+          "disabled": {
+            "name": "<red>{permission_name}</red>",
+            "lore": [
+              "<gray>{permission_description}</gray>",
+              "",
+              "<dark_gray>▸ </dark_gray><white>Estado: </white><red>Desabilitado</red>",
+              "",
+              "<green>Clique para habilitar.</green>"
+            ]
+          }
+        },
+        "open_containers": {
+          "name": "Abrir Containers",
+          "description": [
+            "Permite abrir baús, fornalhas",
+            "e outros containers."
+          ],
+          "action": "abrir containers no território desta facção"
+        },
+        "break_place_blocks": {
+          "name": "Quebrar/Colocar Blocos",
+          "description": [
+            "Permite quebrar e colocar",
+            "blocos no território."
+          ],
+          "action": "construir no território desta facção"
+        },
+        "use_home": {
+          "name": "Usar Home",
+          "description": [
+            "Permite usar o comando",
+            "/f home para teleportar."
+          ],
+          "action": "usar a home da facção"
+        },
+        "accept_tpa": {
+          "name": "Aceitar TPA",
+          "description": [
+            "Permite aceitar solicitações",
+            "de teleporte de aliados."
+          ],
+          "action": "aceitar TPAs na facção"
+        },
+        "break_spawners": {
+          "name": "Quebrar Geradores",
+          "description": [
+            "Permite quebrar geradores",
+            "no território da facção."
+          ],
+          "action": "quebrar geradores da facção"
+        },
+        "manage_generator_storage": {
+          "name": "Gerenciar Armazém",
+          "description": [
+            "Permite retirar geradores",
+            "do armazém da facção."
+          ],
+          "action": "retirar do armazém da facção"
+        },
+        "manage_spawn": {
+          "name": "Gerenciar Spawn de Mobs",
+          "description": [
+            "Permite definir e remover os",
+            "pontos de spawn de mobs."
+          ],
+          "action": "gerenciar os spawns de mobs da facção"
+        },
+        "manage_beacon": {
+          "name": "Gerenciar Sinalizador",
+          "description": [
+            "Permite colocar, abrir e",
+            "remover o sinalizador."
+          ],
+          "action": "gerenciar o sinalizador da facção"
+        },
+        "use_interactables": {
+          "name": "Usar Interativos",
+          "description": [
+            "Permite usar botões, alavancas,",
+            "portas e outros interativos."
+          ],
+          "action": "interagir no território desta facção"
+        }
+      },
+      "items": {
+        "member-head": {
+          "name": "{member_name_with_tag}",
+          "lore": [
+            "",
+            "<color:#3ef7aa>Suas informações:",
+            " <dark_gray>▸</dark_gray> <white>Cargo:</white> <gray>{member_role_prefix}{member_role_name}</gray>",
+            " <dark_gray>▸</dark_gray> <white>KDR:</white> <gray>{member_stats_kdr}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Abates:</white> <gray>{member_stats_deaths}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Mortes:</white> <gray>{member_stats_kills}</gray>"
+          ]
+        },
+        "faction-banner": {
+          "name": "[{faction_tag}] {faction_name}",
+          "lore": [
+            "",
+            " <color:#3ef7aa>Informações da facção:",
+            " <dark_gray>▸</dark_gray> <white>Líder:</white> <gray>{faction_leader_name_with_tag}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Membros:</white> <gray>({faction_members_size}/{faction_max_members_size}) {faction_online_members_size} online</gray>",
+            " <dark_gray>▸</dark_gray> <white>Nível:</white> <gray>{faction_level}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Experiência:</white> <gray>{faction_experience}</gray>",
+            " <dark_gray>▸</dark_gray> <white>KDR:</white> <gray>{faction_stats_kdr}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Abates:</white> <gray>{faction_stats_deaths}</gray>",
+            " <dark_gray>▸</dark_gray> <white>Mortes:</white> <gray>{faction_stats_kills}</gray>"
+          ]
+        },
+        "empty-item": {
+          "name": "<red>Vazio!</red>",
+          "lore": [
+            "<gray>Nada encontrado por aqui :(</gray>"
+          ]
+        }
+      },
+      "commands": {
+        "restrict": {
+          "faction-command-restrict": {
+            "error": "<red>Você não faz parte de uma facção.</red>"
+          },
+          "faction-out-command-restrict": {
+            "error": "<red>Você já faz parte de uma facção.</red>"
+          }
+        },
+        "faction": {
+          "create": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Defina a tag que você deseja dar a sua facção"
+              },
+              "name": {
+                "name": "nome",
+                "description": "Defina o nome que você deseja dar a sua facção"
+              }
+            },
+            "errors": {
+              "tag-length": "<red>Você precisa escolher uma tag de 3 caracteres!</red>",
+              "name-length": "<red>Você precisa escolher um nome de 5 a 24 caracteres!</red>",
+              "invalid-pattern": "<red>Você só pode utilizar letras e numeros para a tag e o nome.</red>",
+              "tag-in-use": "<red>Você precisa escolher uma tag que nenhuma outra facção esteja usando!</red>",
+              "name-in-use": "<red>Você precisa escolher um nome que nenhuma outra facção esteja usando!</red>"
+            },
+            "success": "<green>Você criou sua facção com sucesso!</green>"
+          },
+          "tag": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Nova tag da facção (3 caracteres)"
+              }
+            },
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode alterar a tag!</red>",
+              "cooldown": "<red>Você precisa esperar <yellow>{time}</yellow> para alterar a tag novamente!</red>",
+              "tag-length": "<red>A tag precisa ter exatamente 3 caracteres!</red>",
+              "invalid-pattern": "<red>A tag só pode conter letras e números!</red>",
+              "tag-in-use": "<red>Esta tag já está sendo utilizada por outra facção!</red>"
+            },
+            "success": "<green>A tag da sua facção foi alterada para <yellow>[{tag}]</yellow> com sucesso!</green>"
+          },
+          "name": {
+            "arguments": {
+              "name": {
+                "name": "nome",
+                "description": "Novo nome da facção (5 a 24 caracteres)"
+              }
+            },
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode alterar o nome!</red>",
+              "cooldown": "<red>Você precisa esperar <yellow>{time}</yellow> para alterar o nome novamente!</red>",
+              "name-length": "<red>O nome precisa ter entre 5 e 24 caracteres!</red>",
+              "invalid-pattern": "<red>O nome só pode conter letras, números e espaços!</red>",
+              "name-in-use": "<red>Este nome já está sendo utilizado por outra facção!</red>"
+            },
+            "success": "<green>O nome da sua facção foi alterado para <yellow>{name}</yellow> com sucesso!</green>"
+          },
+          "home": {
+            "errors": {
+              "cooldown": "<red>Aguarde alguns segundos antes de teleportar novamente.</red>",
+              "no-home": "<red>Sua facção não possui uma home definida.</red>",
+              "server-unavailable": "<red>O servidor onde a home está localizada não está disponível.</red>"
+            },
+            "success": "<green>Teleportando para a home da facção...</green>"
+          },
+          "sethome": {
+            "errors": {
+              "insufficient-role": "<red>Apenas capitães ou superiores podem definir a home da facção.</red>",
+              "not-in-territory": "<red>Você precisa estar no território da sua facção para definir a home.</red>"
+            },
+            "success": "<green>Home da facção definida com sucesso!</green>"
+          },
+          "delhome": {
+            "errors": {
+              "insufficient-role": "<red>Apenas capitães ou superiores podem remover a home da facção.</red>",
+              "no-home": "<red>Sua facção não possui uma home definida.</red>"
+            },
+            "success": "<green>Home da facção removida com sucesso!</green>"
+          },
+          "fly": {
+            "errors": {
+              "not-in-territory": "<red>Você precisa estar no território da sua facção ou em terreno temporário para voar.</red>",
+              "in-combat": "<red>Você não pode voar enquanto está em combate.</red>",
+              "invasion-active": "<red>Você não pode voar enquanto sua facção está em invasão.</red>"
+            },
+            "enabled": "<green>Voo ativado! Você pode voar dentro do território.</green>",
+            "disabled": "<green>Voo desativado.</green>",
+            "disabled-combat": "<red>Seu voo foi desativado porque você entrou em combate!</red>",
+            "disabled-territory": "<red>Seu voo foi desativado porque você saiu do território permitido.</red>",
+            "disabled-invasion": "<red>Seu voo foi desativado porque sua facção entrou em invasão!</red>"
+          },
+          "claim": {
+            "not-allowed-out-free-zone": "<red>Você não pode dominar terras fora da zona livre.</red>",
+            "already-claimed": "<red>Este terreno já pertence a uma facção.</red>",
+            "near-other-faction": "<red>Você não pode dominar terras tão próximas de outra facção.</red>",
+            "separate-claims": "<red>Suas terras devem estar conectadas.</red>",
+            "success": "<green>Terreno dominado com sucesso!</green>"
+          },
+          "back": {
+            "need-location": "<red>Não há nenhuma localização anterior.</red>"
+          },
+          "unclaim": {
+            "not-allowed-zone": "<red>Você não pode abandonar terras em zonas especiais.</red>",
+            "not-your-claim": "<red>Este terreno não pertence à sua facção.</red>",
+            "under-attack": "<red>Você não pode abandonar terras enquanto está sob ataque.</red>",
+            "has-spawner": "<red>Você não pode abandonar terras que possuem geradores.</red>",
+            "split-territory": "<red>Abandonar este terreno dividiria seu território.</red>",
+            "success-one": "<green>Terreno abandonado com sucesso!</green>"
+          },
+          "map": {
+            "arguments": {
+              "state": {
+                "name": "estado",
+                "description": "Ativar ou desativar o mapa automático (on/off)"
+              }
+            },
+            "success-auto-map-on": "<green>Mapa automático ativado!</green>",
+            "success-auto-map-off": "<green>Mapa automático desativado!</green>"
+          },
+          "demote": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja rebaixar"
+              }
+            },
+            "errors": {
+              "not-same-faction": "<red>Você só pode rebaixar jogadores que estão em sua própria facção!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para rebaixar esse jogador!</red>",
+              "target-in-lowest-role": "<red>Esse jogador já está no cargo mais baixo!</red>",
+              "insufficient-role": "<red>Você não tem permissão para rebaixar membros.</red>"
+            },
+            "success": "<green>Você rebaixou o jogador {target_name} para {target_role_name} com sucesso!</green>"
+          },
+          "permissions": {
+            "errors": {
+              "insufficient-role": "<red>Apenas o líder da facção pode gerenciar permissões.</red>"
+            }
+          },
+          "disband": {
+            "errors": {
+              "need-leader-role": "<red>Você precisa ser o líder da facção para poder desfaze-lo!</red>"
+            }
+          },
+          "info": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Tag da facção que você deseja buscar"
+              }
+            },
+            "invalid-faction": "<red>Facção não encontrada.</red>",
+            "member-format": {
+              "online": "<green>{target_role_prefix}{target_name_with_color}</green> ",
+              "offline": "<red>{target_role_prefix}{target_name_with_color}</red> "
+            },
+            "success": [
+              "",
+              " <yellow>Informações da facção:</yellow>",
+              "",
+              "  <white>Facção:</white> [{faction_tag}] {faction_name}",
+              "  <white>Líder:</white> {faction_leader_name_with_tag}",
+              "  <white>Nível:</white> <gray>{faction_level} ({faction_experience} XP)</gray>",
+              "  <white>Membros:</white> <gray>{faction_members_size}/{faction_max_members_size} ({faction_online_members_size} online)</gray>",
+              "  {faction_members}",
+              "",
+              "  <white>KDR:</white> <gray>{faction_stats_kdr}</gray>",
+              "  <white>Mortes:</white> <gray>{faction_stats_deaths}</gray>",
+              "  <white>Abates:</white> <gray>{faction_stats_kills}</gray>",
+              ""
+            ]
+          },
+          "invitation": {
+            "accept": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção que você deseja aceitar o convite"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Não foi possível encontrar uma facção com essa tag!</red>",
+                "faction-not-invited": "<red>Você não possui nenhum convite de entrada dessa facção!</red>",
+                "faction-max-members-exceeded": "<red>A facção que te convidou está cheia!</red>",
+                "is-reserve": "<red>Você está no banco de reservas de uma facção. Use /f sair antes de aceitar um convite.</red>"
+              },
+              "success": "<green>Você se juntou a facção [{faction_tag}]</green>"
+            },
+            "deny": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção que você deseja aceitar o convite"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Não foi possível encontrar uma facção com essa tag!</red>",
+                "faction-not-invited": "<red>Você não possui nenhum convite de entrada dessa facção!</red>"
+              },
+              "success": "<green>Você negou o pedido da facção [{faction_tag}]</green>"
+            }
+          },
+          "invite": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que deseja convidar para sua facção"
+              }
+            },
+            "errors": {
+              "insufficient-role": "<red>Você não tem permissão para convidar jogadores.</red>",
+              "target-always-have-faction": "<red>Esse jogador já possui uma facção.</red>",
+              "target-is-reserve": "<red>Esse jogador está no banco de reservas de uma facção.</red>",
+              "already-invited": "<red>Você já enviou um pedido para esse jogador!</red>",
+              "max-invites-reached": "<red>Sua facção já possui 10 convites pendentes. Aguarde ou cancele algum convite.</red>",
+              "active-invasion": "<red>Não é possível convidar jogadores durante uma invasão.</red>"
+            },
+            "success": "<green>Você convidou o jogador {target_name} para a sua facção.</green>"
+          },
+          "kick": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja expulsar"
+              }
+            },
+            "errors": {
+              "insufficient-role": "<red>Você não tem permissão para expulsar membros.</red>",
+              "not-same-faction": "<red>Você só pode expulsar jogadores que estão em sua própria facção!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para expulsar esse jogador!</red>"
+            },
+            "success": "<green>Você expulsou o jogador {target_name}</green>"
+          },
+          "leave": {
+            "errors": {
+              "is-leader": "<red>O líder da facção não pode abandoná-lo. Caso queira deletá-lo utilize /faction desfazer.</red>",
+              "not-in-faction": "<red>Você não está em nenhuma facção.</red>"
+            },
+            "reserve-left": "<green>Você saiu do banco de reservas da facção [{faction_tag}].</green>"
+          },
+          "reserve-status": "<red>Você está no banco de reservas da facção [{faction_tag}]. Use <bold>/f entrar</bold> para assumir uma vaga ou <bold>/f sair</bold> para deixar o banco.</red>",
+          "enter": {
+            "errors": {
+              "not-a-reserve": "<red>Você não está no banco de reservas de nenhuma facção.</red>",
+              "nobody-offline": "<red>Não há nenhum membro offline para você substituir no momento.</red>"
+            }
+          },
+          "roster": {
+            "empty": "<yellow>O banco de reservas da sua facção está vazio. Use <bold>/f roster add <jogador></bold> para adicionar alguém.</yellow>",
+            "add": {
+              "arguments": {
+                "target": {
+                  "name": "jogador",
+                  "description": "Jogador que você deseja adicionar ao banco de reservas"
+                }
+              },
+              "errors": {
+                "insufficient-role": "<red>Você não tem permissão para gerenciar o banco de reservas.</red>",
+                "target-not-free": "<red>Esse jogador já possui uma facção ou já está em um banco de reservas.</red>",
+                "reserve-full": "<red>O banco de reservas da sua facção está cheio.</red>"
+              },
+              "success": "<green>Você adicionou {target_name} ao banco de reservas.</green>"
+            },
+            "remove": {
+              "arguments": {
+                "target": {
+                  "name": "jogador",
+                  "description": "Jogador que você deseja remover do banco de reservas"
+                }
+              },
+              "errors": {
+                "insufficient-role": "<red>Você não tem permissão para gerenciar o banco de reservas.</red>",
+                "not-a-reserve": "<red>Esse jogador não está no banco de reservas da sua facção.</red>"
+              },
+              "success": "<green>Você removeu {target_name} do banco de reservas.</green>"
+            }
+          },
+          "profile": {
+            "arguments": {
+              "name": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja ver o perfil"
+              }
+            },
+            "success-with-faction": [
+              "",
+              " <yellow>Informações do jogador:</yellow>",
+              "",
+              "  <white>Jogador:</white> {target_name_with_tag}",
+              "  <white>Facção:</white> <gray>{target_faction_tag}</gray>",
+              "  <white>Cargo:</white> <gray>{target_role_name}</gray>",
+              "  <white>KDR:</white> <gray>{target_stats_kdr}</gray>",
+              "  <white>Mortes:</white> <gray>{target_stats_deaths}</gray>",
+              "  <white>Abates:</white> <gray>{target_stats_kills}</gray>",
+              ""
+            ],
+            "success-without-faction": [
+              "",
+              " <yellow>Informações do jogador:</yellow>",
+              "",
+              "  <white>Jogador:</white> {target_name_with_tag}",
+              "  <white>Facção:</white> <gray>Sem facção</gray>",
+              "  <white>KDR:</white> <gray>{target_stats_kdr}</gray>",
+              "  <white>Mortes:</white> <gray>{target_stats_deaths}</gray>",
+              "  <white>Abates:</white> <gray>{target_stats_kills}</gray>",
+              ""
+            ]
+          },
+          "members": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Tag da facção que você deseja ver os membros"
+              }
+            }
+          },
+          "ranking": {
+            "arguments": {
+              "category": {
+                "name": "categoria",
+                "description": "Categoria do ranking (ex: spawners, kills)"
+              }
+            }
+          },
+          "c": {
+            "arguments": {
+              "message": {
+                "name": "mensagem",
+                "description": "Mensagem para enviar no chat da facção"
+              }
+            }
+          },
+          "promote": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja promover"
+              }
+            },
+            "errors": {
+              "insufficient-role": "<red>Você não tem permissão para promover membros.</red>",
+              "not-same-faction": "<red>Você só pode promover jogadores que estão em sua própria facção!</red>",
+              "need-more-role": "<red>Você não tem um cargo alto o suficiente para promover esse jogador!</red>",
+              "target-in-upper-role": "<red>Esse jogador já está no cargo mais alto!</red>"
+            },
+            "success": "<green>Você promoveu o jogador {target_name} para {target_role_name} com sucesso!</green>"
+          },
+          "see-chunks": {
+            "success-enabled": "Você ativou a visualização de chunks.",
+            "success-disabled": "Você desativou a visualização de chunks."
+          },
+          "super-jump": {
+            "success-enabled": "<green>Você ativou o super pulo durante invasões no seu território.</green>",
+            "success-disabled": "<red>Você desativou o super pulo durante invasões no seu território.</red>"
+          },
+          "transfer": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que você transferir a facção"
+              }
+            },
+            "errors": {
+              "not-leader": "<red>Somente o líder pode transferir a liderança da facção.</red>",
+              "not-same-faction": "<red>Você só pode transferir jogadores que estão em sua propria facção!</red>"
+            },
+            "success": "<green>Você transferiu a liderança da facção para {target_name} com sucesso.</green>"
+          },
+          "invasions": {
+            "errors": {}
+          },
+          "invade": {
+            "arguments": {
+              "faction": {
+                "name": "facção",
+                "description": "Tag ou nome da facção que você deseja invadir"
+              }
+            },
+            "errors": {
+              "not-leader": "<red>Apenas o líder ou capitão da facção pode iniciar uma invasão.</red>",
+              "faction-not-found": "<red>Facção não encontrada.</red>",
+              "cannot-invade-self": "<red>Você não pode invadir sua própria facção.</red>",
+              "no-territory": "<red>Sua facção não possui território.</red>",
+              "target-no-territory": "<red>A facção alvo não possui território.</red>",
+              "target-in-grace": "<red>A facção alvo está em período de graça e não pode ser invadida.</red>",
+              "faction-too-recent": "<red>Sua facção precisa ter pelo menos <yellow>{required}</yellow> de existência para invadir. Faltam <yellow>{time}</yellow>.</red>",
+              "higher-level-join-block": "<red>Sua facção recebeu um jogador que estava em uma facção de nível maior e não pode invadir por mais <yellow>{time}</yellow>.</red>",
+              "level-not-invadable": [
+                "",
+                " <red>❌ <bold>INVASÃO NEGADA!</bold></red>",
+                " <red>O nível da sua facção não permite</red>",
+                " <red>invadir uma facção desse nível.</red>",
+                "",
+                " <red>🗡 Sua facção: Nível <bold>{faction_attacker_level}</red>",
+                " <red>🏹 Facção Alvo <bold>[{faction_defender_tag}]</bold>: Nível <bold>{faction_defender_level}</red>",
+                "",
+                " <red>⚠ Níveis que você pode invadir: <gray>{faction_attacker_invadable_levels}",
+                ""
+              ],
+              "target-not-enough-spawners": "<red>A facção alvo não possui geradores suficientes ({current}/{required}).</red>",
+              "already-in-invasion": "<red>Sua facção já está participando de uma invasão.</red>",
+              "target-in-invasion": "<red>A facção alvo já está sendo invadida.</red>",
+              "wrong-world": "<red>Você precisa estar no mesmo mundo do território inimigo.</red>",
+              "too-far": "<red>Você está muito longe do território inimigo. Aproxime-se para iniciar a invasão.</red>",
+              "failed": "<red>Falha ao iniciar a invasão. Tente novamente.</red>",
+              "cancelled": "<red>Invasão cancelada.</red>"
+            },
+            "success": "<green><bold>Preparem-se!</bold> A batalha começará em breve! Sua facção tem <bold>30 minutos</bold> para explodir o primeiro bloco no território inimigo!</green>"
+          },
+          "spec": {
+            "arguments": {
+              "faction": {
+                "name": "facção",
+                "description": "Tag ou nome da facção cuja invasão você deseja assistir"
+              }
+            },
+            "errors": {
+              "faction-not-found": "<red>Facção não encontrada.</red>",
+              "not-active": "<red>Essa facção não está em uma invasão ativa no momento.</red>",
+              "participant": "<red>Você está participando dessa invasão e não pode assisti-la.</red>",
+              "no-territory": "<red>A facção defensora não possui território.</red>",
+              "command-blocked": "<red>Você não pode usar esse comando enquanto assiste a uma invasão. Use <bold>/spawn</bold> para sair.</red>"
+            },
+            "connecting": "<yellow>Conectando você à invasão...</yellow>",
+            "entered": "<green>Você está assistindo a invasão. Saia a qualquer momento com <bold>/spawn</bold>.</green>",
+            "distance-limit": "<yellow>Você atingiu o limite de <bold>{distance}</bold> blocos da invasão.</yellow>"
+          },
+          "truce": {
+            "errors": {
+              "not-in-invasion": "<red>Sua facção não está participando de nenhuma invasão ativa.</red>",
+              "not-leader": "<red>Apenas o líder ou capitães podem pedir ou aceitar uma trégua.</red>",
+              "already-offered": "<red>Sua facção já ofereceu uma trégua. Aguarde a resposta do inimigo.</red>",
+              "no-pending-truce": "<red>Não há nenhuma trégua pendente para aceitar.</red>",
+              "cancelled": "<red>Trégua cancelada.</red>"
+            },
+            "success": {
+              "offer-sent": "<green>Oferta de trégua enviada! A facção inimiga precisa aceitar para encerrar a invasão.</green>"
+            }
+          },
+          "lands": {
+            "no-territory": "<red>Sua facção não possui território. Use /f dominar para estabelecer um.</red>"
+          },
+          "generator": {
+            "already-opened": "<red>O armazém já está sendo utilizado por outro jogador.</red>",
+            "list": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção que você deseja ver os geradores"
+                }
+              },
+              "errors": {
+                "usage": "<red>Use: /f geradores listar <tag></red>",
+                "faction-not-found": "<red>Facção [{tag}] não encontrada.</red>"
+              }
+            }
+          },
+          "chest": {
+            "already-opened": "<red>O baú já está sendo utilizado por outro jogador.</red>"
+          },
+          "cashback": {
+            "already-opened": "<red>O cashback de invasão já está sendo utilizado por outro jogador.</red>"
+          },
+          "expand": {
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode expandir o território.</red>",
+              "no-territory": "<red>Sua facção não possui território.</red>",
+              "max-level": "<red>Seu território já está no nível máximo.</red>",
+              "cooldown": "<red>Você precisa esperar {hours}h {minutes}m para expandir novamente.</red>",
+              "need-requirements": "<red>Sua facção não possui os requisitos necessários para expandir.</red>",
+              "failed": "<red>Falha ao expandir o território. Tente novamente.</red>",
+              "cancelled": "<red>Expansão cancelada.</red>",
+              "under-invasion": "<red>Você não pode expandir o território durante uma invasão.</red>",
+              "too-close-to-world-border": "<red>A expansão colocaria seu território a menos de 12 chunks da borda do mundo.</red>"
+            },
+            "success": "<gradient:#00c853:#2ee59d:#00e676>Território expandido para o nível {new_level}! (+{new_chunks} chunks)</gradient:#00c853:#2ee59d:#00e676>"
+          },
+          "reduce": {
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode reduzir o território.</red>",
+              "no-territory": "<red>Sua facção não possui território.</red>",
+              "min-level": "<red>Seu território já está no nível mínimo ({min_level}) para o nível da sua facção.</red>",
+              "has-spawners": "<red>Existem geradores no chunk ({chunk_x}, {chunk_z}) que será removido. Retire-os primeiro.</red>",
+              "failed": "<red>Falha ao reduzir o território. Tente novamente.</red>",
+              "cancelled": "<red>Redução de território cancelada.</red>",
+              "under-invasion": "<red>Você não pode reduzir o território durante uma invasão.</red>"
+            },
+            "success": "<green>Território reduzido para o nível {new_level}. (-{removed_chunks} chunks)</green>"
+          },
+          "abandon": {
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode abandonar o território.</red>",
+              "no-territory": "<red>Sua facção não possui território.</red>",
+              "has-spawners": "<red>Existem geradores no chunk ({chunk_x}, {chunk_z}). Retire todos os geradores antes de abandonar.</red>",
+              "failed": "<red>Falha ao abandonar o território. Tente novamente.</red>",
+              "cancelled": "<red>Abandono de território cancelado.</red>",
+              "under-invasion": "<red>Você não pode abandonar o território durante uma invasão.</red>"
+            },
+            "success": "<green>Território abandonado. ({removed_chunks} chunks liberados)</green>"
+          },
+          "dominate": {
+            "errors": {
+              "not-leader": "<red>Apenas o líder da facção pode estabelecer um território.</red>",
+              "already-has-territory": "<red>Sua facção já possui um território.</red>",
+              "not-allowed-zone": "<red>Você não pode estabelecer território nesta zona.</red>",
+              "already-claimed": "<red>Este chunk já pertence a outra facção.</red>",
+              "too-close-to-other-faction": "<red>Você está muito próximo de outra facção. Afaste-se pelo menos 10 chunks.</red>",
+              "under-invasion": "<red>Você não pode estabelecer território durante uma invasão.</red>",
+              "too-close-to-world-border": "<red>Você não pode estabelecer território a menos de 12 chunks da borda do mundo.</red>"
+            },
+            "success": [
+              "",
+              " <green>Território estabelecido com sucesso!</green>",
+              " <dark_gray>Use /f terras para gerenciá-lo.",
+              "",
+              " <green><click:run_command:'/f terras'>Clique <bold>AQUI</bold> para gerenciar suas terras!</click>",
+              ""
+            ]
+          },
+          "admin": {
+            "claim": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "radius": {
+                  "name": "raio",
+                  "description": "Raio em chunks ao redor (opcional)"
+                }
+              },
+              "faction-not-found": "<red>Facção não encontrada.</red>",
+              "no-chunks-available": "<red>Nenhum chunk disponível para dominar na área.</red>",
+              "not-allowed-out-free-zone": "<red>Você só pode dominar terras na zona livre.</red>",
+              "already-claimed": "<red>Este chunk já está dominado.</red>",
+              "success": "<green>{count} chunk(s) dominado(s) com sucesso para a facção!</green>",
+              "cancelled": "<red>Dominação cancelada.</red>"
+            },
+            "unclaim": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "radius": {
+                  "name": "raio",
+                  "description": "Raio em chunks ao redor (opcional)"
+                }
+              },
+              "faction-not-found": "<red>Facção não encontrada.</red>",
+              "no-chunks-to-unclaim": "<red>Nenhum chunk disponível para abandonar na área.</red>",
+              "not-claimed": "<red>Este chunk não está dominado por nenhuma facção.</red>",
+              "not-allowed-zone": "<red>Você não pode abandonar chunks em zonas especiais.</red>",
+              "success": "<green>{count} chunk(s) abandonado(s) com sucesso!</green>",
+              "cancelled": "<red>Abandono cancelado.</red>"
+            },
+            "invasion": {
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "no-active-invasion": "<red>Não há invasão ativa envolvendo esta facção.</red>",
+                "invalid-action": "<red>Ação inválida. Use: cancel ou finish.</red>",
+                "already-finished": "<red>Esta invasão já foi finalizada.</red>"
+              },
+              "cancel": {
+                "arguments": {
+                  "faction": {
+                    "name": "facção",
+                    "description": "Tag ou nome da facção envolvida na invasão"
+                  }
+                },
+                "success": "<green>Invasão entre <yellow>[{attacker_tag}] {attacker_name}</yellow> e <yellow>[{defender_tag}] {defender_name}</yellow> foi cancelada.</green>",
+                "failed": "<red>Falha ao cancelar a invasão.</red>"
+              },
+              "finish": {
+                "arguments": {
+                  "faction": {
+                    "name": "facção",
+                    "description": "Tag ou nome da facção envolvida na invasão"
+                  }
+                },
+                "success": "<green>Invasão entre <yellow>[{attacker_tag}] {attacker_name}</yellow> e <yellow>[{defender_tag}] {defender_name}</yellow> foi finalizada.</green>",
+                "failed": "<red>Falha ao finalizar a invasão.</red>"
+              }
+            },
+            "join": {
+              "arguments": {
+                "target": {
+                  "name": "jogador",
+                  "description": "Nome do jogador que você deseja adicionar"
+                },
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                }
+              },
+              "errors": {
+                "target-already-in-faction": "<red>{target_name_with_color} <red>já está em uma facção.</red>",
+                "faction-not-found": "<red>Facção não encontrada.</red>"
+              },
+              "success": "<green>Você adicionou {target_name_with_color} <green>à facção <yellow>[{faction_tag}] {faction_name}</yellow>!</green>"
+            },
+            "disband": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção que você deseja desfazer"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>"
+              },
+              "success": "<green>A facção <yellow>[{faction_tag}] {faction_name}</yellow> foi desfeita!</green>"
+            },
+            "transfer": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "target": {
+                  "name": "jogador",
+                  "description": "Nome do novo líder"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "target-not-in-faction": "<red>{target_name_with_color} <red>não está na facção <yellow>[{faction_tag}] {faction_name}</yellow>.</red>"
+              },
+              "success": "<green>A liderança da facção <yellow>[{faction_tag}] {faction_name}</yellow> foi transferida para {target_name_with_color}<green>!</green>"
+            },
+            "promote": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "target": {
+                  "name": "jogador",
+                  "description": "Nome do jogador que você deseja promover"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "target-not-in-faction": "<red>{target_name_with_color} <red>não está na facção <yellow>[{faction_tag}] {faction_name}</yellow>.</red>",
+                "target-in-upper-role": "<red>Este jogador já está no cargo mais alto que pode ser promovido.</red>"
+              },
+              "success": "<green>Você promoveu {target_name_with_color} <green>para <yellow>{target_role_name}</yellow> na facção <yellow>[{faction_tag}] {faction_name}</yellow>!</green>"
+            },
+            "demote": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "target": {
+                  "name": "jogador",
+                  "description": "Nome do jogador que você deseja rebaixar"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "target-not-in-faction": "<red>{target_name_with_color} <red>não está na facção <yellow>[{faction_tag}] {faction_name}</yellow>.</red>",
+                "target-is-leader": "<red>Você não pode rebaixar o líder da facção. Use /f admin transfer para trocar a liderança.</red>",
+                "target-in-lowest-role": "<red>Este jogador já está no cargo mais baixo.</red>"
+              },
+              "success": "<green>Você rebaixou {target_name_with_color} <green>para <yellow>{target_role_name}</yellow> na facção <yellow>[{faction_tag}] {faction_name}</yellow>!</green>"
+            },
+            "experience": {
+              "arguments": {
+                "action": {
+                  "name": "ação",
+                  "description": "Ação a ser executada (set, add, subtract)"
+                },
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "amount": {
+                  "name": "quantidade",
+                  "description": "Quantidade de experiência"
+                }
+              },
+              "errors": {
+                "invalid-action": "<red>Ação inválida. Use: set, add ou subtract.</red>",
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "invalid-amount": "<red>Quantidade inválida.</red>",
+                "negative-amount": "<red>A quantidade não pode ser negativa.</red>"
+              },
+              "success": {
+                "set": "<green>Experiência da facção <yellow>[{faction_tag}] {faction_name}</yellow> definida para <yellow>{new_experience}</yellow> <gray>(era: {old_experience})</gray>.</green>",
+                "add": "<green>Adicionado <yellow>{amount}</yellow> de experiência à facção <yellow>[{faction_tag}] {faction_name}</yellow>. <gray>({old_experience} → {new_experience})</gray></green>",
+                "subtract": "<green>Removido <yellow>{amount}</yellow> de experiência da facção <yellow>[{faction_tag}] {faction_name}</yellow>. <gray>({old_experience} → {new_experience})</gray></green>"
+              }
+            },
+            "grace": {
+              "errors": {
+                "invalid-action": "<red>Ação inválida. Use: set, add ou remove.</red>",
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "time-required": "<red>Você precisa especificar o tempo para esta ação.</red>",
+                "invalid-time": "<red>Formato de tempo inválido. Use: 1h30m, 2d, etc.</red>",
+                "failed": "<red>Falha ao atualizar o período de graça.</red>"
+              },
+              "success": {
+                "set": "<green>Período de graça da facção <yellow>[{faction_tag}] {faction_name}</yellow> definido para <yellow>{time}</yellow>.</green>",
+                "add": "<green>Adicionado <yellow>{time}</yellow> ao período de graça da facção <yellow>[{faction_tag}] {faction_name}</yellow>.</green>",
+                "remove": "<green>Período de graça da facção <yellow>[{faction_tag}] {faction_name}</yellow> removido.</green>"
+              },
+              "set": {
+                "arguments": {
+                  "tag": {
+                    "name": "tag",
+                    "description": "Tag da facção"
+                  },
+                  "time": {
+                    "name": "tempo",
+                    "description": "Duração do período de graça (ex: 1h30m, 2d)"
+                  }
+                }
+              },
+              "add": {
+                "arguments": {
+                  "tag": {
+                    "name": "tag",
+                    "description": "Tag da facção"
+                  },
+                  "time": {
+                    "name": "tempo",
+                    "description": "Duração do período de graça (ex: 1h30m, 2d)"
+                  }
+                }
+              },
+              "remove": {
+                "arguments": {
+                  "tag": {
+                    "name": "tag",
+                    "description": "Tag da facção"
+                  }
+                }
+              }
+            },
+            "ranking": {
+              "success": "<green>Ranking atualizado com sucesso! Todos os servidores foram notificados.</green>"
+            },
+            "tag": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "new_tag": {
+                  "name": "nova tag",
+                  "description": "Nova tag da facção (3 caracteres)"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "tag-length": "<red>A tag precisa ter exatamente 3 caracteres!</red>",
+                "invalid-pattern": "<red>A tag só pode conter letras e números!</red>",
+                "tag-in-use": "<red>Esta tag já está sendo utilizada por outra facção!</red>"
+              },
+              "success": "<green>A tag da facção <yellow>[{old_tag}] {faction_name}</yellow> foi alterada para <yellow>[{new_tag}]</yellow> com sucesso!</green>"
+            },
+            "name": {
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "new_name": {
+                  "name": "novo nome",
+                  "description": "Novo nome da facção"
+                }
+              },
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "name-length": "<red>O nome precisa ter entre 5 e 24 caracteres!</red>",
+                "invalid-pattern": "<red>O nome só pode conter letras, números e espaços!</red>",
+                "name-in-use": "<red>Este nome já está sendo utilizado por outra facção!</red>"
+              },
+              "success": "<green>O nome da facção <yellow>[{faction_tag}]</yellow> foi alterado para <yellow>{new_name}</yellow> com sucesso!</green>"
+            },
+            "tax": {
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "currency-not-found": "<red>Erro ao acessar a moeda de coins.</red>",
+                "invalid-percentage": "<red>Porcentagem inválida. Use um valor entre 1 e 100.</red>",
+                "failed": "<red>Falha ao aplicar a taxa. Tente novamente.</red>"
+              },
+              "processing": "<red>Processando taxa de {percentage}%...</red>",
+              "success": "<red>Taxa de {percentage}% aplicada com sucesso na facção <yellow>[{faction_tag}] {faction_name}</yellow>!</red>",
+              "broadcast": [
+                "",
+                "<color:#d15249> A facção <yellow>[{faction_tag}] {faction_name}</yellow> <color:#d15249>foi taxada!",
+                "",
+                "<color:#d15249>  Coins removidos:<color:#d15249> <yellow>{coins_removed},00</yellow>",
+                "<color:#d15249> 👾 Geradores removidos:<color:#d15249> <yellow>{spawners_removed}</yellow>",
+                "",
+                "<gradient:#d15249:#f77b72><click:run_command:'/g gg'> Tire sarro dessa facção — Clique <bold>AQUI!</gradient>",
+                ""
+              ],
+              "apply": {
+                "arguments": {
+                  "tag": {
+                    "name": "tag",
+                    "description": "Tag da facção a ser taxada"
+                  },
+                  "percentage": {
+                    "name": "porcentagem",
+                    "description": "Porcentagem da taxa (1-100, padrão: 10)"
+                  }
+                }
+              },
+              "history": {
+                "arguments": {
+                  "tag": {
+                    "name": "tag",
+                    "description": "Tag da facção para ver o histórico"
+                  }
+                }
+              }
+            },
+            "storageunlock": {
+              "errors": {
+                "faction-not-found": "<red>Facção não encontrada.</red>",
+                "invalid-type": "<red>Tipo de storage inválido. Use <white>chest</white> ou <white>spawners</white>.</red>"
+              },
+              "success": "<green>O lock do storage <yellow>{storage_type}</yellow> da facção <yellow>[{faction_tag}] {faction_name}</yellow> foi liberado com sucesso!</green>",
+              "arguments": {
+                "tag": {
+                  "name": "tag",
+                  "description": "Tag da facção"
+                },
+                "type": {
+                  "name": "tipo",
+                  "description": "Tipo do storage (chest ou spawners)"
+                }
+              }
+            }
+          }
+        }
+      },
+      "messages": {
+        "reserve": {
+          "added": "<green>Você foi adicionado ao banco de reservas da facção [{faction_tag}]. Use <bold>/f entrar</bold> para assumir uma vaga.</green>",
+          "removed": "<red>Você foi removido do banco de reservas da facção [{faction_tag}].</red>",
+          "entered": "<green>Você assumiu uma vaga na facção [{faction_tag}]!</green>",
+          "displaced": "<red>Você foi movido para o banco de reservas da facção [{faction_tag}] — um reserva assumiu sua vaga enquanto você estava offline.</red>",
+          "member-entered": "<yellow>{entrant_name} assumiu a vaga de {displaced_name} (offline) vindo do banco de reservas.</yellow>"
+        },
+        "faction-permissions": {
+          "without-permission": "<red>Você não tem permissão para {permission_action}.</red>"
+        },
+        "requirements": {
+          "faction-level": "<red>Você precisa que sua facção seja nível <white>{faction_level}</white> para isso."
+        },
+        "faction": {
+          "new-leader": [
+            "",
+            " {user_name_with_tag} <green>é o novo líder da facção!</green>",
+            ""
+          ],
+          "on-member-chat": [
+            " <green>[{user_faction_tag}] </green><gray>{user_role_prefix}{user_name}</gray><white>: </white><green>{user_chat_message}</green>"
+          ],
+          "on-member-demote": [
+            "",
+            " {user_name_with_tag} <green>foi rebaixado a</green> <white>{user_role_name}</white><green>.</green>",
+            ""
+          ],
+          "on-member-promote": [
+            "",
+            " {user_name_with_tag} <green>foi promovido a</green> <white>{user_role_name}</white><green>.</green>",
+            ""
+          ],
+          "on-member-leave": [
+            "",
+            " {user_name_with_tag} <red>abandonou a facção.</red>",
+            ""
+          ],
+          "on-member-kick": [
+            "",
+            " {user_name_with_tag} <red>foi expulso da facção.</red>",
+            ""
+          ],
+          "on-member-join": [
+            "",
+            " {user_name_with_tag} <green>é o mais novo membro da facção!</green>",
+            ""
+          ],
+          "on-level-up": [
+            "",
+            " <green>Sua facção subiu para o nível <yellow>{new_level}</yellow>!</green>",
+            ""
+          ],
+          "on-level-down": [
+            "",
+            " <red>Sua facção desceu para o nível <yellow>{new_level}</yellow>.</red>",
+            ""
+          ]
+        },
+        "invasion": {
+          "started-attacker": [
+            "",
+            "<gradient:#FF2E2E:#FF6B6B><bold> 💥 Invasão Iniciada!</bold></gradient>",
+            "<gradient:#FF2E2E:#FF6B6B> ☠</gradient> <white>O ataque à facção</white> <red>[{defender_tag}] {defender_name}</red> <white>foi iniciado!</white>",
+            "",
+            "<gradient:#FF6B6B:#FF2E2E> ┏ Destrua geradores inimigos para vencer!",
+            "<gradient:#FF2E2E:#FF6B6B> ┃</gradient> <white>Geradores no território:</white> <color:#BDC3C7>{initial_spawners} geradores",
+            "<gradient:#FF2E2E:#FF6B6B> ┗</gradient> <white>Necessários p/ vitória <gradient:#FF2E2E:#FF6B6B>➟</gradient></white> <color:#BDC3C7>{required_spawners} geradores",
+            ""
+          ],
+          "started-defender": [
+            "",
+            "<color:#F97316><bold> 🛡 Defesa Iniciada!</bold>",
+            "<color:#BDC3C7> Sua facção está sob-ataque!",
+            "",
+            "<color:#F97316> ☠ <white>Facção invasora:</white> <red>[{attacker_tag}] {attacker_name}</red>",
+            "",
+            "<color:#F97316> ┏ Proteja seus geradores para vencer!",
+            "<color:#F97316> ┃ <white>Geradores no território:</white> <color:#BDC3C7>{initial_spawners} geradores",
+            "<color:#F97316> ┗ <white>Necessários p/ derrota <color:#F97316>➟</white> <color:#BDC3C7>{required_spawners} geradores",
+            "",
+            " <color:#F97316>Ir <click:run_command:'/f home'><bold>AGORA</bold> para base da facção!",
+            ""
+          ],
+          "victory-attacker": [
+            "",
+            "<bold> <green>💥 Invasão Ataque — Vitória",
+            "<gray> A invasão foi um sucesso, gg!",
+            "",
+            " <green>▶ <bold>Relatório da Invasão:",
+            " <green>▍ <white>Territorío dominado: <gray>[{defender_tag}] {defender_name}",
+            " <green>▍ <white>Geradores destruídos: <gray>{destroyed_spawners}/{required_spawners}</gray>",
+            " <green>▍ <white>Abates: <green>{defender_kills} <dark_gray><bold>✕</bold> <white>Mortes: <red>{attacker_kills}",
+            "",
+            " <green><bold>⚡ Recompensa de Tier!",
+            " <green>▍ <white><bold>+15</bold> pontos pela invasão!",
+            ""
+          ],
+          "cancelled": [
+            "",
+            "<yellow><bold>⚑ Invasão Cancelada</bold></yellow>",
+            "<gray>A invasão contra</gray> <yellow>[{enemy_tag}] {enemy_name}</yellow> <gray>foi cancelada por um administrador (empate).</gray>",
+            ""
+          ],
+          "defeat-attacker": [
+            "",
+            "<bold> <red>💥 Invasão — Derrota</bold>",
+            "<gray> Perdemos esta invasão. A próxima é nossa!",
+            "",
+            " <red>▶ <bold>Relatório da Invasão:",
+            " <red>▍ <white>Geradores destruídos: <gray>{destroyed_spawners}/{required_spawners}</gray>",
+            " <red>▍ <white>Abates: <green>{defender_kills} <dark_gray><bold>✕</bold> <white>Mortes: <red>{attacker_kills}",
+            "",
+            " <red><bold>⚡ Penalidade de Tier!",
+            " <red>▍ <white><bold>-15</bold> pontos pela derrota.",
+            ""
+          ],
+          "victory-defender": [
+            "",
+            "<bold> <color:#F97316>🛡 Defesa — Vitória</bold>",
+            "<gray> O território foi protegido com sucesso!",
+            "",
+            " <color:#F97316>▍ <white>Defendido contra: <gray>[{attacker_tag}] {attacker_name}<gray>!</gray>",
+            " <color:#F97316>▍ <white>Geradores perdidos: <gray>{destroyed_spawners}/{required_spawners}</gray>",
+            " <color:#F97316>▍ <white>Abates: <green>{defender_kills} <dark_gray><bold>✕</bold> <white>Mortes: <red>{attacker_kills}",
+            "",
+            " <color:#F97316><bold>⚡ Recompensa de Tier!",
+            " <color:#F97316>▍ <white><bold>+15</bold> pontos pela vitória!",
+            ""
+          ],
+          "defeat-defender": [
+            "",
+            "<red><bold> ⚔ DERROTA!</bold></red>",
+            "<yellow>[{attacker_tag}] {attacker_name}</yellow> <gray>conquistou seu território!</gray>",
+            "<gray>Spawners perdidos: {destroyed_spawners}/{required_spawners}</gray>",
+            "<gray>Abates: {defender_kills} | Mortes: {attacker_kills}</gray>",
+            ""
+          ],
+          "bossbar": {
+            "attacker": "<red>🗡<bold> Invasão em andamento! </bold><white>Duração: <gray>{remaining_time}",
+            "defender": "<color:#F97316>🗡<bold> Defesa em andamento! </bold><white>Duração: <gray>{remaining_time}",
+            "inactivity": "<yellow>⚠ <bold>Invasão inativa! </bold><white>Encerra em: <gray>{remaining_time}"
+          },
+          "other-access-territory": {
+            "title": "<red><bold>Território Inimigo</bold></red>",
+            "subtitle": "<gray>Você não pode acessar durante a invasão. <bold>SAIA!</gray>"
+          },
+          "victory-title": {
+            "title": "<red><bold>🗡 Invasão Vencida!</bold></red>",
+            "subtitle": "<white>[{attacker_tag}] {attacker_name} <gray>destruiu os geradores de <white>[{defender_tag}] {defender_name}"
+          },
+          "truce-requested": [
+            "",
+            " <gradient:#C8FF9E:#7DFFB3><bold>🕊 Trégua pendente de aprovação!</bold>",
+            " <gray>Uma facção enviou um pedido de trégua.",
+            "",
+            " <gray>A facção</gray> <gradient:#C8FF9E:#7DFFB3>{enemy_faction_name}</gradient> <gray>está solicitando uma trégua.</gray>",
+            "",
+            " <gradient:#C8FF9E:#7DFFB3>Clique <click:run_command:'/f tregua'><hover:show_text:'<gray>Clique para aceitar a trégua. <white>[/f tregua]'><bold>AQUI</bold> para aceitar!",
+            ""
+          ],
+          "truce-accepted": [
+            "",
+            " <gradient:#C8FF9E:#7DFFB3><bold>🕊 Um acordo de paz foi estabelecido!",
+            " <gray>O conflito foi encerrado por acordo entre as facções.</gray>",
+            ""
+          ],
+          "broadcast-started": [
+            "",
+            " <gradient:#FF2E2E:#FF6B6B><bold>☠ A invasão foi declarada!</bold></gradient>",
+            " <gray>Uma invasão acaba de ser iniciada.",
+            "",
+            "<gradient:#FF2E2E:#FF6B6B> 🗡</gradient> <white>Atacante:</white> <gray>[{attacker_tag}] {attacker_name}</gray>",
+            "<gradient:#FF2E2E:#FF6B6B> 🛡</gradient> <white>Defensor:</white> <gray>[{defender_tag}] {defender_name}</gray>",
+            "",
+            " <gradient:#FF2E2E:#FF6B6B>Clique <hover:show_text:'<gray>Clique para acompanhar a invasão ao vivo.</gray>'><click:run_command:'/faction invasions'><gradient:#FF2E2E:#FF6B6B><bold>AQUI</bold></gradient></click></hover> <gradient:#FF2E2E:#FF6B6B>para acompanhar a invasão!",
+            ""
+          ],
+          "broadcast-ended": [
+            "",
+            " <gradient:#FF2E2E:#FF6B6B>💥 <bold>Invasão Encerrada!</bold></gradient>",
+            " <gray>Uma invasão chegou ao fim!",
+            "",
+            "<gradient:#C8FF9E:#7DFFB3> </gradient> <white>Vencedor:</white> <gray>[{winner_tag}] {winner_name}</gray>",
+            "<gradient:#FF2E2E:#FF6B6B> </gradient> <white>Derrotado:</white> <gray>[{loser_tag}] {loser_name}</gray>",
+            "",
+            " <gradient:#FF2E2E:#FF6B6B>Clique <hover:show_text:'<gray>Clique para zombar desta facção.</gray>'><click:run_command:'/g KKKKKKKKKK'><gradient:#FF2E2E:#FF6B6B><bold>AQUI</bold></gradient></click></hover> <gradient:#FF2E2E:#FF6B6B>para tirar sarro dessa facção!",
+            ""
+          ],
+          "horn-broadcast-started": [
+            "",
+            " <gradient:#FFD479:#FFB02E><bold> 📯 Os chifres de guerra ecoaram!</bold></gradient>",
+            " <gray>Uma invasão acaba de ser declarada no servidor.",
+            "",
+            "<gradient:#FFD479:#FFB02E> 🗡</gradient> <white>Atacante:</white> <gray>[{attacker_tag}] {attacker_name}</gray>",
+            "<gradient:#FFD479:#FFB02E> 🛡</gradient> <white>Defensor:</white> <gray>[{defender_tag}] {defender_name}</gray>",
+            "",
+            " <gradient:#FFD479:#FFB02E>Clique <hover:show_text:'<gray>Clique para acompanhar a invasão ao vivo.</gray>'><click:run_command:'/faction invasions'><gradient:#FFD479:#FFB02E><bold>AQUI</bold></gradient></click></hover> <gradient:#FFD479:#FFB02E>para acompanhar a invasão!",
+            ""
+          ],
+          "horn-broadcast-ended": [
+            "",
+            " <gradient:#FFD479:#FFB02E><bold> 📯 O chifre soou o fim da invasão!</bold></gradient>",
+            " <gray>A invasão chegou ao fim!",
+            "",
+            "<gradient:#C8FF9E:#7DFFB3> 🏆</gradient> <white>Vencedor:</white> <gray>[{winner_tag}] {winner_name}</gray>",
+            "<gradient:#FF2E2E:#FF6B6B> ☠</gradient> <white>Derrotado:</white> <gray>[{loser_tag}] {loser_name}</gray>",
+            ""
+          ]
+        },
+        "grace": {
+          "bossbar": "<gradient:#FFEA61:#FFFFB7>🛡 <bold>Grace ativo! </bold><white>Duração: <gray>{remaining_time}",
+          "ended": [
+            "",
+            "<gradient:#FFEA61:#FFFFB7><bold> 🛡 O Grace chegou a um fim!</bold></gradient>",
+            "<gradient:#FFEA61:#FFFFB7> <gray>Seu território pode ser invadido a qualquer momento.</gray>",
+            ""
+          ]
+        },
+        "dispenser": {
+          "limit-reached-territory": "<red>Limite de dispensers/ejetores atingido no território da facção ({current}/{limit}).</red>",
+          "limit-reached-invasion": "<red>Limite de dispensers/ejetores atingido no território de invasão ({current}/{limit}).</red>"
+        },
+        "free-zone": {
+          "redstone-not-allowed": "<red>Você não pode colocar itens de redstone na zona livre.</red>"
+        },
+        "member": {
+          "on-invite-receive": [
+            "",
+            " <yellow>Você recebeu um pedido para entrar na facção \"{faction_tag}\".</yellow>",
+            " <yellow>Clique</yellow> <hover:show_text:'<gray>Clique aqui para abrir o menu de convites.</gray>'><click:run_command:'/faction invites'><yellow><bold>AQUI</bold></yellow></click></hover> <yellow>para abrir o menu de convites.</yellow>",
+            ""
+          ]
+        },
+        "death": {
+          "killed-by-player": "<gray>☠ </gray> {victim_name_with_tag} <gray>foi morto por </gray> {killer_name_with_tag}<gray>.</gray>"
+        },
+        "views": {
+          "faction-member-role-manage": {
+            "target-already-in-role": "<red>Este membro já pertence a este cargo.</red>",
+            "member-insufficient-role": "<red>Você não pode definir o cargo desse jogador para </red><white>{target_role_name}</white><red> com seu cargo.</red>",
+            "success-promote": "<green>Você promoveu o jogador {target_name_with_tag} para o cargo </green><white>{target_role_name}</white><green>.</green>",
+            "success-demote": "<green>Você rebaixou o jogador {target_name_with_tag} para o cargo </green><white>{target_role_name}</white><green>.</green>"
+          },
+          "faction-member-permission-manage": {
+            "target-need-more-role": "<red>Esse jogador não possui o cargo mínimo para liberar essa permissão.</red>",
+            "redefined-success": "<green>Permissões redefinidas com sucesso!</green>",
+            "defined-success": "<green>Permissão alterada com sucesso.</green>"
+          },
+          "faction-disband-confirmation": {
+            "errors": {
+              "in-invasion": "<red>Você não pode desfazer a facção enquanto ela estiver em uma invasão.</red>",
+              "has-placed-spawners": "<red>Você não pode desfazer a facção enquanto houver geradores colocados no território ({count} geradores). Retire-os primeiro.</red>",
+              "has-stored-generators": "<red>Você não pode desfazer a facção enquanto houver geradores armazenados ({count} geradores). Retire-os primeiro.</red>",
+              "has-invasion-cashback": "<red>Você não pode desfazer a facção enquanto houver geradores no cashback de invasão ({count} geradores). Retire-os primeiro.</red>"
+            },
+            "success": "<green>Sua facção foi desfeita com sucesso!</green>"
+          },
+          "faction-invites": {
+            "delete": {
+              "success": "<green>Convite cancelado com sucesso!</green>"
+            },
+            "insufficient-role": "<red>Apenas capitães ou superiores podem gerenciar convites.</red>"
+          },
+          "faction-manage": {
+            "only-leader": "<red>Apenas o líder da facção pode gerenciar as permissões.</red>"
+          },
+          "faction-role-permissions": {
+            "permission-updated": "<green>✔ Permissão atualizada com sucesso!</green>",
+            "toggle": {
+              "enabled": "<green>Permissão <yellow>{permission_name}</yellow> habilitada para <yellow>{role_name}</yellow>.</green>",
+              "disabled": "<red>Permissão <yellow>{permission_name}</yellow> desabilitada para <yellow>{role_name}</yellow>.</red>"
+            }
+          },
+          "member-primary": {
+            "conversation": {
+              "faction-tag-selection": {
+                "query": "Digite a tag que você deseja colocar em sua facção:",
+                "responses": {
+                  "invalid-length": "<red>A tag da facção deve conter 3 caracteres.</red>",
+                  "invalid-pattern": "<red>A tag da facção não pode conter caracteres especiais.</red>",
+                  "already-in-use": "<red>Já existe uma facção utilizando essa tag.</red>"
+                }
+              }
+            },
+            "faction-tag-selection": {
+              "conversation": {
+                "responses": {
+                  "invalid-length": "<red>A tag da facção deve conter 3 caracteres.</red>",
+                  "invalid-pattern": "<red>A tag da facção não pode conter caracteres especiais.</red>",
+                  "already-in-use": "<red>Já existe uma facção utilizando essa tag.</red>"
+                }
+              }
+            },
+            "faction-name-selection": {
+              "conversation": {
+                "query": "Digite o nome que você deseja colocar em sua facção:",
+                "responses": {
+                  "invalid-length": "<red>O nome da facção deve conter entre 5 a 16 caracteres.</red>",
+                  "invalid-pattern": "<red>O nome da facção não pode conter caracteres especiais.</red>",
+                  "already-in-use": "<red>Já existe uma facção utilizando esse nome.</red>"
+                }
+              }
+            }
+          },
+          "faction-primary": {
+            "no-territory": "<red>Sua facção não possui território. Use /f dominar para estabelecer um.</red>"
+          },
+          "member-leave-confirmation": {
+            "success": "<green>Você saiu de sua facção.</green>"
+          },
+          "faction-lands": {
+            "not-leader": "<red>Apenas o líder da facção pode alterar o território.</red>",
+            "pattern-changed": "<green>Padrão de território alterado com sucesso!</green>",
+            "pattern-change-failed": "<red>Falha ao alterar o padrão de território.</red>",
+            "has-spawners-in-chunk": "<red>Existem geradores no chunk ({chunk_x}, {chunk_z}) que será removido ao mudar o padrão. Retire-os primeiro.</red>",
+            "too-close-to-world-border": "<red>O novo padrão colocaria seu território a menos de 12 chunks da borda do mundo.</red>"
+          },
+          "faction-spawn-mobs": {
+            "set": {
+              "success": "<green>Spawn de <yellow>{spawner_name}</yellow> definido com sucesso!</green>",
+              "error": "<red>Erro ao definir o spawn. Tente novamente.</red>"
+            },
+            "delete": {
+              "not-found": "<red>Nenhum spawn definido para este mob.</red>",
+              "success": "<green>Spawn de <yellow>{spawner_name}</yellow> removido com sucesso!</green>",
+              "error": "<red>Erro ao remover o spawn. Tente novamente.</red>"
+            }
+          },
+          "faction-storage-spawners": {
+            "already-opened": "<red>O armazém já está sendo utilizado por outro jogador.</red>",
+            "save-failed": "<red>Não foi possível salvar o armazém de geradores. Suas alterações podem não ter sido aplicadas.</red>",
+            "load-failed": "<red>Não foi possível abrir o armazém de geradores. Tente novamente.</red>",
+            "collect-one": {
+              "empty": "<red>Não há geradores para coletar.</red>",
+              "success": "<green>Coletado!</green> <gray>Geradores adicionados ao inventário.</gray>"
+            },
+            "storage-all": {
+              "empty": "<red>Não há geradores para armazenar.</red>",
+              "success": "<green>Geradores armazenados com sucesso!</green>"
+            }
+          },
+          "faction-storage-chest": {
+            "already-opened": "<red>O baú já está sendo utilizado por outro jogador.</red>",
+            "item-not-allowed": "<red>Este item não pode ser armazenado aqui.</red>",
+            "save-failed": "<red>Não foi possível salvar o baú. Suas alterações podem não ter sido aplicadas.</red>",
+            "load-failed": "<red>Não foi possível abrir o baú. Tente novamente.</red>"
+          },
+          "faction-storage-invasion-cashback": {
+            "already-opened": "<red>O cashback de invasão já está sendo utilizado por outro jogador.</red>",
+            "save-failed": "<red>Não foi possível salvar o cashback de invasão. Suas alterações podem não ter sido aplicadas.</red>",
+            "load-failed": "<red>Não foi possível abrir o cashback de invasão. Tente novamente.</red>",
+            "in-invasion": "<red>Você não pode coletar o cashback enquanto sua facção está em uma invasão ativa.</red>",
+            "collect-one": {
+              "empty": "<red>Não há geradores para coletar.</red>",
+              "success": "<green>Coletado!</green> <gray>Geradores adicionados ao inventário.</gray>"
+            }
+          },
+          "faction-tax-history": {
+            "already-reverted": "<red>Esta taxa já foi revertida.</red>"
+          },
+          "faction-tax-revert": {
+            "already-reverted": "<red>Esta taxa já foi revertida.</red>",
+            "processing": "<yellow>Processando reversão... Por favor, aguarde.</yellow>",
+            "faction-not-found": "<red>A facção não existe mais.</red>",
+            "success": "<green>Taxa revertida com sucesso!</green> <gray>(Coins: {coins_returned} | Geradores: {spawners_returned} devolvidos para a facção [{faction_tag}])</gray>",
+            "failed": "<red>Falha ao reverter a taxa. Tente novamente.</red>"
+          }
+        },
+        "territory": {
+          "enter": {
+            "title": "",
+            "subtitle": "{state_color}[{faction_tag}] {faction_name}"
+          }
+        }
+      },
+      "views": {
+        "faction-member-list-manage": {
+          "title": "[{faction_tag}] Membros",
+          "items": {
+            "0": {
+              "lore": [
+                "<green>Clique para gerenciar.</green>"
+              ]
+            }
+          }
+        },
+        "faction-member-manage": {
+          "title": "[{faction_tag}] - {target_name}",
+          "items": {
+            "0": {
+              "name": "<yellow>Gerenciar cargo</yellow>",
+              "lore": [
+                "<green>Clique para gerenciar.</green>"
+              ]
+            },
+            "1": {
+              "name": "<yellow>Gerenciar permissões</yellow>",
+              "lore": [
+                "<green>Clique para gerenciar.</green>"
+              ]
+            }
+          }
+        },
+        "faction-member-permission-manage": {
+          "title": "Permissões de {target_name}",
+          "items": {
+            "0": {
+              "name": "<red>Redefinir permissões</red>",
+              "lore": [
+                "<gray>Ao clicar aqui todas as permissões</gray>",
+                "<gray>desse jogador voltarão ao padrão.</gray>"
+              ]
+            },
+            "1": {
+              "allow": {
+                "name": "<green>{permission_name}</green>",
+                "lore": [
+                  " <dark_gray>▸ </dark_gray><white>Estado: </white><green>Liberado</green>",
+                  " <dark_gray>▸ </dark_gray><white>Cargo mínimo: </white><gray>{permission_required_role_name}</gray>",
+                  "",
+                  "<green>Clique para bloquear</green>"
+                ]
+              },
+              "deny": {
+                "name": "<red>{permission_name}</red>",
+                "lore": [
+                  " <dark_gray>▸ </dark_gray><white>Estado: </white><red>Bloqueado</red>",
+                  " <dark_gray>▸ </dark_gray><white>Cargo mínimo: </white><gray>{permission_required_role_name}</gray>",
+                  "",
+                  "<red>Clique para liberar</red>"
+                ]
+              }
+            }
+          }
+        },
+        "faction-member-role-manage": {
+          "title": "[{faction_tag}]",
+          "items": {
+            "0": {
+              "allowed": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em sua facção.</gray>",
+                  "",
+                  "<green>Clique para definir este cargo.</green>"
+                ]
+              },
+              "dont-have-permission": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em sua facção.</gray>",
+                  "",
+                  "<red>Você não pode definir isso com seu cargo.</red>"
+                ]
+              },
+              "already-in-role": {
+                "name": "<yellow>{target_role_name}</yellow>",
+                "lore": [
+                  "<gray>Defina o cargo deste membro conforme</gray>",
+                  "<gray>a função dele em sua facção.</gray>",
+                  "",
+                  "<red>Este membro já pertence a este cargo.</red>"
+                ]
+              }
+            }
+          }
+        },
+        "faction-member-list": {
+          "title": "[{faction_tag}] Membros",
+          "items": {}
+        },
+        "faction-reserve-list": {
+          "title": "[{faction_tag}] Reservas",
+          "items": {}
+        },
+        "faction-disband-confirmation": {
+          "title": "[{faction_tag}] Confirmar exclusão",
+          "items": {}
+        },
+        "faction-manage": {
+          "title": "Gerenciar Facção",
+          "items": {
+            "invites": {
+              "name": "<green>Convites</green>",
+              "lore": [
+                "<gray>Gerencie os convites</gray>",
+                "<gray>enviados pela facção.</gray>",
+                "",
+                "<green>Clique para gerenciar.</green>"
+              ]
+            },
+            "members": {
+              "name": "<green>Membros</green>",
+              "lore": [
+                "<gray>Visualize todos os membros</gray>",
+                "<gray>da sua facção.</gray>",
+                "",
+                "<green>Clique para visualizar.</green>"
+              ]
+            },
+            "permissions": {
+              "name": "<yellow>Permissões</yellow>",
+              "lore": [
+                "<gray>Gerencie as permissões</gray>",
+                "<gray>da facção.</gray>",
+                "",
+                "<yellow>Clique para gerenciar.</yellow>"
+              ]
+            }
+          }
+        },
+        "faction-lands": {
+          "title": "[{faction_tag}] Terras",
+          "items": {
+            "back": {
+              "name": "<yellow>Voltar</yellow>",
+              "lore": [
+                "<gray>Clique para voltar.</gray>"
+              ]
+            },
+            "expand": {
+              "name": "<green>Expandir Território</green>",
+              "lore": [
+                "<gray>Aumente o nível do seu território</gray>",
+                "<gray>para conquistar mais chunks.</gray>",
+                "",
+                "<green>Clique para expandir.</green>"
+              ]
+            },
+            "reduce": {
+              "name": "<red>Reduzir Território</red>",
+              "lore": [
+                "<gray>Diminua o nível do seu território</gray>",
+                "<gray>para liberar chunks.</gray>",
+                "",
+                "<red>Clique para reduzir.</red>"
+              ]
+            },
+            "info": {
+              "name": "<yellow>Informações do Território</yellow>",
+              "lore": [
+                " <dark_gray>▸ </dark_gray><white>Padrão atual:</white> <gray>{faction_territory_current_pattern}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Nível atual:</white> <gray>{faction_territory_current_level}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Total de chunks:</white> <gray>{faction_territory_chunk_count}</gray>"
+              ]
+            },
+            "level": {
+              "name": "<yellow>Nível {faction_territory_level}</yellow>",
+              "lore": [
+                " <dark_gray>▸ </dark_gray><white>Chunks:</white> <gray>{faction_territory_chunk_count}</gray>",
+                "",
+                "<gray>{faction_territory_grid_visualization}</gray>",
+                "",
+                "<yellow>Clique para alterar o formato.</yellow>"
+              ]
+            }
+          },
+          "not-leader": "<red>Apenas o líder da facção pode alterar o território.</red>",
+          "pattern-changed": "<green>Padrão de território alterado com sucesso!</green>",
+          "pattern-change-failed": "<red>Falha ao alterar o padrão de território.</red>",
+          "has-spawners-in-chunk": "<red>Existem geradores no chunk ({chunk_x}, {chunk_z}) que será removido ao mudar o padrão. Retire-os primeiro.</red>",
+          "too-close-to-world-border": "<red>O novo padrão colocaria seu território a menos de 12 chunks da borda do mundo.</red>",
+          "patterns": {
+            "square": {
+              "name": "<green>Quadrado</green>",
+              "lore": [
+                "<gray>Território em formato quadrado.</gray>",
+                "<gray>Ideal para bases centralizadas.</gray>"
+              ]
+            },
+            "cross": {
+              "name": "<green>Cruz",
+              "lore": [
+                "<gray>Território em formato de cruz.</gray>",
+                "<gray>Ideal para bases com múltiplas entradas.</gray>"
+              ]
+            },
+            "star": {
+              "name": "<green>Estrela",
+              "lore": [
+                "<gray>Território em formato de estrela.</gray>",
+                "<gray>Oferece maior área de cobertura.</gray>"
+              ]
+            }
+          }
+        },
+        "faction-expand-confirmation": {
+          "title": "Confirmar Expansão",
+          "items": {
+            "info": {
+              "name": "<green>Expandir Território</green>",
+              "lore": [
+                " <dark_gray>▸ </dark_gray><white>Novo nível:</white> <gray>{faction_territory_new_level}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Novos chunks:</white> <gray>+{faction_territory_new_chunks}</gray>",
+                "",
+                " <white>Requisitos:</white>",
+                "{faction_territory_requirements}",
+                "",
+                "<gray>Os requisitos serão cobrados ao confirmar.</gray>"
+              ]
+            }
+          }
+        },
+        "faction-reduce-confirmation": {
+          "title": "Confirmar Redução",
+          "items": {
+            "info": {
+              "name": "<red>Reduzir Território</red>",
+              "lore": [
+                " <dark_gray>▸ </dark_gray><white>Novo nível:</white> <gray>{faction_territory_new_level}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Chunks removidos:</white> <gray>-{faction_territory_removed_chunks}</gray>",
+                "",
+                "<red>Atenção: para expandir de volta, você</red>",
+                "<red>precisará pagar os requisitos novamente:</red>",
+                "{faction_territory_requirements}"
+              ]
+            }
+          }
+        },
+        "faction-abandon-confirmation": {
+          "title": "Abandonar Território?",
+          "items": {}
+        },
+        "faction-invasion-start-confirmation": {
+          "title": "Invadir [{faction_tag}]?",
+          "items": {}
+        },
+        "faction-truce-offer": {
+          "title": "Pedir trégua com [{defender_tag}]?",
+          "items": {
+            "0": {
+              "victory": {
+                "name": "<yellow>Oferecer trégua a [{defender_tag}]</yellow>",
+                "lore": [
+                  "",
+                  " <gray>Encerrando a invasão agora, sua facção recebe:",
+                  " <green><bold>VITÓRIA</bold></green>",
+                  "",
+                  " <gray>A facção <yellow>{defender_name}</yellow> ainda precisa",
+                  " <gray>aceitar a trégua com <white>/f tregua</white>.",
+                  "",
+                  " <green>Clique em confirmar para oferecer.</green>"
+                ]
+              },
+              "defeat": {
+                "name": "<yellow>Oferecer trégua a [{defender_tag}]</yellow>",
+                "lore": [
+                  "",
+                  " <gray>Encerrando a invasão agora, sua facção recebe:",
+                  " <red><bold>DERROTA</bold></red>",
+                  "",
+                  " <gray>A facção <yellow>{defender_name}</yellow> ainda precisa",
+                  " <gray>aceitar a trégua com <white>/f tregua</white>.",
+                  "",
+                  " <green>Clique em confirmar para oferecer.</green>"
+                ]
+              }
+            }
+          }
+        },
+        "faction-truce-accept": {
+          "title": "Aceitar trégua de [{attacker_tag}]?",
+          "items": {
+            "0": {
+              "victory": {
+                "name": "<yellow>Aceitar trégua de [{attacker_tag}]</yellow>",
+                "lore": [
+                  "",
+                  " <gray>A facção <yellow>[{attacker_tag}]</yellow> ofereceu trégua.",
+                  " <gray>Encerrando a invasão agora, sua facção recebe:",
+                  " <green><bold>VITÓRIA</bold></green>",
+                  "",
+                  " <green>Clique em confirmar para aceitar.</green>"
+                ]
+              },
+              "defeat": {
+                "name": "<yellow>Aceitar trégua de [{attacker_tag}]</yellow>",
+                "lore": [
+                  "",
+                  " <gray>A facção <yellow>[{attacker_tag}]</yellow> ofereceu trégua.",
+                  " <gray>Encerrando a invasão agora, sua facção recebe:",
+                  " <red><bold>DERROTA</bold></red>",
+                  "",
+                  " <green>Clique em confirmar para aceitar.</green>"
+                ]
+              }
+            }
+          }
+        },
+        "admin-claim-confirmation": {
+          "title": "Confirmar Dominação",
+          "items": {
+            "0": {
+              "name": "<green>Dominar terras para [{faction_tag}] {faction_name}</green>",
+              "lore": [
+                "",
+                " <gray>Facção: <yellow>[{faction_tag}] {faction_name}</yellow>",
+                " <gray>Chunks a dominar: <yellow>{chunk_count}</yellow>",
+                "",
+                " <green>Clique em confirmar para dominar.</green>"
+              ]
+            }
+          }
+        },
+        "admin-unclaim-confirmation": {
+          "title": "Confirmar Abandono",
+          "items": {
+            "0": {
+              "name": "<red>Abandonar terras de [{faction_tag}] {faction_name}</red>",
+              "lore": [
+                "",
+                " <gray>Facção: <yellow>[{faction_tag}] {faction_name}</yellow>",
+                " <gray>Chunks a abandonar: <yellow>{chunk_count}</yellow>",
+                "",
+                " <red>Clique em confirmar para abandonar.</red>"
+              ]
+            }
+          }
+        },
+        "faction-invasions-menu": {
+          "title": "Invasões",
+          "errors": {
+            "no-faction": "<red>Você precisa estar em uma facção para ver seu histórico de invasões.</red>"
+          },
+          "items": {
+            "live": {
+              "name": "<red>Invasões ao Vivo</red>",
+              "lore": [
+                "<gray>Aqui você pode acompanhar</gray>",
+                "<gray>todas as invasões que estão</gray>",
+                "<gray>rolando neste momento!</gray>",
+                "",
+                "<red>Clique para visualizar.</red>"
+              ]
+            },
+            "history": {
+              "name": "<color:#3ef7aa>Minhas Invasões</color>",
+              "lore": [
+                "<gray>Veja o histórico de invasões</gray>",
+                "<gray>em que sua facção participou.</gray>",
+                "",
+                "<color:#3ef7aa>Clique para visualizar.</color>"
+              ]
+            }
+          }
+        },
+        "faction-invasions-live": {
+          "title": "Invasões ao Vivo",
+          "items": {
+            "invasion": {
+              "name": "<red>[{attacker_tag}] vs [{defender_tag}]",
+              "lore": [
+                "<gray>Acompanhe em tempo real as",
+                "<gray>invasões!</gray>",
+                "",
+                " <red>🗡 Fac Atacante: <white>[{attacker_tag}] {attacker_name}",
+                " <color:#F97316>🛡 Fac Defensora: <white>[{defender_tag}] {defender_name}",
+                "",
+                " <white>Hora de início: <gray>{activated_at}",
+                " <white>Tempo restante: <gray>{remaining_time}",
+                " <white>Progresso: <gray>{progress}%",
+                "",
+                "<red>Botão esquerdo: <white>Spectate",
+                "<red>Botão direito: <white>Informações"
+              ]
+            }
+          }
+        },
+        "faction-invasions-history": {
+          "title": "Invasões de [{faction_tag}]",
+          "errors": {
+            "no-replay": "<red>Essa invasão não tem replay disponível.</red>"
+          },
+          "items": {
+            "invasion": {
+              "active": {
+                "name": "<red>Invasão em andamento</red>",
+                "lore": [
+                  "<gray>Atacante:</gray> <white>[{attacker_tag}] {attacker_name}</white>",
+                  "<gray>Defensor:</gray> <white>[{defender_tag}] {defender_name}</white>",
+                  "",
+                  "<gray>Iniciada em:</gray> <white>{started_at}</white>",
+                  "",
+                  "<red>Clique para detalhes.</red>"
+                ]
+              },
+              "won": {
+                "name": "<green>Vitória vs [{opponent_tag}]</green>",
+                "lore": [
+                  "<gray>Confira as estatísticas da sua</gray>",
+                  "<gray>invasão vitoriosa.</gray>",
+                  "",
+                  "<green> ► Spawners destruídos: <white>{destroyed_spawners}/{required_spawners}</white>",
+                  "<green> ► Abates: <red>{attacker_kills}</red><white> / </white><color:#F97316>{defender_kills}",
+                  "<green> ► Iniciada em: <white>{started_at}</white>",
+                  "",
+                  "<green>Botão esquerdo: <white>replay",
+                  "<green>Botão direito: <white>detalhes"
+                ]
+              },
+              "lost": {
+                "name": "<red>Derrota vs [{opponent_tag}]</red>",
+                "lore": [
+                  "<gray>Confira as estatísticas da sua</gray>",
+                  "<gray>invasão perdida.</gray>",
+                  "",
+                  "<red> ► Spawners destruídos: <white>{destroyed_spawners}/{required_spawners}</white>",
+                  "<red> ► Abates: <red>{attacker_kills}</red><white> / </white><color:#F97316>{defender_kills}",
+                  "<red> ► Iniciada em: <white>{started_at}</white>",
+                  "",
+                  "<red>Botão esquerdo: <white>replay",
+                  "<red>Botão direito: <white>detalhes"
+                ]
+              }
+            }
+          }
+        },
+        "faction-invasion-info": {
+          "title": "[{attacker_tag}] vs [{defender_tag}]",
+          "status": {
+            "pending": "<yellow>Aguardando ativação</yellow>",
+            "active": "<green>Em andamento</green>",
+            "finished": "<gray>Finalizada</gray>"
+          },
+          "result": {
+            "attacker-won": "<red>Atacante venceu</red>",
+            "defender-won": "<green>Defensor venceu</green>",
+            "tie": "<gray>Cancelada por um administrador</gray>",
+            "none": "<gray>Em andamento</gray>"
+          },
+          "items": {
+            "attacker": {
+              "name": "<red>Informações [{attacker_tag}]</red>",
+              "lore": [
+                "<gray>Confira as informações adicionais</gray>",
+                "<gray>da facção atacante.</gray>",
+                "",
+                " <red>► Spawners destruídos: <white>{destroyed_spawners}/{initial_spawners}</white>",
+                " <red>► Abates: <white>{attacker_kills}</white>",
+                " <red>► Blocos destruídos: <white>{destroyed_blocks}</white>",
+                " <red>► Hits contabilizados: <white>{attacker_hits}</white>",
+                "",
+                "<dark_gray>Invasão iniciada em {started_at}"
+              ]
+            },
+            "defender": {
+              "name": "<color:#F97316>Informações [{defender_tag}]</color:#F97316>",
+              "lore": [
+                "<gray>Confira as informações adicionais</gray>",
+                "<gray>da facção defensora.</gray>",
+                "",
+                "<color:#F97316> ► Blocos colocados: <white>{defender_placed_blocks}</white>",
+                "<color:#F97316> ► Abates: <white>{defender_kills}",
+                "<color:#F97316> ► Hits contabilizados: <white>{defender_hits}</white>",
+                "",
+                "<dark_gray>Invasão iniciada em {started_at}"
+              ]
+            },
+            "general": {
+              "name": "<red>Informações gerais</red>",
+              "lore": [
+                "<gray>Confira as informações adicionais</gray>",
+                "<gray>da invasão.</gray>",
+                "",
+                "<red> ► Status:</red> <white>{status}</white>",
+                "<red> ► Resultado:</red> <white>{result}</white>",
+                "<red> ► Spawners iniciais:</red> <white>{initial_spawners}</white>",
+                "<red> ► Spawners destruídos:</red> <white>{destroyed_spawners}/{required_spawners} ({progress}%)</white>",
+                "<red> ► Blocos destruídos:</red> <white>{destroyed_blocks}</white>",
+                "<red> ► Hits contabilizados:</red> <white>{total_hits}</white>",
+                "",
+                "<red>Iniciada em:</red> <white>{started_at}</white>",
+                "<red>Tempo restante:</red> <white>{remaining_time}</white>"
+              ]
+            },
+            "highlights": {
+              "name": "<gold>Jogadores destaque</gold>",
+              "lore": [
+                "<gray>Melhor matador:</gray> <red>{top_killer_name}</red> <dark_gray>(</dark_gray><white>{top_killer_count}</white><dark_gray>)</dark_gray>",
+                "<gray>Melhor coletor:</gray> <green>{top_collector_name}</green> <dark_gray>(</dark_gray><white>{top_collector_count}</white><dark_gray>)</dark_gray>"
+              ]
+            }
+          }
+        },
+        "faction-primary": {
+          "title": "[{faction_tag}] {faction_name}",
+          "items": {
+            "0": {
+              "name": "<green>Membros</green>",
+              "lore": [
+                "<gray>Confira informações sobre todos</gray>",
+                "<gray>membros presentes na sua facção</gray>",
+                "",
+                " <dark_gray>▸ </dark_gray><white>Membros na facção: </white><gray>{faction_members_size}/{faction_max_members_size}</gray>",
+                "",
+                "<green>Clique para visualizar.</green>"
+              ]
+            },
+            "2": {
+              "name": "<green>Armazém</green>",
+              "lore": [
+                "<gray>Deposite recursos importantes</gray>",
+                "<gray>da facção aqui.</gray>",
+                "",
+                "<green>Clique para acessar.</green>"
+              ]
+            },
+            "3": {
+              "name": "<green>Convites enviados</green>",
+              "lore": [
+                "<gray>Confira os jogadores convidados</gray>",
+                "<gray>para fazer parte da sua facção.</gray>",
+                "",
+                "<green>Clique para visualizar.</green>"
+              ]
+            },
+            "4": {
+              "name": "<red>Desfazer facção</red>",
+              "lore": [
+                "<gray>Desfaça sua facção e desista</gray>",
+                "<gray>de dominar este mundo</gray>",
+                "",
+                "<red>Clique para desfazer.</red>"
+              ]
+            },
+            "5": {
+              "name": "<red>Sair da facção</red>",
+              "lore": [
+                "<gray>Abandone a sua facção em busca</gray>",
+                "<gray>de novos objetivos.</gray>",
+                "",
+                "<red>Clique para sair.</red>"
+              ]
+            },
+            "leave": {
+              "name": "<red>Sair da facção</red>",
+              "lore": [
+                "<gray>Abandone a sua facção em busca</gray>",
+                "<gray>de novos objetivos.</gray>",
+                "",
+                "<red>Clique para sair.</red>"
+              ]
+            },
+            "6": {
+              "name": "<green>Spawns de Mobs</green>",
+              "lore": [
+                "<gray>Defina os locais de spawn</gray>",
+                "<gray>para os mobs da facção.</gray>",
+                "",
+                "<green>Clique para configurar.</green>"
+              ]
+            },
+            "discord": {
+              "name": "<color:#2a4d7e>Discord",
+              "lore": [
+                "<gray>Acesse o discord do</gray>",
+                "<gray>servidor e tire todas as</gray>",
+                "<gray>sua dúvidas.</gray>",
+                "",
+                "<color:#2a4d7e>Clique para acessar."
+              ]
+            },
+            "disband": {
+              "name": "<red>Desfazer Facção",
+              "lore": [
+                "<gray>Cuidado! Você irá perder</gray>",
+                "<gray>o progresso da sua facção.</gray>",
+                "",
+                "<red>Clique para desfazer."
+              ]
+            },
+            "mob-spawn": {
+              "name": "<green>Setspawn",
+              "lore": [
+                "<gray>Atualize o lugar onde</gray>",
+                "<gray>os monstros nascem.</gray>",
+                "",
+                "<green>Clique para acessar."
+              ]
+            },
+            "manage-faction": {
+              "name": "<green>Gerenciar Facção",
+              "lore": [
+                "<gray>Gerencie os membros e</gray>",
+                "<gray>as permissões da facção.</gray>",
+                "",
+                "<green>Clique para gerenciar."
+              ]
+            },
+            "territory": {
+              "name": "<green>Território",
+              "lore": [
+                "<gray>Gerencie o território da sua</gray>",
+                "<gray>facção e expanda suas terras.</gray>",
+                "",
+                "<green>Clique para gerenciar."
+              ]
+            },
+            "permissions": {
+              "name": "<green>Permissões</color>",
+              "lore": [
+                "<gray>Configure as permissões de</gray>",
+                "<gray>cada cargo da facção.</gray>",
+                "",
+                "<green>Clique para configurar.</color>"
+              ]
+            },
+            "permissions-locked": {
+              "name": "<red>Permissões</red>",
+              "lore": [
+                "<gray>Configure as permissões de</gray>",
+                "<gray>cada cargo da facção.</gray>",
+                "",
+                "<red>Apenas o líder pode acessar.</red>"
+              ]
+            },
+            "spawners-list": {
+              "name": "<green>Geradores Colocados</color>",
+              "lore": [
+                "<gray>Veja todos os geradores</gray>",
+                "<gray>colocados pela sua facção.</gray>",
+                "",
+                "<green>Clique para visualizar.</color>"
+              ]
+            },
+            "storage": {
+              "name": "<green>Armazém de Geradores",
+              "lore": [
+                "<gray>Deposite e retire geradores</gray>",
+                "<gray>do armazém da facção.</gray>",
+                "",
+                "<green>Clique para acessar."
+              ]
+            },
+            "chest": {
+              "name": "<green>Baú da Facção",
+              "lore": [
+                "<gray>Guarde e retire itens</gray>",
+                "<gray>no baú compartilhado da facção.</gray>",
+                "",
+                "<green>Clique para acessar."
+              ]
+            },
+            "level": {
+              "name": "<green>Nível da Facção",
+              "lore": [
+                "<gray>Confira o nível da facção</gray>",
+                "<gray>e todos os seus benefícios.</gray>",
+                "",
+                "<dark_gray> ▸ </dark_gray><white>Nível atual:</white> <green>{faction_level}",
+                "",
+                "<green>Clique para visualizar."
+              ]
+            },
+            "ranking": {
+              "name": "<green>Ranking",
+              "lore": [
+                "<gray>Confira o ranking das facções</gray>",
+                "<gray>do servidor.</gray>",
+                "",
+                "<green>Clique para visualizar."
+              ]
+            },
+            "beacon": {
+              "name": "<green>Sinalizador",
+              "lore": [
+                "<gray>Gerencie o sinalizador</gray>",
+                "<gray>da sua facção.</gray>",
+                "",
+                "<green>Clique para acessar."
+              ]
+            },
+            "invasions": {
+              "name": "<red>Invasões</red>",
+              "lore": [
+                "<gray>Acompanhe invasões ao vivo</gray>",
+                "<gray>e o histórico da sua facção.</gray>",
+                "",
+                "<red>Clique para visualizar.</red>"
+              ]
+            }
+          }
+        },
+        "faction-invites": {
+          "title": "[{faction_tag}] Convites",
+          "items": {
+            "0": {
+              "name": "{target_name_with_tag}",
+              "lore": [
+                "<gray>Convidado em: </gray><white>{target_invite_date}</white>",
+                "",
+                "<gray>Botão direito: </gray><red>Cancelar convite</red>"
+              ]
+            }
+          }
+        },
+        "faction-spawn-mobs": {
+          "title": "[{faction_tag}] Spawns de Mobs",
+          "items": {
+            "with-spawn": {
+              "name": "<yellow>{spawner_name}</yellow>",
+              "lore": [
+                "<gray>{spawner_description}</gray>",
+                "",
+                "<gray>Local atual:</gray>",
+                " <dark_gray>▸ </dark_gray><white>X:</white> <gray>{spawn_x}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Y:</white> <gray>{spawn_y}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Z:</white> <gray>{spawn_z}</gray>",
+                "",
+                "<green>Clique esquerdo para redefinir.</green>",
+                "<red>Clique direito para remover.</red>"
+              ]
+            },
+            "without-spawn": {
+              "name": "<yellow>{spawner_name}</yellow>",
+              "lore": [
+                "<gray>{spawner_description}</gray>",
+                "",
+                "<gray>Local atual:</gray> <red>Não definido</red>",
+                "",
+                "<green>Clique esquerdo para definir.</green>"
+              ]
+            }
+          }
+        },
+        "faction-storage-spawners": {
+          "title": "[{faction_tag}] Armazém de Geradores",
+          "items": {
+            "1": {
+              "name": "<yellow>{spawner_name}</yellow>",
+              "lore": [
+                "<gray>{spawner_description}</gray>",
+                "",
+                " <dark_gray>▸ </dark_gray><white>Quantidade:</white> <gray>{spawner_amount}</gray>",
+                "",
+                "<gray>Botão esquerdo: </gray><white>Retirar o máximo</white>",
+                "<gray>Botão direito: </gray><white>Retirar 1 unidade</white>"
+              ]
+            }
+          }
+        },
+        "faction-storage-chest": {
+          "title": "[{faction_tag}] Baú da Facção"
+        },
+        "faction-storage-invasion-cashback": {
+          "title": "[{faction_tag}] Cashback de Invasão"
+        },
+        "faction-storage-logs": {
+          "title": "[{faction_tag}] Logs do Armazém",
+          "items": {
+            "0": {
+              "name": "<yellow>{faction_storage_log_target_with_color}</yellow>",
+              "lore": [
+                "<gray>Data:</gray> <white>{faction_storage_log_time_formatted}</white>",
+                "",
+                "{faction_storage_log_actions}"
+              ]
+            }
+          }
+        },
+        "member-primary": {
+          "title": "Sem facção",
+          "items": {
+            "0": {
+              "without-invites": {
+                "name": "<green>Convites recebidos</green>",
+                "lore": [
+                  "<gray>Confira os convites recebidos</gray>",
+                  "<gray>para ingressar em facções.</gray>",
+                  "",
+                  "<red>Você não tem nenhum convite.</red>"
+                ]
+              },
+              "with-invites": {
+                "name": "<green>Convites recebidos</green>",
+                "lore": [
+                  "<gray>Confira os convites recebidos</gray>",
+                  "<gray>para ingressar em facções.</gray>",
+                  "",
+                  "<green>Clique para visualizar.</green>"
+                ]
+              }
+            },
+            "1": {
+              "name": "<green>Crie sua facção</green>",
+              "lore": [
+                "<gray>Funde a sua facção, domine o servidor</gray>",
+                "<gray>e deixe sua marca no mundo.</gray>",
+                "",
+                "<green>Clique para criar.</green>"
+              ]
+            },
+            "ranking": {
+              "name": "<color:#ff8200>Ranking",
+              "lore": [
+                "<gray>Confira o ranking das facções</gray>",
+                "<gray>do servidor.</gray>",
+                "",
+                "<color:#ff8200>Clique para visualizar."
+              ]
+            }
+          }
+        },
+        "member-invites": {
+          "title": "Convites",
+          "items": {
+            "0": {
+              "name": "<green>Convite de [{faction_tag}] {faction_name}</green>",
+              "lore": [
+                "<gray>Botão esquerdo: </gray><white>Entrar na facção</white>",
+                "<gray>Botão direito: </gray><white>Negar convite</white>"
+              ]
+            }
+          }
+        },
+        "member-leave-confirmation": {
+          "title": "Deseja mesmo sair?",
+          "items": {}
+        },
+        "faction-levels": {
+          "title": "[{faction_tag}] Níveis",
+          "status": {
+            "completed": [
+              "",
+              "<green>✔ Nível concluído.</green>"
+            ],
+            "current": [
+              "",
+              "<yellow>Pontos:</yellow> <white>{level_points_current}</white><gray>/</gray><white>{level_points_required}</white>",
+              "<yellow>Progresso:</yellow> {level_progress_bar} <gray>{level_progress_percent}%</gray>"
+            ],
+            "locked": [
+              "",
+              "<yellow>Pontos:</yellow> <white>{level_points_current}</white><gray>/</gray><white>{level_points_required}</white>",
+              "<yellow>Progresso:</yellow> {level_progress_bar} <gray>{level_progress_percent}%</gray>"
+            ],
+            "max": [
+              "",
+              "<green>✔ Nível máximo alcançado.</green>",
+              "<yellow>Pontos:</yellow> <white>{level_points}</white>",
+              "<gray>Dispute o topo em </gray><yellow>/f top</yellow><gray>.</gray>"
+            ]
+          },
+          "items": {
+            "info": {
+              "name": "<gold>Sobre os pontos...</gold>",
+              "lore": [
+                "<gray>Os pontos são um sistema sem</gray>",
+                "<gray>limite, você nunca vai parar</gray>",
+                "<gray>de os acumular, como se fosse</gray>",
+                "<gray>o XP da facção.</gray>",
+                "",
+                "<yellow>Como ganhar pontos?</yellow>",
+                " <dark_gray>◇ </dark_gray><gray>Eliminando criaturas;</gray>",
+                " <dark_gray>◇ </dark_gray><gray>Invadindo bases;</gray>",
+                " <dark_gray>◇ </dark_gray><gray>Defendendo a sua base.</gray>",
+                "",
+                "<yellow>Subida de níveis</yellow>",
+                "<gray>No fundo, para subir de nível</gray>",
+                "<gray>só é preciso acumular pontos.</gray>",
+                "",
+                "<yellow>Cheguei no nível máximo, e agora?</yellow>",
+                "<gray>Os pontos acumulam infinitamente</gray>",
+                "<gray>e você disputa pelo topo em</gray>",
+                "<yellow>/f top</yellow> <gray>de pontos.</gray>"
+              ]
+            },
+            "1": {
+              "name": "<yellow>Nível 1</yellow>",
+              "lore": [
+                "<gray>Ganhe pontos para evoluir</gray>",
+                "<gray>o nível da sua facção.</gray>",
+                "",
+                "<yellow>Benefícios:</yellow>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Cabra</gray>",
+                "{level_status}"
+              ]
+            },
+            "2": {
+              "name": "<yellow>Nível 2</yellow>",
+              "lore": [
+                "<gray>Ganhe pontos para evoluir</gray>",
+                "<gray>o nível da sua facção.</gray>",
+                "",
+                "<yellow>Benefícios:</yellow>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Slime</gray>",
+                "{level_status}"
+              ]
+            },
+            "3": {
+              "name": "<yellow>Nível 3</yellow>",
+              "lore": [
+                "<gray>Ganhe pontos para evoluir</gray>",
+                "<gray>o nível da sua facção.</gray>",
+                "",
+                "<yellow>Benefícios:</yellow>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Bruxa</gray>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Breeze</gray>",
+                "{level_status}"
+              ]
+            },
+            "4": {
+              "name": "<yellow>Nível 4</yellow>",
+              "lore": [
+                "<gray>Ganhe pontos para evoluir</gray>",
+                "<gray>o nível da sua facção.</gray>",
+                "",
+                "<yellow>Benefícios:</yellow>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Urso Polar</gray>",
+                "{level_status}"
+              ]
+            },
+            "5": {
+              "name": "<yellow>Nível 5</yellow>",
+              "lore": [
+                "<gray>Ganhe pontos para evoluir</gray>",
+                "<gray>o nível da sua facção.</gray>",
+                "",
+                "<yellow>Benefícios:</yellow>",
+                " <dark_gray>▸ </dark_gray><gray>Gerador de Golem de Ferro</gray>",
+                " <dark_gray>▸ </dark_gray><gray>Invade facções de qualquer nível</gray>",
+                "{level_status}"
+              ]
+            }
+          }
+        },
+        "faction-spawners-list": {
+          "title": "[{faction_tag}] Geradores",
+          "items": {
+            "spawner": {
+              "name": "<yellow>{spawner_name}</yellow>",
+              "lore": [
+                " <dark_gray>▸ </dark_gray><white>Quantidade:</white> <gray>{spawner_count}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Preço unitário:</white> <gray>${spawner_price}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Valor total:</white> <gray>${spawner_total_value}</gray>"
+              ]
+            },
+            "empty": {
+              "name": "<red>Nenhum gerador</red>",
+              "lore": [
+                "<gray>Esta facção não possui geradores.</gray>"
+              ]
+            },
+            "logs": {
+              "name": "<yellow>Logs do Armazém</yellow>",
+              "lore": [
+                "<gray>Veja o histórico de depósitos</gray>",
+                "<gray>e retiradas do armazém.</gray>",
+                "",
+                "<yellow>Clique para visualizar.</yellow>"
+              ]
+            },
+            "storage-all": {
+              "name": "<gold>Armazenar tudo</gold>",
+              "lore": [
+                "<gray>Envie todos os geradores</gray>",
+                "<gray>do inventário para o armazém.</gray>",
+                "",
+                "<gold>Clique para armazenar.</gold>"
+              ]
+            }
+          }
+        },
+        "faction-role-permissions": {
+          "title": "[{faction_tag}] - Permissões: {role_name}"
+        },
+        "faction-select-role-permissions": {
+          "title": "[{faction_tag}] - Selecione um Cargo",
+          "items": {
+            "role": {
+              "name": "<yellow>{role_name}</yellow>",
+              "lore": [
+                "<gray>Prefixo:</gray> <white>{role_prefix}</white>",
+                "",
+                "<green>Clique para gerenciar.</green>"
+              ]
+            }
+          }
+        },
+        "faction-ranking": {
+          "title": "Ranking de Facções",
+          "coordinates": [
+            "",
+            "<color:#ff8200>Localização:</color>",
+            " <dark_gray>▸ </dark_gray><white>Mundo:</white> <gray>{ranking_coordinates_world}</gray>",
+            " <dark_gray>▸ </dark_gray><white>X:</white> <gray>{ranking_coordinates_x}</gray>",
+            " <dark_gray>▸ </dark_gray><white>Z:</white> <gray>{ranking_coordinates_z}</gray>"
+          ],
+          "categories": {
+            "selected": {
+              "name": "<color:#3ef7aa>► {faction_ranking_type_name} ◄</color>",
+              "lore": [
+                "{faction_ranking_type_description}",
+                "",
+                "<color:#3ef7aa>Selecionado!</color>"
+              ]
+            },
+            "unselected": {
+              "name": "<color:#ff8200>{faction_ranking_type_name}</color>",
+              "lore": [
+                "{faction_ranking_type_description}",
+                "",
+                "<color:#ff8200>Clique para visualizar.</color>"
+              ]
+            }
+          },
+          "items": {
+            "spawner-entry": {
+              "name": "{ranking_position_color}#{ranking_position} <color:#ff8200>[{ranking_faction_tag}] {ranking_faction_name}</color>",
+              "lore": [
+                "<color:#ff8200>Informações:</color>",
+                " <dark_gray>▸ </dark_gray><white>Valor total:</white> <green>$<white>{ranking_value}",
+                " <dark_gray>▸ </dark_gray><white>Geradores colocados:</white> <gray>{spawner_placed_count} <white>(<green>$<white>{spawner_placed_value})",
+                " <dark_gray>▸ </dark_gray><white>Geradores armazenados:</white> <gray>{spawner_storage_count} <white>(<green>$<white>${spawner_storage_value})</gray>",
+                "",
+                "<color:#ff8200>Detalhes:</color>",
+                "{spawner_details}",
+                "{ranking_coordinates}"
+              ],
+              "detail-format": " <dark_gray>▸ </dark_gray><white>{spawner_name}:</white> <gray>{spawner_count}</gray>"
+            },
+            "points-entry": {
+              "name": "{ranking_position_color}#{ranking_position} <yellow>[{ranking_faction_tag}] {ranking_faction_name}</yellow>",
+              "lore": [
+                "<yellow>Informações:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Pontos:</white> <gray>{ranking_value}</gray>",
+                "{ranking_coordinates}"
+              ]
+            },
+            "coins-entry": {
+              "name": "{ranking_position_color}#{ranking_position} <color:#fbca15>[{ranking_faction_tag}] {ranking_faction_name}</color>",
+              "lore": [
+                "<color:#fbca15>Informações:</color>",
+                " <dark_gray>▸ </dark_gray><white>Total de coins:</white> <green>$<white>{ranking_value}",
+                " <dark_gray>▸ </dark_gray><white>Membros com coins:</white> <gray>{coins_member_count}</gray>",
+                "",
+                "<color:#fbca15>Por membro:</color>",
+                "{coins_details}",
+                "{coins_hidden_members}",
+                "{ranking_coordinates}"
+              ],
+              "detail-format": " <dark_gray>▸ </dark_gray><white>{member_name}:</white> <green>$<white>{member_value}",
+              "hidden-members": [
+                " <dark_gray>▸ </dark_gray><gray>e mais {member_count} membro(s).</gray>"
+              ],
+              "unknown-member": "<gray>Desconhecido</gray>"
+            },
+            "invasion_wins-entry": {
+              "name": "{ranking_position_color}#{ranking_position} <yellow>[{ranking_faction_tag}] {ranking_faction_name}</yellow>",
+              "lore": [
+                "<yellow>Informações:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Vitórias:</white> <gray>{ranking_value}</gray>",
+                "{ranking_coordinates}"
+              ]
+            },
+            "general-entry": {
+              "name": "{ranking_position_color}#{ranking_position} <yellow>[{ranking_faction_tag}] {ranking_faction_name}</yellow>",
+              "lore": [
+                "<yellow>Informações:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Pontos gerais:</white> <gray>{ranking_value}</gray>",
+                "{ranking_coordinates}"
+              ]
+            }
+          }
+        },
+        "faction-tax-history": {
+          "title": "Histórico de Taxas - [{faction_tag}]",
+          "items": {
+            "tax": {
+              "active": {
+                "name": "<yellow>[{faction_tag}] - {created_at}</yellow>",
+                "lore": [
+                  "<yellow>Informações:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Staff:</white> <gray>{staff_name_with_tag}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Porcentagem:</white> <gray>{percentage}%</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Coins removidos:</white> <gray>{coins_removed}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Geradores removidos:</white> <gray>{spawners_removed}</gray>",
+                  "",
+                  "<red>Clique para reverter.</red>"
+                ]
+              },
+              "reverted": {
+                "name": "<gray>[{faction_tag}] - {created_at}</gray>",
+                "lore": [
+                  "<yellow>Informações:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Staff:</white> <gray>{staff_name_with_tag}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Porcentagem:</white> <gray>{percentage}%</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Coins removidos:</white> <gray>{coins_removed}</gray>",
+                  " <dark_gray>▸ </dark_gray><white>Geradores removidos:</white> <gray>{spawners_removed}</gray>",
+                  "",
+                  " <dark_gray>▸ </dark_gray><white>Revertido em:</white> <gray>{reverted_at}</gray>",
+                  "",
+                  "<gray>Esta taxa já foi revertida.</gray>"
+                ]
+              }
+            }
+          }
+        },
+        "faction-tax-revert": {
+          "title": "Reverter Taxa?",
+          "items": {
+            "tax": {
+              "name": "<yellow>[{faction_tag}] - {created_at}</yellow>",
+              "lore": [
+                "<yellow>Informações da taxa:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Staff:</white> <gray>{staff_name_with_tag}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Porcentagem:</white> <gray>{percentage}%</gray>",
+                " <dark_gray>▸ </dark_gray><white>Coins removidos:</white> <gray>{coins_removed}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Geradores removidos:</white> <gray>{spawners_removed}</gray>",
+                "",
+                "<gray>Ao reverter, os coins serão</gray>",
+                "<gray>devolvidos aos jogadores e os</gray>",
+                "<gray>geradores ao armazém da facção.</gray>"
+              ]
+            }
+          }
+        },
+        "faction-tax-apply": {
+          "title": "Aplicar Taxa?",
+          "items": {
+            "info": {
+              "name": "<yellow>[{faction_tag}] {faction_name}</yellow>",
+              "lore": [
+                "<yellow>Informações:</yellow>",
+                " <dark_gray>▸ </dark_gray><white>Facção:</white> <gray>[{faction_tag}] {faction_name}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Membros:</white> <gray>{members_count}</gray>",
+                " <dark_gray>▸ </dark_gray><white>Porcentagem:</white> <gray>{percentage}%</gray>",
+                "",
+                "<gray>Ao confirmar, {percentage}% dos coins</gray>",
+                "<gray>e geradores serão removidos</gray>",
+                "<gray>da facção e seus membros.</gray>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

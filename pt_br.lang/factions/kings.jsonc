@@ -1,0 +1,417 @@
+{
+  "plugins": {
+    "kings": {
+      "placeholders": {
+        "none": "<gray>Nenhum"
+      },
+      "types": {
+        "ice-king": {
+          "name": "<gradient:#00acff:#00f2ff>Rei de Gelo"
+        },
+        "musk": {
+          "name": "<gradient:#00acff:#00f2ff>Musk"
+        },
+        "midas": {
+          "name": "<gradient:#00acff:#00f2ff>Midas"
+        },
+        "artemis": {
+          "name": "<gradient:#00acff:#00f2ff>Artemis"
+        },
+        "dexter": {
+          "name": "<gradient:#00acff:#00f2ff>Dexter"
+        },
+        "warcury": {
+          "name": "<gradient:#00acff:#00f2ff>Warcury"
+        },
+        "jack-frost": {
+          "name": "<gradient:#00acff:#00f2ff>Jack Frost"
+        },
+        "shihuang": {
+          "name": "<gradient:#00acff:#00f2ff>Shihuang"
+        }
+      },
+      "modifiers": {
+        "none": "<gray>Nenhum",
+        "line": "<gray>• {text}",
+        "separator": "<gray>, ",
+        "skill-experience": {
+          "buff": "Aumenta em {percent}% o XP de {skills}.",
+          "debuff": "Diminui em {percent}% o XP de {skills}.",
+          "skills": {
+            "swords": "espadas",
+            "axes": "machados",
+            "mining": "mineração",
+            "collect": "coleta",
+            "excavation": "escavação",
+            "protector": "protetor",
+            "blacksmith": "ferraria",
+            "enchanting": "encantamento",
+            "mercenary": "mercenário",
+            "alchemist": "alquimia",
+            "fisherman": "pesca"
+          }
+        },
+        "invasion-ejector-limit": {
+          "buff": "Aumenta o limite de ejetores em invasões em +{amount}.",
+          "debuff": "Diminui o limite de ejetores em invasões em -{amount}."
+        },
+        "mining-gold-drop": {
+          "buff": "Aumenta em {percent}% a chance de vir ouro na mina.",
+          "debuff": "Diminui em {percent}% a chance de vir ouro na mina."
+        },
+        "sniffer-spawn": {
+          "buff": "Aumenta em {percent}% a chance de encontrar sniffers.",
+          "debuff": "Diminui em {percent}% a chance de encontrar sniffers."
+        },
+        "passive-mob-drop": {
+          "buff": "Aumenta em {percent}% os recursos obtidos ao eliminar criaturas passivas.",
+          "debuff": "Diminui em {percent}% os recursos obtidos ao eliminar criaturas passivas."
+        },
+        "pet-feed": {
+          "buff": "Aumenta em {percent}% a saciedade ao alimentar pets.",
+          "debuff": "Diminui em {percent}% a saciedade ao alimentar pets."
+        },
+        "potion-duration": {
+          "buff": "Aumenta a duração dos efeitos de poções em {percent}%.",
+          "debuff": "Diminui a duração dos efeitos de poções em {percent}%."
+        },
+        "golden-apple-duration": {
+          "buff": "Aumenta os efeitos de maçãs douradas em {seconds}s.",
+          "debuff": "Diminui os efeitos de maçãs douradas em {seconds}s."
+        },
+        "combat-perk-chance": {
+          "buff": "Aumenta em {bonus}% a chance de {perks}.",
+          "debuff": "Diminui em {bonus}% a chance de {perks}.",
+          "perks": {
+            "bleed": "sangramento",
+            "break": "quebra"
+          }
+        },
+        "snowstorm-chance": {
+          "buff": "Aumenta a frequência das nevascas em {percent}%.",
+          "debuff": "Diminui a frequência das nevascas em {percent}%."
+        },
+        "snowstorm-slowness": {
+          "buff": "Nevascas causam lentidão {level} a todos os jogadores.",
+          "debuff": "Nevascas causam lentidão {level} a todos os jogadores."
+        },
+        "freeze-duration": {
+          "buff": "Aumenta o tempo do efeito de congelamento em {percent}%.",
+          "debuff": "Diminui o tempo do efeito de congelamento em {percent}%."
+        },
+        "explosion-protection-ignore": {
+          "buff": "Blocos de proteção têm {percent}% de chance de ignorar uma explosão.",
+          "debuff": "Blocos de proteção perdem {percent}% de resistência a explosões."
+        },
+        "allay-health": {
+          "buff": "Allays possuem {multiplier}x de vida.",
+          "debuff": "Allays possuem {multiplier}x de vida."
+        },
+        "spawner-explode-chance": {
+          "buff": "Geradores possuem +{bonus}% de chance de dropar ao serem explodidos.",
+          "debuff": "Geradores possuem +{bonus}% de chance de dropar ao serem explodidos."
+        }
+      },
+      "commands": {
+        "kings": {
+          "use-npc": [
+            "",
+            "<color:#DC2626> Vá até a Área VIP e vote em um NPC do Rei!",
+            ""
+          ],
+          "admin": {
+            "arguments": {
+              "action": {
+                "name": "ação",
+                "description": "Ação a ser executada"
+              }
+            },
+            "invalid-usage": "<color:#DC2626><bold>[ADMIN]</bold> Uso incorreto! <gray>Use:</gray> <white>/kings admin <force-end|reset-votes|status></white>",
+            "force": {
+              "success": "<color:#DC2626><bold>[ADMIN]</bold> Eleição finalizada! Resultado computado.",
+              "unavailable": "<color:#DC2626><bold>[ADMIN]</bold> Não foi possível finalizar! <gray>Sem eleição em andamento.</gray>"
+            },
+            "reset": {
+              "success": "<color:#DC2626><bold>[ADMIN]</bold> Votos resetados! <bold>{vote_total}</bold> votos removidos.",
+              "empty": "<color:#DC2626><bold>[ADMIN]</bold> Sem votos para resetar."
+            },
+            "status": {
+              "header": "<gradient:#00acff:#00f2ff>Status da eleição</gradient>",
+              "current-king": "<gray>Rei atual:</gray> <white>{king_name}</white> <gray>(</gray><white>{streak}</white><gray>º mandato)</gray>",
+              "total-votes": "<gray>Total de votos:</gray> <white>{vote_total}</white>",
+              "candidate": "<gray>{king_name}:</gray> <white>{vote_count}</white>",
+              "unavailable": "<red>Status indisponível!</red> <gray>Sem eleição em andamento.</gray>"
+            }
+          }
+        }
+      },
+      "messages": {
+        "vote": {
+          "success": "<green>Voto computado!</green> <gray>Você escolheu</gray> <white>{king_name}</white>",
+          "already-voted": "<red>Voto já registrado!</red> <gray>Você já votou neste rei.</gray>",
+          "changed": "<green>Voto alterado!</green> <gray>Agora você apoia</gray> <white>{king_name}</white>",
+          "change-too-late": "<red>Voto travado!</red> <gray>A troca só vale até as últimas 24h da eleição.</gray>",
+          "not-allowed": "<red>Voto indisponível!</red> <gray>Apenas VIP PRO ou superior.</gray>",
+          "not-candidate": "<red>Rei inválido!</red> <gray>Este rei não está concorrendo.</gray>",
+          "unavailable": "<red>Voto indisponível!</red> <gray>Nenhuma eleição em andamento.</gray>",
+          "reminder": [
+            "",
+            " <color:#2ECC71><bold>👑 Eleição do Rei!",
+            " <gray>O candidato escolhido define",
+            " <gray>os bônus e nerfs de todos.",
+            "",
+            " <color:#2ECC71>⏳ Encerramento: <white>{time}",
+            " <color:#2ECC71>⭐ Rei atual: <white>{king_name}",
+            "",
+            "<color:#2ECC71> Vá até um NPC de Rei e escolha ",
+            "<color:#2ECC71> quem governará o reino!",
+            ""
+          ]
+        },
+        "election": {
+          "ended": [
+            "",
+            " <color:#2ECC71><bold>👑 Um novo Rei foi convocado!",
+            " <gray>O reino escolheu seu governante.",
+            "",
+            " <color:#2ECC71>⭐ Novo rei: <gray>{king_name}</gray>",
+            "",
+            " <color:#FFFF00>▼ Buffs ativos ▼",
+            " {buffs}",
+            "",
+            " <color:#DC2626>▼ Debuffs ativos ▼",
+            " {debuffs}",
+            ""
+          ]
+        }
+      },
+      "npc": {
+        "unavailable": "<red>Indisponível!</red> <gray>Nenhuma eleição em andamento no momento.</gray>",
+        "candidate": {
+          "hologram": [
+            "<gradient:#00acff:#00f2ff>{king_name}</gradient>",
+            "<gray>Votos:</gray> <white>{vote_percent}%</white>",
+            "<gray>{vote_count}</gray><gray>/</gray><white>{vote_total}</white>"
+          ]
+        },
+        "current": {
+          "hologram": [
+            "<gradient:#00acff:#00f2ff>Rei Atual</gradient>",
+            "<white>{king_name}</white>",
+            "<gray>Votos anteriores:</gray> <white>{vote_total}</white>"
+          ]
+        }
+      },
+      "views": {
+        "election": {
+          "title": "Eleição do Rei",
+          "items": {
+            "king": {
+              "name": "<gradient:#00acff:#00f2ff>Rei em exercício</gradient> <gray>|</gray> <white>{king_name}</white>",
+              "lore": [
+                "<gray>Governa há <white>{streak}</white> mandato(s).",
+                "",
+                "<green>Buffs ativos</green>",
+                "<gray>• {buffs}</gray>",
+                "",
+                "<red>Debuffs ativos</red>",
+                "<gray>• {debuffs}</gray>",
+                "",
+                "<gray>Esta eleição decide quem substitui."
+              ],
+              "none": {
+                "name": "<red>Nenhum rei em exercício",
+                "lore": [
+                  "<gray>O reino ainda não teve uma",
+                  "<gray>eleição encerrada.",
+                  "",
+                  "<gray>O vencedor desta assume em <white>{election_countdown}</white>."
+                ]
+              }
+            },
+            "candidate": {
+              "available": {
+                "name": "<white>{king_name}",
+                "lore": [
+                  "<gray>Votos: <white>{vote_count}</white> <gray>de</gray> <white>{vote_total}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>",
+                  "<gray>Encerra em: <white>{election_countdown}</white>",
+                  "",
+                  "<green>Botão esquerdo <dark_gray>➟ </dark_gray><white>Votar</white>",
+                  "<green>Botão direito <dark_gray>➟ </dark_gray><white>Ver efeitos</white>"
+                ]
+              },
+              "voted": {
+                "name": "<green>{king_name}",
+                "lore": [
+                  "<gray>Votos: <white>{vote_count}</white> <gray>de</gray> <white>{vote_total}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>",
+                  "<gray>Encerra em: <white>{election_countdown}</white>",
+                  "",
+                  "<green>Seu voto está aqui.",
+                  "<gray>Pode trocar por mais <white>{change_deadline}</white>.",
+                  "",
+                  "<green>Botão direito <dark_gray>➟ </dark_gray><white>Ver efeitos</white>"
+                ]
+              },
+              "switch": {
+                "name": "<white>{king_name}",
+                "lore": [
+                  "<gray>Votos: <white>{vote_count}</white> <gray>de</gray> <white>{vote_total}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>",
+                  "<gray>Encerra em: <white>{election_countdown}</white>",
+                  "",
+                  "<gray>Você já votou em outro candidato.",
+                  "<gray>Ainda dá pra trocar por <white>{change_deadline}</white>.",
+                  "",
+                  "<yellow>Botão esquerdo <dark_gray>➟ </dark_gray><white>Trocar seu voto</white>",
+                  "<yellow>Botão direito <dark_gray>➟ </dark_gray><white>Ver efeitos</white>"
+                ]
+              },
+              "locked": {
+                "name": "<white>{king_name}",
+                "lore": [
+                  "<gray>Votos: <white>{vote_count}</white> <gray>de</gray> <white>{vote_total}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>",
+                  "<gray>Encerra em: <white>{election_countdown}</white>",
+                  "",
+                  "<red>Voto travado.",
+                  "<gray>A troca fecha nas últimas <white>{change_cutoff_hours}h</white>.",
+                  "",
+                  "<red>Botão direito <dark_gray>➟ </dark_gray><white>Ver efeitos</white>"
+                ]
+              },
+              "unavailable": {
+                "name": "<red>{king_name}",
+                "lore": [
+                  "<gray>Nenhuma eleição em andamento."
+                ]
+              }
+            },
+            "history": {
+              "name": "<gradient:#00acff:#00f2ff>Histórico de Reis",
+              "lore": [
+                "<gray>Todas as eleições encerradas,",
+                "<gray>com a apuração de cada uma.",
+                "",
+                "<gray>Total de votos agora: <white>{vote_total}</white>",
+                "<gray>Esta eleição encerra em: <white>{election_countdown}</white>",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para visualizar."
+              ]
+            }
+          }
+        },
+        "info": {
+          "title": "{king_name}",
+          "items": {
+            "king": {
+              "name": "<white>{king_name}",
+              "lore": [
+                "<gray>Votos: <white>{vote_count}</white> <gray>de</gray> <white>{vote_total}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>",
+                "",
+                "<green>Se ele governar</green>",
+                "<gray>• {buffs}</gray>",
+                "",
+                "<red>Em troca</red>",
+                "<gray>• {debuffs}</gray>"
+              ]
+            },
+            "vote": {
+              "available": {
+                "name": "<green>Votar em {king_name}",
+                "lore": [
+                  "<gray>Encerra em: <white>{election_countdown}</white>",
+                  "<gray>Depois de votar você ainda pode",
+                  "<gray>trocar por <white>{change_deadline}</white>.",
+                  "",
+                  "<green>Clique para votar."
+                ]
+              },
+              "voted": {
+                "name": "<green>Você votou aqui",
+                "lore": [
+                  "<gray>Este é o seu voto nesta eleição.",
+                  "<gray>Pode trocar por mais <white>{change_deadline}</white>.",
+                  "",
+                  "<gray>Escolha outro candidato pra trocar."
+                ]
+              },
+              "switch": {
+                "name": "<yellow>Trocar voto para {king_name}",
+                "lore": [
+                  "<gray>Seu voto atual sai e passa",
+                  "<gray>para este candidato.",
+                  "<gray>A troca fecha em <white>{change_deadline}</white>.",
+                  "",
+                  "<yellow>Clique para trocar."
+                ]
+              },
+              "locked": {
+                "name": "<red>Voto travado",
+                "lore": [
+                  "<gray>A troca de voto fecha nas",
+                  "<gray>últimas <white>{change_cutoff_hours}h</white> da eleição.",
+                  "",
+                  "<gray>Encerra em: <white>{election_countdown}</white>"
+                ]
+              },
+              "unavailable": {
+                "name": "<red>Voto indisponível",
+                "lore": [
+                  "<gray>Nenhuma eleição em andamento."
+                ]
+              }
+            }
+          }
+        },
+        "confirm": {
+          "title": "Votar em {king_name}",
+          "change-title": "Trocar voto para {king_name}",
+          "items": {
+            "king": {
+              "name": "<white>{king_name}",
+              "lore": [
+                "<gray>Seu voto vai para este candidato.",
+                "",
+                "<green>Confirme abaixo."
+              ],
+              "change-lore": [
+                "<gray>Voto atual: <white>{current_vote_name}</white>",
+                "<gray>Passa a ser: <white>{king_name}</white>",
+                "",
+                "<gray>O voto anterior é removido.",
+                "",
+                "<yellow>Confirme abaixo."
+              ]
+            }
+          }
+        },
+        "history": {
+          "title": "Histórico de Reis",
+          "items": {
+            "election-current": {
+              "name": "<gradient:#00acff:#00f2ff>{king_name}</gradient> <gray>|</gray> <green>mandato atual",
+              "lore": [
+                "<gray>Encerrada há <white>{ended_ago}</white>",
+                "<gray>Total de votos: <white>{vote_total}</white>",
+                "",
+                "<gradient:#00acff:#00f2ff>Apuração",
+                "{results}",
+                "",
+                "<green>É este rei que governa agora."
+              ]
+            },
+            "election": {
+              "name": "<white>{king_name}",
+              "lore": [
+                "<gray>Encerrada há <white>{ended_ago}</white>",
+                "<gray>Total de votos: <white>{vote_total}</white>",
+                "",
+                "<gradient:#00acff:#00f2ff>Apuração",
+                "{results}"
+              ],
+              "result": "<white>{candidate_position}º</white> <gray>{king_name}</gray> <white>{vote_count}</white> <gray>(</gray><white>{vote_percent}%</white><gray>)</gray>"
+            }
+          }
+        }
+      }
+    }
+  }
+}

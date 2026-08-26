@@ -1,0 +1,27 @@
+{
+    "plugins": {
+        "core": {
+            "views": {
+                "confirmation": {
+                    "title": "Confirmação",
+                    "items": {
+                        "0": {
+                            "name": "<green>Confirmar a operação</green>",
+                            "lore": [
+                                "<gray>Ao clicar aqui você confirma que</gray>",
+                                "<gray>deseja continuar com essa operação.</gray>"
+                            ]
+                        },
+                        "1": {
+                            "name": "<red>Negar a operação</red>",
+                            "lore": [
+                                "<gray>Ao clicar aqui você nega que</gray>",
+                                "<gray>deseja continuar com essa operação.</gray>"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

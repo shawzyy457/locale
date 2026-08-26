@@ -1,0 +1,343 @@
+{
+    "plugins": {
+        "server-core": {
+            "views": {
+                "tutorial": {
+                    "title": "Tutorial",
+                    "items": {
+                        "skills": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Habilidades</gradient>",
+                            "lore": [
+                                "<gray>Habilidades que evoluem sozinhas</gray>",
+                                "<gray>enquanto você joga, como Espadas,</gray>",
+                                "<gray>Mineração, Pesca e outras.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> O que são talentos?</gradient>",
+                                "<gray> Cada habilidade possui um <white>talento<gray>,",
+                                "<white> único<gray>, que fica mais forte a medida que</gray>",
+                                "<gray> você evolui a sua <white>habilidade <gray>equivalente.",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como evoluir?</gradient>",
+                                "<gray> Cada habilidade ganha XP com a</gray>",
+                                "<gray> ação dela: minerar, eliminar mobs,</gray>",
+                                "<gray> eliminar jogadores, pescar, encantar...</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Classes</gradient>",
+                                "<gray> A cada alguns níveis você desbloqueia</gray>",
+                                "<gray> uma nova classe, até um máximo de</gray>",
+                                "<gray> três por jogador.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/skills</white> <gradient:#7ABAFF:#9FE2FF:#7ABAFF>e</gradient> <white>/talentos</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "battle-pass": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Passe de Batalha</gradient>",
+                            "lore": [
+                                "<gray>O passe entrega recompensas</gray>",
+                                "<gray>conforme você evolui nas suas</gray>",
+                                "<gray>habilidades.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Trilhas</gradient>",
+                                "<dark_gray> ▸ </dark_gray><white>Gratuita</white><gray>: liberada para todos;</gray>",
+                                "<dark_gray> ▸ </dark_gray><white>Premium</white><gray>: adquirida com </gray><color:#FFAA00>cash",
+                                "<gray>    para mais recompensas.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Recompensa infinita</gradient>",
+                                "<gray> Depois do último nível, cada</gray>",
+                                "<gray> nova faixa de XP continua</gray>",
+                                "<gray> rendendo caixas misteriosas.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/passe</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "mina": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Mina</gradient>",
+                            "lore": [
+                                "<gray>A zona de mineração do servidor</gray>",
+                                "<gray>e o melhor lugar para começar.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona?</gradient>",
+                                "<gray> Quanto mais profundo você descer,</gray>",
+                                "<gray> melhor o minério encontrado. Nas</gray>",
+                                "<gray> camadas negativas o <red>PvP <gray>é ativado</gray>",
+                                "<gray> entre os jogadores.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Núcleos congelados</gradient>",
+                                "<gray> Ao minerar, é possível encontrar</gray>",
+                                "<gray> <color:#00acff>farejadores congelados<gray>, que ao serem</gray>",
+                                "<gray> eliminados, fornecem <color:#00acff>núcleos congelados",
+                                "<gray> — essencial para fabricar <white>geradores.",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em:</gradient> <white>/mina</white>"
+                            ]
+                        },
+                        "encantamentos": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Encantamentos</gradient>",
+                            "lore": [
+                                "<gray>Aqui você escolhe exatamente o</gray>",
+                                "<gray>encantamento que quer, sem</gray>",
+                                "<gray>depender de sorte.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona?</gradient>",
+                                "<gray> Você escolhe o encantamento</gray>",
+                                "<gray> e paga o custo em</gray>",
+                                "<white> bloco de lápis</white><gray> e </gray><white>experiência</white><gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Reciclagem</gradient>",
+                                "<gray> Itens encantados podem ser</gray>",
+                                "<gray> reciclados em </gray><white>/reciclar</white><gray> para</gray>",
+                                "<gray> recuperar parte do recurso e experiência.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/encantar</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "faction": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Facções</gradient>",
+                            "lore": [
+                                "<gray>Junte-se aos seus aliados,</gray>",
+                                "<gray>construa sua base e domine</gray>",
+                                "<gray>o servidor.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Primeiros passos</gradient>",
+                                "<dark_gray> ▸ </dark_gray><white>/f criar <tag> <nome></white>",
+                                "<dark_gray> ▸ </dark_gray><white>/f convidar <jogador></white>",
+                                "<dark_gray> ▸ </dark_gray><white>/f dominar</white><gray> para reivindicar terras.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Por que entrar em uma facção?</gradient>",
+                                "<gray> Proteja seu território e seus</gray>",
+                                "<gray> <white>geradores <gray>de outras facções</gray>",
+                                "<gray> e suba no ranking</gray>",
+                                "<gray> para mostrar quem manda.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/f</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "geradores": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Geradores</gradient>",
+                            "lore": [
+                                "<gray>Os <white>geradores <gray>produzem criaturas</gray>",
+                                "<gray>sem parar e são o principal foco</gray>",
+                                "<gray>de renda de uma facção.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona?</gradient>",
+                                "<gray> Você pode comprar <white>geradores <gray> na</gray>",
+                                "<gray> loja, mas para ativá-los, vai</gray>",
+                                "<gray> precisar de <color:#00acff>núcleos congelados<gray>.",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Empilhando geradores</gradient>",
+                                "<gray> Cada <white>gerador <gray>colocado </gray><white>acima</white><gray> de</gray>",
+                                "<gray> uma criatura soma </gray><white>+1</white><gray> na quantidade</gray>",
+                                "<gray> de criaturas abatidas por vez na</gray>",
+                                "<gray> pilha. <white>Ex.: <gray>10 <white>geradores <gray>acima da criatura?</gray>",
+                                "<gray> Elas são abatidas de 10 em 10 por vez.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/geradores</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "invasoes": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Invasões</gradient>",
+                            "lore": [
+                                "<gray>Ataque facções inimigas para</gray>",
+                                "<gray>roubar seus <white>geradores <gray>e recursos.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como invadir?</gradient>",
+                                "<gray> Use </gray><white>/f invadir</white><gray> a até </gray><white>15 chunks</white>",
+                                "<gray> do centro do alvo. A facção</gray>",
+                                "<gray> precisa ter </gray><white>10 geradores</white><gray> ou mais.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona?</gradient>",
+                                "<gray> São </gray><white>10 minutos</white><gray> de preparação e a</gray>",
+                                "<gray> invasão começa na 1ª explosão.</gray>",
+                                "<gray> Vence quem destruir (ou proteger)</gray>",
+                                "<gray> os <white>geradores <gray>exigidos.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Depois da invasão</gradient>",
+                                "<gray> O defensor entra em </gray><gradient:#FFEA61:#FFFFB7>grace</gradient><gray> e fica</gray>",
+                                "<gray> um tempo sem poder ser invadido.</gray>",
+                                "<gray> A facção vencedora do confronto</gray>",
+                                "<gray> ganha pontos de tier, enquanto a</gray>",
+                                "<gray> perdedora perde pontos de tier.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Assista invasões em: </gradient><white>/f invasoes</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "faction-tier": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Nível da Facção</gradient>",
+                            "lore": [
+                                "<gray>O tier da facção representa o</gray>",
+                                "<gray>tamanho da sua facção, liberando</gray>",
+                                "<gray>benefícios a cada nível.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como ganhar pontos de tier?</gradient>",
+                                "<dark_gray> ▸ </dark_gray><gray>Vencendo <red>invasões<gray>;</gray>",
+                                "<dark_gray> ▸ </dark_gray><gray>Abatendo criaturas dos seus geradores.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Atenção</gradient>",
+                                "<gray> Perder uma invasão desconta pontos</gray>",
+                                "<gray> de tier, e a partir do </gray><white>nível 5</white><gray> a</gray>",
+                                "<gray> coordenada do seu território fica</gray>",
+                                "<gray> exposta no <white>/f top<gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/f niveis</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "nevasca": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Nevasca</gradient>",
+                            "lore": [
+                                "<gray>Um evento global que pode afetar</gray>",
+                                "<gray>o servidor durante um tempo.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Enquanto a nevasca dura</gradient>",
+                                "<dark_gray> ▸ </dark_gray><gray>Blocos de proteção: </gray><white>-10</white><gray> de durabilidade;</gray>",
+                                "<dark_gray> ▸ </dark_gray><gray>Geradores: </gray><white>+25%</white><gray> de recursos e XP de habilidades;</gray>",
+                                "<dark_gray> ▸ </dark_gray><gray>Invasão: </gray><white>+10%</white><gray> de geradores dropados;</gray>",
+                                "<dark_gray> ▸ </dark_gray><gray>Mina: <color:#00acff>farejadores congelados <gray>com o</gray>",
+                                "<gray>   dobro de chance de aparecer;</gray>",
+                                "<dark_gray> ▸ </dark_gray><color:#00acff>Errantes <gray>passam a nascer</gray>",
+                                "<gray>   na superfície da mina.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>É a melhor janela para invadir</gradient>",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>e para farmar. Fique atento!</gradient>"
+                            ]
+                        },
+                        "congelamento": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Congelamento</gradient>",
+                            "lore": [
+                                "<gray>Toda base é feita de blocos com</gray>",
+                                "<gray>durabilidade, e derrubá-los é o</gray>",
+                                "<gray>caminho até os <white>geradores<gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como congelar?</gradient>",
+                                "<gray> A <color:#00acff>TNT Congelada<gray>, <color:#00acff>Cabeça de Wither",
+                                "<gray> e o</gray> <color:#00acff>Creeper Congelado",
+                                "<gray> <aqua>congelam <gray>a área atingida, reduzindo a</gray>",
+                                "<gray> durabilidade dos blocos de proteção ao redor.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Blocos resistentes</gradient>",
+                                "<gray> Alguns blocos de proteção são</gray>",
+                                "<gray> resistentes ao <aqua>congelamento <gray>e não</gray>",
+                                "<gray> sofrem esse efeito.</gray>",
+                                "<gray> O efeito de <gold>aquecimento <gray>também podem</gray>",
+                                "<gray> proteger jogadores contra <aqua>congelamento",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Fique de olho na durabilidade dos</gradient>",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>blocos da sua base durante invasões.</gradient>"
+                            ]
+                        },
+                        "cofres": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Cofres</gradient>",
+                            "lore": [
+                                "<gray>Um armazenamento pessoal que</gray>",
+                                "<gray>ninguém pode invadir nem</gray>",
+                                "<gray>explodir.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como liberar?</gradient>",
+                                "<gray> Fale com o NPC do cofre no</gray>",
+                                "<white> spawn <gray>e pague o custo na moeda</gray>",
+                                "<gray> que preferir.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/cofre</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "pets": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Pets</gradient>",
+                            "lore": [
+                                "<gray>Companheiros que andam com você</gray>",
+                                "<gray>e concedem <white>bônus <gray>enquanto estão</gray>",
+                                "<gray>ativos.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como adquirir?</gradient>",
+                                "<gray> Consiga <white>pets <gray>em diversos locais no,</gray>",
+                                "<gray> servidor. Também é possível encontrar <white>ovos",
+                                "<white> de pet <gray>ao escavar, quanto maior a raridade,</gray>",
+                                "<gray> melhores serão os <white>pets<gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como evoluir o nível?</gradient>",
+                                "<gray> Alimente o <white>pet <gray>com a <whtie>comida",
+                                "<white> favorita <gray>dele, indicada na</gray>",
+                                "<gray> descrição do próprio <white>pet.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/pets</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "recipes": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Receitas</gradient>",
+                            "lore": [
+                                "<gray>O catálogo de todos os itens</gray>",
+                                "<gray>exclusivos do servidor.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> O que dá para fazer?</gradient>",
+                                "<gray> Ver os requisitos de cada</gray>",
+                                "<gray> receita e usar o </gray><white>craft rápido</white><gray>,</gray>",
+                                "<gray> que cria o item sem bancada.</gray>",
+                                "",
+                                "<dark_gray> ▸ </dark_gray><white>Clique esquerdo: <gray>craftar </gray><white>1x</white><gray>;</gray>",
+                                "<dark_gray> ▸ </dark_gray><white>Clique direito: <gray>craftar </gray><white>10x</white><gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/receitas</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "kings": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Reis</gradient>",
+                            "lore": [
+                                "<gray>A cada ciclo os jogadores </gray><white>VIP</white>",
+                                "<gray>elegem um rei, e o reinado dele</gray>",
+                                "<gray>muda as regras para todo mundo.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona a eleição?</gradient>",
+                                "<gray> São </gray><white>3 candidatos</white><gray> por mandato e</gray>",
+                                "<gray> cada mandato dura </gray><white>2 dias</white><gray>.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como votar?</gradient>",
+                                "<gray> Clique no NPC do candidato na</gray>",
+                                "<gray> área vip. O voto pode ser trocado</gray>",
+                                "<gray> a qualquer momento.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/rei</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "rank": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Rankings</gradient>",
+                            "lore": [
+                                "<gray>Um ranking de <red>PvP <gray>exclusivo para</gray>",
+                                "<gray>jogadores </gray><white>VIP</white><gray>, baseado nos seus</gray>",
+                                "<gray>combates contra outros jogadores.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como funciona?</gradient>",
+                                "<gray> Vencer um combate contra outro</gray>",
+                                "<gray> jogador soma <white>pontos <gray>e pode subir</gray>",
+                                "<gray> a sua patente; perder pode</gray>",
+                                "<gray> descontar.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>As patentes vão de </gradient><white>Ferro</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF> até </gradient><white>Glacite</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>,</gradient>",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>a patente mais alta do servidor.</gradient>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Saiba mais em: </gradient><white>/rank</white><gradient:#7ABAFF:#9FE2FF:#7ABAFF>.</gradient>"
+                            ]
+                        },
+                        "mystery-boxs": {
+                            "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Caixas Misteriosas</gradient>",
+                            "lore": [
+                                "<white>Caixas <gray>que você abre para receber</gray>",
+                                "<gray>diversas recompensas especiais.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Raridades</gradient>",
+                                "<gray> Quanto maior a <white>raridade <gray>da <white>caixa<gray>,</gray>",
+                                "<gray> melhor o prêmio guardado dentro</gray>",
+                                "<gray> dela.</gray>",
+                                "",
+                                "<gradient:#7ABAFF:#9FE2FF:#7ABAFF> Como conseguir?</gradient>",
+                                "<gray> Você ganha <white>caixas <gray>de várias formas</gray>",
+                                "<gray> dentro do servidor — no <white>passe de",
+                                "<white> batalha<gray>, por exemplo, cada nível</gray>",
+                                "<gray> te entrega uma. Elas também</gray>",
+                                "<gray> aparecem em <white>eventos <gray>e em outros</gray>",
+                                "<gray> sistemas do servidor.</gray>"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

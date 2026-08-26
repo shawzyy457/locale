@@ -1,0 +1,13 @@
+{
+    "plugins": {
+        "server-core": {
+            "messages": {
+                "commands": {
+                    "beacon": {
+                        "only-in-beacon-land": "<red>O beacon só pode ser acesso dentro das terras da sua base."
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,54 @@
+{
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "custom-item-list": {
+            "give-success": "<yellow>Você recebeu 1 {custom_item_display_name}.</yellow>"
+          },
+          "custom-item-select-options": {
+            "give-success": "<yellow>Você recebeu 1 {custom_item_display_name}.</yellow>"
+          },
+          "custom-item-trading": {
+            "give-success": "<yellow>Você recebeu {custom_item_amount} {custom_item_display_name}.</yellow>"
+          }
+        }
+      },
+      "views": {
+        "custom-item-list": {
+          "title": "Itens Customizados",
+          "items": {
+            "0": {
+              "lore": [
+                "",
+                "<white>ID: </white><gray>{custom_item_key}</gray>"
+              ]
+            }
+          }
+        },
+        "custom-item-select-options": {
+          "title": "Itens Customizados",
+          "items": {
+            "0": {
+              "lore": [
+                "",
+                "<white>ID: </white><gray>{custom_item_key}</gray>"
+              ]
+            }
+          }
+        },
+        "custom-item-trading": {
+          "title": "Mais opções",
+          "items": {
+            "0": {
+              "lore": [
+                "",
+                "<white>ID: </white><gray>{custom_item_key}</gray>"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

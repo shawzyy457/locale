@@ -1,0 +1,187 @@
+{
+  "plugins": {
+    "server-core": {
+      "tops": {
+        "types": {
+          "currency_coins": {
+            "name": "<green>TOP Coins</green>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Coins</white><gray>.</gray>"
+            ],
+            "ranking-position-format": "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><dark_green>$</dark_green><white>{ranking_type_user_amount_letter}</white>"
+          },
+          "currency_experience": {
+            "name": "<green>TOP Experiência</green>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Experiência</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><green>{ranking_type_user_amount_letter}</green>"
+            ]
+          },
+          "skills": {
+            "name": "<aqua>TOP Maestrias</aqua>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Maestrias</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter}</white>"
+            ]
+          },
+          "mythic_entity_killed_count": {
+            "name": "<dark_purple>TOP Entidades mortas</dark_purple>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Entidades mortas</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter}</white>"
+            ]
+          },
+          "the-end-dragon-killed": {
+            "name": "<dark_purple>TOP Dragões mortos</dark_purple>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Dragões mortos</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter}</white>"
+            ]
+          },
+          "currency_tokens": {
+            "name": "<light_purple>TOP Tokens</light_purple>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Tokens</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><light_purple>⛁{ranking_type_user_amount_letter}</light_purple>"
+            ]
+          },
+          "currency_sparks": {
+            "name": "<gold>TOP Faíscas</gold>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Faíscas</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><gold>⚡{ranking_type_user_amount_letter}</gold>"
+            ]
+          },
+          "spawners_drops_sell_count": {
+            "name": "<gold>TOP Drops vendidos</gold>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Drops vendidos</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter} drop vend.</white>"
+            ]
+          },
+          "boss_kill_count": {
+            "name": "<red>TOP Bosses mortos</red>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Bosses mortos</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter} bosses elim.</white>"
+            ]
+          },
+          "mining_break_blocks": {
+            "name": "<aqua>TOP Blocos quebrados</aqua>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Blocos quebrados</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter} blocos quebr.</white>"
+            ]
+          },
+          "farming_break_count": {
+            "name": "<yellow>TOP Plantações quebradas</yellow>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Plantações quebradas</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter} blocos quebr.</white>"
+            ]
+          },
+          "online_time": {
+            "name": "<green>TOP Tempo online</green>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Tempo online</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_date}</white>"
+            ]
+          },
+          "fishing_amount": {
+            "name": "<aqua>TOP Peixes pescados</aqua>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Peixes pescados</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter} peixes pesc.</white>"
+            ]
+          },
+          "mining_prestige": {
+            "name": "<aqua>TOP Prestígios</aqua>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Prestígios</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><aqua>✰{ranking_type_user_amount_number}</aqua>"
+            ]
+          },
+          "currency_power": {
+            "name": "<gold>TOP Poder de compra</gold>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Poder de compra</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><gold>{ranking_type_user_amount_letter}</gold>"
+            ]
+          },
+          "crates_open_count": {
+            "name": "<yellow>TOP Chaves Abertas</yellow>",
+            "description": [
+              "<gray>Confira os melhores jogadores</gray>",
+              "<gray>na categoria </gray><white>Chaves Abertas</white><gray>.</gray>"
+            ],
+            "ranking-position-format": [
+              "<white>{ranking_type_position}º </white><dark_red>{ranking_type_user_name_with_tag}</dark_red> <dark_gray>► </dark_gray><white>{ranking_type_user_amount_letter}</white>"
+            ]
+          }
+        }
+      },
+      "views": {
+        "tops-ranking": {
+          "title": "Rankings",
+          "items": {
+            "0": {
+              "name": "{ranking_type_name}",
+              "lore": [
+                "{ranking_type_description}",
+                "",
+                " <dark_gray>▾ <white>TOP <bold>10</bold> jogadores:</white>",
+                " <white>{ranking_type_positions}</white>",
+                "",
+                "<white>Sua posição: </white><gray>{ranking_type_user_position}º</gray>",
+                ""
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

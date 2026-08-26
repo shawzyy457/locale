@@ -1,0 +1,1070 @@
+{
+  "plugins": {
+    "farming": {
+      "scoreboard": {
+        "title": [
+          "<color:#faa825><bold>O</bold><color:#FF6F00><bold>VERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OV</bold><color:#FF6F00><bold>ERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVE</bold><color:#FF6F00><bold>RPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVER</bold><color:#FF6F00><bold>POWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERP</bold><color:#FF6F00><bold>OWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPO</bold><color:#FF6F00><bold>WER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPOW</bold><color:#FF6F00><bold>ER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPOWE</bold><color:#FF6F00><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          //
+          "<color:#faa825><bold>OVERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>O</bold><color:#faa825><bold>VERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>O</bold><color:#FF6F00><bold>V</bold><color:#faa825><bold>ERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OV</bold><color:#FF6F00><bold>E</bold><color:#faa825><bold>RPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVE</bold><color:#FF6F00><bold>R</bold><color:#faa825><bold>POWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVER</bold><color:#FF6F00><bold>P</bold><color:#faa825><bold>OWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERP</bold><color:#FF6F00><bold>O</bold><color:#faa825><bold>WER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPO</bold><color:#FF6F00><bold>W</bold><color:#faa825><bold>ER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPOW</bold><color:#FF6F00><bold>E</bold><color:#faa825><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>OVERPOWE</bold><color:#FF6F00><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          //
+          "<color:#FF6F00><bold>O</bold><color:#faa825><bold>VERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OV</bold><color:#faa825><bold>ERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVE</bold><color:#faa825><bold>RPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVER</bold><color:#faa825><bold>POWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERP</bold><color:#faa825><bold>OWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPO</bold><color:#faa825><bold>WER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPOW</bold><color:#faa825><bold>ER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPOWE</bold><color:#faa825><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          //
+          "<color:#FF6F00><bold>OVERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#faa825><bold>O</bold><color:#FF6F00><bold>VERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>O</bold><color:#faa825><bold>V</bold><color:#FF6F00><bold>ERPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OV</bold><color:#faa825><bold>E</bold><color:#FF6F00><bold>RPOWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVE</bold><color:#faa825><bold>R</bold><color:#FF6F00><bold>POWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVER</bold><color:#faa825><bold>P</bold><color:#FF6F00><bold>OWER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERP</bold><color:#faa825><bold>O</bold><color:#FF6F00><bold>WER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPO</bold><color:#faa825><bold>W</bold><color:#FF6F00><bold>ER</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPOW</bold><color:#faa825><bold>E</bold><color:#FF6F00><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>",
+          "<color:#FF6F00><bold>OVERPOWE</bold><color:#faa825><bold>R</bold> <dark_gray>🔥</dark_gray> <white><bold>{server_online_count}</white>"
+        ],
+        "lines": [
+          "",
+          " <color:#FF6F00>Armazém:",
+          " <white>Quantia:</white> <gray>{farming_storage_now_count}</gray>",
+          " <gray>{farming_storage_progress_bar}</gray> <white>{farming_storage_percent}%</white>",
+          "",
+          " <white>Fazenda:</white> <gray>{farming_type_name_singular}</gray>",
+          "",
+          " <white>Coins:</white> {currency_coins_cached_account_value_visualization}",
+          " <white>Faíscas:</white> {currency_sparks_cached_account_value_visualization}",
+          " <white>Tokens:</white> {currency_tokens_cached_account_value_visualization}",
+          " <white>Gold:</white> <color:#FFAA00>{user_gold_formatted}",
+          "",
+          "<gradient:#FF6F00:#faa825>exe.com</gradient>"
+        ]
+      },
+      "preferences": {
+        "lucky-block-messages": {
+          "name": "<yellow>Mensagens de recompensa da Lucky Block</yellow>",
+          "lore": [
+            "<gray>Altera as mensagens de</gray>",
+            "<gray>ganhas nas lucky blocks da fazenda.</gray>"
+          ]
+        },
+        "farming-break-holograms": {
+          "name": "<yellow>Hologramas na fazenda</yellow>",
+          "lore": [
+            "<gray>Altera os hologramas das plantações</gray>",
+            "<gray>quebradas na fazenda</gray>"
+          ]
+        },
+        "farming-storage-full-notification": {
+          "name": "<yellow>Notificar armazém cheio</yellow>",
+          "lore": [
+            "<gray>Altera os avisos de capacidade</gray>",
+            "<gray>cheia do seu armazém</gray>"
+          ]
+        }
+      },
+      "npcs": {
+        "spawn": {
+          "hologram": [
+            "<color:#6e0281>Fazenda",
+            "<white><bold>CLIQUE DIREITO</bold></white>",
+            ""
+          ]
+        },
+        "farmer": {
+          "hologram": [
+            "<color:#6e0281>Fazenda",
+            "<white><bold>CLIQUE DIREITO</bold></white>",
+            ""
+          ]
+        }
+      },
+      "holograms": {
+        "spawn": [
+          "<color:#ff8200><bold>Fazenda</bold>",
+          "",
+          "<white>Precisa de mais limite? A fazenda pode</white>",
+          "<white>te ajudar nisso! Aqui você tem uma fazenda</white>",
+          "<white>somente sua, para gerenciá-la use <color:#ff8200>/farm.</white>"
+        ]
+      },
+      "types": {
+        "wheat": {
+          "singular": "Trigo",
+          "plural": "Trigos"
+        },
+        "potato": {
+          "singular": "Batata",
+          "plural": "Batatas"
+        },
+        "carrot": {
+          "singular": "Cenoura",
+          "plural": "Cenouras"
+        },
+        "sugar-cane": {
+          "singular": "Cana",
+          "plural": "Canas"
+        },
+        "beetroot": {
+          "singular": "Beterraba",
+          "plural": "Beterrabas"
+        },
+        "nether-wart": {
+          "singular": "Fungo",
+          "plural": "Fungos"
+        },
+        "sweet_berry_bush": {
+          "singular": "Baga Doce",
+          "plural": "Bagas Doces"
+        },
+        "pitcher_plant": {
+          "singular": "Planta Jarro",
+          "plural": "Plantas Jarro"
+        },
+        "fire_coral": {
+          "singular": "Coral de Fogo",
+          "plural": "Corais de Fogo"
+        },
+        "dead_tube_coral": {
+          "singular": "Coral Tubular Morto",
+          "plural": "Corais Tubulares Mortos"
+        },
+        "tube_coral": {
+          "singular": "Coral Tubular",
+          "plural": "Corais Tubulares"
+        },
+        "brain_coral": {
+          "singular": "Coral Cerebral",
+          "plural": "Corais Cerebrais"
+        },
+        "dead_brain_coral": {
+          "singular": "Coral Cerebral Morto",
+          "plural": "Corais Cerebrais Mortos"
+        },
+        "horn_coral": {
+          "singular": "Coral de Chifre",
+          "plural": "Corais de Chifre"
+        },
+        "bubble_coral": {
+          "singular": "Coral Bolha",
+          "plural": "Corais Bolha"
+        }
+      },
+      "helmet": {
+        "types": {
+          "common": "Capacete Flamejante",
+          "supreme": "Cabeça da Fênix"
+        },
+        "icon": {
+          "name": "{farming_helmet_color}{farming_helmet_name}",
+          "description": [
+            "<gray>Equipe este capacete</gray>",
+            "<gray>e receba vantagens!</gray>"
+          ]
+        }
+      },
+      "upgrades": {
+        "growth": {
+          "name": "<color:#ff8200>Velocidade",
+          "description": [
+            "<gray>Acelere o tempo de crescimento</gray>",
+            "<gray>das plantações da sua fazenda.</gray>"
+          ]
+        },
+        "storage": {
+          "name": "<color:#ff8200>Tamanho do Armazém",
+          "description": [
+            "<gray>Aumente a quantia de plantações</gray>",
+            "<gray>que podem ser armazenadas.</gray>"
+          ]
+        },
+        "shredder": {
+          "name": "<color:#ff8200>Fragmentador",
+          "description": [
+            "<gray>Aumente a chance de receber</gray>",
+            "<gray>fragmentos de cubos.</gray>"
+          ]
+        }
+      },
+      "tool": {
+        "enchantments": {
+          "fortune": {
+            "name": "Fortuna",
+            "description": [
+              "<gray>Ganhe mais faíscas farmando.</gray>"
+            ]
+          },
+          "harvester": {
+            "name": "Colheitadeira",
+            "description": [
+              "<gray>Tenha chance de quebrar uma</gray>",
+              "<gray>linha reta de plantações.</gray>"
+            ]
+          },
+          "key": {
+            "name": "Chaveiro",
+            "description": [
+              "<gray>Tenha chance de encontrar</gray>",
+              "<gray>chaves em plantações.</gray>"
+            ]
+          },
+          "lucky-block": {
+            "name": "Lucky Block",
+            "description": [
+              "<gray>Tenha chance de encontrar</gray>",
+              "<gray>Lucky Blocks em plantações.</gray>"
+            ]
+          },
+          "fire": {
+            "name": "Chamas",
+            "description": [
+              "<gray>Chance de iniciar um incêndio</gray>",
+              "<gray>e destruir todas as plantações</gray>",
+              "<gray>em uma área durante a colheita.</gray>"
+            ]
+          },
+          "rain": {
+            "name": "Chuva",
+            "description": [
+              "<gray>Tenha a chance de provocar</gray>",
+              "<gray>uma chuva que multiplica os</gray>",
+              "<gray>drops recebidos durante 15s.</gray>"
+            ]
+          },
+          "experienced": {
+            "name": "Experiente",
+            "description": [
+              "<gray>Aumente a quantia de XP recebido</gray>",
+              "<gray>quebrando plantações para</gray>",
+              "<gray>aumentar o nível da sua foice.</gray>"
+            ]
+          },
+          "shredder": {
+            "name": "Fragmentador",
+            "description": [
+              "<gray>Tenha a chance de ganhar mais</gray>",
+              "<gray>fragmentos na sua fazenda.</gray>"
+            ]
+          },
+          "explosive": {
+            "name": "Explosivo",
+            "description": [
+              "<gray>Tenha a chance de cair uma tnt</gray>",
+              "<gray>na sua plantação.</gray>"
+            ]
+          },
+          "thor": {
+            "name": "Thor",
+            "description": [
+              "<gray>Tenha a chance de cair trovões</gray>",
+              "<gray>destruidores na sua plantação.</gray>"
+            ]
+          },
+          "explosion-of-colors": {
+            "name": "Explosão de Cores",
+            "description": [
+              "<gray>Tenha a chance de invocar uma ovelha</gray>",
+              "<gray>colorida que explode expansivamente.</gray>"
+            ]
+          },
+          "panda": {
+            "name": "Panda",
+            "description": [
+              "<gray>Um panda que rola e quebra tudo</gray>",
+              "<gray>em sua frente é invocado.</gray>"
+            ]
+          },
+          "bee": {
+            "name": "Abelhas Bombardeadoras",
+            "description": [
+              "<gray>Tenha a chance de invocar abelhas</gray>",
+              "<gray>que largam blocos de mel explosivos.</gray>"
+            ]
+          },
+          "magma": {
+            "name": "Magma",
+            "description": [
+              "<gray>Tenha a chance de invocar um magma</gray>",
+              "<gray>que aumenta a sua recompensa ao crescer.</gray>"
+            ]
+          },
+          "totem": {
+            "name": "Totem da Benção",
+            "description": [
+              "<gray>Aumente a chance de todos os seus</gray>",
+              "<gray>encantamentos após ativação do totem.</gray>"
+            ]
+          },
+          "allay": {
+            "name": "Allay",
+            "description": [
+              "<gray>Tenha a chance de invocar um allay</gray>",
+              "<gray>que quebra plantações com você.</gray>"
+            ]
+          },
+          "breeze": {
+            "name": "Carga de Vento",
+            "description": [
+              "<gray>Tenha a chance de invocar um</gray>",
+              "<gray>breeze que atira cargas de vento.</gray>"
+            ]
+          }
+        },
+        "skins": {
+          "skin-01": {
+            "name": "Enxada de Madeira",
+            "simple-name": "Madeira"
+          },
+          "skin-02": {
+            "name": "Enxada de Pedra",
+            "simple-name": "Pedra"
+          },
+          "skin-03": {
+            "name": "Enxada de Ferro",
+            "simple-name": "Ferro"
+          },
+          "skin-04": {
+            "name": "Enxada de Ouro",
+            "simple-name": "Ouro"
+          },
+          "skin-05": {
+            "name": "Enxada de Diamante",
+            "simple-name": "Diamante"
+          },
+          "skin-06": {
+            "name": "Enxada de Netherite",
+            "simple-name": "Netherite"
+          }
+        },
+        "boosts": {
+          "drops": "<white>+{farming_boost_multiplier}% Drops</white>",
+          "skill": "<white>+{farming_boost_multiplier}% XP Fazendeiro</white>",
+          "speed": "<white>+{farming_boost_multiplier}% Velocidade</white>"
+        }
+      },
+      "items": {
+        "farming-auto-sell": {
+          "display-name": "<color:#ff8200>Venda automática",
+          "name": "<color:#ff8200>Venda automática",
+          "lore": [
+            "<gray>Use este item para liberar</gray>",
+            "<gray>a venda automática da farm.</gray>"
+          ]
+        },
+        "farming-tool": {
+          "display-name": "A",
+          "name": "{farming_tool_skin_color}{farming_tool_name}",
+          "lore": [
+            "<gray>Eficiência ∞</gray>",
+            "<gray>Inquebrável ∞</gray>",
+            "<gray>{farming_tool_enchantments}</gray>",
+            "",
+            "<gray>Skin: {farming_tool_skin_color}{farming_tool_skin_simple_name}</gray>"
+          ]
+        },
+        "farming-fragment": {
+          "display-name": "<color:#ff8200>Fragmento Flamejante",
+          "name": "<color:#ff8200>Fragmento Flamejante",
+          "lore": [
+            "<gray>Arraste este fragmento</gray>",
+            "<gray>em cima de um capacete</gray>",
+            "<gray>e aumente suas vantagens.</gray>"
+          ]
+        },
+        "farming-helmet": {
+          "display-name": "{farming_helmet_icon_name}",
+          "name": "{farming_helmet_icon_name}",
+          "lore": [
+            "{farming_helmet_icon_description}",
+            "",
+            "{farming_helmet_color} <color:#ff8200>Bônus ao equipar:",
+            "<dark_gray> ▸ </dark_gray><white>+{farming_helmet_multiplier}% de Faíscas.</white>",
+            "",
+            "{farming_helmet_color} Informações de evolução:",
+            "{farming_helmet_color} │ <white>Nível: </white>{farming_helmet_color}<gray>{farming_helmet_level}",
+            "{farming_helmet_color} │ <white>Fragmentos restantes: </white>{farming_helmet_color}<gray>{farming_helmet_fragments_remaining}"
+          ]
+        }
+      },
+      "messages": {
+        "afk-farming": {
+          "on-join": {
+            "chat": "Você entrou na área de fazenda automática",
+            "title": {
+              "title": "",
+              "subtitle": "<dark_purple>Você entrou na <bold>farm afk."
+            }
+          },
+          "on-exit": {
+            "chat": "Você saiu da área de fazenda automática",
+            "title": {
+              "title": "",
+              "subtitle": "<dark_red>Você saiu da <bold>farm afk."
+            }
+          }
+        },
+        "listeners": {
+          "break": {
+            "not-allowed-without-tool": "<red>Você não pode quebrar plantações sem utilizar uma enxada!</red>",
+            "success": {
+              "hologram": [
+                "<color:#ff8200>+{farming_type_amount} {farming_type_name_adaptively}"
+              ],
+              "actionbar": "<gradient:#FF8C00:#FFFF00:#FF8C00>+{farming_type_amount} {farming_type_name_adaptively} adicionados ao armazém!</gradient>"
+            },
+            "storage-full": {
+              "chat": "<red>Você está com o armazém cheio</red>",
+              "title": {
+                "title": "<red>Armazém!</red>",
+                "subtitle": "<red>Seu armazém está cheio! </red><dark_gray><italic>/armazem</italic></dark_gray>"
+              }
+            }
+          },
+          "drop": {
+            "not-allowed": "<red>Você não pode dropar itens na fazenda!</red>"
+          }
+        },
+        "connection": {
+          "already-have-request": "<yellow>Você já possui uma solicitação pendente, aguarde um pouco!</yellow>",
+          "not-available-apps": "<red>Não foi possível encontrar um servidor de fazenda para você se conectar. Tente novamente em instantes.</red>",
+          "success": [
+            "",
+            "<green>Conectando à fazenda...</green>",
+            ""
+          ]
+        },
+        "auto-sell": {
+          "already-have": "<yellow>Você já possui a auto venda ativada em sua conta!</yellow>",
+          "operation-canceled": "<green>Operação cancelada com sucesso!</green>",
+          "activated": "<green>Pronto! Agora, basta quebrar as plantações que elas serão vendidas automaticamente.</green>"
+        },
+        "tool": {
+          "enchantments": {
+            "lucky-block": {
+              "empty-item": "<yellow>Você abriu um Lucky Block e não encontrou nada, tente novamente na próxima. :(</yellow>",
+              "without-inventory-space": "<red>OPS! Parece que você estava sem espaço no inventário e acabou perdendo seu Lucky Block :(</red>"
+            }
+          }
+        },
+        "views": {
+          "farming-plantation": {
+            "buy": {
+              "already-completed-level": "<red>Você já completou esse nível!</red>",
+              "same-level": "<yellow>Você já está nesse nível!</yellow>",
+              "blocked-level": "<red>Você precisa desbloquear o nível anterior!</red>",
+              "not-publicised-yet": "<red>Você precisa esperar até {farming_type_publish_date} para adquirir esse nível!</red>",
+              "dont-have-requirements": "<red>Você precisa ter todos os requisitos para evoluir seu nível!</red>",
+              "buy-success": "<green>Você evoluiu o nível da sua plantação com sucesso!</green>"
+            }
+          },
+          "farming-storage": {
+            "sell-all": {
+              "empty-storage": "<red>Você não possui plantações para vender!</red>",
+              "purchased": "<green>Você vendeu <white>{farming_sell_count}</white> <green>plantações por {farming_sell_currency_formatted}</green>.</green>"
+            },
+            "sell-one": {
+              "dont-have": "<red>Você não possui essa plantação para vender!</red>",
+              "purchased": "<green>Você vendeu <white>{farming_sell_count}</white> <green>plantações de {farming_type_name_singular} por {farming_sell_currency_formatted}</green>.</green>"
+            },
+            "auto-sell": {
+              "dont-have": "<red>Você não possui a venda automática, adquira já em <white>exe.com</white><red>!</red>",
+              "disabled": "<green>Venda automática desabilitada com sucesso!</green>",
+              "enabled": "<green>Venda automática habilitada com sucesso!</green>"
+            }
+          },
+          "farming-upgrades": {
+            "on-upgrade": {
+              "max-level": "<red>Você já atingiu o nível máximo dessa melhoria!</red>",
+              "dont-have-requirements": "<red>Você não possui todos os requisitos para adquirir essa melhoria!</red>",
+              "buy-success": "<green>Você adquiriu o nível {farming_upgrade_next_level} da melhoria {farming_upgrade_name} com sucesso!</green>"
+            }
+          },
+          "farming-tool-enchantment": {
+            "farming-tool-rename": {
+              "query": "Qual o novo nome que você deseja dar à sua enxada?",
+              "changed-slot-in-hotbar": "Você não pode mudar a enxada da sua mão!",
+              "success": "Nome da enxada atualizada com sucesso!"
+            },
+            "enchantment": {
+              "already-in-max-level": "<red>Você já está no nível máximo desse encantamento!</red>",
+              "need-laboratory-research": "<red>Você precisa desbloquear mais níveis desse encantamento em seu laboratório!</red>",
+              "dont-have-currency": "<red>Você não possui {farming_enchantment_currency_name_plural} suficientes para adquirir esse encantamento!</red>",
+              "purchased": {
+                "plural": "<green>Você evoluiu {farming_enchantment_level_count} níveis do encantamento <white>{farming_enchantment_name}</white>!</green>",
+                "singular": "<green>Você evoluiu {farming_enchantment_level_count} nível do encantamento <white>{farming_enchantment_name}</white>!</green>"
+              }
+            }
+          },
+          "farming-tool-disenchantment": {
+            "disenchantment": {
+              "already-in-min-level": "<red>Você já está no nível mínimo desse encantamento!</red>",
+              "sold": {
+                "plural": "<green>Você desencantou {farming_enchantment_level_count} níveis do encantamento <white>{farming_enchantment_name}</white>!</green>",
+                "singular": "<green>Você desencantou {farming_enchantment_level_count} nível do encantamento <white>{farming_enchantment_name}</white>!</green>"
+              }
+            }
+          },
+          "farming-tool-skin-shop": {
+            "buy": {
+              "already-passed": "Você já passou por essa melhoria!",
+              "already-in": "Você já está nessa melhoria!",
+              "dont-have-requirements": "Você não possui todos os requisitos para adquirir essa melhoria!",
+              "success": "<green>Você adquiriu a melhoria</green> {farming_skin_color}{farming_skin_simple_name} <green>para a sua enxada!</green>"
+            }
+          }
+        }
+      },
+      "views": {
+        "farming-central": {
+          "title": "Central da fazenda",
+          "items": {
+            "0": {
+              "name": "<color:#ff8200>Plantação <dark_gray>[Nvl. {farming_type_level}]</dark_gray>",
+              "lore": [
+                "<gray>Sua plantação atual é </gray><white>{farming_type_name_singular}</white><gray>.</gray>",
+                "",
+                " <color:#ff8200>Informações:",
+                "  <dark_gray>▸ </dark_gray><white>Faíscas p/ bloco:</white> <gray>{farming_type_currency_per_block_formatted}</gray>",
+                "  <dark_gray>▸ </dark_gray><white>Tempo p/ crescer:</white> <gray>{farming_growth_time}s</gray>",
+                "",
+                "<color:#ff8200>Clique para saber mais."
+              ]
+            },
+            "1": {
+              "name": "<color:#ff8200>Melhorias",
+              "lore": [
+                "<gray>Aqui você encontra as melhorias</gray>",
+                "<gray>disponíveis na sua fazenda.</gray>",
+                "",
+                "<color:#ff8200>Clique para saber mais."
+              ]
+            },
+            "2": {
+              "name": "<color:#ff8200>Armazém",
+              "lore": [
+                "<gray>Todas as suas colheitas</gray>",
+                "<gray>são armazenadas aqui.</gray>",
+                "",
+                "<color:#ff8200>Capacidade atual:",
+                " <dark_gray>▸ </dark_gray><gray>{farming_storage_now_count}/{farming_storage_max_count} capacidade</gray>",
+                "<green>{farming_storage_progress_bar}</green> <gray>{farming_storage_percent}%</gray>",
+                "",
+                "<color:#ff8200>Clique para acessar."
+              ]
+            }
+          }
+        },
+        "farming-plantation": {
+          "title": "Plantação",
+          "items": {
+            "0": {
+              "completed": {
+                "name": "<color:#ff8200>{farming_type_name_singular} <dark_gray>[Nvl. {farming_type_level}]</dark_gray>",
+                "lore": [
+                  "<gray>O nível {farming_type_level} transforma a sua</gray>",
+                  "<gray>fazenda inteira em </gray><white>{farming_type_name_singular}</white><gray>.</gray>",
+                  "",
+                  " <color:#ff8200>Informações:",
+                  "  <dark_gray>▸ </dark_gray><white>Faíscas p/ bloco:</white> <gray>{farming_type_currency_per_block_formatted}</gray>",
+                  "  <dark_gray>▸ </dark_gray><white>Tempo p/ crescer:</white> <gray>{farming_growth_time}s</gray>",
+                  "",
+                  "<yellow>Estágio concluído.</yellow>"
+                ]
+              },
+              "same": {
+                "name": "<color:#ff8200>{farming_type_name_singular} <dark_gray>[Nvl. {farming_type_level}]</dark_gray>",
+                "lore": [
+                  "<gray>O nível {farming_type_level} transforma a sua</gray>",
+                  "<gray>fazenda inteira em </gray><white>{farming_type_name_singular}</white><gray>.</gray>",
+                  "",
+                  " <color:#ff8200>Informações:",
+                  "  <dark_gray>▸ </dark_gray><white>Faíscas p/ bloco:</white> <gray>{farming_type_currency_per_block_formatted}</gray>",
+                  "  <dark_gray>▸ </dark_gray><white>Tempo p/ crescer:</white> <gray>{farming_growth_time}s</gray>",
+                  "",
+                  "<green>Você está nesse nível!</green>"
+                ]
+              },
+              "with-requirements": {
+                "name": "<color:#ff8200>{farming_type_name_singular} <dark_gray>[Nvl. {farming_type_level}]</dark_gray>",
+                "lore": [
+                  "<gray>Desbloqueando esse nível,</gray>",
+                  "<gray>toda sua fazenda se transforma</gray>",
+                  "<gray>em </gray><white>{farming_type_name_singular}</white><gray>.</gray>",
+                  "",
+                  " <color:#ff8200>Desbloqueável com:",
+                  " <dark_gray>▸ </dark_gray><white>{farming_type_requirements}</white>",
+                  "",
+                  "<color:#ff8200>Clique para adquirir."
+                ]
+              },
+              "without-requirements": {
+                "name": "<color:#ff8200>{farming_type_name_singular} <dark_gray>[Nvl. {farming_type_level}]</dark_gray>",
+                "lore": [
+                  "<gray>Desbloqueando esse nível,</gray>",
+                  "<gray>toda sua fazenda se transforma</gray>",
+                  "<gray>em </gray><white>{farming_type_name_singular}</white><gray>.</gray>",
+                  "",
+                  " <color:#ff8200>Desbloqueável com:",
+                  " <dark_gray>▸ </dark_gray><white>{farming_type_requirements}</white>",
+                  "",
+                  "<red>Você não possui todos os requisitos!</red>"
+                ]
+              },
+              "blocked": {
+                "name": "<red>Nível bloqueado!</red>",
+                "lore": [
+                  "<gray>Alcance o nível anterior para</gray>",
+                  "<gray>descobrir essa plantação.</gray>"
+                ]
+              }
+            }
+          }
+        },
+        "farming-upgrades": {
+          "title": "Melhorias da Fazenda",
+          "items": {
+            "0": {
+              "growth": {
+                "max-level": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tempo de crescimento:</white> <gray>{farming_upgrade_actual_value}s</gray>",
+                    "",
+                    "<color:#ff8200>Você já está no nível máximo!"
+                  ]
+                },
+                "with-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tempo de crescimento:</white> <gray><strikethrough>{farming_upgrade_actual_value}s</strikethrough> ➟ <white>{farming_upgrade_next_value}s</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<color:#ff8200>Clique para evoluir!"
+                  ]
+                },
+                "without-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tempo de crescimento:</white> <gray><strikethrough>{farming_upgrade_actual_value}s</strikethrough> ➟ <white>{farming_upgrade_next_value}s</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<red>Você não possui os requisitos!</red>"
+                  ]
+                }
+              },
+              "storage": {
+                "max-level": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tamanho do armazém:</white> <gray>{farming_upgrade_actual_value}a</gray>",
+                    "",
+                    "<color:#ff8200>Você já está no nível máximo!"
+                  ]
+                },
+                "with-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tamanho do armazém:</white> <gray><strikethrough>{farming_upgrade_actual_value}</strikethrough> ➟ <white>{farming_upgrade_next_value}</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<color:#ff8200>Clique para evoluir!"
+                  ]
+                },
+                "without-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Tamanho do armazém:</white> <gray><strikethrough>{farming_upgrade_actual_value}</strikethrough> ➟ <white>{farming_upgrade_next_value}</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<red>Você não possui os requisitos!</red>"
+                  ]
+                }
+              },
+              "shredder": {
+                "max-level": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Chance do drop:</white> <gray>{farming_upgrade_actual_value}%</gray>",
+                    "",
+                    "<color:#ff8200>Você já está no nível máximo!"
+                  ]
+                },
+                "with-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Chance do drop:</white> <gray><strikethrough>{farming_upgrade_actual_value}%</strikethrough> ➟ <white>{farming_upgrade_next_value}%</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<color:#ff8200>Clique para evoluir!"
+                  ]
+                },
+                "without-requirements": {
+                  "name": "<color:#ff8200>{farming_upgrade_name} <dark_gray>[Nvl. {farming_upgrade_actual_level}]</dark_gray>",
+                  "lore": [
+                    "{farming_upgrade_description}",
+                    "",
+                    " <color:#ff8200>Informações da evolução:",
+                    " <white>Chance do drop:</white> <gray><strikethrough>{farming_upgrade_actual_value}%</strikethrough> ➟ <white>{farming_upgrade_next_value}%</white></gray>",
+                    "",
+                    " <color:#ff8200>Custo de evolução:",
+                    " <dark_gray>▸ </dark_gray><white>{farming_upgrade_requirements}</white>",
+                    "",
+                    "<red>Você não possui os requisitos!</red>"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "farming-storage": {
+          "title": "Armazém",
+          "items": {
+            "0": {
+              "with": {
+                "name": "<color:#ff8200>{farming_type_name_singular}",
+                "lore": [
+                  "<gray>Todas as colheitas serão</gray>",
+                  "<gray>armazenadas aqui.</gray>",
+                  "",
+                  " <color:#ff8200>▸ <white>Quantia:</white> <gray>{farming_type_amount}</gray>",
+                  "",
+                  "<color:#ff8200>Clique para vender."
+                ]
+              },
+              "without": {
+                "name": "<color:#ff8200>{farming_type_name_singular}",
+                "lore": [
+                  "<gray>Todas as colheitas serão</gray>",
+                  "<gray>armazenadas aqui.</gray>",
+                  "",
+                  "<red>Você não possui para vender.</red>"
+                ]
+              }
+            },
+            "1": {
+              "with": {
+                "name": "<color:#ff8200>Vender tudo!",
+                "lore": [
+                  "<gray>Aqui você consegue vender</gray>",
+                  "<gray>todas as suas plantações.</gray>",
+                  "",
+                  "<color:#ff8200>Clique para vender."
+                ]
+              },
+              "without": {
+                "name": "<color:#ff8200>Vender tudo!",
+                "lore": [
+                  "<gray>Aqui você consegue vender</gray>",
+                  "<gray>todas as suas plantações.</gray>",
+                  "",
+                  "<red>Você não possui plantações para vender</red>"
+                ]
+              }
+            },
+            "2": {
+              "none": {
+                "name": "<color:#ff8200>Venda automática",
+                "lore": [
+                  "<gray>Usar esta opção facilita a</gray>",
+                  "<gray>venda de tudo em seu armazém.</gray>",
+                  "",
+                  "<red>Adquira a venda automática acessando:</red>",
+                  "<white>exe.com</white>"
+                ]
+              },
+              "active": {
+                "name": "<color:#ff8200>Venda automática",
+                "lore": [
+                  "<gray>Usar esta opção facilita a</gray>",
+                  "<gray>venda de tudo em seu armazém.</gray>",
+                  "",
+                  " <color:#ff8200>▸ <white>Status:</white> <green>Ativo</green>",
+                  "",
+                  "<color:#ff8200>Clique para desativar."
+                ]
+              },
+              "disabled": {
+                "name": "<color:#ff8200>Venda automática",
+                "lore": [
+                  "<gray>Usar esta opção facilita a</gray>",
+                  "<gray>venda de tudo em seu armazém.</gray>",
+                  "",
+                  " <color:#ff8200>▸ <white>Status:</white> <red>Desativado</red>",
+                  "",
+                  "<color:#ff8200>Clique para ativar."
+                ]
+              }
+            }
+          }
+        },
+        "farming-tool-enchantment": {
+          "title": "Encantamentos",
+          "items": {
+            "0": {
+              "name": "<color:#ff8200>Evoluções da enxada</color>",
+              "lore": [
+                "<gray>Desbloqueie evoluções</gray>",
+                "<gray>na enxada e receba</gray>",
+                "<gray>várias bônus.</gray>",
+                "",
+                "<color:#ff8200>Clique para acessar.</color>"
+              ]
+            },
+            "1": {
+              "name": "<red>Desencantar</red>",
+              "lore": [
+                "<gray>Você pode desencantar sua</gray>",
+                "<gray>foice e receber <white>75%</white> <gray>das</gray>",
+                "<gray>faíscas em sua conta.</gray>",
+                "",
+                "<red>Clique para visualizar.</red>"
+              ]
+            },
+            "2": {
+              "name": "<color:#ff8200>Renomear enxada</color>",
+              "lore": [
+                "<gray>Dê um nome próprio à sua enxada</gray>",
+                "<gray>com cores e estilos diferentes.</gray>",
+                "",
+                "<color:#ff8200>Clique para renomear!</color>"
+              ]
+            },
+            "3": {
+              "name": "<color:#ff8200>Laboratório de Pesquisa</color>",
+              "lore": [
+                "<gray>Desbloqueie os encantamentos</gray>",
+                "<gray>mais poderosos do servidor</gray>",
+                "<gray>através do laboratório.</gray>",
+                "",
+                "<color:#ff8200>Clique para acessar."
+              ]
+            },
+            "4": {
+              "max-level": {
+                "name": "{farming_enchantment_color}{farming_enchantment_name} <dark_gray>(MÁX.)</dark_gray> <dark_gray>({farming_enchantment_actual_level_activation_chance}%)</dark_gray>",
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  "<yellow>Esse encantamento está no nível máximo.</yellow>"
+                ]
+              },
+              "chance-greater-than-a-hundred": {
+                "name": "{farming_enchantment_color}{farming_enchantment_name} <dark_gray>/</dark_gray> <green>{farming_enchantment_actual_level}</green> <dark_gray>➟</dark_gray> <red>{farming_enchantment_next_level}</red>"
+              },
+              "chance-less-than-one-hundred": {
+                "name": "{farming_enchantment_color}{farming_enchantment_name} <dark_gray>/</dark_gray> <green>{farming_enchantment_actual_level}</green> <dark_gray>➟</dark_gray> <red>{farming_enchantment_next_level}</red> <dark_gray>(<strikethrough>{farming_enchantment_actual_level_activation_chance}%</strikethrough>) ➟ (<dark_gray>{farming_enchantment_next_level_activation_chance}%</dark_gray>)</dark_gray>"
+              },
+              "need-unlock-laboratory-upgrade": {
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  " <white>Custo: {farming_enchantment_currency_full_formatted_cost}</white>",
+                  " <white>Nível máximo:</white> <gray>{farming_enchantment_max_level}</gray>",
+                  "",
+                  "<red>Você precisa desbloquear</red>",
+                  "<red>esse encantamento em seu laboratório!</red>",
+                  "",
+                  "<yellow>Opções de encantar:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Esquerdo:</white> <gray>1 Nível",
+                  " <dark_gray>▸ </dark_gray><white>Direito:</white> <gray>50 Níveis",
+                  " <dark_gray>▸ </dark_gray><white>Botão 'Q':</white> <gray>Máximo possível</gray>"
+                ]
+              },
+              "need-more-laboratory-upgrade": {
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  " <white>Custo: {farming_enchantment_currency_full_formatted_cost}</white>",
+                  " <white>Nível máximo:</white> <gray>{farming_enchantment_max_level}</gray>",
+                  "",
+                  "<red>Você precisa desbloquear mais níveis</red>",
+                  "<red>desse encantamento em seu laboratório!</red>",
+                  "",
+                  "<yellow>Opções de encantar:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Esquerdo:</white> <gray>1 Nível",
+                  " <dark_gray>▸ </dark_gray><white>Direito:</white> <gray>50 Níveis",
+                  " <dark_gray>▸ </dark_gray><white>Botão 'Q':</white> <gray>Máximo possível</gray>"
+                ]
+              },
+              "dont-have-laboratory-upgrade": {
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  " <white>Custo: {farming_enchantment_currency_full_formatted_cost}</white>",
+                  " <white>Nível máximo:</white> <gray>{farming_enchantment_max_level}</gray>",
+                  "",
+                  "<yellow>Opções de encantar:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Esquerdo:</white> <gray>1 Nível",
+                  " <dark_gray>▸ </dark_gray><white>Direito:</white> <gray>50 Níveis",
+                  " <dark_gray>▸ </dark_gray><white>Botão 'Q':</white> <gray>Máximo possível</gray>"
+                ]
+              }
+            }
+          }
+        },
+        "farming-tool-disenchantment": {
+          "title": "Desencantar",
+          "items": {
+            "0": {
+              "min-level": {
+                "name": "{farming_enchantment_color}{farming_enchantment_name} <dark_gray>(MIN.)</dark_gray>",
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  "<yellow>Esse encantamento está abaixo do nível mínimo.</yellow>"
+                ]
+              },
+              "allowed": {
+                "name": "{farming_enchantment_color}{farming_enchantment_name} <dark_gray>/</dark_gray> <green>{farming_enchantment_level_now}</green> <dark_gray>➟</dark_gray> <red>{farming_enchantment_new_level}</red>",
+                "lore": [
+                  "{farming_enchantment_description}",
+                  "",
+                  " <white>Custo: {farming_enchantment_currency_full_formatted_cost}</white>",
+                  " <white>Nível mínimo:</white> <gray>{farming_enchantment_min_level}</gray>",
+                  "",
+                  "<yellow>Opções de desencantar:</yellow>",
+                  " <dark_gray>▸ </dark_gray><white>Esquerdo:</white> <gray>100 Níveis",
+                  " <dark_gray>▸ </dark_gray><white>Direito:</white> <gray>250 Níveis",
+                  " <dark_gray>▸ </dark_gray><white>Botão 'Q':</white> <gray>2500 Níveis"
+                ]
+              }
+            }
+          }
+        },
+        "farming-tool-skin-shop": {
+          "title": "Evoluções da enxada",
+          "items": {
+            "0": {
+              "already-passed": {
+                "name": "{farming_skin_color}{farming_skin_name}",
+                "lore": [
+                  "<gray>Ao adquirir esta evolução,</gray>",
+                  "<gray>os bônus da sua foice são</gray>",
+                  "<gray>melhorados.</gray>",
+                  "",
+                  " {farming_skin_color}Bônus de evolução:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_boosts}<white>",
+                  "",
+                  "{farming_skin_color}Você já possui uma melhoria melhor!"
+                ]
+              },
+              "already-in": {
+                "name": "{farming_skin_color}{farming_skin_name}",
+                "lore": [
+                  "<gray>Ao adquirir esta evolução,</gray>",
+                  "<gray>os bônus da sua foice são</gray>",
+                  "<gray>melhorados.</gray>",
+                  "",
+                  " {farming_skin_color}Bônus de evolução:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_boosts}<white>",
+                  "",
+                  "{farming_skin_color}Você está nessa melhoria!"
+                ]
+              },
+              "dont-have-requirements": {
+                "name": "{farming_skin_color}{farming_skin_name}",
+                "lore": [
+                  "<gray>Ao adquirir esta evolução,</gray>",
+                  "<gray>os bônus da sua foice são</gray>",
+                  "<gray>melhorados.</gray>",
+                  "",
+                  " {farming_skin_color}Bônus de evolução:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_boosts}<white>",
+                  "",
+                  " {farming_skin_color}Requisitos e preço:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_requirements}<white>",
+                  "",
+                  "{farming_skin_color}Você não possui todos os requisitos!"
+                ]
+              },
+              "allowed": {
+                "name": "{farming_skin_color}{farming_skin_name}",
+                "lore": [
+                  "<gray>Ao adquirir esta evolução,</gray>",
+                  "<gray>os bônus da sua foice são</gray>",
+                  "<gray>melhorados.</gray>",
+                  "",
+                  " {farming_skin_color}Bônus de evolução:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_boosts}<white>",
+                  "",
+                  " {farming_skin_color}Requisitos e preço:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_requirements}<white>",
+                  "",
+                  "{farming_skin_color}Clique para adquirir!"
+                ]
+              },
+              "need-previous": {
+                "name": "{farming_skin_color}{farming_skin_name}",
+                "lore": [
+                  "<gray>Ao adquirir esta evolução,</gray>",
+                  "<gray>os bônus da sua foice são</gray>",
+                  "<gray>melhorados.</gray>",
+                  "",
+                  " {farming_skin_color}Bônus de evolução:",
+                  " <dark_gray>◇</dark_gray> {farming_skin_boosts}<white>",
+                  "",
+                  "{farming_skin_color}Você precisa adquirir o anterior!"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

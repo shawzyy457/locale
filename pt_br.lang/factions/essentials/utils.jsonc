@@ -1,0 +1,41 @@
+{
+    "plugins": {
+        "essentials": {
+            "commands": {
+                "trash": {
+                    "inventory-title": "Lixeira"
+                },
+                "compact": {
+                    "no-pet": "<red>Utilize uma bancada de trabalho ou um <white>Pet Tatu<red>! Eles podem aparecer em potes perdidos na mina."
+                },
+                "lantern": {
+                    "success-disable": "Você desativou a lanterna.",
+                    "success-enable": "Você ativou a lanterna.",
+                    "cannot-use-on-spawn": "Você não pode ativar a lanterna no spawn."
+                },
+                "repair": {
+                    "cannot-repair-custom-item": "Você não pode reparar um item customizado.",
+                    "cannot-repair-item": "Você não pode reparar este item.",
+                    "dont-have-currency-value": "Você precisa de {repair_currency_value_formatted} para conseguir reparar esse item!",
+                    "success": "Item reparado com sucesso."
+                }
+            },
+            "messages": {
+                "inventory-full": "<red>Inventário cheio! Os itens ficaram no chão.",
+                "combat-log": {
+                    "join-combat": "Você entrou em combate, não deslogue!",
+                    "leave-combat": "Você não está mais em combate, já pode deslogar!"
+                },
+                "crops": {
+                    "need-sneak": "<red>Você precisa segurar <white>SHIFT<red> para quebrar esta plantação."
+                },
+                "ender-pearl": {
+                    "blocked-in-combat": "<red>Você não pode usar <white>Ender Pearl<red> em combate! Tente de novo quando sair."
+                },
+                "fishing": {
+                    "cannot-fish-on-spawn": "<red>Você não pode pescar no spawn."
+                }
+            }
+        }
+    }
+}

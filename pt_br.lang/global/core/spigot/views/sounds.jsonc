@@ -1,0 +1,43 @@
+{
+    "plugins": {
+        "core": {
+            "views": {
+                "sounds": {
+                    "title": "Sons",
+                    "items": {
+                        "0": {
+                            "name": "<yellow>{sound_id}</yellow>",
+                            "lore": [
+                                "<gray>Clique com botão direito:</gray> <white>Tocar</white>",
+                                "<gray>Clique com botão esquerdo:</gray> <white>Selecionar</white>"
+                            ]
+                        }
+                    }
+                },
+                "sound-volume": {
+                    "title": "Sons - {sound_id}",
+                    "items": {
+                        "0": {
+                            "name": "<red>-</red>",
+                            "lore": [
+                                "<gray>Clique para reduzir o amplificador</gray>"
+                            ]
+                        },
+                        "1": {
+                            "name": "<yellow>{sound_id}</yellow>",
+                            "lore": [
+                                "<gray>Valor:</gray> <white>{sound_amplifier}</white>"
+                            ]
+                        },
+                        "2": {
+                            "name": "<green>+</green>",
+                            "lore": [
+                                "<gray>Clique para aumentar o amplificador</gray>"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

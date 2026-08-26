@@ -1,0 +1,12 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "auto-fishing": {
+          "rod-swapped": "<aqua>🎣 Sua vara quebrou; puxamos outra do inventário e a pesca continua automaticamente.",
+          "rod-broke": "<red>🎣 Sua vara quebrou e você não tinha outra — lance novamente para continuar pescando."
+        }
+      }
+    }
+  }
+}

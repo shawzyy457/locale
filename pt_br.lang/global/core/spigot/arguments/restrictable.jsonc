@@ -1,0 +1,17 @@
+{
+    "plugins": {
+        "core": {
+            "arguments": {
+                "group-restrict": {
+                    "need-highest-group-vip": [
+                        "<yellow>Este comando é exclusivo a jogadores {group_command_min_group_display_name}<yellow>.</yellow>",
+                        "<yellow>Garanta já o seu em <aqua>loja.exe.com</aqua><yellow>.</yellow>"
+                    ],
+                    "need-highest-group-staff": [
+                        "<red>Você precisa do grupo</red> {group_command_min_group_display_name} <red>ou superior para executar este comando.</red>"
+                    ]
+                }
+            }
+        }
+    }
+}

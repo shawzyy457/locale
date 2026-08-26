@@ -1,0 +1,185 @@
+{
+    "plugins": {
+        "ranks": {
+            "types": {
+                "coal": {
+                    "display-name": "{rank_color}Carvão {rank_tier_formatted_roman}",
+                    "name": "Carvão",
+                    "description": [
+                        "O rank inicial, onde tudo começa."
+                    ]
+                },
+                "lapis": {
+                    "display-name": "{rank_color}Lápis {rank_tier_formatted_roman}",
+                    "name": "Lápis",
+                    "description": [
+                        "Um brilho azul que simboliza sabedoria.",
+                        "O começo de algo mais valioso."
+                    ]
+                },
+                "copper": {
+                    "display-name": "{rank_color}Cobre {rank_tier_formatted_roman}",
+                    "name": "Cobre",
+                    "description": [
+                        "Condutor da energia e da evolução.",
+                        "Primeiros passos rumo à grandeza."
+                    ]
+                },
+                "iron": {
+                    "display-name": "{rank_color}Ferro {rank_tier_formatted_roman}",
+                    "name": "Ferro",
+                    "description": [
+                        "Primeira evolução: resistente e confiável.",
+                        "Você começa a moldar sua jornada."
+                    ]
+                },
+                "gold": {
+                    "display-name": "{rank_color}Ouro {rank_tier_formatted_roman}",
+                    "name": "Ouro",
+                    "description": [
+                        "A riqueza começa a reluzir em suas mãos.",
+                        "Um marco de prosperidade e conquista."
+                    ]
+                },
+                "redstone": {
+                    "display-name": "{rank_color}Redstone {rank_tier_formatted_roman}",
+                    "name": "Redstone",
+                    "description": [
+                        "A energia pulsa em suas veias.",
+                        "Domine o poder que move o mundo."
+                    ]
+                },
+                "quartz": {
+                    "display-name": "{rank_color}Quartzo {rank_tier_formatted_roman}",
+                    "name": "Quartzo",
+                    "description": [
+                        "A pureza cristalina de um novo patamar.",
+                        "Refinamento e clareza no caminho."
+                    ]
+                },
+                "diamond": {
+                    "display-name": "{rank_color}Diamante {rank_tier_formatted_roman}",
+                    "name": "Diamante",
+                    "description": [
+                        "A perfeição lapidada em sua essência.",
+                        "Resistência e valor incomparáveis."
+                    ]
+                },
+                "emerald": {
+                    "display-name": "{rank_color}Esmeralda {rank_tier_formatted_roman}",
+                    "name": "Esmeralda",
+                    "description": [
+                        "A joia verde que simboliza raridade.",
+                        "Um brilho reservado apenas aos dignos."
+                    ]
+                },
+                "netherite": {
+                    "display-name": "{rank_color}Netherite {rank_tier_formatted_roman}",
+                    "name": "Netherite",
+                    "description": [
+                        "Forjado no fogo do Nether.",
+                        "A força suprema das profundezas."
+                    ]
+                },
+                "amethyst": {
+                    "display-name": "{rank_color}Ametista {rank_tier_formatted_roman}",
+                    "name": "Ametista",
+                    "description": [
+                        "Um cristal místico repleto de energia.",
+                        "Sua aura brilha em tons de magia."
+                    ]
+                },
+                "warden": {
+                    "display-name": "{rank_color}Warden {rank_tier_formatted_roman}",
+                    "name": "Warden",
+                    "description": [
+                        "O eco das profundezas ressoa em você.",
+                        "Somente os mais corajosos alcançam este poder."
+                    ]
+                }
+            },
+            "commands": {
+                "arguments": {
+                    "rank": {
+                        "not-found": "Não foi possível encontrar o rank '{rank_id}'."
+                    }
+                },
+                "ranks": {
+                    "set": {
+                        "arguments": {
+                            "target": {
+                                "name": "jogador",
+                                "description": "O jogador para o qual você deseja definir o rank."
+                            },
+                            "rank-id": {
+                                "name": "rank",
+                                "description": "O rank que você deseja definir para o jogador."
+                            },
+                            "rank-tier": {
+                                "name": "tier do Rank",
+                                "description": "O tier do rank que você deseja definir para o jogador."
+                            }
+                        },
+                        "rank-tier-not-found": "Não foi possível encontrar esse tier no rank selecionado.",
+                        "success": "O rank do jogador foi definido com sucesso."
+                    }
+                },
+                "rankup": {
+                    "no-next-rank": "Você já está no rank mais alto.",
+                    "confirmation": {
+                        "dont-have-requirements": "Você não possui todos os requisitos para evoluir de rank!",
+                        "cancelled": "Você cancelou o processo de evoluir seu rank!"
+                    }
+                }
+            },
+            "messages": {
+                "hooks": {
+                    "core-message": {
+                        "adapter": "<white>{rank_color}[{rank_display_name}]</white>"
+                    },
+                    "core": {
+                        "requirement": "<white>{rank_name} {rank_tier_formatted_roman}</white>"
+                    },
+                    "placeholder": {
+                        "user": "{user_rank_color}{user_rank_name} {user_rank_tier_formatted_roman}"
+                    }
+                }
+            },
+            "views": {
+                "rankup-confirmation": {
+                    "items": {
+                        "0": {
+                            "name": "{rank_color}{rank_name} {rank_tier_formatted_roman}",
+                            "lore": [
+                                "<gray>{rank_description}</gray>",
+                                "",
+                                " <gray>Custo para evoluir:",
+                                " <dark_gray>▸</dark_gray> <white>{rank_tier_requirements}</white>",
+                                "",
+                                "<gray>Clique para prestigiar!"
+                            ]
+                        }
+                    }
+                },
+                "ranks": {
+                    "title": "Lista de ranks",
+                    "items": {
+                        "0": {
+                            "name": "{rank_color}{rank_name}",
+                            "lore": [
+                                "<gray>{rank_description}",
+                                "",
+                                "{rank_tiers}"
+                            ],
+                            "lore-tier": [
+                                " {rank_tier_color}{rank_tier_name}",
+                                "  <white>{rank_tier_requirements}</white>",
+                                ""
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

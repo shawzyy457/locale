@@ -1,0 +1,219 @@
+{
+    "plugins": {
+        "server-core": {
+            "shop":{
+            "categories": {
+                "0":{
+                    "name": "<green><bold>Blocos",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>blocos<gray>."
+                    ]
+                },
+                "1":{
+                    "name": "<green><bold>Madeiras",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>madeiras<gray>."
+                    ]
+                },
+                "5":{
+                    "name": "<green><bold>Utilitários",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>utilitários<gray>."
+                    ]
+                },
+                "3":{
+                    "name": "<green><bold>Coloridos",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>coloridos<gray>."
+                    ]
+                },
+                "4":{
+                    "name": "<green><bold>Minérios",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>minérios<gray>."
+                    ]
+                },
+                "6":{
+                    "name": "<green><bold>Mecanismos",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>mecanismos<gray>."
+                    ]
+                },
+                "7":{
+                    "name": "<green><bold>Decorativos",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>decorativos<gray>."
+                    ]
+                },
+                "8":{
+                    "name": "<green><bold>Outros",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>outros<gray>."
+                    ]
+                },
+                "2":{
+                    "name": "<green><bold>Floresta e Natureza",
+                    "description": [
+                        "<gray>Escolha entre uma variedade",
+                        "<gray>grande de itens da categoria",
+                        "<white>floresta<gray>."
+                    ]
+                }
+            }
+            },
+            "views": {
+                "shop-primary": {
+                    "title": "Loja de itens",
+                    "items": {
+                        "0": {
+                            "name": "{shop_category_name}",
+                            "lore": [
+                                "{shop_category_description}",
+                                "",
+                                "<green>Clique para acessar!</green>"
+                            ]
+                        }
+                    }
+                },
+                "shop-category": {
+                    "title": "Loja de itens ➟ {shop_category_name}",
+                    "items": {
+                        "0": {
+                            "with-discount": {
+                                "can-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        " <gray>Você possui o grupo {user_group_tag_with_color}<gray> então",
+                                        " <gray>recebe <white>{shop_category_item_cost_discount}%</white> de desconto.</gray>",
+                                        "",
+                                        "<green>Clique para comprar!</green>"
+                                    ]
+                                },
+                                "cannot-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        " <gray>Você possui o grupo {user_group_tag_with_color} <gray> então",
+                                        " <gray>recebe <white>{shop_category_item_cost_discount}%</white> de desconto.</gray>",
+                                        "",
+                                        "<red>Você não possui {shop_category_currency_name_plural} suficientes!</red>"
+                                    ]
+                                }
+                            },
+                            "without-discount": {
+                                "can-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        "<green>Clique para comprar!</green>"
+                                    ]
+                                },
+                                "cannot-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        "<red>Você não possui {shop_category_currency_name_plural} suficientes!</red>"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "shop-item-amount-select":{
+                    "title": "Loja de itens ➟ {shop_category_name}",
+                    "items": {
+                        "0": {
+                            "with-discount": {
+                                "can-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        " <gray>Você possui o grupo {user_group_tag_with_color} então",
+                                        " <gray>recebe <white>{shop_category_item_cost_discount}%</white> de desconto.</gray>",
+                                        "",
+                                        "<green>Clique para comprar!</green>"
+                                    ]
+                                },
+                                "cannot-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        " <gray>Você possui o grupo {user_group_tag_with_color} então",
+                                        " <gray>recebe <white>{shop_category_item_cost_discount}%</white> de desconto.",
+                                        "",
+                                        "<red>Você não possui {shop_category_currency_name_plural} suficientes!</red>"
+                                    ]
+                                }
+                            },
+                            "without-discount": {
+                                "can-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        "<green>Clique para comprar!</green>"
+                                    ]
+                                },
+                                "cannot-buy": {
+                                    "name": "{shop_category_item_name}",
+                                    "lore": [
+                                        "",
+                                        "<white>Custo:</white> {shop_category_item_cost_formatted}",
+                                        "",
+                                        "<red>Você não possui {shop_category_currency_name_plural} suficientes!</red>"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "messages": {
+                "views": {
+                    "shop-category": {
+                        "buy": {
+                            "dont-have-currency-value": "Você não possui {shop_category_currency_name_plural} para comprar esse item.",
+                            "success": "Sua compra foi realizada com sucesso!"
+                        }
+                    },
+                    "shop-item-amount-select": {
+                         "buy": {
+                            "dont-have-currency-value": "Você não possui {shop_category_currency_name_plural} para comprar esse item.",
+                            "success": "Sua compra foi realizada com sucesso!"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

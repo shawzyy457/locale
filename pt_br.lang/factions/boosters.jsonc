@@ -1,0 +1,128 @@
+{
+    "plugins": {
+        "boosters": {
+            "types": {
+                "skill-blacksmith": {
+                    "name": "Reparação",
+                    "boost-name": "XP em Reparação"
+                },
+                "skill-enchanting": {
+                    "name": "Encantador",
+                    "boost-name": "XP em Encantador"
+                },
+                "skill-alchemist": {
+                    "name": "Alquimia",
+                    "boost-name": "XP em Alquimia"
+                },
+                "skill-mercenary": {
+                    "name": "Mercenário",
+                    "boost-name": "XP em Mercenário"
+                },
+                "skill-excavation": {
+                    "name": "Escavação",
+                    "boost-name": "XP em Escavação"
+                },
+                "skill-axes": {
+                    "name": "Machados",
+                    "boost-name": "XP em Machados"
+                },
+                "skill-protector": {
+                    "name": "Protetor",
+                    "boost-name": "XP em Protetor"
+                },
+                "skill-swords": {
+                    "name": "Espadas",
+                    "boost-name": "XP em Espadas"
+                },
+                "skill-mining": {
+                    "name": "Mineração",
+                    "boost-name": "XP em Mineração"
+                },
+                "skill-collect": {
+                    "name": "Coleta",
+                    "boost-name": "XP em Coleta"
+                },
+                "skill-fisherman": {
+                    "name": "Pescador",
+                    "boost-name": "XP em Pescador"
+                },
+                "mining": {
+                    "name": "Mineração",
+                    "boost-name": "Recursos de mineração"
+                }
+            },
+            "items": {
+                "booster": {
+                    "display-name": "{booster_type_color}Booster de {booster_type_name}",
+                    "name": "{booster_type_color}Booster de {booster_type_name}",
+                    "lore": [
+                        "<gray>Aumente seu ganho de</gray>",
+                        "<gray><white>{booster_type_name}</white>.</gray>",
+                        "",
+                        " {booster_type_color}Bonûs de ativação:",
+                        " <dark_gray>◇</dark_gray> <white>+{booster_multiplier}% {booster_type_boost_name}.</white>",
+                        "",
+                        "{booster_type_color}Tempo de duração: <white>{booster_duration}</white>"
+                    ],
+                    "lore-inventory": []
+                }
+            },
+            "commands": {
+                "booster-give": {
+                    "arguments": {
+                        "target": {
+                            "name": "jogador",
+                            "description": "Jogador que será adicionado a experiência"
+                        },
+                        "type": {
+                            "name": "type",
+                            "description": "Tipo do booster"
+                        },
+                        "duration": {
+                            "name": "duração",
+                            "description": "Duração em minutos"
+                        },
+                        "multiplier": {
+                            "name": "multiplicador",
+                            "description": "Multiplicador do booster em %"
+                        },
+                        "amount": {
+                            "name": "quantidade",
+                            "description": "Quantidade de boosters a serem enviados"
+                        }
+                    },
+                    "success": "<green>Você enviou <white>{booster_amount}x</white> booster de <white>{booster_multiplier}%</white> para o jogador {booster_target_name_with_tag}</green>"
+                },
+                "boosters": {
+                    "dont-have-boosters": "<red>Você não possui nenhum booster ativo!</red>",
+                    "booster-info": "<white>+{booster_multiplier}% de {booster_type_color}{booster_type_name} <white>por duração: <gray>{booster_remaining_duration}</gray>.</white>",
+                    "success": [
+                        "",
+                        "<dark_purple><bold>Boosters",
+                        " {boosters_lines}",
+                        ""
+                    ]
+                }
+            },
+            "messages": {
+                "on-expire": {
+                    "chat": "<red>O efeito do seu booster chegou a um fim! Você já pode ativar outro."
+                },
+                "items": {
+                    "booster": {
+                        "booster-already-exists-with-other-multiplier": "<red>Você já possuí um booster ativo desse tipo, porém ele tem outro multiplicador, você precisa esperar o primeiro acabar para iniciar esse novo, confira os boosters ativos em </red><white>/boosters</white>",
+                        "success": {
+                            "booster-new-success": "<green>Você ativou um booster de <white>{booster_type_name}</white> com o multiplicador de <white>{booster_multiplier}%</white> por <white>{booster_duration}</white></green>",
+                            "booster-sum-success": "<green>Seu tempo do booster de <white>{booster_type_name}</white> foi aumentado para <white>{booster_duration}</white></green>"
+                        }
+                    }
+                }
+            },
+            "views": {
+                "booster-use-confirmation": {
+                    "title": "Utilizar o booster?"
+                }
+            }
+        }
+    }
+}

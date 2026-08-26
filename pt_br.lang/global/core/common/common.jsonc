@@ -1,0 +1,44 @@
+{
+  "plugins": {
+    "core": {
+      "messages": {
+        "user": {
+          "not-found": "Não foi possível encontrar o jogador {name} em nosso servidor.",
+          "not-online": "O jogador {name} não se encontra online em nosso servidor.",
+          "not-allowed-self": "Ops! Você não pode utilizar isso em você mesmo.",
+          "not-online-locally": "O jogador {name} não se encontra online neste servidor."
+        },
+        "operation": {
+          "cancelled": "Operação cancelada com sucesso!"
+        },
+        "conversation": {
+          "expired": "Você demorou muito para responder, então a operação foi cancelada!",
+          "cancelled": "Você cancelou essa operação!"
+        },
+        "errors": {
+          "parse-double": "Não foi possível identificar \"{number}\" como um número, tente novamente!",
+          "parse-integer": "Não foi possível identificar \"{number}\" como um número inteiro, tente novamente!",
+          "parse-group": "Não foi possível identificar \"{group}\" como um grupo, tente novamente!",
+          "parse-server": "Não foi possível identificar \"{server}\" como um servidor, tente novamente!",
+          "need-positive-number": "Você precisa inserir um numero positivo!",
+          "need-integer-number": "Você preciso inserir um numero inteiro!"
+        },
+        "player": {
+          "invalid-item": "Você precisa de um item válido",
+          "not-space-in-inventory": "Você não possui espaço em seu inventário."
+        },
+        "issue": [
+          "",
+          "<red>Ocorreu um erro ao tentar executar essa operação!</red>",
+          "<red>* Os membros da nossa equipe foram notificados sobre o erro</red>",
+          ""
+        ],
+        "internal-error": [
+          "",
+          "<red>Não foi possível executar essa ação, entre em contato com o suporte!</red>",
+          ""
+        ]
+      }
+    }
+  }
+}

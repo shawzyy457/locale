@@ -1,0 +1,856 @@
+{
+  "plugins": {
+    "skills": {
+      "types": {
+        "swords": {
+          "name": "<gradient:#00acff:#00f2ff>Espadas",
+          "icon": "🗡",
+          "description": [
+            "<gray>Evolua ao matar mobs",
+            "<gray>e jogadores"
+          ]
+        },
+        "axes": {
+          "name": "<gradient:#00acff:#00f2ff>Machados",
+          "icon": "🪓",
+          "description": [
+            "<gray>Evolua ao matar mobs",
+            "<gray>e jogadores"
+          ]
+        },
+        "mining": {
+          "name": "<gradient:#00acff:#00f2ff>Mineração",
+          "icon": "⛏",
+          "description": [
+            "<gray>Evolua ao quebrar!",
+            "<gray>minérios!"
+          ]
+        },
+        "collect": {
+          "name": "<gradient:#00acff:#00f2ff>Coleta",
+          "icon": "🌿",
+          "description": [
+            "<gray>Evolua ao quebrar folhas",
+            "<gray>e plantações!"
+          ]
+        },
+        "excavation": {
+          "name": "<gradient:#00acff:#00f2ff>Escavação",
+          "icon": "🪏",
+          "description": [
+            "<gray>Evolua ao escavar!"
+          ]
+        },
+        "protector": {
+          "name": "<gradient:#00acff:#00f2ff>Protetor",
+          "icon": "❤",
+          "description": [
+            "<gray>Evolua ao colocar",
+            "<gray>blocos de proteção!"
+          ]
+        },
+        "blacksmith": {
+          "name": "<gradient:#00acff:#00f2ff>Ferreiro",
+          "icon": "🔨",
+          "description": [
+            "<gray>Evolua ao reparar itens!"
+          ]
+        },
+        "enchanting": {
+          "name": "<gradient:#00acff:#00f2ff>Encantador",
+          "icon": "☆",
+          "description": [
+            "<gray>Evolua ao encantar itens!"
+          ]
+        },
+        "mercenary": {
+          "name": "<gradient:#00acff:#00f2ff>Mercenário",
+          "icon": "🗡",
+          "description": [
+            "<gray>Evolua ao eliminar jogadores!"
+          ]
+        },
+        "alchemist": {
+          "name": "<gradient:#00acff:#00f2ff>Alquimista",
+          "icon": "⚗",
+          "description": [
+            "<gray>Evolua ao criar poções!"
+          ]
+        },
+        "fisherman": {
+          "name": "<gradient:#00acff:#00f2ff>Pescador",
+          "icon": "🎣",
+          "description": [
+            "<gray>Evolua ao pescar peixes!"
+          ]
+        }
+      },
+      "perks": {
+        "bleed": {
+          "name": "<gradient:#00acff:#00f2ff>Sangramento",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Sangramento",
+            " <gray>Ao atacar um jogador, você tem",
+            " <gray>chance de causar <red>Sangramento<gray>,",
+            " <gray>aplicando dano contínuo ao",
+            " <gray>alvo por alguns segundos."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%",
+            " <gradient:#00acff:#00f2ff>⌚<white> Duração: <gray>{perk_duration}s",
+            " <gradient:#00acff:#00f2ff>🗡<white> Dano: <gray>{perk_modifier}"
+          ]
+        },
+        "break": {
+          "name": "<gradient:#00acff:#00f2ff>Quebra",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Quebra",
+            " <gray>Ao atacar um jogador você tem",
+            " <gray>chance de causar <dark_red>Quebra<gray>,",
+            " <gray>danificando a armadura do alvo.",
+            " <gray>Essa chance dobra em jogadores",
+            " <gray>que estão afetados por <red>Sangramento</red><gray>."
+          ],
+          "display-name": [
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%",
+            " <gradient:#00acff:#00f2ff>🗡<white> Dano: <gray>{perk_modifier}"
+          ]
+        },
+        "seismic-break": {
+          "name": "<gradient:#00acff:#00f2ff>Quebra Sísmica",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Quebra Sísmica",
+            " <gray>Ao quebrar um minério, você tem",
+            " <gray>chance de quebrar minérios",
+            " <gray>adjacentes automaticamente."
+          ],
+          "chance-bonus": " <light_purple>(+{perk_bonus_value}%)</light_purple>",
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%{perk_chance_bonus}",
+            " <gradient:#00acff:#00f2ff>💥<white> Blocos: <gray>{perk_modifier}"
+          ]
+        },
+        "magic-collect": {
+          "name": "<gradient:#00acff:#00f2ff>Coleta Mágica",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Coleta Mágica",
+            " <gray>Ao escavar blocos, você tem",
+            " <gray>chance de obter itens raros."
+
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        },
+        "harvest": {
+          "name": "<gradient:#00acff:#00f2ff>Colheita",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Colheita",
+            " <gray>Ao coletar recursos, você tem",
+            " <gray>chance de obter itens raros."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        },
+        "hardness": {
+          "name": "<gradient:#00acff:#00f2ff>Dureza",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Dureza",
+            " <gray>Coloque blocos de proteção",
+            " <gray>com mais vida inicial."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>❤<white> Dureza: <gray>{perk_modifier}"
+          ]
+        },
+        "magic-affinity": {
+          "name": "<gradient:#00acff:#00f2ff>Afinidade Mágica",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Afinidade Mágica",
+            " <gray>Chance de aplicar encantamentos",
+            " <gray>de nível mais alto. (Ex: encanta",
+            " <gray>com nível 1 e vem nível 2).",
+            " <gray>Tem acesso a caixas ascendidas",
+            " <gray>no <white>/encantar<gray> por XP."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        },
+        "chemical-amplifier": {
+          "name": "<gradient:#00acff:#00f2ff>Amplificador Químico",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Amplificador Químico",
+            " <gray>Crie poções com mais",
+            " <gray>duração"
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>⏱<white> Duração: <gray>{perk_duration}s"
+          ]
+        },
+        "blacksmith-repair": {
+          "name": "<gradient:#00acff:#00f2ff>Reparo de Ferreiro",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Reparo de Ferreiro",
+            " <gray>Habilidade de reparar itens",
+            " <gray>de materiais melhores e chance",
+            " <gray>de não gastar recursos."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        },
+        "mercenary-theft": {
+          "name": "<gradient:#00acff:#00f2ff>Roubo",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Roubo",
+            " <gray>Chance de roubar <white>10% dos",
+            " <white>coins <gray>ao eliminar inimigos.",
+            " <gray>Recebe Velocidade e Força",
+            " <gray>durante a nevasca."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        },
+        "deep-fishing": {
+          "name": "<gradient:#00acff:#00f2ff>Pesca Profunda",
+          "description": [
+            " <gradient:#00acff:#00f2ff>Talento: Pesca Profunda",
+            " <gray>Ao pescar, você tem chance de",
+            " <gray>fisgar um item raro das",
+            " <gray>profundezas. Se o inventário",
+            " <gray>estiver cheio, vai pro correio."
+          ],
+          "display-name": [
+            " {perk_name}<gradient:#00acff:#00f2ff>:",
+            " <gradient:#00acff:#00f2ff>🎲<white> Chance: <gray>{perk_chance}%"
+          ]
+        }
+      },
+      "rewards": {
+        "swords": {
+          "bleed-chance": "<white>+{amount}% chance de Sangramento",
+          "bleed-duration": "<white>+{amount}s duração de Sangramento",
+          "sharpness-iv": "<white>Encantamento Afiação IV",
+          "sharpness-v": "<white>Encantamento Afiação V",
+          "sharpness-vi": "<white>Encantamento Afiação VI",
+          "frozen-sword-recipe": "<white>Receita Espada Congelada",
+          "mastery": "<white>Maestria de Espadas"
+        },
+        "axes": {
+          "break-chance": "<white>+{amount}% chance de Quebra",
+          "sharpness-iv": "<white>Encantamento Afiação IV",
+          "sharpness-v": "<white>Encantamento Afiação V",
+          "sharpness-vi": "<white>Encantamento Afiação VI",
+          "viking-helmet-recipe": "<white>Receita Capacete Viking",
+          "iceberg-axe-recipe": "<white>Receita Machado Iceberg",
+          "mastery": "<white>Maestria de Machados"
+        },
+        "mining": {
+          "seismic-chance": "<white>+{amount}% de Quebra Sísmica",
+          "seismic-blocks": "<white>+{amount} bloco em Quebra Sísmica",
+          "efficiency-iv": "<white>Encantamento Eficiência IV",
+          "efficiency-v": "<white>Encantamento Eficiência V",
+          "pet-silverfish": "<white>Pet Traça",
+          "pet-armadillo": "<white>Pet Tatu",
+          "unlock-coal": "<white>Pode quebrar minério de Carvão",
+          "unlock-gold-ore": "<white>Pode quebrar minérios de Ouro",
+          "unlock-diamond-ore": "<white>Pode quebrar minérios de Diamante",
+          "unlock-amethyst": "<white>Pode quebrar Ametista",
+          "unlock-netherite-ore": "<white>Pode quebrar Netherite",
+          "unlock-eternal-ice": "<white>Pode quebrar Gelo Eterno",
+          "unlock-glacite": "<white>Pode quebrar Glacite",
+          "mastery": "<white>Maestria de Mineração"
+        },
+        "excavation": {
+          "magic-collect-chance": "<white>+{amount}% de Coleta Mágica",
+          "mastery": "<white>Maestria de Escavação",
+          "unlock-sugar-cane": "<white>Desbloqueia Cana de Açúcar",
+          "unlock-cactus": "<white>Desbloqueia Cacto",
+          "unlock-nether-wart": "<white>Desbloqueia Fungo do Nether",
+          "unlock-blaze-powder": "<white>Desbloqueia Pó de Blaze",
+          "unlock-obsidian": "<white>Desbloqueia Obsidiana",
+          "unlock-glowstone-dust": "<white>Desbloqueia Pó de Glowstone",
+          "unlock-pet-egg-common": "<white>Desbloqueia Ovo de Pet Comum",
+          "unlock-pet-egg-rare": "<white>Desbloqueia Ovo de Pet Raro"
+        },
+        "collect": {
+          "harvest-chance": "<white>+{amount}% de Colheita",
+          "mastery": "<white>Maestria de Coleta",
+          "unlock-apple": "<white>Desbloqueia Maçã",
+          "unlock-pet-food": "<white>Desbloqueia Ração de Pet"
+        },
+        "fisherman": {
+          "deep-fishing-chance": "<white>+{amount}% de Pesca Profunda",
+          "mastery": "<white>Maestria de Pescador"
+        },
+        "protector": {
+          "unlock-cobblestone-generator": "<white>Desbloqueia Gerador de Pedra",
+          "unlock-repair-brush": "<white>Desbloqueia Escova de Reparo",
+          "unlock-protector-heart": "<white>Desbloqueia Coração de Protetor",
+          "hardness": "<white>+{amount} Dureza",
+          "mastery": [
+            "<white>A cada 60 segundos, seu próximo bloco de",
+            "<white>proteção terá durabilidade máxima ao ser colocado."
+          ]
+        },
+        "enchanting": {
+          "magic-affinity": "<white>+{amount}% Afinidade Mágica",
+          "mastery": "<white>Maestria de Encantador",
+          "unlock-hot-touch": "<white>Desbloqueia Encantamento Toque Quente",
+          "unlock-fortune-iv": "<white>Desbloqueia Encantamento Fortuna IV",
+          "unlock-fortune-v": "<white>Desbloqueia Encantamento Fortuna V",
+          "unlock-fortune-vi": "<white>Desbloqueia Encantamento Fortuna VI",
+          "unlock-efficiency-vi": "<white>Desbloqueia Encantamento Eficiência VI"
+
+        },
+        "alchemist": {
+          "chemical-amplifier": "<white>+{amount}s Amplificador Químico",
+          "mastery": [
+            "<white>Ao tomar uma poção, compartilha 50% da duração",
+            "<white>do seu efeito com aliados próximos em um raio de 5 blocos."
+          ]
+        },
+        "mercenary": {
+          "theft": "<white>+{amount}% de chance de Roubo",
+          "mastery": "<white>Maestria de Mercenário"
+        },
+        "blacksmith": {
+          "double-leather-repair": "<white>Repara 2x mais Couro",
+          "unlock-gold": "<white>Pode reparar Ouro",
+          "double-gold-repair": "<white>Repara 2x mais Ouro",
+          "instant-repair-recipe": "<white>Receita Reparador Instantâneo",
+          "unlock-iron": "<white>Pode reparar Ferro",
+          "obsidian-chestplate-recipe": "<white>Receita Peitoral de Obsidiana",
+          "unlock-diamond": "<white>Pode reparar Diamante",
+          "unlock-netherite": "<white>Pode reparar Netherite",
+          "unlock-glacite": "<white>Pode reparar Glacite",
+          "unbreaking-vi": "<white>Encantamento Inquebrável VI",
+          "mastery": "<white>Maestria de Ferreiro",
+          "save-chance": "<white>Reparo de Ferreiro"
+        }
+      },
+      "items": {
+        "booster": {
+          "name": "<yellow>Booster de Habilidades",
+          "lore": [
+            "<gray>Escolha uma habilidade qualquer",
+            "<gray>para ganhar XP adicional.",
+            "",
+            "<white> Duração: <gray>{booster_duration}",
+            "<white> Bônus: <gray>{booster_multiplier}%"
+          ],
+          "lore-inventory": [
+            "",
+            "<yellow>Clique para escolher."
+          ]
+        }
+      },
+      "commands": {
+        "arguments": {
+          "skill": {
+            "not-found": "<red>A skill <white>{skill_id}</white> não foi encontrada."
+          }
+        },
+        "skill": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que você deseja ver as informações"
+            }
+          },
+          "reset": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que terá as skills resetadas"
+              }
+            },
+            "success": "Você resetou as skills de {target_name_with_tag}."
+          },
+          "add-experience": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador a adicionar o XP"
+              },
+              "skill": {
+                "name": "skill",
+                "description": "ID da skill a adicionar o XP"
+              },
+              "experience": {
+                "name": "quantia",
+                "description": "Quantia de XP a adicionar"
+              }
+            },
+            "success": "XP adicionado com sucesso."
+          },
+          "set-level": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador a definir o nível"
+              },
+              "skill": {
+                "name": "skill",
+                "description": "ID da skill a definir o nível"
+              },
+              "level": {
+                "name": "nível",
+                "description": "Novo nível da skill"
+              }
+            },
+            "success": "Você definiu o nível de {target_name_with_tag} em {skill_name} para <white>{level}."
+          }
+        }
+      },
+      "messages": {
+        "perks": {
+          "swords": {
+            "bleed-apply": "<red>🗡 Sangramento <gray>aplicado em <white>{player_name} <gray>por <white>{duration}s<gray>."
+          },
+          "axes": {
+            "break-apply": "<dark_red>🪓 Quebra <gray>aplicada em <white>{player_name}<gray>, causando <white>{damage} <gray>de dano na armadura."
+          },
+          "mercenary": {
+            "theft-success": "<green>🗡 Você roubou $<white>{stolen_amount} <green>coins de {victim_name_with_tag}<green>."
+          },
+          "mining": {
+            "seismic-activate": "<green>⛏ Você ativou <white>quebra sísmica<green> e quebrou <white>{broken_blocks} <green>blocos. <dark_gray>(/skills)"
+          },
+          "collect": {
+            "harvest-activate": "<green>🌾 Você ativou <white>Colheita<green> e obteve <white>{item_name}<green>. <dark_gray>(/skills)"
+          },
+          "excavation": {
+            "magic-collect-activate": "<green>🪏 Você ativou <white>Coleta Mágica<green> e obteve <white>{item_name}<green>. <dark_gray>(/skills)"
+          },
+          "fisherman": {
+            "deep-fishing-activate": "<aqua>🎣 Você ativou <white>Pesca Profunda<aqua> e fisgou <white>{item_name}<aqua>. <dark_gray>(/skills)"
+          },
+          "enchanting": {
+            "magic-affinity-activate": "<aqua>✦ Você ativou <white>Afinidade Mágica<aqua> e recebeu <white>+{bonus_level} <aqua>nível de encantamento. <dark_gray>(/skills)"
+          },
+          "alchemist": {
+            "chemical-amplifier-activate": "<light_purple>⚗ Você ativou <white>Amplificador Químico<light_purple> e adicionou <white>{duration}s <light_purple>à poção. <dark_gray>(/skills)"
+          },
+          "blacksmith": {
+            "requires-proficiency": "<red>Você precisa ter a proficiência de Ferreiro equipada para reparar este item. <dark_gray>(/skills)",
+            "insufficient-level": "<red>Você precisa de nível <white>{required_level}</white> em Ferreiro para reparar este item. <dark_gray>(/skills)",
+            "in-combat": "<red>Você não pode reparar itens enquanto está em combate.",
+            "already-full": "<red>Este item já está com durabilidade máxima.",
+            "no-materials": "<red>Você não tem os materiais necessários para reparar este item.",
+            "repair-saved": "<green>🔨 Sorte de Ferreiro! Você não gastou materiais neste reparo.",
+            "repair-wear": "<yellow>🔨 Este reparo desgastou <red>{durability_penalty}</red> de durabilidade máxima do item.",
+            "repair-refined-amethyst": "<green>🔨 <light_purple>Ametista Refinada</light_purple>: este reparo não desgastou a durabilidade máxima do item."
+          }
+        },
+        "views": {
+          "main": {
+            "locked-slot": "<red>Este slot ainda está bloqueado."
+          },
+          "focus-confirm": {
+            "already-have-focus": "<red>Você já possui um foco selecionado.",
+            "focus-selected": "<green>Você selecionou seu foco com sucesso."
+          },
+          "proficiencies": {
+            "proficiency-already-equipped": "<red>Esta classe já está equipada."
+          },
+          "proficiency-confirm": {
+            "max-proficiencies": "<red>Você já tem o máximo de classes equipadas.",
+            "proficiency-already-equipped": "<red>Esta classe já está equipada.",
+            "proficiency-equipped": "<green>Classe equipada com sucesso.",
+            "insufficient-currency": "<red>Você não tem saldo suficiente para isso."
+          },
+          "change-confirm": {
+            "insufficient-currency": "<red>Você não tem saldo suficiente para isso.",
+            "skill-changed": "<green>Habilidade alterada com sucesso."
+          },
+          "booster": {
+            "without-focus-selected": "<red>Você não possui um foco selecionado.",
+            "booster-activated": "<yellow>Você ativou um booster de <white>{booster_bonus}% <yellow>em {skill_name} <yellow>por <white>{booster_time}<yellow>.",
+            "already-have-booster": "<red>Você já tem um booster nessa habilidade.",
+            "booster-expired": "<red>Seu booster de <white>{booster_bonus}% <red>em  {skill_name} <red>expirou."
+          }
+        },
+        "on-experience-gain": {
+          "action-bar": "<color:#E7CF8A>+{skill_received_experience} ▴ </color><white>{skill_name}</white> <color:#E7CF8A>({skill_level_experience}/{skill_next_level_experience})</color>",
+          "action-bar.snowstorm": "<color:#E7CF8A>+{skill_received_experience} ▴ </color><white>{skill_name}</white> <color:#E7CF8A>({skill_level_experience}/{skill_next_level_experience}) nevasca</color>"
+        },
+        "on-level-up": {
+          "without-rewards": {
+            "title": {
+              "title": "<gradient:#5EDFFF:#DFF6FF>{skill_icon} <bold>{skill_name}",
+              "subtitle": "<white>Novo Nível <dark_gray>➟ <white><bold>{skill_level}"
+            }
+          },
+          "with-rewards": {
+            "title": {
+              "title": "<gradient:#5EDFFF:#DFF6FF>{skill_icon} <bold>{skill_name}",
+              "subtitle": "<white>Nível <bold>{skill_level}</bold> <dark_gray>➟</dark_gray> <white>Recompensa desbloqueada!"
+            },
+            "chat": [
+              "",
+              " <gradient:#2EAD62:#6EDC8C>🗡 <bold>Habilidade evoluida!",
+              " <gray>Você evoluiu de nível de</gray><white> {skill_name}</white><gray>!",
+              "",
+              " <white>Novo Nível</white><gradient:#2EAD62:#6EDC8C> ➟</gradient> <gray><bold>{skill_level}",
+              "",
+              " <white><gradient:#2EAD62:#6EDC8C><bold>Desbloqueado:",
+              " <gradient:#2EAD62:#6EDC8C>▶ <gray>{skill_rewards}",
+              ""
+            ]
+          }
+        },
+        "hooks": {
+          "requirement": {
+            "global": "<red>Você precisa ter nível total de skills <white>{skill_level}</white> para isso.",
+            "combat": "<red>Você precisa ter nível <white>{skill_level}</white> na sua skill de combate selecionada para isso."
+          },
+          "core": {
+            "requirement": "<red>Você precisa ter nível <white>{skill_level}</white> em {skill_name} para isso."
+          }
+        }
+      },
+      "views": {
+        "main": {
+          "title": "Habilidades",
+          "items": {
+            "profile": {
+              "name": "{user_name_with_tag}",
+              "lore": [
+                "<white>Nível: <gray>{user_level}",
+                "",
+                "<white>Sua posição: <gray>{user_position}",
+                "<white>1º colocado: <gray>{first_place_name_with_tag}"
+              ]
+            },
+            "ranking": {
+              "name": "<color:#ff8200>Ranking de Skills",
+              "lore": [
+                "<gray>Confira o ranking de skills",
+                "<gray>dos jogadores.",
+                "",
+                "<color:#ff8200>Clique para abrir."
+              ]
+            },
+            "combat-empty": {
+              "name": "<gradient:#00acff:#00f2ff>Combate",
+              "lore": [
+                "<white>Nível: <gray>0",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para escolher seu foco."
+              ]
+            },
+            "skill": {
+              "name": "<gradient:#00acff:#00f2ff>{skill_name}",
+              "lore": [
+                "<gradient:#00acff:#00f2ff>Nível: <white>{skill_user_level}",
+                "<gradient:#00acff:#00f2ff>Progresso: <white>{skill_user_experience}/{skill_user_required_experience}",
+                "",
+                "{skill_perk_description}",
+                "",
+                "{skill_perk_display_name}",
+                "",
+                "<white>Sua posição: <gray>{skill_user_position}",
+                "<white>1º colocado: <gray>{first_place_name_with_tag}"
+              ]
+            },
+            "booster-empty": {
+              "name": "<gradient:#00acff:#00f2ff>Boosters",
+              "lore": [
+                "<gray>Você não tem nenhum",
+                "<gray>booster ativo no momento."
+              ]
+            },
+            "booster-active": {
+              "name": "<yellow>Boosters",
+              "lore": [
+                "<gray>Confira seus boosters",
+                "<gray>ativos no momento.",
+                "",
+                "{skill_booster_lines}"
+              ],
+              "booster-format": "<dark_gray> ▸ {skill_name}: <gray>+{booster_bonus}% [{booster_remaining_time}]"
+            },
+            "proficiency-locked": {
+              "name": "<red>Classe {slot_index}",
+              "lore": [
+                "<gray>Desbloqueada no nível <white>{required_level}<gray>.",
+                "",
+                "<red>Bloqueado."
+              ]
+            },
+            "proficiency-equipped": {
+              "name": "{skill_name}",
+              "lore": [
+                "<gradient:#00acff:#00f2ff>Nível: <white>{skill_user_level}",
+                "<gradient:#00acff:#00f2ff>Progresso: <white>{skill_user_experience}/{skill_user_required_experience}",
+                "",
+                "{skill_perk_description}",
+                "",
+                "{skill_perk_display_name}",
+                "",
+                "<white>Sua posição: <gray>{skill_user_position}",
+                "<white>1º colocado: <gray>{first_place_name_with_tag}",
+                "",
+                "<gradient:#00acff:#00f2ff>Botão <white>esquerdo <gradient:#00acff:#00f2ff>para ver as recompensas.",
+                "<gradient:#00acff:#00f2ff>Botão <white>direito <gradient:#00acff:#00f2ff>para trocar de classe."
+              ]
+            },
+            "proficiency-empty": {
+              "name": "<gradient:#00acff:#00f2ff>Classe {slot_index}",
+              "lore": [
+                "<gray>Escolha a classe que mais",
+                "<gray>combina com o seu estilo.",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para escolher."
+              ]
+            }
+          }
+        },
+        "ranking": {
+          "title": "Rank de Habilidades",
+          "items": {
+            "skill": {
+              "name": "<gradient:#00acff:#00f2ff>Ranking de {skill_name}",
+              "lore": [
+                "<gray>Confira a lista dos melhores",
+                "<gray>jogadores em cada skill.",
+                "",
+                " {skill_ranking_lines}",
+                "",
+                "<gradient:#00acff:#00f2ff>Sua posição: <white>{user_position}º"
+              ],
+              "user-format": "<white>{user_position}º </white>{user_name_with_color}<dark_gray> ▸ {user_level_color}{user_level}"
+            }
+          }
+        },
+        "talents": {
+          "title": "Talentos",
+          "items": {
+            "talent": {
+              "name": "<gradient:#00acff:#00f2ff>{skill_name}",
+              "lore": [
+                "{talent_description}"
+              ]
+            }
+          }
+        },
+        "focus": {
+          "title": "Escolha seu foco",
+          "items": {
+            "swords": {
+              "name": "<gradient:#00acff:#00f2ff>Espadas",
+              "lore": [
+                "<gray>Ao escolher o foco em",
+                "<gray>espadas, você recebe o ",
+                "<gray>talento <red>Sangramento<gray>.",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para escolher."
+              ]
+            },
+            "axes": {
+              "name": "<gradient:#00acff:#00f2ff>Machados",
+              "lore": [
+                "<gray>Ao escolher o foco em",
+                "<gray>machados, você recebe o ",
+                "<gray>talento <dark_red>Quebra<gray>.",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para escolher."
+              ]
+            }
+          }
+        },
+        "focus-confirm": {
+          "title": "Você tem certeza?",
+          "items": {
+            "skill-info": {
+              "name": "{skill_name}",
+              "lore": [
+                "{skill_description}",
+                "",
+                "<gradient:#00acff:#00f2ff>Verde para confirmar."
+              ]
+            }
+          }
+        },
+        "rewards": {
+          "title": "{skill_name} - Recompensas",
+          "items": {
+            "skill-info": {
+              "name": "<gradient:#00acff:#00f2ff>{skill_name}",
+              "lore": [
+                "<gradient:#00acff:#00f2ff>Nível: <white>{skill_user_level}",
+                "<gradient:#00acff:#00f2ff>Progresso: <white>{skill_user_experience}/{skill_user_required_experience}",
+                "",
+                "{skill_perk_description}",
+                "",
+                "{skill_perk_display_name}",
+                ""
+              ]
+            },
+            "skill-info-with-booster": {
+              "name": "<gradient:#00acff:#00f2ff>{skill_name}",
+              "lore": [
+                "<gradient:#00acff:#00f2ff>Nível: <white>{skill_user_level}",
+                "<gradient:#00acff:#00f2ff>Progresso: <white>{skill_user_experience}/{skill_user_required_experience}",
+                "",
+                "{skill_perk_description}",
+                "",
+                "<white>Booster: <gray>{skill_booster_multiplier}% [{skill_booster_remaining_time}]",
+                "",
+                "{skill_perk_display_name}",
+                ""
+              ]
+            },
+            "level-unlocked": {
+              "name": "<green>Nível {level}",
+              "lore": [
+                "",
+                "{rewards}",
+                "",
+                "<green>Desbloqueado."
+              ]
+            },
+            "level-locked": {
+              "name": "<red>Nível {level}",
+              "lore": [
+                "<gray>{skill_description}",
+                "",
+                "<red> Recompensas:",
+                " {rewards}",
+                "",
+                "<red>Bloqueado."
+              ]
+            }
+          }
+        },
+        "proficiencies": {
+          "title": "Proficiências",
+          "items": {
+            "skill": {
+              "name": "{skill_name}",
+              "lore": [
+                "{skill_description}",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique <white>esquerdo<gradient:#00acff:#00f2ff> para selecionar.",
+                "<gradient:#00acff:#00f2ff>Clique <white>direito<gradient:#00acff:#00f2ff> para visualizar."
+              ]
+            },
+            "confirm": {
+              "name": "<green>Confirmar",
+              "lore": [
+                "<gray>Clique para confirmar."
+              ]
+            }
+          }
+        },
+        "proficiency-confirm": {
+          "title": "Você tem certeza?",
+          "items": {
+            "skill-info": {
+              "with-old-skill": {
+                "name": "{skill_name}",
+                "lore": [
+                  "{skill_description}",
+                  "",
+                  "<white>Custo: <gold>{skill_proficiency_change_cost} Gold",
+                  ""
+                ]
+              },
+              "without-old-skill": {
+                "name": "{skill_name}",
+                "lore": [
+                  "{skill_description}",
+                  "",
+                  "<green>Gratuito!",
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "change-select": {
+          "title": "Trocar Habilidade",
+          "items": {
+            "proficiency-unavailable":{
+              "name": "<red>Habilidade Bloqueada!",
+              "lore":[
+                "<gray>Você não pode trocar para",
+                "<gray>uma habilidade já selecionada."
+              ]
+            },
+            "skill": {
+              "name": "{skill_name}",
+              "lore": [
+                "{skill_description}",
+                "",
+                "<gradient:#00acff:#00f2ff>Clique para selecionar."
+              ]
+            }
+          }
+        },
+        "change-confirm": {
+          "title": "Confirmar Troca",
+          "items": {
+            "skill-info": {
+              "free": {
+                "name": "{skill_name}",
+                "lore": [
+                  "{skill_description}",
+                  "",
+                  "<green>Gratuito!",
+                  ""
+                ]
+              },
+              "paid": {
+                "name": "{skill_name}",
+                "lore": [
+                  "{skill_description}",
+                  "",
+                  "<white>Custo: <gold>{change_cost} Gold",
+                  ""
+                ]
+              }
+            }
+          }
+        },
+        "booster": {
+          "title": "Escolha uma Habilidade",
+          "items": {
+            "combat-empty": {
+              "name": "<red>Combate",
+              "lore": [
+                "<gray>Você deve escolher um foco",
+                "<gray>para ativar um booster nessa",
+                "<gray>habilidade."
+              ]
+            },
+            "skill": {
+              "name": "{skill_name}",
+              "lore": [
+                "<gray>Clique para ativar um booster de",
+                "<gray>experiência nessa habilidade.",
+                "",
+                "<white> Duração: <gray>{skill_booster_duration}",
+                "<white> Bônus: <gray>{skill_booster_multiplier}%",
+                ""
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
