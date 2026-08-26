@@ -1,0 +1,30 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "spawn": {
+          "already-connect": "&cVocê já está conectado a um spawn.",
+          "already-connect-queue": "&cJá existe um pedido de teletransporte para o spawn, aguarde.",
+          "cant-find-app": "&cNão foi possível encontrar um servidor de spawn aberto.",
+          "join": {
+            "title": {
+              "title": "&5&l????",
+              "subtitle": "&fexe.com"
+            },
+            "chat": [
+              "",
+              " &6&lP4 FREE &8⚡&6 Disponível nas últimas versões!",
+              "",
+              " &6Acompanhe nossas redes sociais:",
+              " &6▸ &fDiscord: &7discord.gg/exe",
+              " &6▸ &fTikTok: &7@EXEOficial",
+              "",
+              " &6exe.com",
+              ""
+            ]
+          }
+        }
+      }
+    }
+  }
+}

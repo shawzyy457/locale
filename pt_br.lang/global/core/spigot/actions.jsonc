@@ -12,8 +12,8 @@
           "restart": {
             "name": "reiniciar",
             "title": {
-              "title": "<color:#FF8200><bold>REINICIANDO</bold></color>",
-              "subtitle": "<white>em {action_countdown}</white>"
+              "title": "&6&lREINICIANDO",
+              "subtitle": "&fem {action_countdown}"
             },
             "gerund": "reiniciando",
             "past": "reiniciado"
@@ -21,8 +21,8 @@
           "stop": {
             "name": "desligar",
             "title": {
-              "title": "<color:#FF8200><bold>DESLIGANDO</bold></color>",
-              "subtitle": "<white>em {action_countdown}"
+              "title": "&6&lDESLIGANDO",
+              "subtitle": "&fem {action_countdown}"
             },
             "gerund": "desligando",
             "past": "desligado"
@@ -33,7 +33,7 @@
         "actions": {
           "action-message": [
             "",
-            "<yellow>Este servidor será {action_name_past} em {action_countdown}!</yellow>",
+            "&eEste servidor será {action_name_past} em {action_countdown}!",
             ""
           ],
           "disabled-actions": [
@@ -43,9 +43,9 @@
           ],
           "kick": {
             "no-available-apps": [
-              "<red><bold>Rede EXE</bold></red>",
+              "&c&lEXE",
               "",
-              "<red>Não foi encontrado nenhum servidor para você se conectar.</red>"
+              "&cNão foi encontrado nenhum servidor para você se conectar."
             ]
           }
         }

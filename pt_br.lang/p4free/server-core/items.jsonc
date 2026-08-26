@@ -1,0 +1,128 @@
+{
+  "plugins": {
+    "server-core": {
+      "items": {
+        "pro-7d": {
+          "name": "&dpacote 7d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&d VIP PRO&f",
+            "&fdurante 7 dias.",
+            "",
+            "&dClique para ativar!"
+          ]
+        },
+        "pro-30d": {
+          "name": "&dpacote 30d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&d VIP PRO&f",
+            "&fdurante 30 dias.",
+            "",
+            "&dClique para ativar!"
+          ]
+        },
+        "pro-90d": {
+          "name": "&dpacote 90d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&d VIP PRO&f",
+            "&fdurante 90 dias.",
+            "",
+            "&dClique para ativar!"
+          ]
+        },
+        "mvp-7d": {
+          "name": "&bpacote 7d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&b VIP MVP&f",
+            "&fdurante 7 dias.",
+            "",
+            "&bClique para ativar!"
+          ]
+        },
+        "mvp-30d": {
+          "name": "&bpacote 30d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&b VIP MVP&f",
+            "&fdurante 30 dias.",
+            "",
+            "&bClique para ativar!"
+          ]
+        },
+        "mvp-90d": {
+          "name": "&bpacote 90d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&b VIP MVP&f",
+            "&fdurante 90 dias.",
+            "",
+            "&bClique para ativar!"
+          ]
+        },
+        "elite-4d": {
+          "name": "&4pacote 4d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&4 VIP ELITE&f",
+            "&fdurante 4 dias.",
+            "",
+            "&4Clique para ativar!"
+          ]
+        },
+        "elite-30d": {
+          "name": "&4pacote 30d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&4 VIP ELITE&f",
+            "&fdurante 30 dias.",
+            "",
+            "&4Clique para ativar!"
+          ]
+        },
+        "elite-90d": {
+          "name": "&4pacote 90d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&4 VIP ELITE&f",
+            "&fdurante 90 dias.",
+            "",
+            "&4Clique para ativar!"
+          ]
+        },
+        "EXE-4d": {
+          "name": "&6pacote 4d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&6 VIP EXE&f",
+            "&fdurante 4 dias.",
+            "",
+            "&6Clique para ativar!"
+          ]
+        },
+        "EXE-30d": {
+          "name": "&6pacote 30d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&6 VIP EXE&f",
+            "&fdurante 30 dias.",
+            "",
+            "&6Clique para ativar!"
+          ]
+        },
+        "EXE-90d": {
+          "name": "&6pacote 90d &f",
+          "lore": [
+            "&fAo ativar esse item, você",
+            "&frecebe benefícios&6 VIP EXE&f",
+            "&fdurante 90 dias.",
+            "",
+            "&6Clique para ativar!"
+          ]
+        }
+      }
+    }
+  }
+}

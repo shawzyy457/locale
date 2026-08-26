@@ -1,11 +1,11 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "chat": {
-                    "chat-in-delay": "Você precisa esperar um pouco para enviar uma mensagem no chat!"
-                }
-            }
+  "plugins": {
+    "core": {
+      "messages": {
+        "chat": {
+          "chat-in-delay": "Você precisa esperar um pouco para enviar uma mensagem no chat!"
         }
+      }
     }
+  }
 }

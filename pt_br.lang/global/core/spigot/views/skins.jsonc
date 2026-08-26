@@ -1,63 +1,63 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "views": {
-                    "user-skins": {
-                        "skin-name-select": {
-                            "query": "Qual é o nick da skin que você deseja utilizar?"
-                        },
-                        "skin-already-equipped": "Você já está utilizando essa skin!"
-                    }
-                }
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "user-skins": {
+            "skin-name-select": {
+              "query": "Qual é o nick da skin que você deseja utilizar?"
             },
-            "views": {
-                "user-skins": {
-                    "title": "Escolha sua skin",
-                    "items": {
-                        "0": {
-                            "name": "<red>Você não possui skins :(</red>",
-                            "lore": [
-                                "<gray>Escolha sua primeira skin</gray>",
-                                "<gray>utilizando</gray> <white>/skin <nome></white><gray>.</gray>"
-                            ]
-                        },
-                        "1": {
-                            "name": "<yellow>Escolha uma nova skin!</yellow>",
-                            "lore": [
-                                "<gray>Você pode escolher outra skin</gray>",
-                                "<gray>para usar em sua conta!</gray>",
-                                "",
-                                "<gray>Comando:</gray> <white>/skin <nick></white>"
-                            ]
-                        },
-                        "2": {
-                            "name": "<yellow>Redefinir a sua skin</yellow>",
-                            "lore": [
-                                "<gray>Clique para redefinir a sua skin!</gray>"
-                            ]
-                        },
-                        "3": {
-                            "equipped": {
-                                "name": "<green>{skin_name}</green>",
-                                "lore": [
-                                    "<white>Usada pela ultíma vez:</white> <gray>{skin_last_equipped_date}</gray>",
-                                    "",
-                                    "<gold>Selecionado!</gold>"
-                                ]
-                            },
-                            "unequipped": {
-                                "name": "<green>{skin_name}</green>",
-                                "lore": [
-                                    "<white>Usada pela ultíma vez:</white> <gray>{skin_last_equipped_date}</gray>",
-                                    "",
-                                    "<green>Clique para selecionar essa skin!</green>"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
+            "skin-already-equipped": "Você já está utilizando essa skin!"
+          }
         }
+      },
+      "views": {
+        "user-skins": {
+          "title": "Escolha sua skin",
+          "items": {
+            "0": {
+              "name": "&cVocê não possui skins :(",
+              "lore": [
+                "&7Escolha sua primeira skin",
+                "&7utilizando &f/skin <nome>&7."
+              ]
+            },
+            "1": {
+              "name": "&eEscolha uma nova skin!",
+              "lore": [
+                "&7Você pode escolher outra skin",
+                "&7para usar em sua conta!",
+                "",
+                "&7Comando: &f/skin <nick>"
+              ]
+            },
+            "2": {
+              "name": "&eRedefinir a sua skin",
+              "lore": [
+                "&7Clique para redefinir a sua skin!"
+              ]
+            },
+            "3": {
+              "equipped": {
+                "name": "&a{skin_name}",
+                "lore": [
+                  "&fUsada pela ultíma vez: &7{skin_last_equipped_date}",
+                  "",
+                  "&6Selecionado!"
+                ]
+              },
+              "unequipped": {
+                "name": "&a{skin_name}",
+                "lore": [
+                  "&fUsada pela ultíma vez: &7{skin_last_equipped_date}",
+                  "",
+                  "&aClique para selecionar essa skin!"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

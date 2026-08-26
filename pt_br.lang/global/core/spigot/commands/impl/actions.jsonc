@@ -1,16 +1,16 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "restart": {
-                    "not-restarting-now": "O servidor não está com nenhuma ação de reiniciar!",
-                    "already-have-action": "Uma ação já está sendo executada!"
-                },
-                "stop": {
-                    "not-stopping-now": "O servidor não está com nenhuma ação de desligamento!",
-                    "already-have-action": "Uma ação já está sendo executada!"
-                }
-            }
+  "plugins": {
+    "core": {
+      "commands": {
+        "restart": {
+          "not-restarting-now": "O servidor não está com nenhuma ação de reiniciar!",
+          "already-have-action": "Uma ação já está sendo executada!"
+        },
+        "stop": {
+          "not-stopping-now": "O servidor não está com nenhuma ação de desligamento!",
+          "already-have-action": "Uma ação já está sendo executada!"
         }
+      }
     }
+  }
 }

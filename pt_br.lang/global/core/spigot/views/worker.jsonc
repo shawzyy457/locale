@@ -1,37 +1,37 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "views": {
-                    "worker-actions": {
-                        "in-delay": "Essa ação ainda está em delay, espere até acabar!",
-                        "execute-pending": "Executando ação...",
-                        "execute-success": "Ação executada com sucesso!",
-                        "execute-error": "Não foi possível executar essa ação!"
-                    }
-                }
-            },
-            "views": {
-                "worker-actions": {
-                    "title": "Executar ações",
-                    "items": {
-                        "0": {
-                            "in-delay": {
-                                "name": "<gray>{action_key}</gray>",
-                                "lore": [
-                                    "<red>Espere mais {action_delay_remaining} para executar novamente!</red>"
-                                ]
-                            },
-                            "out-delay": {
-                                "name": "<gray>{action_key}</gray>",
-                                "lore": [
-                                    "<green>Clique para executar</green>"
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "worker-actions": {
+            "in-delay": "Essa ação ainda está em delay, espere até acabar!",
+            "execute-pending": "Executando ação...",
+            "execute-success": "Ação executada com sucesso!",
+            "execute-error": "Não foi possível executar essa ação!"
+          }
         }
+      },
+      "views": {
+        "worker-actions": {
+          "title": "Executar ações",
+          "items": {
+            "0": {
+              "in-delay": {
+                "name": "&7{action_key}",
+                "lore": [
+                  "&cEspere mais {action_delay_remaining} para executar novamente!"
+                ]
+              },
+              "out-delay": {
+                "name": "&7{action_key}",
+                "lore": [
+                  "&aClique para executar"
+                ]
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

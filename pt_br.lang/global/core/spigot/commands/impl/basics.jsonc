@@ -3,7 +3,7 @@
     "core": {
       "commands": {
         "clear-chat": {
-          "success-target": "<yellow>Chat limpo!</yellow>",
+          "success-target": "&eChat limpo!",
           "success-sender": "Você limpou o chat com sucesso."
         },
         "clear": {
@@ -27,7 +27,7 @@
               "description": "Jogador que deseja limpar o inventário"
             }
           },
-          "app-now": "<yellow>Você está em: \"{app_id}\"</yellow>",
+          "app-now": "&eVocê está em: \"{app_id}\"",
           "app-not-found": "Não foi possível encontrar nenhum servidor com esse id!",
           "app-proxy": "Ops, a aplicação informada é do tipo Proxy.",
           "app-offline": "Ops, parece que esse servidor está offline.",
@@ -36,33 +36,33 @@
         "profile": {
           "message": {
             "identity": [
-              "{primary}Seu perfil, <white>{profile_name}",
-              "<white>UUID: <gray><hover:show_text:'<gray>Clique para copiar: <white>{profile_uuid}'><click:suggest_command:'{profile_uuid}'>{profile_uuid}</click></hover>",
-              "<white>Conta: <gray>{profile_type}",
-              "<white>Idioma: <gray>{profile_language}",
-              "<white>Cadastro: <gray>{profile_registered}",
-              "<white>Grupos: <gray>{profile_groups}"
+              "{primary}Seu perfil, &f{profile_name}",
+              "&fUUID: &7{profile_uuid}",
+              "&fConta: &7{profile_type}",
+              "&fIdioma: &7{profile_language}",
+              "&fCadastro: &7{profile_registered}",
+              "&fGrupos: &7{profile_groups}"
             ],
             "balance": [
               "{primary}---- Saldo ----",
-              "<white>Gold: <gold>{profile_gold}",
-              "<white>Carteira: <gray>{profile_wallet}"
+              "&fGold: &6{profile_gold}",
+              "&fCarteira: &7{profile_wallet}"
             ],
             "discord": [
               "{primary}---- Discord ----",
-              "<white>Usuário: <gray>{discord_username}",
-              "<white>Nome: <gray>{discord_name}",
-              "<white>Vinculado desde: <gray>{discord_since}"
+              "&fUsuário: &7{discord_username}",
+              "&fNome: &7{discord_name}",
+              "&fVinculado desde: &7{discord_since}"
             ],
             "discord-unlinked": [
               "{primary}---- Discord ----",
-              "<white>Discord: <red>Não vinculado"
+              "&fDiscord: &cNão vinculado"
             ],
-            "link": "{primary}Ver perfil no site: <hover:show_text:'<gray>Abrir logado no navegador'><click:open_url:'{profile_link}'><aqua><underlined>clique aqui</underlined></aqua></click></hover>",
-            "type-original": "<aqua>Original",
-            "type-cracked": "<yellow>Pirata",
+            "link": "{primary}Ver perfil no site: &b&nclique aqui",
+            "type-original": "&bOriginal",
+            "type-cracked": "&ePirata",
             "no-groups": "Nenhum.",
-            "unavailable": "<gray>Indisponível"
+            "unavailable": "&7Indisponível"
           }
         },
         "enchantment": {
@@ -93,17 +93,16 @@
           },
           "gamemode-not-found": "Modo de jogo inválido!",
           "gamemode-not-allowed": "Péh, você não pode utilizar esse gamemode!",
-          "gamemode-change-success-target": "Game Mode de {target_name} alterado para <white>{gamemode_name}</white>",
-          "gamemode-change-success-sender": "Game Mode alterado para <white>{gamemode_name}</white>"
+          "gamemode-change-success-target": "Game Mode de {target_name} alterado para &f{gamemode_name}",
+          "gamemode-change-success-sender": "Game Mode alterado para &f{gamemode_name}"
         },
         "god": {
-          "success-deactivated": "<red>Você desativou o modo deus.</red>",
-          "success-activated": "<green>Você ativou o modo deus.</green>"
+          "success-deactivated": "&cVocê desativou o modo deus.",
+          "success-activated": "&aVocê ativou o modo deus."
         },
         "head": {
           "arguments": {
-            "name": "key",
-            "description": "Hash da textura da cabeça"
+            "name": "key"
           }
         },
         "heal": {
@@ -130,16 +129,16 @@
           "not-apps-available": "Não encontramos nenhum servidor para conexão.",
           "confirm": [
             "",
-            "<yellow>Quer mesmo ir ao lobby? Utilize /lobby novamente para confirmar!</yellow>",
+            "&eQuer mesmo ir ao lobby? Utilize /lobby novamente para confirmar!",
             ""
           ]
         },
         "online": {
-          "online-format": "<dark_gray>▪</dark_gray> <gray>{app_display_name} ({app_online_player_count})</gray>",
+          "online-format": "&8▪ &7{app_display_name} ({app_online_player_count})",
           "message": [
             "",
-            "   <gold>Servidores disponíveis:</gold>",
-            "   <gray>{network_online_player_count} jogadores no total.</gray>",
+            "   &6Servidores disponíveis:",
+            "   &7{network_online_player_count} jogadores no total.",
             "",
             "   {online_app_list}",
             ""
@@ -152,7 +151,7 @@
         "plugins": {
           "message": [
             "",
-            "<white>Plugins ({plugins_count}):</white>",
+            "&fPlugins ({plugins_count}):",
             "{plugins}",
             ""
           ]
@@ -219,7 +218,7 @@
               "description": "Jogador que você deseja se teleportar"
             }
           },
-          "success": "<yellow>Você foi teleportado até {target_name}</yellow>"
+          "success": "&eVocê foi teleportado até {target_name}"
         },
         "tphere": {
           "arguments": {
@@ -228,7 +227,7 @@
               "description": "Jogador que você deseja se teleportar"
             }
           },
-          "success-target": "<yellow>Você foi teleportado até {target_name}</yellow>",
+          "success-target": "&eVocê foi teleportado até {target_name}",
           "success-sender": "O jogador {target_name} foi teleportado até você"
         },
         "tppos": {
@@ -264,15 +263,15 @@
           "success": "Você foi teleportado para o mundo {world_name}"
         },
         "vanish": {
-          "success-activated": "<green>Modo vanish habilitado com sucesso.</green>",
-          "success-deactivated": "<red>Modo vanish desabilitado com sucesso.</red>"
+          "success-activated": "&aModo vanish habilitado com sucesso.",
+          "success-deactivated": "&cModo vanish desabilitado com sucesso."
         },
         "vip-time": {
           "no-group": "Você não possui nenhum grupo vip!",
-          "visualization-format": " {user_group_display_name} <dark_gray>➠</dark_gray> <gray>{user_group_expire_in}</gray>",
+          "visualization-format": " {user_group_display_name} &8➠ &7{user_group_expire_in}",
           "visualization": [
             "",
-            "<aqua> Tempo dos pacotes VIPs:</aqua>",
+            "&b Tempo dos pacotes VIPs:",
             "",
             "  {groups}",
             ""

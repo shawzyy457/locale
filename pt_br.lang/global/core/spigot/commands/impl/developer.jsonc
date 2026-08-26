@@ -1,32 +1,32 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "gmaintenance": {
-                    "arguments": {
-                        "group": {
-                            "name": "grupo",
-                            "description": "Grupo que deseja definir a manutenção"
-                        }
-                    },
-                    "success": "Grupo de manutenção alterado para {group_display_name}",
-                    "error": "Não foi possivel definir o grupo de manutenção, tente novamente mais tarde!"
-                },
-                "settings": {
-                    "arguments": {
-                        "key": {
-                            "name": "chave",
-                            "description": "Chave do sistema que deseja definir"
-                        },
-                        "value": {
-                            "name": "valor",
-                            "description": "Valor do sistema que deseja definir"
-                        }
-                    },
-                    "success": "Chave aplicada com sucesso ao sistema {settings_key}",
-                    "error": "Não foi possivel definir a configuração agora, tente novamente mais tarde!"
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "gmaintenance": {
+          "arguments": {
+            "group": {
+              "name": "grupo",
+              "description": "Grupo que deseja definir a manutenção"
             }
+          },
+          "success": "Grupo de manutenção alterado para {group_display_name}",
+          "error": "Não foi possivel definir o grupo de manutenção, tente novamente mais tarde!"
+        },
+        "settings": {
+          "arguments": {
+            "key": {
+              "name": "chave",
+              "description": "Chave do sistema que deseja definir"
+            },
+            "value": {
+              "name": "valor",
+              "description": "Valor do sistema que deseja definir"
+            }
+          },
+          "success": "Chave aplicada com sucesso ao sistema {settings_key}",
+          "error": "Não foi possivel definir a configuração agora, tente novamente mais tarde!"
         }
+      }
     }
+  }
 }

@@ -29,13 +29,13 @@
         },
         "issue": [
           "",
-          "<red>Ocorreu um erro ao tentar executar essa operação!</red>",
-          "<red>* Os membros da nossa equipe foram notificados sobre o erro</red>",
+          "&cOcorreu um erro ao tentar executar essa operação!",
+          "&c* Os membros da nossa equipe foram notificados sobre o erro",
           ""
         ],
         "internal-error": [
           "",
-          "<red>Não foi possível executar essa ação, entre em contato com o suporte!</red>",
+          "&cNão foi possível executar essa ação, entre em contato com o suporte!",
           ""
         ]
       }

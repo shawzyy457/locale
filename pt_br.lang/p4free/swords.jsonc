@@ -1,0 +1,152 @@
+{
+  "plugins": {
+    "swords": {
+      "items": {
+        "sword": {
+          "name": "&6espada evolutiva",
+          "lore": [
+            "{sword_enchantments}",
+            "",
+            "&6 skin equipada:",
+            "&8 ▸ &7{sword_skin}",
+            "",
+            "&6 informações:",
+            "&f nível: &7{sword_level}",
+            "&f xp: &7{sword_xp}",
+            " {sword_xp_progress_bar} &7{sword_xp_percentage}%",
+            "",
+            "&6kills registradas: &f{sword_kills}",
+            "",
+            "&6Shift + direito p/ abrir"
+          ]
+        }
+      },
+      "views": {
+        "sword-view": {
+          "title": "espada",
+          "items": {
+            "0": {
+              "name": "{enchantment_name}",
+              "lore": {
+                "with-requirements": [
+                  "{enchantment_lore}",
+                  "",
+                  "&6 ▾ custo e informações",
+                  "&f    custo: {currency_color}{currency_icon}&f{enchantment_price}",
+                  "&f    nível: &7{enchantment_current_level} / {enchantment_max_level}",
+                  "",
+                  "&6 requisitos",
+                  "&f você cumpre todos os",
+                  "&f requisitos.",
+                  "",
+                  "&6clique para encantar."
+                ],
+                "without-requirements": [
+                  "{enchantment_lore}",
+                  "",
+                  "&6 ▾ custo e informações",
+                  "&f    custo: {currency_color}{currency_icon}&f{enchantment_price}",
+                  "&f    nível: &7{enchantment_current_level} / {enchantment_max_level}",
+                  "",
+                  "&6 requisitos",
+                  "{enchantment_requirements}",
+                  "",
+                  "&cnível insuficiente."
+                ]
+              }
+            },
+            "1": {
+              "name": "{enchantment_name}",
+              "lore": {
+                "with-requirements": [
+                  "{enchantment_lore}",
+                  "",
+                  "&6 ▾ custo e informações",
+                  "&f    custo: {currency_color}{currency_icon}&f{enchantment_price}",
+                  "&f    nível: &7{enchantment_current_level} / {enchantment_max_level}",
+                  "&f    chance: &7{enchantment_old_chance}% &8▸ &f{enchantment_new_chance}%",
+                  "",
+                  "&6 requisitos",
+                  "&f você cumpre todos os",
+                  "&f requisitos.",
+                  "",
+                  "&6clique para encantar."
+                ],
+                "without-requirements": [
+                  "{enchantment_lore}",
+                  "",
+                  "&6 ▾ custo e informações",
+                  "&f    custo: {currency_color}{currency_icon}&f{enchantment_price}",
+                  "&f    nível: &7{enchantment_current_level} / {enchantment_max_level}",
+                  "&f    chance: &7{enchantment_old_chance}% &8▸ &f{enchantment_new_chance}%",
+                  "",
+                  "&6 requisitos",
+                  "{enchantment_requirements}",
+                  "",
+                  "&cnível insuficiente."
+                ]
+              }
+            },
+            "2": {
+              "name": "&6reparar espada",
+              "lore": [
+                "&7repare a sua espada por",
+                "&7um preço em coins.",
+                "",
+                "&8 ▸ &fpreço: &a$&f{repair_cost}",
+                "",
+                "&6clique para reparar."
+              ]
+            },
+            "3": {
+              "name": "&6loja de gold",
+              "lore": [
+                "&7uma variedade de itens",
+                "&7especiais disponíveis por",
+                "&fgold&7.",
+                "",
+                "&6clique para acessar."
+              ]
+            },
+            "4": {
+              "name": "&6knockback",
+              "lore": [
+                "&7selecione o nível de",
+                "&7knockback.",
+                "",
+                "&6 Níveis:",
+                "{levels}",
+                "",
+                "&6clique para alterar!"
+              ]
+            }
+          }
+        }
+      },
+      "messages": {
+        "sword": {
+          "upgrade-level": "&e&lGG! sua espada evoluíu para o nível &n{newer_level}!"
+        },
+        "views": {
+          "sword-view": {
+            "invalid-item-in-hand": "&cVocê está segurando uma espada invalida!",
+            "enchantment": {
+              "no-sword-level": "&cÉ necessário nível {minimum_level} em sua espada para comprar esse encantamento.",
+              "dont-have-currency": "Você não possui {currency_name} suficientes.",
+              "max-level": "Não é possível encantar a mais que o nível máximo.",
+              "already-max-level": "Esse encantamento já está no nível máximo.",
+              "purchased": "Você comprou {levels} {level_plural} de {enchantment_name}"
+            },
+            "knockback": {
+              "invalid-level": "Você não possui esse nível de knockback."
+            },
+            "repair": {
+              "already-repaired": "&cA sua espada já está totalmente reparada.",
+              "dont-have-coins": "&cVocê não possui coins suficiente para reparar  a sua espada."
+            }
+          }
+        }
+      }
+    }
+  }
+}

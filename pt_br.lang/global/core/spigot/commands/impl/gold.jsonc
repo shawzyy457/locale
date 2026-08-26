@@ -1,77 +1,77 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "gold": {
-                    "visualize": {
-                        "target": {
-                            "with-balance": "{gold_target_name_with_color} <green>possui</green> <gold>{gold_formatted_value} Gold<gold><green>.</green>",
-                            "without-balance": "{gold_target_name_with_color} <red>não possui<red> <gold>Gold</gold><red>.</red>"
-                        },
-                        "same": {
-                            "with-balance": "<green>Você possui</green> <gold>{gold_formatted_value} Gold<gold><green>.</green>",
-                            "without-balance": "<red>Você não possui</red> <gold>Gold</gold><red>.</red>"
-                        }
-                    },
-                    "pay": {
-                        "arguments": {
-                            "target": {
-                                "name": "jogador",
-                                "description": "O jogador que irá receber o saldo"
-                            },
-                            "amount": {
-                                "name": "quantia",
-                                "description": "A quantidade de Gold que você quer enviar"
-                            }
-                        },
-                        "need-min-gold": "<red>Você precisa enviar um valor mínimo de</red> <gold>1000 Gold</gold><red>.</red>",
-                        "success": "<green>Você enviou</green> <gold>{gold_formatted_value} Gold</gold> <green>para</green> {gold_target_name_with_color}<green>.</green>",
-                        "error": "<red>Sua tentativa de enviar o seu saldo falhou, tente novamente mais tarde!</red>"
-                    },
-                    "set": {
-                        "arguments": {
-                            "target": {
-                                "name": "jogador",
-                                "description": "O jogador que o saldo será definido"
-                            },
-                            "amount": {
-                                "name": "quantia",
-                                "description": "A quantidade de Gold que você quer definir"
-                            }
-                        },
-                        "success": "<green>Você definiu o Gold de</green> {gold_target_name_with_color} <green>para {gold_formatted_value}.</green>",
-                        "error": "<red>Sua tentativa de definir o seu saldo falhou, tente novamente mais tarde!</red>"
-                    },
-                    "add": {
-                        "arguments": {
-                            "target": {
-                                "name": "jogador",
-                                "description": "O jogador que o saldo será adicionado"
-                            },
-                            "amount": {
-                                "name": "quantia",
-                                "description": "A quantidade de Gold que você quer adicionar"
-                            }
-                        },
-                        "success": "<green>Você adicionou</green> <gold>{gold_formatted_value} Gold</gold> <green>para</green> {gold_target_name_with_color}<green>.</green>",
-                        "error": "<red>Sua tentativa de definir o seu saldo falhou, tente novamente mais tarde!</red>"
-                    },
-                    "remove": {
-                        "arguments": {
-                            "target": {
-                                "name": "jogador",
-                                "description": "O jogador que o saldo será removido"
-                            },
-                            "amount": {
-                                "name": "quantia",
-                                "description": "A quantidade de Gold que você quer remover"
-                            }
-                        },
-                        "success": "<green>Você removeu</green> <gold>{gold_formatted_value} Gold</gold> <green>de</green> {gold_target_name_with_color}<green>.</green>",
-                        "error": "<red>Sua tentativa de definir o seu saldo falhou, tente novamente mais tarde!</red>"
-                    }
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "gold": {
+          "visualize": {
+            "target": {
+              "with-balance": "{gold_target_name_with_color} &apossui &6{gold_formatted_value} Gold&6&a.",
+              "without-balance": "{gold_target_name_with_color} &cnão possui&c &6Gold&c."
+            },
+            "same": {
+              "with-balance": "&aVocê possui &6{gold_formatted_value} Gold&6&a.",
+              "without-balance": "&cVocê não possui &6Gold&c."
             }
+          },
+          "pay": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "O jogador que irá receber o saldo"
+              },
+              "amount": {
+                "name": "quantia",
+                "description": "A quantidade de Gold que você quer enviar"
+              }
+            },
+            "need-min-gold": "&cVocê precisa enviar um valor mínimo de &61000 Gold&c.",
+            "success": "&aVocê enviou &6{gold_formatted_value} Gold &apara {gold_target_name_with_color}&a.",
+            "error": "&cSua tentativa de enviar o seu saldo falhou, tente novamente mais tarde!"
+          },
+          "set": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "O jogador que o saldo será definido"
+              },
+              "amount": {
+                "name": "quantia",
+                "description": "A quantidade de Gold que você quer definir"
+              }
+            },
+            "success": "&aVocê definiu o Gold de {gold_target_name_with_color} &apara {gold_formatted_value}.",
+            "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
+          },
+          "add": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "O jogador que o saldo será adicionado"
+              },
+              "amount": {
+                "name": "quantia",
+                "description": "A quantidade de Gold que você quer adicionar"
+              }
+            },
+            "success": "&aVocê adicionou &6{gold_formatted_value} Gold &apara {gold_target_name_with_color}&a.",
+            "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
+          },
+          "remove": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "O jogador que o saldo será removido"
+              },
+              "amount": {
+                "name": "quantia",
+                "description": "A quantidade de Gold que você quer remover"
+              }
+            },
+            "success": "&aVocê removeu &6{gold_formatted_value} Gold &ade {gold_target_name_with_color}&a.",
+            "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
+          }
         }
+      }
     }
+  }
 }

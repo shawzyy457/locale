@@ -1,0 +1,21 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "gg": {
+          "on-transaction": [
+            "",
+            " &a&lNova compra confirmada!",
+            " &8exe.com/shop",
+            "",
+            " &a▰ {order_owner_user_name_with_color} &facaba de adquirir",
+            " &fum novo item em nosso site.",
+            "",
+            " &aClique &lAQUI para comemorar a compra!",
+            ""
+          ]
+        }
+      }
+    }
+  }
+}

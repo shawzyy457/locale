@@ -1,0 +1,215 @@
+{
+  "plugins": {
+    "server-core": {
+      "chat": {
+        "preferences": {
+          "global": {
+            "name": "&6Chat global",
+            "description": [
+              "&7Ver as mensagens do chat global.",
+              "&7Desativado, só aparece o chat local."
+            ],
+            "options": {
+              "true": "&aAtivado",
+              "false": "&cDesativado"
+            }
+          },
+          "local": {
+            "name": "&6Chat local",
+            "description": [
+              "&7Ver as mensagens de quem está",
+              "&7perto de você."
+            ],
+            "options": {
+              "true": "&aAtivado",
+              "false": "&cDesativado"
+            }
+          }
+        }
+      },
+      "trophy": {
+        "views": {
+          "trophy-store": {
+            "title": "Loja de troféu",
+            "items": {
+              "0": {
+                "lore": [
+                  "&7Trocar troféus por este item.",
+                  "",
+                  "&6Preço: &f{price} troféus",
+                  "",
+                  "&6Clique para comprar."
+                ]
+              }
+            }
+          }
+        },
+        "messages": {
+          "views": {
+            "trophy-store": {
+              "inventory-full": "Seu inventário está cheio.",
+              "dont-have-money": "Você precisa de {price} troféus para comprar esse item.",
+              "buy-item": "Item comprado com sucesso!"
+            }
+          }
+        }
+      },
+      "commands": {
+        "auto-click": {
+          "success-activated": "Auto click ativado!",
+          "success-disabled": "&cAuto click desativado!"
+        },
+        "fly": {
+          "not-allowed-in-app": "OPS! Parece que você não pode mudar seu modo de vôo aqui!",
+          "success-disabled": "&cModo de vôo desabilitado com sucesso!",
+          "success-disable-with-gamemode": "&cModo de vôo desabilitado com sucesso, porém seu vôo não foi desabilitado por você estar no modo criativo ou espectador!",
+          "success-activated": "Modo vôo habilitado com sucesso!"
+        },
+        "off": {
+          "already-disabled": "Todos os jogadores já estão invisíveis.",
+          "success": "Agora todos os jogadores estão invisíveis."
+        },
+        "on": {
+          "already-activated": "Você já consegue ver todos os jogadores.",
+          "success": "Agora você consegue ver todos os jogadores."
+        },
+        "tpaccept": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que será aceito o tpa."
+            }
+          },
+          "dont-have-request": "&cVocê não possui uma solicitação de teleporte de {tpa_sender_name}&c.",
+          "not-allowed-app": "&cVocê não pode aceitar pedidos de teleporte nesse local."
+        },
+        "tpa": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que será enviado o tpa."
+            }
+          },
+          "already-exists": "&cVocê já possui uma solicitação de teleporte para {tpa_target_name}&c."
+        },
+        "tpcancel": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que será cancelado o tpa."
+            }
+          },
+          "dont-have-request": "&cVocê não possui uma solicitação de teleporte de {tpa_target_name}&c."
+        },
+        "tpdeny": {
+          "arguments": {
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que será negado o tpa."
+            }
+          },
+          "dont-have-request": "&cVocê não possui uma solicitação de teleporte de {tpa_sender_name}&c.",
+          "deny-sender": [
+            "&cO jogador {tpa_target_name_with_tag}&c negou seu pedido de teleporte."
+          ],
+          "deny-target": [
+            "&cVocê negou o pedido de teleporte de {tpa_sender_name_with_tag}&c."
+          ]
+        }
+      },
+      "views": {
+        "enchant-view": {
+          "title": "encantar",
+          "items": {
+            "0": {
+              "name": "&6mesa de encantamento",
+              "lore": [
+                "&7Tente a sua sorte dentro de",
+                "&7uma variedade enorme de",
+                "&7encantamentos!",
+                "",
+                "&6clique para visualizar"
+              ]
+            },
+            "1": {
+              "name": "&6combos",
+              "lore": [
+                "&7Aqui você encontra combos",
+                "&7pré-definidos para facilitar",
+                "&7à sua vida.",
+                "",
+                "&6clique para visualizar"
+              ]
+            },
+            "2": {
+              "name": "&6Sua experiência",
+              "lore": [
+                "&7Você possui &f{xp_level} níveis",
+                "",
+                "&6clique para coletar"
+              ]
+            }
+          }
+        },
+        "enchantment-table-view": {
+          "title": "mesa de encantamento",
+          "items": {
+            "0": {
+              "name": "&6Selecione o item que deseja encantar!"
+            },
+            "1": {
+              "name": "&cops!",
+              "lore": [
+                "&7Parece que nenhum item foi",
+                "&7adicionado aqui."
+              ]
+            },
+            "2": {
+              "name": "&1Adicione o lápis a direita!!"
+            },
+            "3": {
+              "available": {
+                "name": "&6Encantar &8&8✰ &6&6Nível {enchantment_level}",
+                "lore": [
+                  "&7Encante o seu item com",
+                  "&7encantamentos até &fNível {enchantment_level}&7.",
+                  "",
+                  " &6Encante utilizando",
+                  " &8▸ &f{exp_cost} níveis de exp",
+                  " &8▸ &f{lapis_lazuli_cost} Lápis Lazuli",
+                  ""
+                ]
+              },
+              "unavailable": {
+                "name": "&6Encantar &8&8✰ &6&6Nível {enchantment_level}",
+                "lore": [
+                  "&7Encante o seu item com",
+                  "&7encantamentos até &fNível {enchantment_level}&7.",
+                  "",
+                  " &6Encante utilizando",
+                  " &8▸ &f{exp_cost} níveis de exp",
+                  " &8▸ &f{lapis_lazuli_cost} Lápis Lazuli",
+                  " ",
+                  "&cVocê precisa possuir o grupo",
+                  "&cPRO para encantar."
+                ]
+              }
+            },
+            "4": {
+              "name": "&6sua experiência",
+              "lore": [
+                "&7você possui &f{exp} níveis"
+              ]
+            }
+          }
+        }
+      },
+      "messages": {
+        "booster": {
+          "already-activated": "",
+          "active": ""
+        }
+      }
+    }
+  }
+}

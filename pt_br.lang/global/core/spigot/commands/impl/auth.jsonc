@@ -1,72 +1,72 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "change-password": {
-                    "arguments": {
-                        "password": {
-                            "name": "senha",
-                            "description": "Uma senha que você irá se lembrar"
-                        },
-                        "confirm-password": {
-                            "name": "senha",
-                            "description": "Confirme sua senha"
-                        },
-                        "target": {
-                            "name": "jogador",
-                            "description": "Jogador que deseja alterar a senha"
-                        }
-                    },
-                    "user-is-original-sender": "Você possui uma conta original, por isso não tem uma senha!",
-                    "user-is-original-target": "Esse jogador possui uma conta original!",
-                    "password-invalid-pattern": "Você precisa utilizar caracteres válidos em sua senha.",
-                    "password-minimum-length": "Sua senha deve ter no mínimo 5 letras.",
-                    "password-maximum-length": "Sua senha deve ter no máximo 32 letras.",
-                    "password-not-equals": [
-                        "As senhas não são iguais.",
-                        "Confirme a senha corretamente."
-                    ],
-                    "success": "Senha alterada com sucesso!"
-                },
-                "cracked": {
-                    "arguments": {
-                        "password": {
-                            "name": "senha",
-                            "description": "Senha que você deseja utilizar"
-                        }
-                    },
-                    "dont-have-original-account": "Você não está utilizando uma conta original!",
-                    "password-invalid": "Sua senha está incorreta!",
-                    "success": "Sua conta foi alterada para pirata, basta relogar para aplicar as mudanças!"
-                },
-                "premium": {
-                    "arguments": {
-                        "password": {
-                            "name": "senha",
-                            "description": "Sua senha atual"
-                        }
-                    },
-                    "already-have-original-account": "Você já está usando uma conta original!",
-                    "account-is-offline": "Sua conta não possui um minecraft original!",
-                    "password-invalid": "Sua senha deve ter de 5 a 32 caracteres.",
-                    "already-have-account-original-synchronized": "Você já possui uma conta vinculada na sua conta original, você precisa acessar por ela e seu nome será alterado automaticamente!",
-                    "success": "Sua conta foi alterada para original, basta relogar para aplicar as mudanças!"
-                },
-                "confirm": {
-                    "arguments": {
-                        "code": {
-                            "name": "código",
-                            "description": "Verifique o site do EXE e introduza o código aqui."
-                        }
-                    },
-                    "error": {
-                        "cannot-find-code": "O código que você inseriu é inválido ou expirou."
-                    },
-                    "success": {
-                        "auth-confirmation": "Solicitação de login aprovada com sucesso!"
-                    }
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "change-password": {
+          "arguments": {
+            "password": {
+              "name": "senha",
+              "description": "Uma senha que você irá se lembrar"
+            },
+            "confirm-password": {
+              "name": "senha",
+              "description": "Confirme sua senha"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que deseja alterar a senha"
             }
+          },
+          "user-is-original-sender": "Você possui uma conta original, por isso não tem uma senha!",
+          "user-is-original-target": "Esse jogador possui uma conta original!",
+          "password-invalid-pattern": "Você precisa utilizar caracteres válidos em sua senha.",
+          "password-minimum-length": "Sua senha deve ter no mínimo 5 letras.",
+          "password-maximum-length": "Sua senha deve ter no máximo 32 letras.",
+          "password-not-equals": [
+            "As senhas não são iguais.",
+            "Confirme a senha corretamente."
+          ],
+          "success": "Senha alterada com sucesso!"
+        },
+        "cracked": {
+          "arguments": {
+            "password": {
+              "name": "senha",
+              "description": "Senha que você deseja utilizar"
+            }
+          },
+          "dont-have-original-account": "Você não está utilizando uma conta original!",
+          "password-invalid": "Sua senha está incorreta!",
+          "success": "Sua conta foi alterada para pirata, basta relogar para aplicar as mudanças!"
+        },
+        "premium": {
+          "arguments": {
+            "password": {
+              "name": "senha",
+              "description": "Sua senha atual"
+            }
+          },
+          "already-have-original-account": "Você já está usando uma conta original!",
+          "account-is-offline": "Sua conta não possui um minecraft original!",
+          "password-invalid": "Sua senha deve ter de 5 a 32 caracteres.",
+          "already-have-account-original-synchronized": "Você já possui uma conta vinculada na sua conta original, você precisa acessar por ela e seu nome será alterado automaticamente!",
+          "success": "Sua conta foi alterada para original, basta relogar para aplicar as mudanças!"
+        },
+        "confirm": {
+          "arguments": {
+            "code": {
+              "name": "código",
+              "description": "Verifique o site do EXE e introduza o código aqui."
+            }
+          },
+          "error": {
+            "cannot-find-code": "O código que você inseriu é inválido ou expirou."
+          },
+          "success": {
+            "auth-confirmation": "Solicitação de login aprovada com sucesso!"
+          }
         }
+      }
     }
+  }
 }

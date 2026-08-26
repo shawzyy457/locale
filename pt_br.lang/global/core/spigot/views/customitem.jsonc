@@ -4,13 +4,13 @@
       "messages": {
         "views": {
           "custom-item-list": {
-            "give-success": "<yellow>Você recebeu 1 {custom_item_display_name}.</yellow>"
+            "give-success": "&eVocê recebeu 1 {custom_item_display_name}."
           },
           "custom-item-select-options": {
-            "give-success": "<yellow>Você recebeu 1 {custom_item_display_name}.</yellow>"
+            "give-success": "&eVocê recebeu 1 {custom_item_display_name}."
           },
           "custom-item-trading": {
-            "give-success": "<yellow>Você recebeu {custom_item_amount} {custom_item_display_name}.</yellow>"
+            "give-success": "&eVocê recebeu {custom_item_amount} {custom_item_display_name}."
           }
         }
       },
@@ -21,7 +21,7 @@
             "0": {
               "lore": [
                 "",
-                "<white>ID: </white><gray>{custom_item_key}</gray>"
+                "&fID: &7{custom_item_key}"
               ]
             }
           }
@@ -32,7 +32,7 @@
             "0": {
               "lore": [
                 "",
-                "<white>ID: </white><gray>{custom_item_key}</gray>"
+                "&fID: &7{custom_item_key}"
               ]
             }
           }
@@ -43,7 +43,7 @@
             "0": {
               "lore": [
                 "",
-                "<white>ID: </white><gray>{custom_item_key}</gray>"
+                "&fID: &7{custom_item_key}"
               ]
             }
           }

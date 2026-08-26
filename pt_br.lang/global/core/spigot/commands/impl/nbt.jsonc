@@ -1,37 +1,37 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "nbt": {
-                    "set": {
-                        "arguments": {
-                            "key": {
-                                "name": "chave",
-                                "description": "Chave da nbt que deseja definir"
-                            },
-                            "value": {
-                                "name": "valor",
-                                "description": "Valor da nbt que deseja definir"
-                            }
-                        },
-                        "need-item-in-hand": "Você precisa ter um item em sua mão!",
-                        "success": "Tag nbt aplicada com sucesso."
-                    },
-                    "remove": {
-                        "arguments": {
-                            "key": {
-                                "name": "chave",
-                                "description": "Chave da nbt que deseja remover"
-                            }
-                        },
-                        "need-item-in-hand": "Você precisa ter um item em sua mão!",
-                        "success": "Tag nbt removida com sucesso."
-                    },
-                    "need-item-in-hand": "Você precisa ter um item em sua mão!",
-                    "item-data-empty": "Este item não possui nenhum NBT.",
-                    "success": "<gray>{readable_nbt_key}:</gray> <white>{readable_nbt_value}</white> <dark_purple>{readable_nbt_type}</dark_purple>"
-                }
-            }
+  "plugins": {
+    "core": {
+      "commands": {
+        "nbt": {
+          "set": {
+            "arguments": {
+              "key": {
+                "name": "chave",
+                "description": "Chave da nbt que deseja definir"
+              },
+              "value": {
+                "name": "valor",
+                "description": "Valor da nbt que deseja definir"
+              }
+            },
+            "need-item-in-hand": "Você precisa ter um item em sua mão!",
+            "success": "Tag nbt aplicada com sucesso."
+          },
+          "remove": {
+            "arguments": {
+              "key": {
+                "name": "chave",
+                "description": "Chave da nbt que deseja remover"
+              }
+            },
+            "need-item-in-hand": "Você precisa ter um item em sua mão!",
+            "success": "Tag nbt removida com sucesso."
+          },
+          "need-item-in-hand": "Você precisa ter um item em sua mão!",
+          "item-data-empty": "Este item não possui nenhum NBT.",
+          "success": "&7{readable_nbt_key}: &f{readable_nbt_value} &5{readable_nbt_type}"
         }
+      }
     }
+  }
 }

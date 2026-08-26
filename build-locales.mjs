@@ -34,8 +34,7 @@ function messages(...directories) {
     if (!fs.existsSync(directory)) continue;
     for (const file of files(directory)) Object.assign(result, flatten(parse(file)));
   }
-  const blocked = /(^|\.)(replay|recipe-manager|packet-area|mail|custom-entity|chunk-backup|combat-log|visual)(\.|$)/i;
-  return Object.fromEntries(Object.entries(result).filter(([key]) => !blocked.test(key)));
+  return result;
 }
 
 function write(name, messageMap) {
@@ -44,9 +43,12 @@ function write(name, messageMap) {
 }
 
 fs.mkdirSync(output, { recursive: true });
+for (const file of fs.readdirSync(output)) {
+  if (file.endsWith(".json")) fs.unlinkSync(path.join(output, file));
+}
+
 const globalDirectory = path.join(root, "global");
 const globalMessages = messages(globalDirectory);
-
 write("global", globalMessages);
 for (const alias of ["auth", "lobby", "proxy"]) write(alias, globalMessages);
 

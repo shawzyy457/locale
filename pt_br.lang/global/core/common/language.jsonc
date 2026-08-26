@@ -1,34 +1,34 @@
 {
-    "plugins": {
-        "core": {
-            "languages": {
-                "en_us": {
-                    "name": "Inglês",
-                    "description": [
-                        "<gray>Mude seu idioma para o inglês.</gray>"
-                    ]
-                },
-                "pt_br": {
-                    "name": "Português",
-                    "description": [
-                        "<gray>Mude seu idioma para o português.</gray>"
-                    ]
-                }
-            },
-            "messages": {
-                "misc": {
-                    "binary-choice": {
-                        "active-deactivate": {
-                            "true": "<green>Ativado</green>",
-                            "false": "<red>Desativado</red>"
-                        },
-                        "yes-no": {
-                            "true": "<green>Sim</green>",
-                            "false": "<red>Não</red>"
-                        }
-                    }
-                }
-            }
+  "plugins": {
+    "core": {
+      "languages": {
+        "en_us": {
+          "name": "Inglês",
+          "description": [
+            "&7Mude seu idioma para o inglês."
+          ]
+        },
+        "pt_br": {
+          "name": "Português",
+          "description": [
+            "&7Mude seu idioma para o português."
+          ]
         }
+      },
+      "messages": {
+        "misc": {
+          "binary-choice": {
+            "active-deactivate": {
+              "true": "&aAtivado",
+              "false": "&cDesativado"
+            },
+            "yes-no": {
+              "true": "&aSim",
+              "false": "&cNão"
+            }
+          }
+        }
+      }
     }
+  }
 }

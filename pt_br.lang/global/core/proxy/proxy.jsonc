@@ -1,154 +1,132 @@
 {
-    "plugins": {
-        "core": {
-            "proxy": {
-                "messages": {
-                    "authentication": {
-                        "need-logged": [
-                            "<red>Você precisa estar logado para realizar essa ação!</red>"
-                        ]
-                    },
-                    "connection": {
-                        "name-pattern-invalid": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<white>{name}</white> <red>não é um nick válido.</red>",
-                            "<red>O nick deve ser formado por letras ou números.</red>",
-                            "<red>e deve ter entre 3 e 16 caracteres.</red>"
-                        ],
-                        "already-online": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "<red>Já existe um jogador online nessa conta!</red>"
-                        ],
-                        "maintenance": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>O servidor se encontra em manutenção, voltamos em breve.</red><br>",
-                            "<red>Fique por dentro de todas as novidades em:</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ],
-                        "no-auth-apps-available": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Não encontramos nenhum servidor de autenticação.</red><br>",
-                            "<red>Fique por dentro de todas as novidades em:</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ],
-                        "internal-error": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Ocorreu um erro interno inesperado.</red>",
-                            "<red>Nossa equipe foi notificada e está trabalhando para resolver o problema.</red>",
-                            "<red>Por favor, tente novamente mais tarde.</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ],
-                        "unsupported-version": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Utilize a versão <white>1.8+</white> para</red>",
-                            "<red>ter uma melhor experiência.</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ],
-                        "too-many-logged-accounts": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Você está com muitas contas logadas</red>",
-                            "<red>ao mesmo tempo, deslogue das outras para entrar!</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ]
-                    },
-                    "punishment": {
-                        "mute-message-permanent": [
-                            "",
-                            "<red>Você foi silenciado permanentemente.</red>",
-                            "",
-                            "<red>Autor: {punishment_author_name}</red>",
-                            "<red>Motivo: {punishment_reason}</red>",
-                            "",
-                            "<red>Silenciado injustamente?</red>",
-                            "<red>Revise sua punição em <aqua>exe.com/p/{punishment_id}</aqua></red>"
-                        ],
-                        "mute-message-with-expiration": [
-                            "",
-                            "<red>Você foi silenciado.</red>",
-                            "",
-                            "<red>Autor: {punishment_author_name}</red>",
-                            "<red>Motivo: {punishment_reason}</red>",
-                            "<red>Expira em: {punishment_expiration}</red>",
-                            "",
-                            "<red>Silenciado injustamente?</red>",
-                            "<red>Revise sua punição em <aqua>exe.com/p/{punishment_id}</aqua></red>"
-                        ],
-                        "ban-message-permanent": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Você foi banido permanentemente do servidor.</red>",
-                            "",
-                            "<red>Autor: {punishment_author_name}</red>",
-                            "<red>Motivo: {punishment_reason}</red>",
-                            "",
-                            "<red>Banido injustamente?</red>",
-                            "<red>Revise sua punição em <aqua>exe.com/p/{punishment_id}</aqua></red>"
-                        ],
-                        "ban-message-with-expiration": [
-                            "<red><bold>Rede EXE</bold></red>",
-                            "",
-                            "<red>Você foi banido do servidor.</red>",
-                            "",
-                            "<red>Autor: {punishment_author_name}</red>",
-                            "<red>Motivo: {punishment_reason}</red>",
-                            "<red>Expira em: {punishment_expiration}</red>",
-                            "",
-                            "<red>Banido injustamente?</red>",
-                            "<red>Revise sua punição em <aqua>exe.com/p/{punishment_id}</aqua></red>"
-                        ]
-                    },
-                    "teleport": {
-                        "target-app-not-registered": [
-                            "<red>O servidor requisitado não está registrado!</red>"
-                        ],
-                        "target-app-offline": [
-                            "<red>O servidor requisitado está offline!</red>"
-                        ],
-                        "target-app-restating": [
-                            "<red>O servidor requisitado está reiniciando!</red>"
-                        ],
-                        "target-app-stopping": [
-                            "<red>O servidor requisitado está desligando!</red>"
-                        ],
-                        "target-app-maintenance": [
-                            "<red>Esse servidor se encontra em manutenção no momento.</red>"
-                        ]
-                    },
-                    "visual": {
-                        "prompt": [
-                            "<color:#ff8200><bold>Rede EXE</bold>",
-                            "",
-                            "<white>Aceite a textura do servidor</white>"
-                        ],
-                        "cannot-download": [
-                            "<color:#ff8200><bold>Rede EXE</bold>",
-                            "",
-                            "<red>Não foi possivel baixar a textura</red>",
-                            "<red>tente reconectar, em caso de problemas</red>",
-                            "<red>entre em contato com nosso suporte!</red>",
-                            "",
-                            "<white>{discord_invite_url}</white>"
-                        ],
-                        "need-accept": [
-                            "<color:#ff8200><bold>Rede EXE</bold><color:#ff8200>",
-                            "",
-                            "<red>Você precisa acetar a visual para</red>",
-                            "<red>jogar nesse servidor!</red>"
-                        ]
-                    }
-                }
-            }
+  "plugins": {
+    "core": {
+      "proxy": {
+        "messages": {
+          "authentication": {
+            "need-logged": [
+              "&cVocê precisa estar logado para realizar essa ação!"
+            ]
+          },
+          "connection": {
+            "name-pattern-invalid": [
+              "&c&lEXE",
+              "",
+              "&f{name} &cnão é um nick válido.",
+              "&cO nick deve ser formado por letras ou números.",
+              "&ce deve ter entre 3 e 16 caracteres."
+            ],
+            "already-online": [
+              "&c&lEXE",
+              "&cJá existe um jogador online nessa conta!"
+            ],
+            "maintenance": [
+              "&c&lEXE",
+              "",
+              "&cO servidor se encontra em manutenção, voltamos em breve.\n",
+              "&cFique por dentro de todas as novidades em:",
+              "",
+              "&f{discord_invite_url}"
+            ],
+            "no-auth-apps-available": [
+              "&c&lEXE",
+              "",
+              "&cNão encontramos nenhum servidor de autenticação.\n",
+              "&cFique por dentro de todas as novidades em:",
+              "",
+              "&f{discord_invite_url}"
+            ],
+            "internal-error": [
+              "&c&lEXE",
+              "",
+              "&cOcorreu um erro interno inesperado.",
+              "&cNossa equipe foi notificada e está trabalhando para resolver o problema.",
+              "&cPor favor, tente novamente mais tarde.",
+              "",
+              "&f{discord_invite_url}"
+            ],
+            "unsupported-version": [
+              "&c&lEXE",
+              "",
+              "&cUtilize a versão &f1.8+ para",
+              "&cter uma melhor experiência.",
+              "",
+              "&f{discord_invite_url}"
+            ],
+            "too-many-logged-accounts": [
+              "&c&lEXE",
+              "",
+              "&cVocê está com muitas contas logadas",
+              "&cao mesmo tempo, deslogue das outras para entrar!",
+              "",
+              "&f{discord_invite_url}"
+            ]
+          },
+          "punishment": {
+            "mute-message-permanent": [
+              "",
+              "&cVocê foi silenciado permanentemente.",
+              "",
+              "&cAutor: {punishment_author_name}",
+              "&cMotivo: {punishment_reason}",
+              "",
+              "&cSilenciado injustamente?",
+              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+            ],
+            "mute-message-with-expiration": [
+              "",
+              "&cVocê foi silenciado.",
+              "",
+              "&cAutor: {punishment_author_name}",
+              "&cMotivo: {punishment_reason}",
+              "&cExpira em: {punishment_expiration}",
+              "",
+              "&cSilenciado injustamente?",
+              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+            ],
+            "ban-message-permanent": [
+              "&c&lEXE",
+              "",
+              "&cVocê foi banido permanentemente do servidor.",
+              "",
+              "&cAutor: {punishment_author_name}",
+              "&cMotivo: {punishment_reason}",
+              "",
+              "&cBanido injustamente?",
+              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+            ],
+            "ban-message-with-expiration": [
+              "&c&lEXE",
+              "",
+              "&cVocê foi banido do servidor.",
+              "",
+              "&cAutor: {punishment_author_name}",
+              "&cMotivo: {punishment_reason}",
+              "&cExpira em: {punishment_expiration}",
+              "",
+              "&cBanido injustamente?",
+              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+            ]
+          },
+          "teleport": {
+            "target-app-not-registered": [
+              "&cO servidor requisitado não está registrado!"
+            ],
+            "target-app-offline": [
+              "&cO servidor requisitado está offline!"
+            ],
+            "target-app-restating": [
+              "&cO servidor requisitado está reiniciando!"
+            ],
+            "target-app-stopping": [
+              "&cO servidor requisitado está desligando!"
+            ],
+            "target-app-maintenance": [
+              "&cEsse servidor se encontra em manutenção no momento."
+            ]
+          }
         }
+      }
     }
+  }
 }

@@ -1,0 +1,42 @@
+{
+  "plugins": {
+    "booster": {
+      "items": {
+        "booster": {
+          "display-name": "Booster de {booster_display_name}",
+          "name": "",
+          "lore": [
+            ""
+          ]
+        }
+      },
+      "booster": {
+        "types": {
+          "coins": {
+            "display-name": "Coins"
+          },
+          "skills": {
+            "display-name": "Habilidades"
+          }
+        }
+      },
+      "views": {
+        "booster-view": {
+          "title": "boosters",
+          "items": {
+            "0": {
+              "name": "",
+              "lore": []
+            }
+          }
+        }
+      },
+      "messages": {
+        "booster": {
+          "already-activated": "Você já possui um Booster de {booster_display_name} ativo!",
+          "active": "&e&lGG! Você ativou um Booster de {booster_display_name} {booster_modifier}x"
+        }
+      }
+    }
+  }
+}

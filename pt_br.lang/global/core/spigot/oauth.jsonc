@@ -1,37 +1,37 @@
 {
-    "plugins": {
-        "core": {
-            "oauth": {
-                "book": {
-                    "title": "Solicitação de login",
-                    "author": "Rede EXE",
-                    "pages": {
-                        "0": [
-                            "<black>Nova solicitação de</black>",
-                            "<black>login utilizando o nick</black>",
-                            "<red>{request_user_name}</red> <black>detectada.</black>",
-                            "",
-                            "<black><bold>IP:</bold> {request_ip_query}</black>",
-                            "<black><bold>Data:</bold> {request_date}</black>",
-                            "<black><bold>Local:</bold> {request_ip_city}, {request_ip_region}</black>",
-                            "",
-                            "<hover:show_text:'<green>Autorizar</green>'><click:run_command:'/oauth-confirmation-accept'><black>Autorizar o login</black> <green>✔</green></click></hover>",
-                            "",
-                            "<hover:show_text:'<red>Rejeitar</red>'><click:run_command:'/oauth-confirmation-deny'><black>Não fui eu, rejeitar</black> <red>✖</red></click></hover>",
-                            ""
-                        ]
-                    }
-                }
-            },
-            "messages": {
-                "oauth": {
-                    "request": {
-                        "expired": "<red>Você demorou muito para responder, por isso sua solicitação foi negada!</red>",
-                        "accepted": "<green>Você aceitou a solicitação de login com sucesso, isso foi um erro? Utilize <white>/desconectar</white> para sair de todas as sessões.</green>",
-                        "denied": "<red>Você negou a solicitação de login com sucesso, o usuário foi bloqueado durante 30 minutos!</red>"
-                    }
-                }
-            }
+  "plugins": {
+    "core": {
+      "oauth": {
+        "book": {
+          "title": "Solicitação de login",
+          "author": "EXE",
+          "pages": {
+            "0": [
+              "&0Nova solicitação de",
+              "&0login utilizando o nick",
+              "&c{request_user_name} &0detectada.",
+              "",
+              "&0&lIP: {request_ip_query}",
+              "&0&lData: {request_date}",
+              "&0&lLocal: {request_ip_city}, {request_ip_region}",
+              "",
+              "&0Autorizar o login &a✔",
+              "",
+              "&0Não fui eu, rejeitar &c✖",
+              ""
+            ]
+          }
         }
+      },
+      "messages": {
+        "oauth": {
+          "request": {
+            "expired": "&cVocê demorou muito para responder, por isso sua solicitação foi negada!",
+            "accepted": "&aVocê aceitou a solicitação de login com sucesso, isso foi um erro? Utilize &f/desconectar para sair de todas as sessões.",
+            "denied": "&cVocê negou a solicitação de login com sucesso, o usuário foi bloqueado durante 30 minutos!"
+          }
+        }
+      }
     }
+  }
 }

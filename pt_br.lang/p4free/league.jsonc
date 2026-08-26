@@ -1,0 +1,175 @@
+{
+  "plugins": {
+    "league": {
+      "elos": {
+        "beginner": {
+          "name": "&8iniciante",
+          "description": [
+            "&7começou a sua carreira",
+            "&7agora hein...",
+            ""
+          ]
+        },
+        "experient": {
+          "name": "&8experiente",
+          "description": [
+            "&7já sabe onde fica o",
+            "&7botão de atacar.",
+            ""
+          ]
+        },
+        "veteran": {
+          "name": "&8veterano",
+          "description": [
+            "&7já tomou porrada o",
+            "&7suficiente pra aprender.",
+            ""
+          ]
+        },
+        "warrior": {
+          "name": "&8guerreiro",
+          "description": [
+            "&7não entra em duelo",
+            "&7sem saber o que faz.",
+            ""
+          ]
+        },
+        "knight": {
+          "name": "&8cavaleiro",
+          "description": [
+            "&7a essa altura já dá",
+            "&7trabalho pra qualquer um.",
+            ""
+          ]
+        },
+        "gladiator": {
+          "name": "&8gladiador",
+          "description": [
+            "&7vive na arena e",
+            "&7gosta disso.",
+            ""
+          ]
+        },
+        "champion": {
+          "name": "&8campeão",
+          "description": [
+            "&7o resto do servidor já",
+            "&7sabe o seu nome.",
+            ""
+          ]
+        },
+        "myth": {
+          "name": "&8mito",
+          "description": [
+            "&7poucos chegaram até",
+            "&7aqui.",
+            ""
+          ]
+        },
+        "legend": {
+          "name": "&8lenda",
+          "description": [
+            "&7o duelo acaba antes",
+            "&7de começar.",
+            ""
+          ]
+        },
+        "immortal": {
+          "name": "&8imortal",
+          "description": [
+            "&7o topo da liga.",
+            "&7não tem pra onde subir.",
+            ""
+          ]
+        }
+      },
+      "views": {
+        "league": {
+          "title": "ligas",
+          "items": {
+            "0": {
+              "name": "{elo_name}",
+              "lore": {
+                "all-elos": [
+                  "{elo_color} Informações:",
+                  "&8 ▸&f Pontos atuais: &7{user_points}",
+                  "&8 ▸&f Pontos necessários: &7{elo_points}"
+                ],
+                "current-elo": [
+                  "",
+                  "&eEste é o seu elo atual."
+                ]
+              }
+            },
+            "1": {
+              "name": "&eloja de troféus",
+              "lore": [
+                "&7Explore e compre uma",
+                "&7variedade enorme de",
+                "&7itens GOD com troféus.",
+                "",
+                "&eClique para acessar!"
+              ]
+            },
+            "2": {
+              "name": "&6sala dos campeões",
+              "lore": [
+                "&7Veja as suas estatísticas",
+                "&7ou as do seu clã em eventos",
+                "",
+                "&6clique para acessar!"
+              ]
+            }
+          }
+        },
+        "league-stats": {
+          "title": "estatísticas",
+          "items": {
+            "0": {
+              "name": "&6{event_name}",
+              "lore": {
+                "user": [
+                  "&7veja as suas estatísticas",
+                  "&7no evento {event_name}.",
+                  "",
+                  "&6 Estatísticas:",
+                  "&7 ▸ &fjogados: &7{event_games_played}",
+                  "&7 ▸ &fvitórias: &7{event_wins}",
+                  "&7 ▸ &fabates: &7{event_kills}",
+                  "&7 ▸ &fmortes: &7{event_deaths}",
+                  "",
+                  "&6você já ganhou &f{event_trophies} troféus",
+                  "&6nesse evento."
+                ],
+                "clan": [
+                  "&7veja as estatísticas do seu",
+                  "&7clã no evento {event_name}.",
+                  "",
+                  "&6 Estatísticas:",
+                  "&7 ▸ &fjogados: &7{event_games_played}",
+                  "&7 ▸ &fvitórias: &7{event_wins}",
+                  "&7 ▸ &fabates: &7{event_kills}",
+                  "&7 ▸ &fmortes: &7{event_deaths}",
+                  "",
+                  "&6você já ganhou &f{event_trophies} troféus",
+                  "&6nesse evento."
+                ]
+              }
+            },
+            "1": {
+              "name": "&6Filtre por",
+              "lore": [
+                "&7veja abaixo os filtros",
+                "&7disponíveis.",
+                "",
+                "{filter_options}",
+                "",
+                "&6clique para alterar."
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

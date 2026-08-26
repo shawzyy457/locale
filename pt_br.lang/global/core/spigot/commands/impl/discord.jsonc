@@ -1,46 +1,46 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "discord": {
-                    "book": {
-                        "title": "Discord",
-                        "author": "Rede EXE",
-                        "pages": {
-                            "0": [
-                                "<blue><bold>Vincular Discord</bold></blue>",
-                                "<dark_gray>discord.gg/exe</dark_gray>",
-                                "",
-                                "<black>Copie o código abaixo</black>",
-                                "<black>e cole numa sala</black>",
-                                "<black>qualquer do nosso</black>",
-                                "<black>discord.</black>",
-                                "",
-                                "<dark_gray>⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊</dark_gray>",
-                                "<dark_aqua><bold>{discord_synchronization_code}</bold></dark_aqua>",
-                                "  <blue><hover:show_text:'<blue>Copiar</blue>'><click:copy_to_clipboard:'{discord_synchronization_code}'>Clique para copiar</click></hover></blue>",
-                                "<dark_gray>⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊</dark_gray>",
-                                "",
-                                "<black>Vale por 10 minutos.</black>"
-                            ],
-                            "1": [
-                                "<blue><bold>Outros jeitos</bold></blue>",
-                                "",
-                                "<black>Pelo site, num clique</black>",
-                                "<black>só, sem código:</black>",
-                                "<dark_aqua>exe.com</dark_aqua>",
-                                "<black>em Perfil.</black>",
-                                "",
-                                "<black>Ou pelo discord: lá</black>",
-                                "<black>tem um botão que</black>",
-                                "<black>gera um código pra</black>",
-                                "<black>você colar aqui no</black>",
-                                "<black>chat do servidor.</black>"
-                            ]
-                        }
-                    }
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "discord": {
+          "book": {
+            "title": "Discord",
+            "author": "EXE",
+            "pages": {
+              "0": [
+                "&9&lVincular Discord",
+                "&8discord.gg/exe",
+                "",
+                "&0Copie o código abaixo",
+                "&0e cole numa sala",
+                "&0qualquer do nosso",
+                "&0discord.",
+                "",
+                "&8⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊",
+                "&3&l{discord_synchronization_code}",
+                "  &9Clique para copiar",
+                "&8⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊⚊",
+                "",
+                "&0Vale por 10 minutos."
+              ],
+              "1": [
+                "&9&lOutros jeitos",
+                "",
+                "&0Pelo site, num clique",
+                "&0só, sem código:",
+                "&3exe.com",
+                "&0em Perfil.",
+                "",
+                "&0Ou pelo discord: lá",
+                "&0tem um botão que",
+                "&0gera um código pra",
+                "&0você colar aqui no",
+                "&0chat do servidor."
+              ]
             }
+          }
         }
+      }
     }
+  }
 }

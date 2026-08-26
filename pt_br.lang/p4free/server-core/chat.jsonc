@@ -1,0 +1,113 @@
+{
+  "plugins": {
+    "server-core": {
+      "commands": {
+        "global": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que será enviada no chat"
+            }
+          },
+          "in-cooldown": "Você precisa esperar mais {remaining_time} para enviar outra mensagem!",
+          "message-cannot-be-empty": "Você não pode enviar uma mensagem vazia!",
+          "chat-locked": "O chat global está desabilitado!",
+          "dont-have-requirements": "Você precisa ter no mínimo {chat_message_currency_value_formatted_requirement} para enviar uma mensagem no chat!",
+          "message": {
+            "with-space": {
+              "with-clan": [
+                "",
+                "&7[G] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}",
+                ""
+              ],
+              "without-clan": [
+                "",
+                "&7[G] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}",
+                ""
+              ]
+            },
+            "without-space": {
+              "with-clan": [
+                "&7[G] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}"
+              ],
+              "without-clan": [
+                "&7[G] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}"
+              ]
+            }
+          }
+        },
+        "local": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que será enviada no chat"
+            }
+          },
+          "in-cooldown": "Você precisa esperar mais {remaining_time} para enviar outra mensagem!",
+          "message-cannot-be-empty": "Você não pode enviar uma mensagem vazia!",
+          "chat-locked": "O chat local está desabilitado!",
+          "dont-have-requirements": "Você precisa ter no mínimo {chat_message_currency_value_formatted_requirement} para enviar uma mensagem no chat!",
+          "without-receivers": "&cParece que você está sozinho aqui :(",
+          "message": {
+            "with-space": {
+              "with-clan": [
+                "",
+                "&e[L] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}",
+                ""
+              ],
+              "without-clan": [
+                "",
+                "&e[L] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}",
+                ""
+              ]
+            },
+            "without-space": {
+              "with-clan": [
+                "&e[L] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}"
+              ],
+              "without-clan": [
+                "&e[L] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}"
+              ]
+            }
+          }
+        },
+        "superchat": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que será enviada no chat"
+            }
+          },
+          "in-cooldown": "Você precisa esperar mais {remaining_time} para enviar outra mensagem!",
+          "message-cannot-be-empty": "Você não pode enviar uma mensagem vazia!",
+          "chat-locked": "O chat está desabilitado!",
+          "message": [
+            "",
+            " &b[✉] &lTOP CHAT &fde {sender_name_with_tag}!",
+            " &8➟ &f{chat_message}",
+            ""
+          ]
+        },
+        "toggle-chat": {
+          "arguments": {
+            "type": {
+              "name": "tipo",
+              "description": "Tipo do canal que você deseja mudar o status"
+            }
+          },
+          "chat-type-not-found": "Não foi possivel encontrar um chat com esse id",
+          "success-locked": "O status do chat {chat_type_name} foi alterado para desabilitado.",
+          "success-unlocked": "O status do chat {chat_type_name} foi alterado para habilitado."
+        }
+      },
+      "messages": {
+        "chat": {
+          "adapters": {
+            "plot": "Ir para o Terreno #{plot_index} de {plot_owner_name}",
+            "shop": "Ir para a loja de {shop_owner_name}"
+          }
+        }
+      }
+    }
+  }
+}

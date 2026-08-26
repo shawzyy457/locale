@@ -5,13 +5,7 @@
         "views": {
           "app-action": {
             "need-apps-selection": "Você precisa selecionar os servidores!",
-            "maintenance": {
-              "dialog": {
-                "query": "Digite o grupo minimo para acessar o servidor:",
-                "group-not-found": "Não foi possivel encontrar nenhum grupo com esse id!",
-                "success": "Manutenção alterada com sucesso."
-              }
-            },
+            "maintenance": {},
             "execute-action": {
               "confirmation": {
                 "query": "Tem certeza que deseja {action_name} {action_apps_size} servidor(es)?"
@@ -33,89 +27,89 @@
           "title": "{app_node_name}",
           "items": {
             "0": {
-              "name": "<dark_gray><bold>Definir manutenção</dark_gray>",
+              "name": "&8&lDefinir manutenção",
               "lore": [
-                "<gray>Clique para definir.</gray>"
+                "&7Clique para definir."
               ]
             },
             "1": {
-              "name": "<green>Ligar</green>",
+              "name": "&aLigar",
               "lore": [
-                "<gray>Clique para ligar.</gray>"
+                "&7Clique para ligar."
               ]
             },
             "2": {
-              "name": "<yellow>Reiniciar</yellow>",
+              "name": "&eReiniciar",
               "lore": [
-                "<gray>Clique para reiniciar.</gray>"
+                "&7Clique para reiniciar."
               ]
             },
             "3": {
-              "name": "<red>Desligar</red>",
+              "name": "&cDesligar",
               "lore": [
-                "<gray>Clique para desligar.</gray>"
+                "&7Clique para desligar."
               ]
             },
             "4": {
               "online": {
                 "selected": {
-                  "name": "<green>{app_display_name}</green>",
+                  "name": "&a{app_display_name}",
                   "lore": [
-                    "<white>Jogadores:</white> <gray>{app_connected_users_count}</gray>",
+                    "&fJogadores: &7{app_connected_users_count}",
                     "",
-                    " <white>CPU:</white> <gray>{app_statistic_jvm_cpu_utilization}%</gray>",
-                    " <white>Threads:</white> <gray>{app_statistic_jvm_thread_count}</gray>",
-                    " <white>Memória:</white> <gray>{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}</gray>",
+                    " &fCPU: &7{app_statistic_jvm_cpu_utilization}%",
+                    " &fThreads: &7{app_statistic_jvm_thread_count}",
+                    " &fMemória: &7{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}",
                     "",
-                    " <white>Uso de memória:</white>",
+                    " &fUso de memória:",
                     " {app_statistic_jvm_memory_utilization_progress_bar}",
                     "",
-                    " <white>TPS (5s, 10s, 1m, 5m, 15m):</white>",
-                    " <gray>{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}</gray>",
+                    " &fTPS (5s, 10s, 1m, 5m, 15m):",
+                    " &7{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}",
                     "",
-                    "  <white>Manutenção:</white> <gray>{app_statistic_maintenance_group_display_name}</gray>",
+                    "  &fManutenção: &7{app_statistic_maintenance_group_display_name}",
                     "",
-                    "<green>Selecionado.</green>"
+                    "&aSelecionado."
                   ]
                 },
                 "unselected": {
-                  "name": "<green>{app_display_name}</green>",
+                  "name": "&a{app_display_name}",
                   "lore": [
-                    "<white>Jogadores:</white> <gray>{app_connected_users_count}</gray>",
+                    "&fJogadores: &7{app_connected_users_count}",
                     "",
-                    " <white>CPU:</white> <gray>{app_statistic_jvm_cpu_utilization}%</gray>",
-                    " <white>Threads:</white> <gray>{app_statistic_jvm_thread_count}</gray>",
-                    " <white>Memória:</white> <gray>{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}</gray>",
+                    " &fCPU: &7{app_statistic_jvm_cpu_utilization}%",
+                    " &fThreads: &7{app_statistic_jvm_thread_count}",
+                    " &fMemória: &7{app_statistic_jvm_usage_memory_formatted}/{app_statistic_jvm_max_memory_formatted}",
                     "",
-                    " <white>Uso de memória:</white>",
+                    " &fUso de memória:",
                     " {app_statistic_jvm_memory_utilization_progress_bar}",
                     "",
-                    " <white>TPS (5s, 10s, 1m, 5m, 15m):</white>",
-                    " <gray>{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}</gray>",
+                    " &fTPS (5s, 10s, 1m, 5m, 15m):",
+                    " &7{app_statistic_tps_0}, {app_statistic_tps_1}, {app_statistic_tps_2}, {app_statistic_tps_3}, {app_statistic_tps_4}",
                     "",
-                    "  <white>Manutenção:</white> <gray>{app_statistic_maintenance_group_display_name}</gray>",
+                    "  &fManutenção: &7{app_statistic_maintenance_group_display_name}",
                     "",
-                    "<yellow>Clique para selecionar!</yellow>"
+                    "&eClique para selecionar!"
                   ]
                 }
               },
               "offline": {
                 "selected": {
-                  "name": "<red>{app_display_name}</red>",
+                  "name": "&c{app_display_name}",
                   "lore": [
                     "",
-                    "<red>Servidor fechado.</red>",
+                    "&cServidor fechado.",
                     "",
-                    "<green>Selecionado.</green>"
+                    "&aSelecionado."
                   ]
                 },
                 "unselected": {
-                  "name": "<red>{app_display_name}</red>",
+                  "name": "&c{app_display_name}",
                   "lore": [
                     "",
-                    "<red>Servidor fechado.</red>",
+                    "&cServidor fechado.",
                     "",
-                    "<yellow>Clique para selecionar!</yellow>"
+                    "&eClique para selecionar!"
                   ]
                 }
               }
@@ -127,28 +121,28 @@
           "items": {
             "0": {
               "online": {
-                "name": "<green>{app_node_name}</green>",
+                "name": "&a{app_node_name}",
                 "lore": [
-                  "<white>Uptime:</white> <gray>{app_node_statistic_uptime}</gray>",
+                  "&fUptime: &7{app_node_statistic_uptime}",
                   "",
-                  " <white>OS:</white> <gray>{app_node_statistic_os_name}</gray>",
-                  " <white>Version:</white> <gray>{app_node_statistic_os_version}</gray>",
+                  " &fOS: &7{app_node_statistic_os_name}",
+                  " &fVersion: &7{app_node_statistic_os_version}",
                   "",
-                  " <white>CPU:</white> <gray>{app_node_statistic_cpu_utilization}%</gray>",
-                  " <white>Memória:</white> <gray>{app_node_statistic_usage_memory}/{app_node_statistic_max_memory}</gray>",
-                  " <white>Disco:</white> <gray>{app_node_statistic_usage_disk}/{app_node_statistic_max_disk}</gray>",
+                  " &fCPU: &7{app_node_statistic_cpu_utilization}%",
+                  " &fMemória: &7{app_node_statistic_usage_memory}/{app_node_statistic_max_memory}",
+                  " &fDisco: &7{app_node_statistic_usage_disk}/{app_node_statistic_max_disk}",
                   "",
-                  " <white>Network:</white>",
-                  " <white>In:</white> <gray>{app_node_statistic_network_in_traffic} ({app_node_statistic_network_in_packets_count})</gray>",
-                  " <white>Out:</white> <gray>{app_node_statistic_network_out_traffic} ({app_node_statistic_network_out_packets_count})</gray>",
+                  " &fNetwork:",
+                  " &fIn: &7{app_node_statistic_network_in_traffic} ({app_node_statistic_network_in_packets_count})",
+                  " &fOut: &7{app_node_statistic_network_out_traffic} ({app_node_statistic_network_out_packets_count})",
                   ""
                 ]
               },
               "offline": {
-                "name": "<red>{app_node_name}</red>",
+                "name": "&c{app_node_name}",
                 "lore": [
                   "",
-                  "<red>Node desligado.</red>",
+                  "&cNode desligado.",
                   ""
                 ]
               }

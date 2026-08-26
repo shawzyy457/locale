@@ -1,0 +1,22 @@
+{
+  "plugins": {
+    "server-core": {
+      "commands": {
+        "trash": {
+          "inventory-title": "Lixeira",
+          "chat-message": "Abrindo lixeira virtual..."
+        },
+        "lantern": {
+          "success-disable": "Você desativou a lanterna.",
+          "success-enable": "Você ativou a lanterna."
+        },
+        "repair": {
+          "cannot-repair-custom-item": "Você não pode reparar um item customizado.",
+          "cannot-repair-item": "Você não pode reparar este item.",
+          "dont-have-currency-value": "Você precisa de {repair_currency_value_formatted} para conseguir reparar esse item!",
+          "success": "Item reparado com sucesso."
+        }
+      }
+    }
+  }
+}

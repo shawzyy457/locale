@@ -1,364 +1,258 @@
 {
-    "plugins": {
-        "lobby": {
-            "servers": {
-                "prison-eclipse": {
-                    "name": "<color:#6e0281>Prison Eclipse V2",
-                    "icon": {
-                        "name": "{server_name}",
-                        "description": [
-                            "<white>{server_online_count} jogando.</white>",
-                            "",
-                            " <gray>Um novo modo de jogo com diversos</gray>",
-                            " <gray>sistemas diferentes e únicos.</gray>",
-                            "",
-                            " <light_purple>Confira algumas novidades:</light_purple>",
-                            " <color:#6e0281>► <white>Geradores de Faíscas;</white>",
-                            " <color:#6e0281>► <white>Skills estilo RPG;</white>",
-                            " <color:#6e0281>► <white>Armaduras customizadas;</white>",
-                            " <color:#6e0281>► <white>Espadas customizadas;</white>",
-                            " <color:#6e0281>► <white>Batalhas épicas contra bosses;</white>",
-                            " <color:#6e0281>► <white>Nova meta global;</white>",
-                            " <color:#6e0281>► <white>Eventos novos;</white>",
-                            " <color:#6e0281>► <white>Máquinas de Poder;</white>",
-                            " <color:#6e0281>► <white>Mineração AFK</white><gray>;</gray>",
-                            " <color:#6e0281>► <white>Pets exclusivos</white><gray>;</gray>",
-                            " <color:#6e0281>► <white>Picaretas customizadas</white><gray>;</gray>",
-                            " <color:#6e0281>► <white>Textura personalizada</white><gray>;</gray>",
-                            " <color:#6e0281>► <white>Laboratório de Pesquisa;</white>",
-                            " <color:#6e0281>► <white>Pesca modificada</white><gray>.</gray>",
-                            "",
-                            "<light_purple>Clique para conectar!</light_purple>"
-                        ]
-                    },
-                    "hologram": [
-                        "",
-                        "<color:#6e0281>{server_online_player_count} jogando...",
-                        "{server_state}"
-                    ]
-                },
-                "rankup-pvp": {
-                    "name": "<color:#FF8200>RANKUP <obfuscated>PHOENIX</obfuscated>",
-                    "icon": {
-                        "name": "{server_name}",
-                        "description": [
-                            "<color:#ff8200>Em desenvolvimento..."
-                        ]
-                    },
-                    "hologram": [
-                        "",
-                        "<color:#ffd000>{server_online_player_count} jogando...",
-                        "{server_state}"
-                    ]
-                },
-                "academy": {
-                    "name": "<gradient:#FF6F00:#faa825:#FF6F00>EXE Academy",
-                    "icon": {
-                        "name": "{server_name}",
-                        "description": [
-                            "<white>{server_online_count} jogando.</white>",
-                            "",
-                            " <gray>Um novo modo de jogo com diversos</gray>",
-                            " <gray>sistemas diferentes e únicos.</gray>",
-                            "",
-                            " <gradient:#FF6F00:#ff9d00>Confira algumas novidades:",
-                            " <gradient:#FF6F00:#faa825:#FF6F00>► <white>Treine canhões;</white>",
-                            " <gradient:#FF6F00:#faa825:#FF6F00>► <white>Simule invasões e defesas;</white>",
-                            " <gradient:#FF6F00:#faa825:#FF6F00>► <white>Treine o seu PvP;</white>",
-                            " <gradient:#FF6F00:#faa825:#FF6F00>► <white>Se torne um jogador melhor!</white>",
-                            "",
-                            "<gradient:#FF6F00:#faa825:#FF6F00>Clique para conectar!"
-                        ]
-                    },
-                    "hologram": [
-                        "",
-                        "<gradient:#FF6F00:#faa825:#FF6F00>{server_online_player_count} jogando...",
-                        "{server_state}"
-                    ]
-                },
-                "factions": {
-                    "name": "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Factions Ice</gradient>",
-                    "icon": {
-                        "name": "{server_name}",
-                        "description": [
-                            "<white>{server_online_count} jogando.</white>",
-                            "",
-                            " <gray>Factions no seu melhor. Uma</gray>",
-                            " <gray>experiência única, apenas no EXE.</gray>",
-                            "",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>Um silêncio gélido se aproxima...",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Sistema de Invasão melhorada;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Skills com quimicas entre jogadores;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Pets adaptados ao Factions;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Sistema de congelamento;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Cofres;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Eventos exclusivos;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Sistema de reis;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Rank individual;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Sistema de Facção melhorado;</white>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>Novos blocos de proteção;</white><gray></gray>",
-                            " <gradient:#7ABAFF:#9FE2FF:#7ABAFF>► <white>E muito mais!</white><gray></gray>",
-                            "",
-                            "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>Clique para conectar!"
-                        ]
-                    },
-                    "hologram": [
-                        "",
-                        "<gradient:#7ABAFF:#9FE2FF:#7ABAFF>{server_online_player_count} jogando...",
-                        "{server_state}"
-                    ]
-                },
-                "p4-free": {
-                    "name": "<gradient:#FF6F00:#ff9d00:#FF6F00>P4 Free",
-                    "icon": {
-                        "name": "{server_name}",
-                        "description": [
-                            "<white>{server_online_count} jogando.</white>",
-                            "",
-                            " <gray>Um novo modo de jogo com diversos</gray>",
-                            " <gray>sistemas diferentes e únicos.</gray>",
-                            "",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>Confira algumas novidades:",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Espada Evolutiva;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Gladiador;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Sistema de Ligas;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Altar Divino;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Classes;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>Habilidades Dinâmicas;</white>",
-                            " <gradient:#FF6F00:#ff9d00:#FF6F00>► <white>E muito mais!</white>",
-                            "",
-                            "<gradient:#FF6F00:#ff9d00:#FF6F00>Clique para conectar!"
-                        ]
-                    },
-                    "hologram": [
-                        "",
-                        "<color:#ffd000>{server_online_player_count} jogando...",
-                        "{server_state}"
-                    ]
-                }
-            },
-            "server-state-types": {
-                "offline": "<red>Offline</red>",
-                "stopping": "<red>Desligando</red>",
-                "restarting": "<red>Reiniciando</red>",
-                "maintenance": "<red>Em manutenção</red>",
-                "vip": "<red>Somente acesso VIP</red>",
-                "online": "<green>Clique para entrar</green>"
-            },
-            "commands": {
-                "fly": {
-                    "success": "Seu modo de voo foi alterado com sucesso!"
-                },
-                "join-all-queue": {
-                    "arguments": {
-                        "server": {
-                            "name": "servidor",
-                            "description": "Servidor que serão redirecionados os jogadores"
-                        }
-                    },
-                    "success": "Todos os jogadores desse lobby foram adicionados a fila do servidor <white>{target_server_display_name}</white>!"
-                }
-            },
-            "items": {
-                "lobby-servers-item": {
-                    "name": "<green>Servidores</green>",
-                    "lore": [
-                        "<gray>Clique com o botão direito para</gray>",
-                        "<gray>selecionar um servidor.</gray>"
-                    ]
-                },
-                "lobby-hub-selector-item": {
-                    "name": "<light_purple>Selecionar Lobby</light_purple>",
-                    "lore": [
-                        "<gray>Clique com o botão direito para</gray>",
-                        "<gray>abrir a lista de lobbies.</gray>"
-                    ]
-                },
-                "lobby-profile-item": {
-                    "name": "<aqua>Meu Perfil</aqua>",
-                    "lore": [
-                        "<gray>Clique com o botão direito para</gray>",
-                        "<gray>abrir ao menu de seu perfil.</gray>"
-                    ]
-                },
-                "lobby-hide-players": {
-                    "name": "<white>Jogadores:</white> <green>ON</green>",
-                    "lore": [
-                        "<gray>Clique com o botão direito para</gray>",
-                        "<gray>mostrar os jogadores do lobby.</gray>"
-                    ]
-                },
-                "lobby-show-players": {
-                    "name": "<white>Jogadores:</white> <red>OFF</red>",
-                    "lore": [
-                        "<gray>Clique com o botão direito para</gray>",
-                        "<gray>esconder os jogadores do lobby.</gray>"
-                    ]
-                }
-            },
-            "scoreboard": {
-                "title": "<gradient:#FF6F00:#faa825:#FF6F00><bold>Rede EXE</bold></gradient>",
-                "lines": [
-                    " <gray>{current_date}</gray>",
-                    "",
-                    " <white><white>Cargo:</white> {user_group_name_with_color}",
-                    " <white><white>Online: </white><gray>%network_online-count%</gray>",
-                    " <white><white>Gold: </white><gold>{user_gold_formatted}",
-                    "",
-                    "  <gradient:#FF6F00:#faa825:#FF6F00>O Factions Ice</gradient>",
-                    "  <gradient:#FF6F00:#faa825:#FF6F00>está chegando!</gradient>",
-                    "",
-                    "<gradient:#FF6F00:#faa825:#FF6F00>exe.com</gradient>"
-                ]
-            },
-            "preferences": {
-                "lobby-visibility": {
-                    "name": "<yellow>Visibilidade de jogadores</yellow>",
-                    "description": [
-                        "<gray>Mostra ou esconde os outros</gray>",
-                        "<gray>jogadores no lobby.</gray>"
-                    ]
-                },
-                "lobby-chat": {
-                    "name": "<yellow>Mensagens no chat</yellow>",
-                    "description": [
-                        "<gray>Mostra ou esconde as</gray>",
-                        "<gray>mensagens do chat do lobby.</gray>"
-                    ]
-                },
-                "lobby-flying": {
-                    "name": "<yellow>Modo vôo</yellow>",
-                    "description": [
-                        "<gray>Voe livremente pelo lobby</gray>",
-                        "<gray>(exclusivo PRO+).</gray>"
-                    ]
-                }
-            },
-            "messages": {
-                "chat": {
-                    "in-delay": "<red>Você precisa esperar </red><white>{remaining_time}</white><red> para falar novamente.</red>",
-                    "preference-off": "<red>Você não pode enviar mensagens nesse chat pois desabilitou as mensagens.</red>",
-                    "need-highest-group": "<red>Você precisa ter o grupo </red><white>{required_group_display_tag}</white><red> ou superior para enviar mensagens no chat!</red>",
-                    "message": "{message_owner_name_with_tag}<gray>: {message_content}</gray>"
-                },
-                "on-join": {
-                    "user-notification": "{user_name_with_tag} <yellow>entrou neste lobby!"
-                },
-                "visibility": {
-                    "on": "<green>Agora todos os jogadores estão visíveis para você.</green>",
-                    "off": "<red>Agora todos os jogadores estão escondidos para você.</red>"
-                },
-                "queue": {
-                    "actionbar": "<gradient:#FF6F00:#faa825>⏳ <gradient:#FF6F00:#faa825><bold>FILA!</gradient> <color:#F5F5F4>Sua posição atual <gradient:#FF6F00:#faa825>➟ <color:#F5F5F4><bold>{queue_position}º"
-                },
-                "views": {
-                    "lobby-selector": {
-                        "connect": {
-                            "already-connected": "<red>Você já está conectado a este lobby.</red>",
-                            "unavailable": "<red>Esse lobby está indisponível no momento.</red>",
-                            "stopping": "<red>Esse lobby está desligando no momento.</red>",
-                            "restarting": "<red>Esse lobby está reiniciando no momento.</red>",
-                            "maintenance": "<red>Esse lobby está em manutenção no momento.</red>",
-                            "full": "<red>Esse lobby está lotado no momento.</red>"
-                        }
-                    }
-                }
-            },
-            "views": {
-                "lobby-selector": {
-                    "title": "Selecione o lobby",
-                    "items": {
-                        "0": {
-                            "maintenance": {
-                                "name": "<red>{app_display_name_stripped}</red>",
-                                "lore": [
-                                    "",
-                                    "<red>Esse lobby está em manutenção.</red>"
-                                ]
-                            },
-                            "stopping": {
-                                "name": "<red>{app_display_name_stripped}</red>",
-                                "lore": [
-                                    "",
-                                    "<red>Esse lobby está desligando.</red>"
-                                ]
-                            },
-                            "restarting": {
-                                "name": "<red>{app_display_name_stripped}</red>",
-                                "lore": [
-                                    "",
-                                    "<red>Esse lobby está reiniciando.</red>"
-                                ]
-                            },
-                            "current": {
-                                "name": "<green>{app_display_name_stripped}</green>",
-                                "lore": [
-                                    "",
-                                    " <white>Jogadores:</white> <gray>{app_online_player_count}</gray>",
-                                    "",
-                                    "<yellow>Você está conectado a este lobby.</yellow>"
-                                ]
-                            },
-                            "available": {
-                                "name": "<green>{app_display_name_stripped}</green>",
-                                "lore": [
-                                    "",
-                                    " <white>Jogadores:</white> <gray>{app_online_player_count}</gray>",
-                                    "",
-                                    "<green>Clique para conectar a este lobby.</green>"
-                                ]
-                            },
-                            "unavailable": {
-                                "name": "<red>{app_display_name_stripped}</red>",
-                                "lore": [
-                                    "",
-                                    "<red>Esse lobby está indisponível.</red>"
-                                ]
-                            }
-                        }
-                    }
-                },
-                "profile": {
-                    "title": "Meu perfil",
-                    "discord-none": "Nenhum vinculado",
-                    "items": {
-                        "0": {
-                            "name": "<green>Seu perfil</green>",
-                            "lore": [
-                                "<white>Grupo:</white> <white>{user_group_name_with_color}</white>",
-                                "",
-                                " <white>Data de registro:</white> <gray>{user_registered_date_formated}</gray>",
-                                " <white>Discord:</white> <gray>{user_discord_name}</gray>",
-                                " <white>E-Mail:</white> <gray>Nenhum vinculado</gray>",
-                                ""
-                            ]
-                        },
-                        "1": {
-                            "name": "<green>Skins</green>",
-                            "lore": [
-                                "<gray>Clique para acessar a sua biblioteca</gray>",
-                                "<gray>de skins no servidor.</gray>"
-                            ]
-                        },
-                        "2": {
-                            "name": "<red>Jogadores ignorados</red>",
-                            "lore": [
-                                "<gray>Veja os jogadores que você</gray>",
-                                "<gray>ignorou no servidor.</gray>"
-                            ]
-                        },
-                        "3": {
-                            "name": "<green>Preferências</green>",
-                            "lore": [
-                                "<gray>Clique para visualizar suas preferências.</gray>"
-                            ]
-                        }
-                    }
-                },
-                "servers": {
-                    "title": "Servidores"
-                }
-            }
+  "plugins": {
+    "lobby": {
+      "servers": {
+        "p4free": {
+          "name": "&6P4 Free",
+          "icon": {
+            "name": "{server_name}",
+            "description": [
+              "&f{server_online_count} jogando.",
+              "",
+              " &7Um novo modo de jogo com diversos",
+              " &7sistemas diferentes e únicos.",
+              "",
+              " &6Confira algumas novidades:",
+              " &6► &fEspada Evolutiva;",
+              " &6► &fGladiador;",
+              " &6► &fSistema de Ligas;",
+              " &6► &fAltar Divino;",
+              " &6► &fClasses;",
+              " &6► &fHabilidades Dinâmicas;",
+              " &6► &fE muito mais!",
+              "",
+              "&6Clique para conectar!"
+            ]
+          },
+          "hologram": [
+            "",
+            "&6{server_online_player_count} jogando...",
+            "{server_state}"
+          ]
         }
+      },
+      "server-state-types": {
+        "offline": "&cOffline",
+        "stopping": "&cDesligando",
+        "restarting": "&cReiniciando",
+        "maintenance": "&cEm manutenção",
+        "vip": "&cSomente acesso VIP",
+        "online": "&aClique para entrar"
+      },
+      "commands": {
+        "fly": {
+          "success": "Seu modo de voo foi alterado com sucesso!"
+        },
+        "join-all-queue": {
+          "arguments": {
+            "server": {
+              "name": "servidor",
+              "description": "Servidor que serão redirecionados os jogadores"
+            }
+          },
+          "success": "Todos os jogadores desse lobby foram adicionados a fila do servidor &f{target_server_display_name}!"
+        }
+      },
+      "items": {
+        "lobby-servers-item": {
+          "name": "&aServidores",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7selecionar um servidor."
+          ]
+        },
+        "lobby-hub-selector-item": {
+          "name": "&dSelecionar Lobby",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7abrir a lista de lobbies."
+          ]
+        },
+        "lobby-profile-item": {
+          "name": "&bMeu Perfil",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7abrir ao menu de seu perfil."
+          ]
+        },
+        "lobby-hide-players": {
+          "name": "&fJogadores: &aON",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7mostrar os jogadores do lobby."
+          ]
+        },
+        "lobby-show-players": {
+          "name": "&fJogadores: &cOFF",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7esconder os jogadores do lobby."
+          ]
+        }
+      },
+      "scoreboard": {
+        "title": "&6&lEXE",
+        "lines": [
+          " &7{current_date}",
+          "",
+          " &f&fCargo: {user_group_name_with_color}",
+          " &f&fOnline: &7%network_online-count%",
+          " &f&fGold: &6{user_gold_formatted}",
+          "",
+          "  &6O P4FREE",
+          "  &6está chegando!",
+          "",
+          "&6exe.com"
+        ]
+      },
+      "preferences": {
+        "lobby-visibility": {
+          "name": "&eVisibilidade de jogadores",
+          "description": [
+            "&7Mostra ou esconde os outros",
+            "&7jogadores no lobby."
+          ]
+        },
+        "lobby-chat": {
+          "name": "&eMensagens no chat",
+          "description": [
+            "&7Mostra ou esconde as",
+            "&7mensagens do chat do lobby."
+          ]
+        },
+        "lobby-flying": {
+          "name": "&eModo vôo",
+          "description": [
+            "&7Voe livremente pelo lobby",
+            "&7(exclusivo PRO+)."
+          ]
+        }
+      },
+      "messages": {
+        "chat": {
+          "in-delay": "&cVocê precisa esperar &f{remaining_time}&c para falar novamente.",
+          "preference-off": "&cVocê não pode enviar mensagens nesse chat pois desabilitou as mensagens.",
+          "need-highest-group": "&cVocê precisa ter o grupo &f{required_group_display_tag}&c ou superior para enviar mensagens no chat!",
+          "message": "{message_owner_name_with_tag}&7: {message_content}"
+        },
+        "on-join": {
+          "user-notification": "{user_name_with_tag} &eentrou neste lobby!"
+        },
+        "visibility": {
+          "on": "&aAgora todos os jogadores estão visíveis para você.",
+          "off": "&cAgora todos os jogadores estão escondidos para você."
+        },
+        "queue": {
+          "actionbar": "&6⏳ &6&lFILA! &fSua posição atual &6➟ &f&l{queue_position}º"
+        },
+        "views": {
+          "lobby-selector": {
+            "connect": {
+              "already-connected": "&cVocê já está conectado a este lobby.",
+              "unavailable": "&cEsse lobby está indisponível no momento.",
+              "stopping": "&cEsse lobby está desligando no momento.",
+              "restarting": "&cEsse lobby está reiniciando no momento.",
+              "maintenance": "&cEsse lobby está em manutenção no momento.",
+              "full": "&cEsse lobby está lotado no momento."
+            }
+          }
+        }
+      },
+      "views": {
+        "lobby-selector": {
+          "title": "Selecione o lobby",
+          "items": {
+            "0": {
+              "maintenance": {
+                "name": "&c{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  "&cEsse lobby está em manutenção."
+                ]
+              },
+              "stopping": {
+                "name": "&c{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  "&cEsse lobby está desligando."
+                ]
+              },
+              "restarting": {
+                "name": "&c{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  "&cEsse lobby está reiniciando."
+                ]
+              },
+              "current": {
+                "name": "&a{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  " &fJogadores: &7{app_online_player_count}",
+                  "",
+                  "&eVocê está conectado a este lobby."
+                ]
+              },
+              "available": {
+                "name": "&a{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  " &fJogadores: &7{app_online_player_count}",
+                  "",
+                  "&aClique para conectar a este lobby."
+                ]
+              },
+              "unavailable": {
+                "name": "&c{app_display_name_stripped}",
+                "lore": [
+                  "",
+                  "&cEsse lobby está indisponível."
+                ]
+              }
+            }
+          }
+        },
+        "profile": {
+          "title": "Meu perfil",
+          "discord-none": "Nenhum vinculado",
+          "items": {
+            "0": {
+              "name": "&aSeu perfil",
+              "lore": [
+                "&fGrupo: &f{user_group_name_with_color}",
+                "",
+                " &fData de registro: &7{user_registered_date_formated}",
+                " &fDiscord: &7{user_discord_name}",
+                " &fE-Mail: &7Nenhum vinculado",
+                ""
+              ]
+            },
+            "1": {
+              "name": "&aSkins",
+              "lore": [
+                "&7Clique para acessar a sua biblioteca",
+                "&7de skins no servidor."
+              ]
+            },
+            "2": {
+              "name": "&cJogadores ignorados",
+              "lore": [
+                "&7Veja os jogadores que você",
+                "&7ignorou no servidor."
+              ]
+            },
+            "3": {
+              "name": "&aPreferências",
+              "lore": [
+                "&7Clique para visualizar suas preferências."
+              ]
+            }
+          }
+        },
+        "servers": {
+          "title": "Servidores"
+        }
+      }
     }
+  }
 }

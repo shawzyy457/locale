@@ -1,0 +1,279 @@
+{
+  "plugins": {
+    "classes": {
+      "classes": {
+        "assasin": {
+          "icon": {
+            "name": "&4assasino",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&4 ▾ habilidade",
+              "&7   receba 10% a mais de dano",
+              "&7   após conseguir um abate.",
+              "",
+              "&4sem limite de jogadores."
+            ]
+          },
+          "icon-upgrade": {
+            "name": "&4assasino &8▸ &4nível {new_level}",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&4 informações:",
+              "&f dano: &7{old_damage}% &8➠ &f{new_damage}%",
+              "&f cooldown: &7{old_cooldown} &8➠ &f{new_cooldown}",
+              "",
+              "&8 ▸ &4preço: &2$&f{price}",
+              "",
+              "&4clique para evoluir!"
+            ]
+          }
+        },
+        "ninja": {
+          "icon": {
+            "name": "&5ninja",
+            "lore": [
+              "&7especializado em agilidade",
+              "&7e evasão.",
+              "",
+              "&5 ▾ habilidade",
+              "&7   receba velocidade iii após",
+              "&7   matar um jogador.",
+              "",
+              "&5sem limite de jogadores."
+            ]
+          },
+          "icon-upgrade": {
+            "name": "&5ninja &8▸ &5nível {new_level}",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&5 informações:",
+              "&f duração: &7{old_duration} &8➠ &f{new_duration}",
+              "&f cooldown: &7{old_cooldown} &8➠ &f{new_cooldown}",
+              "",
+              "&8 ▸ &5preço: &2$&f{price}",
+              "",
+              "&5clique para evoluir!"
+            ]
+          }
+        },
+        "restorer": {
+          "icon": {
+            "name": "&6restaurador",
+            "lore": [
+              "&7garantindo que os seus",
+              "&7aliados mantenham sua",
+              "&7proteção.",
+              "",
+              "&6 ▾ habilidade",
+              "&7   repare a armadura dos",
+              "&7   seus aliados após uma",
+              "&7   kill sua.",
+              "",
+              "&6limite {max_per_clan} jogadores por clã."
+            ]
+          },
+          "icon-upgrade": {
+            "name": "&6restaurador &8▸ &6nível {new_level}",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&6 informações:",
+              "&f reparação: &7{old_repair_percentage}% &8➠ &f{new_repair_percentage}%",
+              "&f cooldown: &7{old_cooldown} &8➠ &f{new_cooldown}",
+              "",
+              "&8 ▸ &6preço: &2$&f{price}",
+              "",
+              "&6clique para evoluir!"
+            ]
+          }
+        },
+        "sentinel": {
+          "icon": {
+            "name": "&bsentinel",
+            "lore": [
+              "&7como um falcão, revelando",
+              "&7inimigos e suas ações.",
+              "",
+              "&b ▾ habilidade",
+              "&7   lance um tridente que",
+              "&7   revela todos os jogadores",
+              "&7   em uma área.",
+              "",
+              "&blimite {max_per_clan} jogadores por clã."
+            ]
+          },
+          "icon-upgrade": {
+            "name": "&bsentinela &8▸ &bnível {new_level}",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&b informações:",
+              "&f area: &7{old_area} blocos &8➠ &f{new_area} blocos",
+              "&f duração: &7{old_duration} &8➠ &f{new_duration}",
+              "&f cooldown: &7{old_cooldown} &8➠ &f{new_cooldown}",
+              "",
+              "&8 ▸ &bpreço: &2$&f{price}",
+              "",
+              "&bclique para evoluir!"
+            ]
+          }
+        },
+        "tank": {
+          "icon": {
+            "name": "&atank",
+            "lore": [
+              "&7mantendo a linha da frente",
+              "&7com resistência imbatível.",
+              "",
+              "&a ▾ habilidade",
+              "&7   tenha a chance de receber",
+              "&7   resistência iii durante o",
+              "&7   combate.",
+              "",
+              "&asem limite de jogadores."
+            ]
+          },
+          "icon-upgrade": {
+            "name": "&atank &8▸ &anível {new_level}",
+            "lore": [
+              "&7uma ameaça crescente no",
+              "&7campo de batalha.",
+              "",
+              "&a informações:",
+              "&f chance: &7{old_chance}% &8➠ &f{old_chance}%",
+              "&f cooldown: &7{old_cooldown} &8➠ &f{new_cooldown}",
+              "",
+              "&8 ▸ &apreço: &2$&f{price}",
+              "",
+              "&aclique para evoluir!"
+            ]
+          }
+        }
+      },
+      "views": {
+        "class": {
+          "title": "classes",
+          "items": {
+            "0": {
+              "name": "&6classes existentes",
+              "lore": [
+                "&7veja todas as classes",
+                "&7disponíveis no servidor.",
+                "",
+                "&6clique para acessar."
+              ]
+            },
+            "1": {
+              "name": "&6evoluir a minha classe",
+              "lore": [
+                "&7aumente o nível da sua",
+                "&7classe e melhore a sua",
+                "&7habilidade.",
+                "",
+                "&6clique para acessar."
+              ]
+            },
+            "2": {
+              "name": "&6mudar de classe",
+              "lore": [
+                "&7já cansou da sua classe?",
+                "&7sem p roblemas!",
+                "",
+                "&6clique para acessar."
+              ]
+            }
+          }
+        },
+        "classes": {
+          "title": "todas as classes existentes"
+        },
+        "class-upgrade": {
+          "title": "evolua sua classe",
+          "items": {
+            "0": {
+              "name": "{class_color}Nível concluído!"
+            },
+            "1": {
+              "name": "&cNenhuma melhoria disponível.",
+              "lore": [
+                "&7selecione uma classe para ver",
+                "&7suas melhorias."
+              ]
+            }
+          }
+        },
+        "select-class": {
+          "title": "escolha a sua classe"
+        },
+        "change-class": {
+          "title": "mude de classe",
+          "items": {
+            "0": {
+              "name": "&cremover classe selecionada",
+              "lore": [
+                "&7Enjoôu da sua classe ?",
+                "&7remova ela agora.",
+                "",
+                "&f&l OBS: você ficara com 5",
+                "&f minutos de cooldown.",
+                ""
+              ]
+            },
+            "1": {
+              "name": "&cvoltar"
+            },
+            "2": {
+              "lore": {
+                "1": [
+                  "",
+                  "&aclasse selecionada."
+                ],
+                "2": [
+                  "",
+                  "&eclique para selecionar."
+                ],
+                "3": [
+                  "",
+                  " &fPreço: &a$&f{price}",
+                  "",
+                  "&eclique para comprar."
+                ]
+              }
+            }
+          }
+        }
+      },
+      "messages": {
+        "is-in-delay": "&cVocê precisa aguardar {cooldown} para usar novamente!",
+        "views": {
+          "select-class": {
+            "selected-class": "&e&lGG! Você selecionou {class_name}"
+          },
+          "class-upgrade": {
+            "invalid-level": "&cVocê precisa evoluir o nível anterior.",
+            "level-already-completed": "&cVocê já evoluiu esse nível.",
+            "no-has-value": "&cVocê não possui {price} coins para evoluir sua classe.",
+            "buy-class": "&a&lGG! você evoluiu a sua classe para o nível {class_level}."
+          },
+          "change-class": {
+            "remove-class": "&c&lYEAH! você  removeu a sua classe selecionada.",
+            "no-selected-class": "&cVocê já está sem nenhuma classe selecionada.",
+            "is-in-cooldown": "&cVocê precisa aguardar {cooldown} para trocar de classe.",
+            "no-has-value": "&cVocê não possui {price} coins para desbloquear essa classe.",
+            "already-selected": "&cVocê já está com essa classe selecionada.",
+            "select-class": "&eVocê selecionou a classe {class_name}.",
+            "buy-class": "&a&lGG! você desbloqueou a classe {class_name}."
+          }
+        }
+      }
+    }
+  }
+}

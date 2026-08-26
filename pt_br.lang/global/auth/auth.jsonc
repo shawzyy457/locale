@@ -1,169 +1,169 @@
 {
-    "plugins": {
-        "auth": {
-            "commands": {
-                "login": {
-                    "arguments": {
-                        "password": {
-                            "name": "senha",
-                            "description": "Insira a senha que você utiliza nessa conta"
-                        }
-                    },
-                    "already-logged": [
-                        "Você já se encontra autenticado."
-                    ],
-                    "not-registered": [
-                        "Você ainda não está registrado.",
-                        "Utilize /registrar <senha> <senha>"
-                    ],
-                    "invalid-password": [
-                        "Senha inválida!",
-                        "Utilize /logar <senha>"
-                    ],
-                    "kick-message": [
-                        "<red>Você excedeu o limite de tentativas!</red>"
-                    ],
-                    "too-many-logged-accounts": [
-                        "<red>Você está com muitas contas conectadas!</red>"
-                    ],
-                    "reserved-name": [
-                        "Este nick é reservado para os bots da rede."
-                    ]
-                },
-                "loginstaff": {
-                    "arguments": {
-                        "code": {
-                            "name": "código",
-                            "description": "Insira o seu código de loginstaff para se autenticar"
-                        }
-                    },
-                    "already-logged": [
-                        "Você já se logou como staff!"
-                    ],
-                    "not-logged": [
-                        "Você precisa se autenticar primeiro!"
-                    ],
-                    "code-not-registered": [
-                        "Código de login staff não registrado!"
-                    ],
-                    "invalid-password": [
-                        "Senha inválida!",
-                        "Utilize /logar <senha>"
-                    ],
-                    "kick-message": [
-                        "<red>O codigo de login inserido é invalido.</red>"
-                    ]
-                },
-                "register": {
-                    "arguments": {
-                        "password": {
-                            "name": "senha",
-                            "description": "Digite uma senha que você irá se lembrar."
-                        },
-                        "confirm-password": {
-                            "name": "senha",
-                            "description": "Confirme sua senha para se registrar."
-                        }
-                    },
-                    "already-registered": [
-                        "Você já está registrado!",
-                        "Utilize /logar <senha>"
-                    ],
-                    "password-minimum-length": [
-                        "Sua senha deve ter no mínimo 5 letras."
-                    ],
-                    "password-maximum-length": [
-                        "Sua senha deve ter no máximo 32 letras."
-                    ],
-                    "password-invalid-pattern": [
-                        "Você precisa utilizar caracteres válidos em sua senha."
-                    ],
-                    "passwords-not-equals": [
-                        "As senhas não são iguais.",
-                        "Confirme a senha corretamente.",
-                        "Utilize /registrar <senha> <senha>"
-                    ],
-                    "too-many-logged-accounts": [
-                        "<red>Você está com muitas contas conectadas!</red>"
-                    ],
-                    "too-many-registered-accounts": [
-                        "<red>Você já registrou muitas contas.</red>",
-                        "<red>Entre em contato com nossa equipe.</red>",
-                        "<red>Discord: </red><white>discord.gg/exe</white>"
-                    ],
-                    "reserved-name": [
-                        "Este nick é reservado para os bots da rede."
-                    ]
-                }
-            },
-            "messages": {
-                "auth": {
-                    "titles": {
-                        "request-auth": {
-                            "login": {
-                                "title": "<color:#FF8200><bold>Rede EXE</bold>",
-                                "subtitle": "<white>Utilize /logar <senha></white>"
-                            },
-                            "register": {
-                                "title": "<color:#FF8200><bold>Rede EXE</bold>",
-                                "subtitle": "<white>Utilize /registrar <senha> <senha></white>"
-                            },
-                            "staff": {
-                                "title": "<color:#FF8200><bold>Rede EXE</bold>",
-                                "subtitle": "<white>Utilize /loginstaff <código></white>"
-                            }
-                        },
-                        "authenticated": {
-                            "title": "<color:#FF8200><bold>Autenticado!</bold>",
-                            "subtitle": "<white>Seja bem-vindo!</white>"
-                        },
-                        "queue-wait": {
-                            "title": "<color:#FF8200><bold>Rede EXE</bold>",
-                            "subtitle": "<white>Aguarde, você está na fila para entrar...</white>"
-                        }
-                    },
-                    "chat": {
-                        "request-auth": {
-                            "login": [
-                                "",
-                                " <gold><bold>Rede EXE</bold></gold> <dark_gray>➟ </dark_gray><yellow>Sessão de Autenticação</yellow>",
-                                " <gray>Seja bem-vindo ao EXE!</gray>",
-                                "",
-                                " <white>Utilize </white><gold>/logar <senha></gold><white> para se autenticar.</white>",
-                                "",
-                                " <white>Acompanhe o nosso discord e fique por dentro de tudo!</white>",
-                                " <gold>Discord: </gold><white>discord.gg/exe</white>",
-                                ""
-                            ],
-                            "register": [
-                                "",
-                                " <gold><bold>Rede EXE</bold></gold> <dark_gray>➟ </dark_gray><yellow>Sessão de Autenticação</yellow>",
-                                " <gray>Seja bem-vindo ao EXE!</gray>",
-                                "",
-                                " <white>Utilize </white><gold>/registrar <senha> <senha></gold><white> para se registrar.</white>",
-                                "",
-                                " <white>Acompanhe o nosso discord e fique por dentro de tudo!</white>",
-                                " <gold>Discord: </gold><white>discord.gg/exe</white>",
-                                ""
-                            ]
-                        }
-                    },
-                    "timeout": {
-                        "kick-message": "<red>Você demorou demais para se autenticar.</red>",
-                        "count": {
-                            "login": "<#FF5555>Você possui {remaining_time} para se autenticar.</#FF5555>",
-                            "register": "<#FF5555>Você possui {remaining_time} para se registrar.</#FF5555>"
-                        }
-                    },
-                    "queue": {
-                        "no-lobbies": [
-                            "",
-                            " <#FF5555>Não foram encontrados lobbies para conexão, você foi colocado na lista de espera!</#FF5555>",
-                            ""
-                        ]
-                    }
-                }
+  "plugins": {
+    "auth": {
+      "commands": {
+        "login": {
+          "arguments": {
+            "password": {
+              "name": "senha",
+              "description": "Insira a senha que você utiliza nessa conta"
             }
+          },
+          "already-logged": [
+            "Você já se encontra autenticado."
+          ],
+          "not-registered": [
+            "Você ainda não está registrado.",
+            "Utilize /registrar <senha> <senha>"
+          ],
+          "invalid-password": [
+            "Senha inválida!",
+            "Utilize /logar <senha>"
+          ],
+          "kick-message": [
+            "&cVocê excedeu o limite de tentativas!"
+          ],
+          "too-many-logged-accounts": [
+            "&cVocê está com muitas contas conectadas!"
+          ],
+          "reserved-name": [
+            "Este nick é reservado para os bots da rede."
+          ]
+        },
+        "loginstaff": {
+          "arguments": {
+            "code": {
+              "name": "código",
+              "description": "Insira o seu código de loginstaff para se autenticar"
+            }
+          },
+          "already-logged": [
+            "Você já se logou como staff!"
+          ],
+          "not-logged": [
+            "Você precisa se autenticar primeiro!"
+          ],
+          "code-not-registered": [
+            "Código de login staff não registrado!"
+          ],
+          "invalid-password": [
+            "Senha inválida!",
+            "Utilize /logar <senha>"
+          ],
+          "kick-message": [
+            "&cO codigo de login inserido é invalido."
+          ]
+        },
+        "register": {
+          "arguments": {
+            "password": {
+              "name": "senha",
+              "description": "Digite uma senha que você irá se lembrar."
+            },
+            "confirm-password": {
+              "name": "senha",
+              "description": "Confirme sua senha para se registrar."
+            }
+          },
+          "already-registered": [
+            "Você já está registrado!",
+            "Utilize /logar <senha>"
+          ],
+          "password-minimum-length": [
+            "Sua senha deve ter no mínimo 5 letras."
+          ],
+          "password-maximum-length": [
+            "Sua senha deve ter no máximo 32 letras."
+          ],
+          "password-invalid-pattern": [
+            "Você precisa utilizar caracteres válidos em sua senha."
+          ],
+          "passwords-not-equals": [
+            "As senhas não são iguais.",
+            "Confirme a senha corretamente.",
+            "Utilize /registrar <senha> <senha>"
+          ],
+          "too-many-logged-accounts": [
+            "&cVocê está com muitas contas conectadas!"
+          ],
+          "too-many-registered-accounts": [
+            "&cVocê já registrou muitas contas.",
+            "&cEntre em contato com nossa equipe.",
+            "&cDiscord: &fdiscord.gg/exe"
+          ],
+          "reserved-name": [
+            "Este nick é reservado para os bots da rede."
+          ]
         }
+      },
+      "messages": {
+        "auth": {
+          "titles": {
+            "request-auth": {
+              "login": {
+                "title": "&6&lEXE",
+                "subtitle": "&fUtilize /logar <senha>"
+              },
+              "register": {
+                "title": "&6&lEXE",
+                "subtitle": "&fUtilize /registrar <senha> <senha>"
+              },
+              "staff": {
+                "title": "&6&lEXE",
+                "subtitle": "&fUtilize /loginstaff <código>"
+              }
+            },
+            "authenticated": {
+              "title": "&6&lAutenticado!",
+              "subtitle": "&fSeja bem-vindo!"
+            },
+            "queue-wait": {
+              "title": "&6&lEXE",
+              "subtitle": "&fAguarde, você está na fila para entrar..."
+            }
+          },
+          "chat": {
+            "request-auth": {
+              "login": [
+                "",
+                " &6&lEXE &8➟ &eSessão de Autenticação",
+                " &7Seja bem-vindo ao EXE!",
+                "",
+                " &fUtilize &6/logar <senha>&f para se autenticar.",
+                "",
+                " &fAcompanhe o nosso discord e fique por dentro de tudo!",
+                " &6Discord: &fdiscord.gg/exe",
+                ""
+              ],
+              "register": [
+                "",
+                " &6&lEXE &8➟ &eSessão de Autenticação",
+                " &7Seja bem-vindo ao EXE!",
+                "",
+                " &fUtilize &6/registrar <senha> <senha>&f para se registrar.",
+                "",
+                " &fAcompanhe o nosso discord e fique por dentro de tudo!",
+                " &6Discord: &fdiscord.gg/exe",
+                ""
+              ]
+            }
+          },
+          "timeout": {
+            "kick-message": "&cVocê demorou demais para se autenticar.",
+            "count": {
+              "login": "&cVocê possui {remaining_time} para se autenticar.",
+              "register": "&cVocê possui {remaining_time} para se registrar."
+            }
+          },
+          "queue": {
+            "no-lobbies": [
+              "",
+              " &cNão foram encontrados lobbies para conexão, você foi colocado na lista de espera!",
+              ""
+            ]
+          }
+        }
+      }
     }
+  }
 }

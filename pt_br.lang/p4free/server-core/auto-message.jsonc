@@ -1,0 +1,132 @@
+{
+  "plugins": {
+    "server-core": {
+      "messages": {
+        "auto-messages": {
+          "0": [
+            "",
+            "&8&l Discord Oficial!&r",
+            "",
+            "&f Entre já em nosso discord e fique por dentro",
+            "&f de todas as atualizações do servidor.",
+            "",
+            "&8 discord.gg/exe",
+            ""
+          ],
+          "1": [
+            "",
+            "&6&l Tem alguma dúvida?&r",
+            "",
+            "&f Abra um ticket em nosso discord e",
+            "&f ficaremos muito felizes em responder.",
+            "",
+            "&6 discord.gg/exe",
+            ""
+          ],
+          "2": [
+            "",
+            "&a&l Métodos de pagamento disponíveis&r",
+            "&f exe.com",
+            "",
+            "&8 &fNossas formas de pagamentos são:",
+            "&7 PIX, PayPal, Cartão de Crédito & MbWay.",
+            "",
+            "&f Qualquer dúvida sobre compras, abra um ticket.",
+            "&a discord.gg/exe",
+            ""
+          ],
+          "3": [
+            "",
+            "&5 Cupom &lECLIPSE&r&f disponível com &5&l70%",
+            "&f de desconto em qualquer produto do site.",
+            "",
+            "&8 &f&f de &8&mR$316,30&r&f por &7R$94,90&r",
+            "&8 &f&f de &8&mR$149,65&r&f por &7R$44,90&r",
+            "&8 &f&f de &8&mR$73,00&r&f por &7R$22,90&r",
+            "&8 &f&f de &8&mR$33,00&r&f por &7R$9,90&r",
+            "",
+            "&5 Adquira acessando: &fexe.com",
+            ""
+          ],
+          "4": [
+            "",
+            "&6 Cupom &lABERTURA&r&f disponível com &c&l70%",
+            "&f de desconto em qualquer produto do site.",
+            "",
+            "&8  &612.000 Gold&f de &8&mR$709,65&r&f por &6R$212,90&r",
+            "&8  &65.500 Gold&f de &8&mR$329,65&r&f por &6R$98,90&r",
+            "&8  &63.100 Gold&f de &8&mR$186,30&r&f por &6R$55,90&r",
+            "&8  &62.050 Gold&f de &8&mR$126,30&r&f por &6R$37,90&r",
+            "&8  &61.000 Gold&f de &8&mR$63,00&r&f por &6R$18,90&r",
+            "&8  &6500 Gold&f de &8&mR$33,00&r&f por &6R$9,90&r",
+            "",
+            "&6 Adquira acessando: &fexe.com",
+            ""
+          ],
+          "5": [
+            "",
+            "&6 &lFaça parte da equipe do EXE!",
+            "",
+            "&f As vagas para adentrar a equipe do",
+            "&f servidor estão abertas, aplique-se já!.",
+            "",
+            "&6 discord.gg/exe #formulários",
+            ""
+          ],
+          "6": [
+            "",
+            "&6&l EXE ⚡",
+            "",
+            "&f Obrigado aos mais de &6{server_online_count} jogadores online&f!",
+            "&f Divirta-se e mantenha o respeito com outros.",
+            "",
+            "&6 Novidades e Sorteios: &fdiscord.gg/exe",
+            ""
+          ],
+          "7": [
+            "",
+            "&6&l Mercado de Gold",
+            "",
+            "&f Você pode adquirir itens especiais e",
+            "&f outros com &6Gold&f digitando &6/goldshop",
+            "",
+            "&6 Adquira Gold acessando: &fexe.com",
+            ""
+          ],
+          "22": [
+            "",
+            "&a&l Métodos de pagamento disponíveis&r",
+            "&f exe.com",
+            "",
+            "&8 &fNossas formas de pagamentos são:",
+            "&7 PIX, PayPal, Cartão de Crédito & MbWay.",
+            "",
+            "&f Qualquer dúvida sobre compras, abra um ticket.",
+            "&a discord.gg/exe",
+            ""
+          ],
+          "23": [
+            "",
+            "&8 🎉&l Novo modo de jogo chegou!",
+            "&7 O modo mais INSANO acabou de chegar!",
+            "",
+            " &7O queridinho da galera já é realidade: &8P4FREE!",
+            "",
+            " &8Vem descobrir tudo no nosso Discord! Clique AQUI!",
+            ""
+          ],
+          "26": [
+            "",
+            "&8 🎉&l Novo modo de jogo chegou!",
+            "&7 O modo mais INSANO acabou de chegar!",
+            "",
+            " &7O queridinho da galera já é realidade: &8P4FREE!",
+            "",
+            " &8Vem descobrir tudo no nosso Discord! Clique AQUI!",
+            ""
+          ]
+        }
+      }
+    }
+  }
+}

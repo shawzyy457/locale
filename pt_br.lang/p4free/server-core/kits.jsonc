@@ -1,0 +1,217 @@
+{
+  "plugins": {
+    "server-core": {
+      "kits": {
+        "categories": {
+          "default": {
+            "name": "&aKits Básicos",
+            "description": [
+              "&7Acesse os kits que todos",
+              "&7os jogadores possuem acesso."
+            ]
+          },
+          "vip": {
+            "name": "&aKits VIPs",
+            "description": [
+              "&7Encontre os kits para jogadores",
+              "&7que possuem alguma vantagem."
+            ]
+          }
+        },
+        "types": {
+          "member_1d": {
+            "name": "&7Kit Básico 1d &f"
+          },
+          "member_7d": {
+            "name": "&7Kit Básico 7d &f"
+          },
+          "pro_1d": {
+            "name": "&dKit 1d &f"
+          },
+          "pro_7d": {
+            "name": "&dKit 7d &f"
+          },
+          "mvp_1d": {
+            "name": "&bKit 1d &f"
+          },
+          "mvp_7d": {
+            "name": "&bKit 7d &f"
+          },
+          "elite_1d": {
+            "name": "&4Kit 1d &f"
+          },
+          "elite_7d": {
+            "name": "&4Kit 7d &f"
+          },
+          "EXE_1d": {
+            "name": "&6EXE 1d &f"
+          },
+          "EXE_7d": {
+            "name": "&6EXE 7d &f"
+          }
+        }
+      },
+      "commands": {
+        "createkit": {
+          "arguments": {
+            "id": {
+              "name": "id",
+              "description": "ID do kit que será criado"
+            }
+          },
+          "already-have-with-id": "Já existe um kit com esse id criado!",
+          "invalid-kit-id-length": "Você não pode usar um id que tem mais de 16 caracteres.",
+          "success": "Você criou o kit com sucesso!"
+        },
+        "deletekit": {
+          "arguments": {
+            "id": {
+              "name": "id",
+              "description": "ID do kit que será deletado"
+            }
+          },
+          "cannot-find-with-id": "Não foi possivel encontrar um kit com esse id!",
+          "success": "O kit {kit_id} foi deletado com sucesso."
+        },
+        "editkit": {
+          "arguments": {
+            "id": {
+              "name": "id",
+              "description": "ID do kit que será editado"
+            }
+          },
+          "cannot-find-with-id": "Não foi possivel encontrar um kit com esse id!"
+        },
+        "givekit": {
+          "arguments": {
+            "id": {
+              "name": "id",
+              "description": "ID do kit que será enviado"
+            },
+            "target": {
+              "name": "jogador",
+              "description": "Jogador que irá receber o kit"
+            }
+          },
+          "cannot-find-with-id": "Não foi possivel encontrar um kit com esse id!",
+          "success": "Você deu o kit \"{kit_id}\" para o jogador {target_name}!"
+        }
+      },
+      "messages": {
+        "kits": {
+          "on-collect": {
+            "dont-have-permission": "Você não possui permissão para coletar esse kit.",
+            "in-delay": "Você precisa esperar mais {kit_cooldown_remaining} para coletar esse kit.",
+            "success": "Kit \"&f{kit_name}\" coletado!"
+          }
+        },
+        "views": {
+          "kit-edit": {
+            "update-icon": {
+              "conversation": {
+                "query": "Você tem certeza que deseja definir o item em sua mão como o icone?",
+                "responses": {
+                  "need-item-in-hand": "Você precisa segurar o item em sua mão!",
+                  "success": "Icone do kit \"{kit_id}\" alterado com sucesso."
+                }
+              }
+            },
+            "update-groups": {
+              "conversation": {
+                "query": "Digite a permissão que deseja para o kit.",
+                "responses": {
+                  "success": "Grupos do kit \"{kit_id}\" alterados para &f{kit_groups}."
+                }
+              }
+            },
+            "update-items": {
+              "conversation": {
+                "query": "Você tem certeza que deseja alterar os items do kit para os items de seu inventário.",
+                "responses": {
+                  "success": "Items do kit \"{kit_id}\" alterados."
+                }
+              }
+            },
+            "update-delay": {
+              "conversation": {
+                "query": "Digite no chat o novo delay para seu kit.",
+                "responses": {
+                  "success": "Delay do kit \"{kit_id}\" alterado para \"&f{kit_cooldown}\"."
+                }
+              }
+            }
+          }
+        }
+      },
+      "views": {
+        "kit-edit": {
+          "title": "Editando - {kit_name}",
+          "items": {
+            "0": {
+              "name": "&aAlterar icon",
+              "lore": [
+                "&7Clique aqui para definir",
+                "&7um novo icon para o kit."
+              ]
+            },
+            "1": {
+              "name": "&aAlterar permissão",
+              "lore": [
+                "&7Clique aqui para definir",
+                "&7uma nome permissão para o kit."
+              ]
+            },
+            "2": {
+              "name": "&aAlterar items",
+              "lore": [
+                "&7Clique aqui para definir",
+                "&7os items do seu kit.",
+                "",
+                "&eOs items serão os que estão em seu inventário."
+              ]
+            },
+            "3": {
+              "name": "&aAlterar segundos",
+              "lore": [
+                "&7Clique aqui para definir",
+                "&7o delay do seu kit.",
+                "",
+                "&eO delay precisa ser em segundos."
+              ]
+            }
+          }
+        },
+        "kit-visualization": {
+          "title": "{kit_name}"
+        },
+        "kit-categories": {
+          "title": "Categorias de Kits",
+          "items": {
+            "0": {
+              "name": "{kit_category_name}",
+              "lore": [
+                "{kit_category_description}",
+                "",
+                "&aClique para acessar."
+              ]
+            }
+          }
+        },
+        "kit-category": {
+          "title": "{kit_category_name_stripped}",
+          "items": {
+            "0": {
+              "name": "{kit_name}",
+              "lore": [
+                "&7Clique direito para &fver o conteúdo&7.",
+                "&7Clique esquerdo para &fcoletar.",
+                "",
+                "&8➟ &fTempo p/ coletar: &7{kit_cooldown}"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

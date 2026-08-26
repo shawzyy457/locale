@@ -4,16 +4,16 @@
       "status": {
         "update": {
           "starting": [
-            "<yellow>Servidor </yellow><white>{app_display_name_stripped}</white><yellow> iniciando...</yellow>"
+            "&eServidor &f{app_display_name_stripped}&e iniciando..."
           ],
           "started": [
-            "<green>Servidor </green><white>{app_display_name_stripped}</white><green> ligado!</green>"
+            "&aServidor &f{app_display_name_stripped}&a ligado!"
           ],
           "stopping": [
-            "<red>Servidor </red><white>{app_display_name_stripped}</white><red> desligando...</red>"
+            "&cServidor &f{app_display_name_stripped}&c desligando..."
           ],
           "stopped": [
-            "<dark_red>Servidor </dark_red><white>{app_display_name_stripped}</white><dark_red> desligado!</dark_red>"
+            "&4Servidor &f{app_display_name_stripped}&4 desligado!"
           ]
         }
       }

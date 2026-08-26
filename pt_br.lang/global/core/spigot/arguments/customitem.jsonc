@@ -3,7 +3,7 @@
     "core": {
       "arguments": {
         "custom-item": {
-          "not-found": "<red>Não foi possível encontrar um item com a key <white>'{custom_item_key}'</white>!</red>"
+          "not-found": "&cNão foi possível encontrar um item com a key &f'{custom_item_key}'!"
         }
       }
     }

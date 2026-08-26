@@ -1,0 +1,151 @@
+{
+  "plugins": {
+    "currencies": {
+      "features": {
+        "check": {
+          "item": {
+            "display-name": "Cheque de {currency_plural_name_lower_case}",
+            "name": "{currency_color}Cheque de {currency_plural_name}",
+            "lore": {
+              "value": [
+                "",
+                "{currency_color}│&f Valor: {currency_check_feature_formatted_value}"
+              ],
+              "percentage": [
+                "&7Utilize este cheque para receber",
+                "&7{currency_plural_name_lower_case} em sua conta."
+              ]
+            }
+          },
+          "activated": "&aCheque ativado! &f+{currency_check_feature_formatted_value}"
+        }
+      },
+      "types": {
+        "gold": {
+          "name": {
+            "singular": "Gold",
+            "plural": "Gold"
+          },
+          "features": {
+            "check": {
+              "visualization": "&6{currency_icon}{currency_formatted_value}"
+            }
+          },
+          "visualization": "&6{currency_icon}{currency_formatted_value}"
+        },
+        "coins": {
+          "name": {
+            "singular": "Coin",
+            "plural": "Coins"
+          },
+          "features": {
+            "check": {
+              "visualization": "&2{currency_icon}&f{currency_formatted_value}"
+            }
+          },
+          "visualization": "&2{currency_icon}&f{currency_formatted_value}"
+        }
+      },
+      "commands": {
+        "currencies": {
+          "visualize": {
+            "same": {
+              "success": "{currency_color}Você possui &f{currency_formatted_value} {currency_adaptively_name_lower_case}.",
+              "without-balance": "{currency_color}Você não possui {currency_plural_name_lower_case}."
+            },
+            "target": {
+              "success": "{currency_target_name_with_color} {currency_color}possui &f{currency_formatted_value} {currency_adaptively_name_lower_case}.",
+              "without-balance": "{currency_target_name_with_color} {currency_color}não possui {currency_plural_name_lower_case}."
+            }
+          },
+          "add": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que irá receber {currency_plural_name_lower_case}"
+              },
+              "value": {
+                "name": "quantidade",
+                "description": "Quantidade de {currency_plural_name_lower_case} que o jogador irá receber"
+              }
+            },
+            "success": "{currency_color}Você adicionou &f{currency_formatted_value} {currency_adaptively_name} ao jogador {currency_target_name_with_color}"
+          },
+          "pay": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que irá receber {currency_plural_name_lower_case}"
+              },
+              "value": {
+                "name": "quantidade",
+                "description": "Quantidade de {currency_plural_name_lower_case} que o jogador irá receber"
+              }
+            },
+            "ignores": {
+              "sender": "Você não pode enviar {currency_plural_name_lower_case} para um jogador ignorado.",
+              "target": "Você não pode enviar {currency_plural_name_lower_case} para esse jogador pois ele te ignorou."
+            },
+            "preferences": {
+              "disabled": {
+                "sender": "Você não pode enviar {currency_plural_name_lower_case} pois desabilitou seu recebimento.",
+                "target": "Esse jogador desabilitou o recebimento de {currency_plural_name_lower_case}."
+              }
+            },
+            "without-balance": "Você não possui {currency_plural_name_lower_case} para enviar para o jogador.",
+            "success-sender": "&aVocê enviou {currency_color}{currency_icon}{currency_formatted_value} &apara {currency_target_name_with_color}.",
+            "success-target": "&aVocê recebeu {currency_color}{currency_icon}{currency_formatted_value} de &a{currency_sender_name_with_color}."
+          },
+          "remove": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que serão removidos {currency_plural_name_lower_case}"
+              },
+              "value": {
+                "name": "quantidade",
+                "description": "Quantidade de {currency_plural_name_lower_case} serão removidos do jogador"
+              }
+            },
+            "success": "{currency_color}Você removeu &f{currency_formatted_value} {currency_adaptively_name} do jogador {currency_target_name_with_color}"
+          },
+          "set": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Nome do jogador que serão definidos {currency_plural_name_lower_case}"
+              },
+              "value": {
+                "name": "quantidade",
+                "description": "Quantidade de {currency_plural_name_lower_case} que será setado ao jogador"
+              }
+            },
+            "success": "{currency_color}Você definiu &f{currency_formatted_value} {currency_adaptively_name} para jogador {currency_target_name_with_color}"
+          },
+          "update": {
+            "success": "Solicitação de atualização enviada com sucesso"
+          }
+        }
+      },
+      "views": {
+        "currency-ranking": {
+          "title": "Ranking de {currency_plural_name}",
+          "items": {
+            "0": {
+              "name": "&f#{currency_account_ranking_position} {currency_account_name_with_tag}",
+              "lore": [
+                "&fQuantia: {currency_account_ranking_value_formatted}"
+              ]
+            },
+            "1": {
+              "name": "&f#{currency_account_ranking_position} {currency_account_name_with_tag}",
+              "lore": [
+                "&fQuantia: {currency_account_ranking_value_formatted}"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

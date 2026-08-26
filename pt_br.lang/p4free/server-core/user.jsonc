@@ -1,0 +1,22 @@
+{
+  "plugins": {
+    "server-core": {
+      "commands": {
+        "fly": {
+          "not-allowed-in-app": "OPS! Parece que você não pode mudar seu modo de vôo aqui!",
+          "success-disabled": "&cModo de vôo desabilitado com sucesso!",
+          "success-disable-with-gamemode": "&cModo de vôo desabilitado com sucesso, porém seu vôo não foi desabilitado por você estar no modo criativo ou espectador!",
+          "success-activated": "Modo vôo habilitado com sucesso!"
+        },
+        "off": {
+          "already-disabled": "Todos os jogadores já estão invisíveis.",
+          "success": "Agora todos os jogadores estão invisíveis."
+        },
+        "on": {
+          "already-activated": "Você já consegue ver todos os jogadores.",
+          "success": "Agora você consegue ver todos os jogadores."
+        }
+      }
+    }
+  }
+}

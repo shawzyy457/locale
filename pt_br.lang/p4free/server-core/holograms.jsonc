@@ -1,0 +1,20 @@
+{
+  "plugins": {
+    "server-core": {
+      "holograms": {
+        "spawn": [
+          "&5&lPRISON ECLIPSE! &8▪ &f{server_online_count}",
+          "&fBem-vindo ao &fP. Eclipse&f!",
+          "",
+          "&fEste é um servidor &dOverpower &fcom",
+          "&fdiversos sistemas únicos, como,",
+          "&fmina privada, &lthe end&f, farm",
+          "entre outros!",
+          "",
+          "&fAdquira &5VIP &fou &5Diversos itens &facessando:",
+          "&5exe.com"
+        ]
+      }
+    }
+  }
+}

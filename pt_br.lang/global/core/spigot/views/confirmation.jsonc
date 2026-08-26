@@ -1,27 +1,27 @@
 {
-    "plugins": {
-        "core": {
-            "views": {
-                "confirmation": {
-                    "title": "Confirmação",
-                    "items": {
-                        "0": {
-                            "name": "<green>Confirmar a operação</green>",
-                            "lore": [
-                                "<gray>Ao clicar aqui você confirma que</gray>",
-                                "<gray>deseja continuar com essa operação.</gray>"
-                            ]
-                        },
-                        "1": {
-                            "name": "<red>Negar a operação</red>",
-                            "lore": [
-                                "<gray>Ao clicar aqui você nega que</gray>",
-                                "<gray>deseja continuar com essa operação.</gray>"
-                            ]
-                        }
-                    }
-                }
+  "plugins": {
+    "core": {
+      "views": {
+        "confirmation": {
+          "title": "Confirmação",
+          "items": {
+            "0": {
+              "name": "&aConfirmar a operação",
+              "lore": [
+                "&7Ao clicar aqui você confirma que",
+                "&7deseja continuar com essa operação."
+              ]
+            },
+            "1": {
+              "name": "&cNegar a operação",
+              "lore": [
+                "&7Ao clicar aqui você nega que",
+                "&7deseja continuar com essa operação."
+              ]
             }
+          }
         }
+      }
     }
+  }
 }

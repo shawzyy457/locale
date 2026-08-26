@@ -1,39 +1,39 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "views": {
-                    "user-language": {
-                        "already-selected": "Você já está com esse idioma selecionado.",
-                        "success": "Você alterou seu idioma para <white>{language_name}</white>."
-                    }
-                }
-            },
-            "views": {
-                "user-language": {
-                    "title": "Idioma",
-                    "items": {
-                        "0": {
-                            "already-selected": {
-                                "name": "<color:#FF8200>{language_name}",
-                                "lore": [
-                                    "{language_description}",
-                                    "",
-                                    "<red>Você já selecionou este idioma.</red>"
-                                ]
-                            },
-                            "select": {
-                                "name": "<color:#FF8200>{language_name}",
-                                "lore": [
-                                    "{language_description}",
-                                    "",
-                                    "<green>Clique para selecionar este idioma."
-                                ]
-                            }
-                        }
-                    }
-                }
-            }
+  "plugins": {
+    "core": {
+      "messages": {
+        "views": {
+          "user-language": {
+            "already-selected": "Você já está com esse idioma selecionado.",
+            "success": "Você alterou seu idioma para &f{language_name}."
+          }
         }
+      },
+      "views": {
+        "user-language": {
+          "title": "Idioma",
+          "items": {
+            "0": {
+              "already-selected": {
+                "name": "&6{language_name}",
+                "lore": [
+                  "{language_description}",
+                  "",
+                  "&cVocê já selecionou este idioma."
+                ]
+              },
+              "select": {
+                "name": "&6{language_name}",
+                "lore": [
+                  "{language_description}",
+                  "",
+                  "&aClique para selecionar este idioma."
+                ]
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }

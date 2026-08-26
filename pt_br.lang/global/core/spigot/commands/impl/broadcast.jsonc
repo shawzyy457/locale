@@ -1,37 +1,37 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "broadcast-announce": {
-                    "arguments": {
-                        "message": {
-                            "name": "mensagem",
-                            "description": "Mensagem que deseja ser divulgada."
-                        }
-                    },
-                    "message": [
-                        "",
-                        "<gold><bold>[ANÚNCIO]</bold></gold> <white>{broadcast_announce_message}</white>",
-                        ""
-                    ]
-                },
-                "broadcast-message": {
-                    "arguments": {
-                        "message": {
-                            "name": "mensagem",
-                            "description": "Mensagem que deseja enviar."
-                        }
-                    }
-                },
-                "broadcast-title": {
-                    "arguments": {
-                        "message": {
-                            "name": "mensagem",
-                            "description": "Mensagem que deseja enviar."
-                        }
-                    }
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "broadcast-announce": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que deseja ser divulgada."
             }
+          },
+          "message": [
+            "",
+            "&6&l[ANÚNCIO] &f{broadcast_announce_message}",
+            ""
+          ]
+        },
+        "broadcast-message": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que deseja enviar."
+            }
+          }
+        },
+        "broadcast-title": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que deseja enviar."
+            }
+          }
         }
+      }
     }
+  }
 }

@@ -1,11 +1,11 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "shop": {
-                    "delivery-received": "Você recebeu as suas compras da loja!"
-                }
-            }
+  "plugins": {
+    "core": {
+      "messages": {
+        "shop": {
+          "delivery-received": "Você recebeu as suas compras da loja!"
         }
+      }
     }
+  }
 }

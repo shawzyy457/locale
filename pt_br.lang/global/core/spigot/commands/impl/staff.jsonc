@@ -1,66 +1,66 @@
 {
-    "plugins": {
-        "core": {
-            "commands": {
-                "account": {
-                    "arguments": {
-                        "target": {
-                            "name": "mome ou uuid",
-                            "description": "Insira o nome ou a uuid do jogador"
-                        }
-                    },
-                    "invalid-uuid-pattern": "Você precisa inserir um formato de uuid válido!",
-                    "invalid-name-pattern": "Você precisa inserir um formato de nome válido!",
-                    "message": {
-                        "identity": [
-                            "{primary}Informações da conta de <white>{account_name}",
-                            "<white>UUID: <gray><hover:show_text:'<gray>Clique para copiar: <white>{account_uuid}'><click:suggest_command:'{account_uuid}'>{account_uuid}</click></hover>",
-                            "<white>Nome: <gray><hover:show_text:'<gray>Clique para copiar: <white>{account_name}'><click:suggest_command:'{account_name}'>{account_name}</click></hover>"
-                        ],
-                        "session": [
-                            "<white>Último login: <gray>{account_last_login}",
-                            "<white>Última saída: <gray>{account_last_quit}"
-                        ],
-                        "still-online": "Ainda online",
-                        "general": [
-                            "<white>Grupos: <gray>{account_groups}",
-                            "<white>Cadastrado em: <gray>{account_registered}"
-                        ],
-                        "no-groups": "Nenhum.",
-                        "associated": "<white>Contas associadas: <gray>{account_associated}",
-                        "associated-entry": "<hover:show_text:'<gray>Ver perfil: <white>/acc {associated_name}'><click:run_command:'/acc {associated_name}'>{associated_name}</click></hover>",
-                        "associated-empty": "Nenhuma.",
-                        "status": [
-                            "{primary}---- Status ----",
-                            "<white>Proxy: <gray>{account_proxy}",
-                            "<white>Logado em: <gray>{account_joined}",
-                            "<white>Versão: <gray>{account_version}"
-                        ],
-                        "status-staff": [
-                            "<white>Servidor: <gray>{account_server}",
-                            "<white>IP: <gray><hover:show_text:'<gray>Clique para copiar: <white>{account_ip}'><click:suggest_command:'{account_ip}'>{account_ip}</click></hover>"
-                        ]
-                    }
-                },
-                "staff-chat": {
-                    "arguments": {
-                        "message": {
-                            "name": "mensagem",
-                            "description": "Mensagem que será enviada"
-                        }
-                    },
-                    "message": "<dark_purple><click:suggest_command:'/s'></click></dark_purple> <gray>({sender_connected_server})</gray> <click:suggest_command:'/tell {sender_name}'>{sender_name_with_tag}</click> <white>{sender_message}</white>"
-                },
-                "staff-high-chat": {
-                    "arguments": {
-                        "message": {
-                            "name": "mensagem",
-                            "description": "Mensagem que será enviada"
-                        }
-                    },
-                    "message": "<red><click:suggest_command:'/b'></click></red> <gray>({sender_connected_server})</gray> <click:suggest_command:'/tell {sender_name}'>{sender_name_with_tag}</click> <white>{sender_message}</white>"
-                }
+  "plugins": {
+    "core": {
+      "commands": {
+        "account": {
+          "arguments": {
+            "target": {
+              "name": "mome ou uuid",
+              "description": "Insira o nome ou a uuid do jogador"
             }
+          },
+          "invalid-uuid-pattern": "Você precisa inserir um formato de uuid válido!",
+          "invalid-name-pattern": "Você precisa inserir um formato de nome válido!",
+          "message": {
+            "identity": [
+              "{primary}Informações da conta de &f{account_name}",
+              "&fUUID: &7{account_uuid}",
+              "&fNome: &7{account_name}"
+            ],
+            "session": [
+              "&fÚltimo login: &7{account_last_login}",
+              "&fÚltima saída: &7{account_last_quit}"
+            ],
+            "still-online": "Ainda online",
+            "general": [
+              "&fGrupos: &7{account_groups}",
+              "&fCadastrado em: &7{account_registered}"
+            ],
+            "no-groups": "Nenhum.",
+            "associated": "&fContas associadas: &7{account_associated}",
+            "associated-entry": "{associated_name}",
+            "associated-empty": "Nenhuma.",
+            "status": [
+              "{primary}---- Status ----",
+              "&fProxy: &7{account_proxy}",
+              "&fLogado em: &7{account_joined}",
+              "&fVersão: &7{account_version}"
+            ],
+            "status-staff": [
+              "&fServidor: &7{account_server}",
+              "&fIP: &7{account_ip}"
+            ]
+          }
+        },
+        "staff-chat": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que será enviada"
+            }
+          },
+          "message": "&5 &7({sender_connected_server}) {sender_name_with_tag} &f{sender_message}"
+        },
+        "staff-high-chat": {
+          "arguments": {
+            "message": {
+              "name": "mensagem",
+              "description": "Mensagem que será enviada"
+            }
+          },
+          "message": "&c &7({sender_connected_server}) {sender_name_with_tag} &f{sender_message}"
         }
+      }
     }
+  }
 }

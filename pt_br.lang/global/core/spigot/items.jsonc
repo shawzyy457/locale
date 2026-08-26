@@ -2,17 +2,17 @@
   "plugins": {
     "core": {
       "items": {
-        "inventory-full-dropped": "<red>Inventário cheio! O item caiu no chão aos seus pés.",
+        "inventory-full-dropped": "&cInventário cheio! O item caiu no chão aos seus pés.",
         "back": {
-          "name": "<yellow>Voltar</yellow>",
+          "name": "&eVoltar",
           "lore": []
         },
         "next": {
-          "name": "<yellow>Próximo</yellow>",
+          "name": "&ePróximo",
           "lore": []
         },
         "previous": {
-          "name": "<yellow>Anterior</yellow>",
+          "name": "&eAnterior",
           "lore": []
         }
       }

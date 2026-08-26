@@ -1,0 +1,189 @@
+{
+  "plugins": {
+    "duels": {
+      "modes": {
+        "casual": {
+          "icon": {
+            "name": "&6Casual",
+            "lore": [
+              "&7Duele com outro jogador",
+              "&7apenas pela diversão.",
+              "",
+              "&6Clique para duelar!"
+            ]
+          }
+        },
+        "betting": {
+          "icon": {
+            "name": "&6Apostando",
+            "lore": [
+              "&7Duele com outro jogador",
+              "&7valendo coins!",
+              "",
+              "&6Clique para duelar!"
+            ]
+          }
+        },
+        "ranked": {
+          "icon": {
+            "name": "&6Rankeado",
+            "lore": [
+              "&7Duele com outro jogador",
+              "&7valendo pontos de liga.",
+              "",
+              "&6Clique para duelar!"
+            ]
+          }
+        }
+      },
+      "views": {
+        "primary": {
+          "title": "Central de Duelos",
+          "items": {
+            "0": {
+              "name": "&6Suas estatísticas",
+              "lore": [
+                "&7Confira abaixo as suas",
+                "&7estatísticas em duelos.",
+                "",
+                "&6 Estatísticas:",
+                "&f Abates: &7{duel_user_kills}",
+                "&f Mortes: &7{duel_user_deaths}",
+                "&f K/D: &7{duel_user_kdr}",
+                "",
+                "&f Winstreak: &7{duel_user_win_streak}",
+                "&f Maior Winstreak: &7{duel_user_highest_win_streak}",
+                "",
+                "&6Duelos disputados: &f{duel_user_duels_amount}"
+              ]
+            },
+            "1": {
+              "name": "&6Top duelos",
+              "lore": [
+                "&7Confira a lista dos",
+                "&7jogadores com mais",
+                "&7vitórias em duelos.",
+                "",
+                "&6Clique para acessar."
+              ]
+            }
+          }
+        },
+        "settings": {
+          "title": "Configurar Duelo",
+          "items": {
+            "0": {
+              "name": "&6Escolher adversário",
+              "lore": [
+                "&7Escolha o adversário",
+                "&7que deseja enfrentar.",
+                "",
+                "&6Clique para escolher!"
+              ]
+            },
+            "1": {
+              "name": "&6Quantia apostada",
+              "lore": [
+                "&7Escolha qual a quantia",
+                "&7que deseja apostar.",
+                "",
+                "&8 ▸ &fQuantia: &a$&f{bet_amount}",
+                "",
+                "&6Clique para alterar!"
+              ]
+            },
+            "2": {
+              "name": "&6Adversário aleatório",
+              "lore": [
+                "&7Envie uma solicitação de",
+                "&7duelo e jogue contra o",
+                "&7jogador que aceitar.",
+                "",
+                "&6Clique para enviar!"
+              ]
+            }
+          }
+        }
+      },
+      "commands": {
+        "duels": {
+          "deny": {
+            "arguments": {
+              "player": {
+                "name": "jogador",
+                "description": "Jogador a recusar o pedido"
+              }
+            },
+            "no-invite-available": "Você não possui um pedido de duelo pendente deste jogador."
+          },
+          "accept": {
+            "arguments": {
+              "player": {
+                "name": "jogador",
+                "description": "Jogador a aceitar o pedido"
+              }
+            },
+            "no-invite-available": "Você não possui um pedido de duelo pendente deste jogador.",
+            "insufficient-coins": "Você não possui a quantia de coins para apostar."
+          }
+        }
+      },
+      "messages": {
+        "conversation": {
+          "bet-amount": {
+            "query": "Digite a quantia que deseja apostar:",
+            "responses": {
+              "invalid-amount": "A quantia informada é inválida.",
+              "insufficient-coins": "Você não possui coins suficientes para isso."
+            }
+          }
+        },
+        "on-invite-send": "Seu pedido foi enviado com sucesso.",
+        "on-invite-receive": [
+          "",
+          "&6 Você recebeu um pedido de duelo de &f{player}&6.",
+          "&6 Clique &6&lAQUI &6para aceitar o pedido.",
+          ""
+        ],
+        "on-invite-expire-sender": "Seu pedido de duelo enviado para {player} expirou.",
+        "on-invite-expire-target": "O pedido de duelo enviado por {player} expirou.",
+        "on-invite-deny-sender": "{player} recusou seu pedido de duelo.",
+        "on-invite-deny-target": "Você recusou o pedido de duelo de {player} com sucesso.",
+        "on-invite-accept-sender": "{player} aceitou seu pedido de duelo.",
+        "on-invite-accept-target": "Você aceitou o pedido de duelo de {player} com sucesso.",
+        "errors": {
+          "no-invite": "Você não tem nenhum convite de duelo desse jogador.",
+          "already-has-invite": "Você já tem um convite de duelo pendente para esse jogador.",
+          "already-in-duel": "Você já está em um duelo.",
+          "not-enough-coins": "Você não tem coins suficientes para apostar essa quantia.",
+          "elo-difference-too-high": "A diferença de elo é grande demais para esse duelo (o máximo é {max_difference} pontos)."
+        },
+        "on-command": {
+          "not-allowed": "Você não pode usar esse comando durante um duelo."
+        },
+        "queue": {
+          "joined-casual": "Você entrou na fila de duelo casual.",
+          "joined-ranked": "Você entrou na fila de duelo rankeado.",
+          "joined-betting": "Você entrou na fila de duelo apostado, valendo {amount} coins.",
+          "left": "Você saiu da fila de duelo."
+        },
+        "success": {
+          "betting-win": "Você venceu o duelo e levou {amount} {currency}!",
+          "ranked-win": "Você venceu o duelo e ganhou {elo} pontos de liga!"
+        },
+        "error": {
+          "betting-lose": "Você perdeu o duelo e {amount} {currency}.",
+          "ranked-lose": "Você perdeu o duelo e {elo} pontos de liga."
+        }
+      },
+      "conversation": {
+        "opponent-select": {
+          "title": "Digite o nome do jogador que você deseja duelar:"
+        },
+        "bet-amount": {
+          "title": "Digite a quantia de coins que você deseja apostar:"
+        }
+      }
+    }
+  }
+}

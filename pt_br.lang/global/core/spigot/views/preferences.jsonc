@@ -1,50 +1,50 @@
 {
-    "plugins": {
-        "core": {
-            "views": {
-                "preference-type-select": {
-                    "title": "Preferências",
-                    "items": {
-                        "0": {
-                            "name": "<yellow>{preference_type_name}</yellow>",
-                            "lore": [
-                                "{preference_type_description}",
-                                "",
-                                "<yellow>Clique para gerenciar.</yellow>"
-                            ]
-                        }
-                    }
-                },
-                "preference-switch": {
-                    "title": "Preferências",
-                    "items": {
-                        "boolean": {
-                            "name": "<yellow>{preference_name}</yellow>",
-                            "lore": [
-                                "{preference_description}",
-                                "",
-                                "<white>Estado:</white> {preference_status}",
-                                "",
-                                "<yellow>Clique para alternar.</yellow>"
-                            ]
-                        },
-                        "enum": {
-                            "name": "<yellow>{preference_name}</yellow>",
-                            "lore": [
-                                "{preference_description}",
-                                "",
-                                "{preference_options}",
-                                "",
-                                "<yellow>Clique para alternar.</yellow>"
-                            ],
-                            "option": {
-                                "selected": "{option} <gray>(selecionado)</gray>",
-                                "unselected": "{option}"
-                            }
-                        }
-                    }
-                }
+  "plugins": {
+    "core": {
+      "views": {
+        "preference-type-select": {
+          "title": "Preferências",
+          "items": {
+            "0": {
+              "name": "&e{preference_type_name}",
+              "lore": [
+                "{preference_type_description}",
+                "",
+                "&eClique para gerenciar."
+              ]
             }
+          }
+        },
+        "preference-switch": {
+          "title": "Preferências",
+          "items": {
+            "boolean": {
+              "name": "&e{preference_name}",
+              "lore": [
+                "{preference_description}",
+                "",
+                "&fEstado: {preference_status}",
+                "",
+                "&eClique para alternar."
+              ]
+            },
+            "enum": {
+              "name": "&e{preference_name}",
+              "lore": [
+                "{preference_description}",
+                "",
+                "{preference_options}",
+                "",
+                "&eClique para alternar."
+              ],
+              "option": {
+                "selected": "{option} &7(selecionado)",
+                "unselected": "{option}"
+              }
+            }
+          }
         }
+      }
     }
+  }
 }

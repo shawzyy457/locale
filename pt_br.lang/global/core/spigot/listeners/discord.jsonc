@@ -1,12 +1,12 @@
 {
-    "plugins": {
-        "core": {
-            "messages": {
-                "discord": {
-                    "linked": "Conta vinculada ao Discord! Seus cargos já foram aplicados por lá.",
-                    "link-failed": "Esse código não vale mais. Gere outro no nosso Discord e cole aqui de novo."
-                }
-            }
+  "plugins": {
+    "core": {
+      "messages": {
+        "discord": {
+          "linked": "Conta vinculada ao Discord! Seus cargos já foram aplicados por lá.",
+          "link-failed": "Esse código não vale mais. Gere outro no nosso Discord e cole aqui de novo."
         }
+      }
     }
+  }
 }
