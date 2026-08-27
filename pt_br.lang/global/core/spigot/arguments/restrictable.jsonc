@@ -5,7 +5,7 @@
         "group-restrict": {
           "need-highest-group-vip": [
             "&eEste comando é exclusivo a jogadores {group_command_min_group_display_name}&e.",
-            "&eGaranta já o seu em &bloja.exe.com&e."
+            "&eGaranta já o seu em &bloja.rede-exe.com&e."
           ],
           "need-highest-group-staff": [
             "&cVocê precisa do grupo {group_command_min_group_display_name} &cou superior para executar este comando."

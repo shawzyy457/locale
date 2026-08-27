@@ -15,7 +15,7 @@
           "items": {
             "0": {
               "already-selected": {
-                "name": "&6{language_name}",
+                "name": "&c{language_name}",
                 "lore": [
                   "{language_description}",
                   "",
@@ -23,7 +23,7 @@
                 ]
               },
               "select": {
-                "name": "&6{language_name}",
+                "name": "&c{language_name}",
                 "lore": [
                   "{language_description}",
                   "",

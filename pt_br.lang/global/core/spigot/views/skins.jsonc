@@ -43,7 +43,7 @@
                 "lore": [
                   "&fUsada pela ultíma vez: &7{skin_last_equipped_date}",
                   "",
-                  "&6Selecionado!"
+                  "&cSelecionado!"
                 ]
               },
               "unequipped": {

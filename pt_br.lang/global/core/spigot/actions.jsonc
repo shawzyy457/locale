@@ -12,7 +12,7 @@
           "restart": {
             "name": "reiniciar",
             "title": {
-              "title": "&6&lREINICIANDO",
+              "title": "&c&lREINICIANDO",
               "subtitle": "&fem {action_countdown}"
             },
             "gerund": "reiniciando",
@@ -21,7 +21,7 @@
           "stop": {
             "name": "desligar",
             "title": {
-              "title": "&6&lDESLIGANDO",
+              "title": "&c&lDESLIGANDO",
               "subtitle": "&fem {action_countdown}"
             },
             "gerund": "desligando",

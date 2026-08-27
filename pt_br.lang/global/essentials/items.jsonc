@@ -93,33 +93,33 @@
           ]
         },
         "EXE-4d": {
-          "name": "&6pacote 4d &f",
+          "name": "&cpacote 4d &f",
           "lore": [
             "&fAo ativar esse item, você",
-            "&frecebe benefícios&6 VIP EXE&f",
+            "&frecebe benefícios&c VIP EXE&f",
             "&fdurante 4 dias.",
             "",
-            "&6Clique para ativar!"
+            "&cClique para ativar!"
           ]
         },
         "EXE-30d": {
-          "name": "&6pacote 30d &f",
+          "name": "&cpacote 30d &f",
           "lore": [
             "&fAo ativar esse item, você",
-            "&frecebe benefícios&6 VIP EXE&f",
+            "&frecebe benefícios&c VIP EXE&f",
             "&fdurante 30 dias.",
             "",
-            "&6Clique para ativar!"
+            "&cClique para ativar!"
           ]
         },
         "EXE-90d": {
-          "name": "&6pacote 90d &f",
+          "name": "&cpacote 90d &f",
           "lore": [
             "&fAo ativar esse item, você",
-            "&frecebe benefícios&6 VIP EXE&f",
+            "&frecebe benefícios&c VIP EXE&f",
             "&fdurante 90 dias.",
             "",
-            "&6Clique para ativar!"
+            "&cClique para ativar!"
           ]
         }
       }

@@ -11,7 +11,7 @@
           },
           "message": [
             "",
-            "&6&l[ANÚNCIO] &f{broadcast_announce_message}",
+            "&c&l[ANÚNCIO] &f{broadcast_announce_message}",
             ""
           ]
         },

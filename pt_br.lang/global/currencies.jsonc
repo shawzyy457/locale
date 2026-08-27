@@ -28,10 +28,10 @@
           },
           "features": {
             "check": {
-              "visualization": "&6{currency_icon}{currency_formatted_value}"
+              "visualization": "&c{currency_icon}{currency_formatted_value}"
             }
           },
-          "visualization": "&6{currency_icon}{currency_formatted_value}"
+          "visualization": "&c{currency_icon}{currency_formatted_value}"
         },
         "coins": {
           "name": {

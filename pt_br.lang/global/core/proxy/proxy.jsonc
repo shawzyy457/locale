@@ -71,7 +71,7 @@
               "&cMotivo: {punishment_reason}",
               "",
               "&cSilenciado injustamente?",
-              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+              "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ],
             "mute-message-with-expiration": [
               "",
@@ -82,7 +82,7 @@
               "&cExpira em: {punishment_expiration}",
               "",
               "&cSilenciado injustamente?",
-              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+              "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ],
             "ban-message-permanent": [
               "&c&lEXE",
@@ -93,7 +93,7 @@
               "&cMotivo: {punishment_reason}",
               "",
               "&cBanido injustamente?",
-              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+              "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ],
             "ban-message-with-expiration": [
               "&c&lEXE",
@@ -105,7 +105,7 @@
               "&cExpira em: {punishment_expiration}",
               "",
               "&cBanido injustamente?",
-              "&cRevise sua punição em &bexe.com/p/{punishment_id}"
+              "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ]
           },
           "teleport": {

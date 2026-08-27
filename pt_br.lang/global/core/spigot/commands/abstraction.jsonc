@@ -15,7 +15,7 @@
           ],
           "subcommand-usage": [
             "",
-            "&6Comandos disponíveis:",
+            "&cComandos disponíveis:",
             "",
             "{subcommands}",
             ""

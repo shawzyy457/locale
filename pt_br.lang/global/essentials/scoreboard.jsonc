@@ -4,21 +4,21 @@
       "scoreboards": {
         "title": [
           "&6&lP4 FREE &8⚡ &f&l{server_online_count}&l",
-          "&6&lP&6&l4 FREE &8⚡ &f&l{server_online_count}&l",
+          "&c&lP&c&l4 FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4&6&l FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 &6&lFREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 F&6&lREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FR&6&lEE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FRE&6&lE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FREE &8⚡ &f&l{server_online_count}&l",
-          "&6&lP&6&l4 FREE &8⚡ &f&l{server_online_count}&l",
+          "&c&lP&c&l4 FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4&6&l FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 &6&lFREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 F&6&lREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FR&6&lEE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FRE&6&lE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FREE &8⚡ &f&l{server_online_count}&l",
-          "&6&lP&6&l4 FREE &8⚡ &f&l{server_online_count}&l",
+          "&c&lP&c&l4 FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4&6&l FREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 &6&lFREE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 F&6&lREE &8⚡ &f&l{server_online_count}&l",
@@ -35,7 +35,7 @@
           " &f Coins: {currency_coins_cached_account_value_visualization}",
           " &f Gold: &6{user_gold_formatted}",
           "",
-          "&6exe.com  "
+          "&crede-exe.com  "
         ],
         "with-clan": [
           "",
@@ -50,7 +50,7 @@
           " &f Coins: {currency_coins_cached_account_value_visualization}",
           " &f Gold: &6{user_gold_formatted}",
           "",
-          "&6exe.com"
+          "&crede-exe.com"
         ]
       }
     }

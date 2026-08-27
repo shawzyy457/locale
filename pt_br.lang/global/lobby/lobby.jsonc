@@ -12,21 +12,21 @@
               " &7Um novo modo de jogo com diversos",
               " &7sistemas diferentes e únicos.",
               "",
-              " &6Confira algumas novidades:",
-              " &6► &fEspada Evolutiva;",
-              " &6► &fGladiador;",
-              " &6► &fSistema de Ligas;",
-              " &6► &fAltar Divino;",
-              " &6► &fClasses;",
-              " &6► &fHabilidades Dinâmicas;",
-              " &6► &fE muito mais!",
+              " &cConfira algumas novidades:",
+              " &c► &fEspada Evolutiva;",
+              " &c► &fGladiador;",
+              " &c► &fSistema de Ligas;",
+              " &c► &fAltar Divino;",
+              " &c► &fClasses;",
+              " &c► &fHabilidades Dinâmicas;",
+              " &c► &fE muito mais!",
               "",
-              "&6Clique para conectar!"
+              "&cClique para conectar!"
             ]
           },
           "hologram": [
             "",
-            "&6{server_online_player_count} jogando...",
+            "&c{server_online_player_count} jogando...",
             "{server_state}"
           ]
         }
@@ -100,9 +100,9 @@
           " &f&fGold: &6{user_gold_formatted}",
           "",
           "  &6O P4FREE",
-          "  &6está chegando!",
+          "  &cestá chegando!",
           "",
-          "&6exe.com"
+          "&crede-exe.com"
         ]
       },
       "preferences": {
@@ -143,7 +143,7 @@
           "off": "&cAgora todos os jogadores estão escondidos para você."
         },
         "queue": {
-          "actionbar": "&6⏳ &6&lFILA! &fSua posição atual &6➟ &f&l{queue_position}º"
+          "actionbar": "&c⏳ &c&lFILA! &fSua posição atual &c➟ &f&l{queue_position}º"
         },
         "views": {
           "lobby-selector": {

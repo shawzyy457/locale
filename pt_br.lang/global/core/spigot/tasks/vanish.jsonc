@@ -3,7 +3,7 @@
     "core": {
       "messages": {
         "vanish": {
-          "actionbar": "&6Você está invisível! &8[{players_vanished_count}]"
+          "actionbar": "&cVocê está invisível! &8[{players_vanished_count}]"
         }
       }
     }

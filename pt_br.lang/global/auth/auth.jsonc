@@ -114,7 +114,7 @@
               }
             },
             "authenticated": {
-              "title": "&6&lAutenticado!",
+              "title": "&c&lAutenticado!",
               "subtitle": "&fSeja bem-vindo!"
             },
             "queue-wait": {
@@ -129,10 +129,10 @@
                 " &c&lEXE &8➟ &eSessão de Autenticação",
                 " &7Seja bem-vindo ao EXE!",
                 "",
-                " &fUtilize &6/logar <senha>&f para se autenticar.",
+                " &fUtilize &c/logar <senha>&f para se autenticar.",
                 "",
                 " &fAcompanhe o nosso discord e fique por dentro de tudo!",
-                " &6Discord: &fdiscord.gg/exe",
+                " &cDiscord: &fdiscord.gg/exe",
                 ""
               ],
               "register": [
@@ -140,10 +140,10 @@
                 " &c&lEXE &8➟ &eSessão de Autenticação",
                 " &7Seja bem-vindo ao EXE!",
                 "",
-                " &fUtilize &6/registrar <senha> <senha>&f para se registrar.",
+                " &fUtilize &c/registrar <senha> <senha>&f para se registrar.",
                 "",
                 " &fAcompanhe o nosso discord e fique por dentro de tudo!",
-                " &6Discord: &fdiscord.gg/exe",
+                " &cDiscord: &fdiscord.gg/exe",
                 ""
               ]
             }
