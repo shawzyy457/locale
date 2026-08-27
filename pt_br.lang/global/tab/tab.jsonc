@@ -5,7 +5,7 @@
         "auth": {
           "header": [
             "",
-            "&c&lEXE&8 ⚡ &7%network_online-count% jogadores",
+            "&c&lEXE&8 ⚡ &7{app_online_player_count} jogadores",
             "&fexe.com",
             ""
           ],
@@ -21,13 +21,8 @@
         "lobby": {
           "header": [
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "&c&lEXE&8 ⚡ &7{app_online_player_count} jogadores",
+            "&fexe.com",
             ""
           ],
           "footer": [
