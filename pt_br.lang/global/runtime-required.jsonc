@@ -1,0 +1,103 @@
+{
+  "plugins": {
+    "core": {
+      "commands": {
+        "edititem": {
+          "removeitalic": {
+            "success": "&aItálico removido do item com sucesso."
+          }
+        },
+        "enchantment": {
+          "need-item-in-hand": "&cVocê precisa estar segurando um item.",
+          "enchantment-not-found": "&cO encantamento informado não foi encontrado.",
+          "enchantment-success": "&aEncantamento adicionado com sucesso."
+        },
+        "head": {
+          "arguments": {
+            "key": {
+              "name": "jogador",
+              "description": "Jogador cuja cabeça você deseja receber"
+            }
+          }
+        },
+        "ping": {
+          "arguments": {
+            "name": {
+              "name": "jogador",
+              "description": "Jogador cujo ping você deseja consultar"
+            }
+          }
+        },
+        "punishment-revoke": {
+          "dialog": {
+            "query": "&eConfirme a revogação da punição de {target_name}."
+          }
+        }
+      }
+    },
+    "currencies": {
+      "commands": {
+        "currencies": {
+          "pay": {
+            "dialog": {
+              "title": "Confirmar pagamento",
+              "body": "&eConfirme o pagamento de {currency_formatted_value} para {currency_target_name}."
+            }
+          }
+        }
+      }
+    },
+    "essentials": {
+      "commands": {
+        "clearlag": {
+          "request-sent": "&aSolicitação de limpeza enviada com sucesso."
+        },
+        "compact": {
+          "no-pet": "&cVocê não possui um pet ativo para compactar."
+        },
+        "createkit": {
+          "cannot-find-with-id": "&cNão foi possível encontrar um kit com esse ID."
+        },
+        "lantern": {
+          "cannot-use-on-spawn": "&cVocê não pode usar a lanterna no spawn."
+        },
+        "redstone": {
+          "arguments": {
+            "action": {
+              "name": "ação",
+              "description": "Ação de depuração ou controle da redstone"
+            }
+          },
+          "debug": {
+            "on": "&aDepuração de redstone ativada.",
+            "off": "&cDepuração de redstone desativada."
+          },
+          "tick": {
+            "info": "&eEstado do tick de redstone: &f{redstone_tick_state}",
+            "on": "&aTick de redstone ativado.",
+            "off": "&cTick de redstone desativado.",
+            "update": "&aConfiguração do tick de redstone atualizada."
+          }
+        },
+        "warps": {
+          "app-not-available": "&cEste warp não está disponível neste servidor.",
+          "minimum-group": "&cVocê precisa do grupo {required_group_display_tag}&c ou superior para acessar este warp."
+        }
+      },
+      "holograms": {
+        "amethyst": ["&d&lAMETISTA", "&fUse suas ametistas para obter recompensas."],
+        "arena-above": ["&c&lARENA", "&fEntre e enfrente outros jogadores."],
+        "arena-below-1": ["&c&lARENA", "&fPrepare-se para o combate."],
+        "arena-below-2": ["&c&lARENA", "&fBoa sorte!"],
+        "market-1": ["&c&lMERCADO", "&fCompre e venda itens aqui."],
+        "market-2": ["&c&lMERCADO", "&fConfira as ofertas disponíveis."],
+        "market-3": ["&c&lMERCADO", "&fNegocie com outros jogadores."],
+        "market-4": ["&c&lMERCADO", "&fEncontre o que precisa."],
+        "shop": ["&c&lLOJA", "&fConfira os itens disponíveis."],
+        "vault-1": ["&c&lCOFRE", "&fAcesse seus itens armazenados."],
+        "vault-2": ["&c&lCOFRE", "&fMantenha seus itens seguros."],
+        "vip": ["&c&lVIP", "&fConfira as vantagens disponíveis."]
+      }
+    }
+  }
+}
