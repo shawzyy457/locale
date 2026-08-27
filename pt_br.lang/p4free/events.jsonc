@@ -435,7 +435,7 @@
           "entry": "&e{event_date} — [{clan_winner}]",
           "cancelled-entry": "&c{event_date} — [cancelado]",
           "not-found": "&cEdição não encontrada.",
-          "detail": "&6Gladiador {event_id}\n&fVencedor: [{clan_winner}]\nMito: {event_myth} ({event_myth_kills})\nParticipantes: {event_players}\nMortes: {event_deaths} | Saídas: {event_exits} | Rushes: {event_rushes} | Eliminações: {event_eliminations}"
+          "detail": "&6Gladiador {event_id} &8| &fVencedor: [{clan_winner}] &8| &fMito: {event_myth} ({event_myth_kills}) &8| &fParticipantes: {event_players} &8| &fMortes: {event_deaths} &8| &fSaídas: {event_exits} &8| &fRushes: {event_rushes} &8| &fEliminações: {event_eliminations}"
         },
         "death": {
           "not-found": "&cNão há informações de morte desse jogador na partida atual.",

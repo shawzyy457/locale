@@ -23,7 +23,7 @@
             "maintenance": [
               "&c&lEXE",
               "",
-              "&cO servidor se encontra em manutenção, voltamos em breve.\n",
+              "&cO servidor se encontra em manutenção, voltamos em breve.",
               "&cFique por dentro de todas as novidades em:",
               "",
               "&f{discord_invite_url}"
@@ -31,7 +31,7 @@
             "no-auth-apps-available": [
               "&c&lEXE",
               "",
-              "&cNão encontramos nenhum servidor de autenticação.\n",
+              "&cNão encontramos nenhum servidor de autenticação.",
               "&cFique por dentro de todas as novidades em:",
               "",
               "&f{discord_invite_url}"

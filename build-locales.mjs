@@ -23,6 +23,9 @@ function flatten(value, prefix = "", result = {}) {
       flatten(child, prefix ? `${prefix}.${key}` : key, result);
     }
   } else if (prefix) {
+    if (typeof value === "string" && /[\r\n]/.test(value)) {
+      throw new Error(`Locale value ${prefix} contains a line break; use an array of legacy lines instead.`);
+    }
     result[prefix] = value;
   }
   return result;
