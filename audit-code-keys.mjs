@@ -101,6 +101,26 @@ for (const [className, command] of javaClasses) {
   }
 }
 
+const lobbyConfigFile = path.join(sourceRoot, "lobby", "src", "main", "resources", "config.yml");
+if (fs.existsSync(lobbyConfigFile)) {
+  const lobbyConfig = stripComments(fs.readFileSync(lobbyConfigFile, "utf8"), ".yml");
+  const serversSection = lobbyConfig.match(/^servers:\s*$([\s\S]*)/m)?.[1] ?? "";
+  const serverMatches = [...serversSection.matchAll(/^  ([a-zA-Z0-9_-]+):\s*$/gm)];
+  for (let index = 0; index < serverMatches.length; index++) {
+    const match = serverMatches[index];
+    const end = serverMatches[index + 1]?.index ?? serversSection.length;
+    const serverBlock = serversSection.slice(match.index, end);
+    const localeId = match[1].replaceAll("-", "");
+    const base = `plugins.lobby.servers.${localeId}`;
+    reference(`${base}.name`, lobbyConfigFile);
+    reference(`${base}.icon.name`, lobbyConfigFile);
+    reference(`${base}.icon.description`, lobbyConfigFile);
+    if (/^    structure:\s*$/m.test(serverBlock)) {
+      reference(`${base}.hologram`, lobbyConfigFile);
+    }
+  }
+}
+
 const missing = [...references].filter(([key]) =>
   !defined.has(key) && ![...defined].some(candidate => candidate.startsWith(`${key}.`))
 ).sort(([first], [second]) => first.localeCompare(second));

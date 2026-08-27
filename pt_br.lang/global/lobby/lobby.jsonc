@@ -2,6 +2,58 @@
   "plugins": {
     "lobby": {
       "servers": {
+        "factions": {
+          "name": "&cFactions",
+          "icon": {
+            "name": "{server_name}",
+            "description": [
+              "&f{server_online_count} jogando.",
+              "",
+              "&7Crie sua facção, conquiste territórios",
+              "&7e enfrente outros jogadores.",
+              "",
+              "&cClique para conectar!"
+            ]
+          },
+          "hologram": [
+            "&c&lFACTIONS",
+            "&f{server_online_player_count} jogando...",
+            "{server_state}"
+          ]
+        },
+        "prisoneclipse": {
+          "name": "&cPrison Eclipse",
+          "icon": {
+            "name": "{server_name}",
+            "description": [
+              "&f{server_online_count} jogando.",
+              "",
+              "&7Evolua, minere e conquiste",
+              "&7seu espaço no servidor.",
+              "",
+              "&cClique para conectar!"
+            ]
+          },
+          "hologram": [
+            "&c&lPRISON ECLIPSE",
+            "&f{server_online_player_count} jogando...",
+            "{server_state}"
+          ]
+        },
+        "academic": {
+          "name": "&cAcademic",
+          "icon": {
+            "name": "{server_name}",
+            "description": [
+              "&f{server_online_count} jogando.",
+              "",
+              "&7Descubra sistemas, desafios",
+              "&7e uma experiência diferente.",
+              "",
+              "&cClique para conectar!"
+            ]
+          }
+        },
         "p4free": {
           "name": "&6P4 Free",
           "icon": {
