@@ -60,7 +60,8 @@
           "hats": "Chapéus",
           "gadgets": "Gadgets",
           "pets": "Mascotes",
-          "balloons": "Balões"
+          "balloons": "Balões",
+          "armor": "Armaduras"
         },
         "rarities": {
           "common": "&7Comum",
@@ -194,7 +195,23 @@
           "balloon-gold": "Balão de ouro",
           "balloon-diamond": "Balão de diamante",
           "balloon-emerald": "Balão de esmeralda",
-          "balloon-dragon-egg": "Balão de ovo de dragão"
+          "balloon-dragon-egg": "Balão de ovo de dragão",
+          "balloon-rainbow": "Balão arco-íris",
+          "armor-red": "Armadura vermelha",
+          "armor-blue": "Armadura azul",
+          "armor-green": "Armadura verde",
+          "armor-yellow": "Armadura amarela",
+          "armor-orange": "Armadura laranja",
+          "armor-pink": "Armadura rosa",
+          "armor-purple": "Armadura roxa",
+          "armor-cyan": "Armadura ciano",
+          "armor-white": "Armadura branca",
+          "armor-black": "Armadura preta",
+          "armor-rainbow": "Armadura arco-íris",
+          "armor-gold": "Armadura dourada",
+          "armor-silver": "Armadura prateada",
+          "armor-crimson": "Armadura carmesim",
+          "armor-midnight": "Armadura da meia-noite"
         }
       },
       "views": {
@@ -255,6 +272,18 @@
               "lore": [
                 "&7Um balão preso a você",
                 "&7por uma corda.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "armor": {
+              "name": "&6Armaduras",
+              "lore": [
+                "&7Conjuntos de couro coloridos",
+                "&7para vestir no lobby.",
                 "",
                 "&7Equipado: {equipped_name}",
                 "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
