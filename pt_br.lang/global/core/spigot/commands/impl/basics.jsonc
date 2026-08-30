@@ -151,7 +151,8 @@
         "plugins": {
           "message": [
             "&fPlugins ({plugins_count}):",
-            "{plugins}"
+            "{plugins}",
+            ""
           ]
         },
         "scale": {
