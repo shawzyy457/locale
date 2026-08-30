@@ -9,7 +9,7 @@
         "auth": {
           "header": [
             "",
-            "&c&lEXE&8 ⚡ &7{app_online_player_count} {app_online_player_label}",
+            "&c&lEXE &7{app_online_player_count} {app_online_player_label}",
             "&frede-exe.com",
             ""
           ],
@@ -25,7 +25,7 @@
         "lobby": {
           "header": [
             "",
-            "&c&lEXE&8 ⚡ &7{app_online_player_count} {app_online_player_label}",
+            "&c&lEXE &7{app_online_player_count} {app_online_player_label}",
             "&frede-exe.com",
             ""
           ],
@@ -41,7 +41,7 @@
         "p4free": {
           "header": [
             "",
-            "&c&lEXE&8 ⚡ &7{app_online_player_count} {app_online_player_label}",
+            "&c&lEXE &7{app_online_player_count} {app_online_player_label}",
             "&frede-exe.com",
             ""
           ],
