@@ -198,7 +198,9 @@
           "off": "&cAgora todos os jogadores estão escondidos para você."
         },
         "queue": {
-          "actionbar": "&c⏳ &c&lFILA! &fSua posição atual &c➟ &f&l{queue_position}º"
+          "actionbar": "&c⏳ &c&lFILA! &fSua posição atual &c➟ &f&l{queue_position}º",
+          "joined": "&aVocê entrou na fila do {queue_server_name}&a! Posição: &f{queue_position}º&a. Você será conectado em instantes.",
+          "unavailable": "&cNão dá para entrar no {queue_server_name} &cagora: {server_state}&c."
         },
         "views": {
           "lobby-selector": {

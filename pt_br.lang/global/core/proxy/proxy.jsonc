@@ -123,7 +123,10 @@
             ],
             "target-app-maintenance": [
               "&cEsse servidor se encontra em manutenção no momento."
-            ]
+            ],
+            "connecting": "&7Conectando você ao &f{app_display_name}&7...",
+            "already-connected": "&cVocê já está conectado ao &f{app_display_name}&c.",
+            "failed": "&cNão foi possível conectar ao &f{app_display_name}&c. Tente novamente em instantes."
           }
         }
       }
