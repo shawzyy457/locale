@@ -61,7 +61,9 @@
           "gadgets": "Gadgets",
           "pets": "Mascotes",
           "balloons": "Balões",
-          "armor": "Armaduras"
+          "armor": "Armaduras",
+          "trails": "Rastros",
+          "wings": "Asas"
         },
         "rarities": {
           "common": "&7Comum",
@@ -211,7 +213,36 @@
           "armor-gold": "Armadura dourada",
           "armor-silver": "Armadura prateada",
           "armor-crimson": "Armadura carmesim",
-          "armor-midnight": "Armadura da meia-noite"
+          "armor-midnight": "Armadura da meia-noite",
+          "particle-halo": "Auréola",
+          "particle-rain-cloud": "Nuvem de chuva",
+          "particle-tornado": "Tornado",
+          "particle-fire-tornado": "Tornado de fogo",
+          "particle-ender-vortex": "Vórtice do End",
+          "trail-water": "Rastro de água",
+          "trail-notes": "Rastro de notas",
+          "trail-snow": "Rastro de neve",
+          "trail-flames": "Rastro de chamas",
+          "trail-hearts": "Rastro de corações",
+          "trail-yellow": "Rastro amarelo",
+          "trail-purple": "Rastro roxo",
+          "trail-pink": "Rastro rosa",
+          "trail-white": "Rastro branco",
+          "trail-ender": "Rastro do End",
+          "trail-magic": "Rastro mágico",
+          "trail-black": "Rastro preto",
+          "trail-sparks": "Rastro de faíscas",
+          "wings-love": "Asas de amor",
+          "wings-angel": "Asas de anjo",
+          "wings-fire": "Asas de fogo",
+          "wings-nature": "Asas da natureza",
+          "wings-ender": "Asas do End",
+          "wings-magic": "Asas mágicas",
+          "wings-demon": "Asas demoníacas",
+          "wings-frost": "Asas de gelo",
+          "wings-rainbow": "Asas arco-íris",
+          "wings-spark": "Asas de faíscas",
+          "wings-void": "Asas do vazio"
         }
       },
       "views": {
@@ -272,6 +303,30 @@
               "lore": [
                 "&7Um balão preso a você",
                 "&7por uma corda.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "trails": {
+              "name": "&6Rastros",
+              "lore": [
+                "&7Partículas deixadas pelo caminho",
+                "&7enquanto você anda.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "wings": {
+              "name": "&6Asas",
+              "lore": [
+                "&7Asas de partículas nas suas",
+                "&7costas, batendo devagar.",
                 "",
                 "&7Equipado: {equipped_name}",
                 "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
