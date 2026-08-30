@@ -55,7 +55,7 @@
           }
         },
         "p4free": {
-          "name": "&6P4 Free",
+          "name": "&cP4 Free",
           "icon": {
             "name": "{server_name}",
             "description": [
