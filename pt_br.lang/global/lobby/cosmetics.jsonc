@@ -1,0 +1,333 @@
+{
+  "plugins": {
+    "lobby": {
+      "items": {
+        "lobby-cosmetics-item": {
+          "name": "&dCosméticos",
+          "lore": [
+            "&7Clique com o botão direito para",
+            "&7abrir o menu de cosméticos."
+          ]
+        }
+      },
+      "preferences": {
+        "lobby-cosmetics": {
+          "name": "&eCosméticos dos jogadores",
+          "description": [
+            "&7Mostra ou esconde as partículas, mascotes",
+            "&7e balões dos outros jogadores."
+          ]
+        }
+      },
+      "commands": {
+        "cosmetics": {
+          "not-found": "&cO cosmético &f{cosmetic_id}&c não existe.",
+          "give": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que vai receber o cosmético"
+              },
+              "cosmetic": {
+                "name": "cosmético",
+                "description": "Id do cosmético (veja a lista com o tab)"
+              }
+            },
+            "success": "O cosmético {cosmetic_name}&a foi dado a {target_name_with_color}&a.",
+            "already-owned": "{target_name_with_color}&c já possui {cosmetic_name}&c.",
+            "error": "Não foi possível dar {cosmetic_name}&c a {target_name_with_color}&c. Tente novamente."
+          },
+          "remove": {
+            "arguments": {
+              "target": {
+                "name": "jogador",
+                "description": "Jogador que vai perder o cosmético"
+              },
+              "cosmetic": {
+                "name": "cosmético",
+                "description": "Id do cosmético (veja a lista com o tab)"
+              }
+            },
+            "success": "O cosmético {cosmetic_name}&a foi removido de {target_name_with_color}&a.",
+            "not-owned": "{target_name_with_color}&c não possui {cosmetic_name}&c.",
+            "error": "Não foi possível remover {cosmetic_name}&c de {target_name_with_color}&c. Tente novamente."
+          }
+        }
+      },
+      "cosmetics": {
+        "categories": {
+          "particles": "Partículas",
+          "hats": "Chapéus",
+          "gadgets": "Gadgets",
+          "pets": "Mascotes",
+          "balloons": "Balões"
+        },
+        "rarities": {
+          "common": "&7Comum",
+          "rare": "&9Raro",
+          "epic": "&5Épico",
+          "legendary": "&6Lendário"
+        },
+        "pet-name": "&7Mascote de &f{owner_name}",
+        "gadget-lore": [
+          "&7Clique com o botão direito",
+          "&7para usar o gadget."
+        ],
+        "messages": {
+          "equipped": "Você equipou {cosmetic_name}&a.",
+          "unequipped": "Você removeu o cosmético de {category_name}.",
+          "unequipped-all": "Todos os seus cosméticos foram removidos.",
+          "purchased": "Você comprou {cosmetic_name}&a por &6{cosmetic_price} Cash&a!",
+          "insufficient": "Você precisa de &6{cosmetic_price} Cash&c para comprar {cosmetic_name}&c. Seu saldo: &6{user_balance} Cash&c.",
+          "purchase-failed": "Não foi possível concluir a compra. Tente novamente em instantes.",
+          "locked": "Este cosmético é exclusivo do grupo {cosmetic_group}&c.",
+          "not-owned": "Você ainda não possui este cosmético.",
+          "profile-unavailable": "Seus cosméticos ainda não foram carregados. Tente novamente em instantes.",
+          "gadget-cooldown": "&cAguarde &f{remaining_time}&c para usar o gadget novamente."
+        },
+        "catalog": {
+          "particle-smoke": "Fumaça",
+          "particle-flames": "Chamas",
+          "particle-hearts": "Corações",
+          "particle-notes": "Notas musicais",
+          "particle-happy": "Felicidade",
+          "particle-water": "Gotas de água",
+          "particle-slime": "Gosma",
+          "particle-red-trail": "Rastro vermelho",
+          "particle-blue-trail": "Rastro azul",
+          "particle-green-trail": "Rastro verde",
+          "particle-snow": "Nevasca",
+          "particle-cloud": "Nuvens",
+          "particle-lava": "Gotas de lava",
+          "particle-ender": "Portal",
+          "particle-magic": "Magia",
+          "particle-crit": "Golpe crítico",
+          "particle-fire-ring": "Anel de fogo",
+          "particle-crown": "Coroa de fogo",
+          "particle-witch": "Bruxaria",
+          "particle-firework": "Faíscas",
+          "particle-rainbow": "Arco-íris",
+          "particle-rainbow-trail": "Rastro arco-íris",
+          "particle-embers": "Brasas",
+          "hat-pumpkin": "Abóbora",
+          "hat-tnt": "TNT",
+          "hat-glass": "Aquário",
+          "hat-melon": "Melancia",
+          "hat-cactus": "Cacto",
+          "hat-hay": "Fardo de feno",
+          "hat-bookshelf": "Estante",
+          "hat-sponge": "Esponja",
+          "hat-ice": "Gelo",
+          "hat-furnace": "Fornalha",
+          "hat-piston": "Pistão",
+          "hat-steve": "Cabeça de Steve",
+          "hat-jack": "Abóbora de Halloween",
+          "hat-glowstone": "Pedra luminosa",
+          "hat-slime": "Bloco de gosma",
+          "hat-chest": "Baú",
+          "hat-note": "Bloco musical",
+          "hat-iron": "Bloco de ferro",
+          "hat-redstone": "Bloco de redstone",
+          "hat-lapis": "Bloco de lápis-lazúli",
+          "hat-anvil": "Bigorna",
+          "hat-creeper": "Cabeça de Creeper",
+          "hat-zombie": "Cabeça de Zumbi",
+          "hat-skeleton": "Cabeça de Esqueleto",
+          "hat-enchanting": "Mesa de encantamentos",
+          "hat-ender-chest": "Baú do End",
+          "hat-wither": "Cabeça de Wither",
+          "hat-beacon": "Sinalizador",
+          "hat-gold": "Bloco de ouro",
+          "hat-diamond": "Bloco de diamante",
+          "hat-emerald": "Bloco de esmeralda",
+          "hat-dragon-egg": "Ovo de dragão",
+          "gadget-snowballs": "Bolas de neve",
+          "gadget-party-popper": "Confete",
+          "gadget-fireworks": "Lançador de fogos",
+          "gadget-ender-pearl": "Pérola do End",
+          "gadget-grappling-hook": "Gancho",
+          "gadget-rocket": "Foguete",
+          "pet-chicken": "Galinha",
+          "pet-pig": "Porquinho",
+          "pet-cow": "Vaquinha",
+          "pet-sheep": "Ovelha rosa",
+          "pet-bat": "Morcego",
+          "pet-rabbit": "Coelho",
+          "pet-villager": "Aldeão",
+          "pet-mooshroom": "Coguvaca",
+          "pet-horse": "Cavalo",
+          "pet-wolf": "Lobo",
+          "pet-snowman": "Boneco de neve",
+          "pet-silverfish": "Traça",
+          "pet-endermite": "Endermite",
+          "pet-slime": "Slime",
+          "pet-magma-cube": "Cubo de magma",
+          "pet-zombie": "Zumbi",
+          "pet-pig-zombie": "Porco zumbi",
+          "pet-skeleton": "Esqueleto",
+          "pet-spider": "Aranha",
+          "pet-cave-spider": "Aranha da caverna",
+          "pet-creeper": "Creeper",
+          "pet-witch": "Bruxa",
+          "pet-iron-golem": "Golem de ferro",
+          "pet-cat": "Gato",
+          "pet-enderman": "Enderman",
+          "pet-wither-skeleton": "Esqueleto Wither",
+          "pet-blaze": "Blaze",
+          "balloon-red": "Balão vermelho",
+          "balloon-blue": "Balão azul",
+          "balloon-green": "Balão verde",
+          "balloon-yellow": "Balão amarelo",
+          "balloon-pink": "Balão rosa",
+          "balloon-purple": "Balão roxo",
+          "balloon-tnt": "Balão de TNT",
+          "balloon-melon": "Balão de melancia",
+          "balloon-slime": "Balão de gosma",
+          "balloon-pumpkin": "Balão de abóbora",
+          "balloon-glowstone": "Balão luminoso",
+          "balloon-ender-chest": "Balão do End",
+          "balloon-creeper": "Balão de Creeper",
+          "balloon-zombie": "Balão de Zumbi",
+          "balloon-redstone": "Balão de redstone",
+          "balloon-lapis": "Balão de lápis-lazúli",
+          "balloon-beacon": "Balão sinalizador",
+          "balloon-gold": "Balão de ouro",
+          "balloon-diamond": "Balão de diamante",
+          "balloon-emerald": "Balão de esmeralda",
+          "balloon-dragon-egg": "Balão de ovo de dragão"
+        }
+      },
+      "views": {
+        "cosmetics": {
+          "title": "Cosméticos",
+          "none": "&7Nenhum",
+          "items": {
+            "particles": {
+              "name": "&6Partículas",
+              "lore": [
+                "&7Auras e rastros de partículas",
+                "&7à sua volta.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "hats": {
+              "name": "&6Chapéus",
+              "lore": [
+                "&7Blocos e cabeças para usar",
+                "&7na cabeça.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "gadgets": {
+              "name": "&6Gadgets",
+              "lore": [
+                "&7Brinquedos para usar no lobby:",
+                "&7fogos, gancho, foguete e mais.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "pets": {
+              "name": "&6Mascotes",
+              "lore": [
+                "&7Um companheiro que segue",
+                "&7você pelo lobby.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "balloons": {
+              "name": "&6Balões",
+              "lore": [
+                "&7Um balão preso a você",
+                "&7por uma corda.",
+                "",
+                "&7Equipado: {equipped_name}",
+                "&7Adquiridos: &f{owned_count}&7/&f{total_count}",
+                "",
+                "&eClique para abrir!"
+              ]
+            },
+            "unequip-all": {
+              "name": "&cRemover tudo",
+              "lore": [
+                "&7Remove todos os cosméticos",
+                "&7que você está usando."
+              ]
+            }
+          }
+        },
+        "cosmetics-category": {
+          "title": "Cosméticos: {category_name}",
+          "items": {
+            "0": {
+              "equipped": {
+                "lore": [
+                  "&7Raridade: {cosmetic_rarity}",
+                  "",
+                  "&aEquipado",
+                  "",
+                  "&eClique para remover!"
+                ]
+              },
+              "owned": {
+                "lore": [
+                  "&7Raridade: {cosmetic_rarity}",
+                  "",
+                  "&aAdquirido",
+                  "",
+                  "&eClique para equipar!"
+                ]
+              },
+              "purchasable": {
+                "lore": [
+                  "&7Raridade: {cosmetic_rarity}",
+                  "",
+                  "&7Preço: &6{cosmetic_price} Cash",
+                  "",
+                  "&eClique para comprar!"
+                ]
+              },
+              "locked": {
+                "lore": [
+                  "&7Raridade: {cosmetic_rarity}",
+                  "",
+                  "&cExclusivo do grupo {cosmetic_group}",
+                  "",
+                  "&cVocê não tem acesso a este cosmético."
+                ]
+              }
+            }
+          }
+        },
+        "cosmetics-purchase": {
+          "title": "Confirmar compra",
+          "subject": {
+            "lore": [
+              "&7Raridade: {cosmetic_rarity}",
+              "",
+              "&7Preço: &6{cosmetic_price} Cash",
+              "&7Seu saldo: &6{user_balance} Cash",
+              "",
+              "&7Confirme a compra ao lado."
+            ]
+          }
+        }
+      }
+    }
+  }
+}
