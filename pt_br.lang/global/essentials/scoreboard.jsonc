@@ -26,6 +26,15 @@
           "&6&lP4 FRE&6&lE &8⚡ &f&l{server_online_count}&l",
           "&6&lP4 FREE &8⚡ &f&l{server_online_count}&l"
         ],
+        "lines": [
+          " &7{current_date}",
+          "",
+          " &fCargo: {user_group_name_with_color}",
+          " &fOnline: &7{server_online_count}",
+          " &fCash: &6{user_gold_formatted}",
+          "",
+          "&crede-exe.com"
+        ],
         "out-clan": [
           "",
           " &fAbates: &7{league_user_kills}",
