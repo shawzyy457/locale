@@ -99,11 +99,11 @@
               ]
             },
             "3": {
-              "name": "&6loja de gold",
+              "name": "&6loja de cash",
               "lore": [
                 "&7uma variedade de itens",
                 "&7especiais disponíveis por",
-                "&fgold&7.",
+                "&fcash&7.",
                 "",
                 "&6clique para acessar."
               ]
