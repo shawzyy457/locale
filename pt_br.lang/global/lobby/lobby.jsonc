@@ -106,6 +106,9 @@
         },
         "set-p4free": {
           "success": "&aA entrada do P4Free foi movida para &f{x}, {y}, {z}&a."
+        },
+        "set-spawn": {
+          "success": "&aO spawn do lobby foi movido para &f{x}, {y}, {z}&a e já vale para os próximos joins."
         }
       },
       "items": {
