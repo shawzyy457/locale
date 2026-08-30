@@ -43,7 +43,7 @@
           ],
           "kick": {
             "no-available-apps": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cNão foi encontrado nenhum servidor para você se conectar."
             ]

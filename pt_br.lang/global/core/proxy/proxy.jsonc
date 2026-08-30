@@ -10,18 +10,19 @@
           },
           "connection": {
             "name-pattern-invalid": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&f{name} &cnão é um nick válido.",
               "&cO nick deve ser formado por letras ou números.",
               "&ce deve ter entre 3 e 16 caracteres."
             ],
             "already-online": [
-              "&c&lEXE",
+              "&c&lEXE&r",
+              "",
               "&cJá existe um jogador online nessa conta!"
             ],
             "maintenance": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cO servidor se encontra em manutenção, voltamos em breve.",
               "&cFique por dentro de todas as novidades em:",
@@ -29,7 +30,7 @@
               "&f{discord_invite_url}"
             ],
             "no-auth-apps-available": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cNão encontramos nenhum servidor de autenticação.",
               "&cFique por dentro de todas as novidades em:",
@@ -37,7 +38,7 @@
               "&f{discord_invite_url}"
             ],
             "internal-error": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cOcorreu um erro interno inesperado.",
               "&cNossa equipe foi notificada e está trabalhando para resolver o problema.",
@@ -46,7 +47,7 @@
               "&f{discord_invite_url}"
             ],
             "unsupported-version": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cUtilize a versão &f1.8+ para",
               "&cter uma melhor experiência.",
@@ -54,7 +55,7 @@
               "&f{discord_invite_url}"
             ],
             "too-many-logged-accounts": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cVocê está com muitas contas logadas",
               "&cao mesmo tempo, deslogue das outras para entrar!",
@@ -85,7 +86,7 @@
               "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ],
             "ban-message-permanent": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cVocê foi banido permanentemente do servidor.",
               "",
@@ -96,7 +97,7 @@
               "&cRevise sua punição em &brede-exe.com/p/{punishment_id}"
             ],
             "ban-message-with-expiration": [
-              "&c&lEXE",
+              "&c&lEXE&r",
               "",
               "&cVocê foi banido do servidor.",
               "",
