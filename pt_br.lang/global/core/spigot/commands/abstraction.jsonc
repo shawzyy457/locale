@@ -14,9 +14,11 @@
             "&cUtilize /{command_label}{command_arguments}"
           ],
           "subcommand-usage": [
+            "",
             "&cComandos disponíveis:",
             "",
-            "{subcommands}"
+            "{subcommands}",
+            ""
           ]
         }
       }

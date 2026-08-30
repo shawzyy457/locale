@@ -128,16 +128,20 @@
           "already-in-lobby": "Você já está em um lobby!",
           "not-apps-available": "Não encontramos nenhum servidor para conexão.",
           "confirm": [
-            "&eQuer mesmo ir ao lobby? Utilize /lobby novamente para confirmar!"
+            "",
+            "&eQuer mesmo ir ao lobby? Utilize /lobby novamente para confirmar!",
+            ""
           ]
         },
         "online": {
           "online-format": "&8▪ &7{app_display_name} ({app_online_player_count})",
           "message": [
+            "",
             "   &cServidores disponíveis:",
             "   &7{network_online_player_count} jogadores no total.",
             "",
-            "   {online_app_list}"
+            "   {online_app_list}",
+            ""
           ]
         },
         "ping": {
@@ -264,9 +268,11 @@
           "no-group": "Você não possui nenhum grupo vip!",
           "visualization-format": " {user_group_display_name} &8➠ &7{user_group_expire_in}",
           "visualization": [
+            "",
             "&b Tempo dos pacotes VIPs:",
             "",
-            "  {groups}"
+            "  {groups}",
+            ""
           ]
         }
       }
