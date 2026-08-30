@@ -59,8 +59,8 @@
           "description": ["&7Teleporta para um local aleatório."]
         },
         "goldshop": {
-          "name": "&6Loja de Gold",
-          "description": ["&7Acesse a loja de Gold."]
+          "name": "&6Loja de Cash",
+          "description": ["&7Acesse a loja de Cash."]
         },
         "arena": {
           "name": "&cArena",

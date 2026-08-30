@@ -33,7 +33,7 @@
           " &fLiga: &7{league_user_elo}",
           "",
           " &f Coins: {currency_coins_cached_account_value_visualization}",
-          " &f Gold: &6{user_gold_formatted}",
+          " &f Cash: &6{user_gold_formatted}",
           "",
           "&crede-exe.com  "
         ],
@@ -48,7 +48,7 @@
           " &fLiga: &7{league_clan_elo}",
           "",
           " &f Coins: {currency_coins_cached_account_value_visualization}",
-          " &f Gold: &6{user_gold_formatted}",
+          " &f Cash: &6{user_gold_formatted}",
           "",
           "&crede-exe.com"
         ]

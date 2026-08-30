@@ -5,12 +5,12 @@
         "gold": {
           "visualize": {
             "target": {
-              "with-balance": "{gold_target_name_with_color} &apossui &6{gold_formatted_value} Gold&6&a.",
-              "without-balance": "{gold_target_name_with_color} &cnão possui&c &6Gold&c."
+              "with-balance": "{gold_target_name_with_color} &apossui &6{gold_formatted_value} Cash&6&a.",
+              "without-balance": "{gold_target_name_with_color} &cnão possui&c &6Cash&c."
             },
             "same": {
-              "with-balance": "&aVocê possui &6{gold_formatted_value} Gold&6&a.",
-              "without-balance": "&cVocê não possui &6Gold&c."
+              "with-balance": "&aVocê possui &6{gold_formatted_value} Cash&6&a.",
+              "without-balance": "&cVocê não possui &6Cash&c."
             }
           },
           "pay": {
@@ -21,11 +21,11 @@
               },
               "amount": {
                 "name": "quantia",
-                "description": "A quantidade de Gold que você quer enviar"
+                "description": "A quantidade de Cash que você quer enviar"
               }
             },
-            "need-min-gold": "&cVocê precisa enviar um valor mínimo de &61000 Gold&c.",
-            "success": "&aVocê enviou &6{gold_formatted_value} Gold &apara {gold_target_name_with_color}&a.",
+            "need-min-gold": "&cVocê precisa enviar um valor mínimo de &61000 Cash&c.",
+            "success": "&aVocê enviou &6{gold_formatted_value} Cash &apara {gold_target_name_with_color}&a.",
             "error": "&cSua tentativa de enviar o seu saldo falhou, tente novamente mais tarde!"
           },
           "set": {
@@ -36,10 +36,10 @@
               },
               "amount": {
                 "name": "quantia",
-                "description": "A quantidade de Gold que você quer definir"
+                "description": "A quantidade de Cash que você quer definir"
               }
             },
-            "success": "&aVocê definiu o Gold de {gold_target_name_with_color} &apara {gold_formatted_value}.",
+            "success": "&aVocê definiu o Cash de {gold_target_name_with_color} &apara {gold_formatted_value}.",
             "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
           },
           "add": {
@@ -50,10 +50,10 @@
               },
               "amount": {
                 "name": "quantia",
-                "description": "A quantidade de Gold que você quer adicionar"
+                "description": "A quantidade de Cash que você quer adicionar"
               }
             },
-            "success": "&aVocê adicionou &6{gold_formatted_value} Gold &apara {gold_target_name_with_color}&a.",
+            "success": "&aVocê adicionou &6{gold_formatted_value} Cash &apara {gold_target_name_with_color}&a.",
             "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
           },
           "remove": {
@@ -64,10 +64,10 @@
               },
               "amount": {
                 "name": "quantia",
-                "description": "A quantidade de Gold que você quer remover"
+                "description": "A quantidade de Cash que você quer remover"
               }
             },
-            "success": "&aVocê removeu &6{gold_formatted_value} Gold &ade {gold_target_name_with_color}&a.",
+            "success": "&aVocê removeu &6{gold_formatted_value} Cash &ade {gold_target_name_with_color}&a.",
             "error": "&cSua tentativa de definir o seu saldo falhou, tente novamente mais tarde!"
           }
         }

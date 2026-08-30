@@ -23,8 +23,8 @@
       "types": {
         "gold": {
           "name": {
-            "singular": "Gold",
-            "plural": "Gold"
+            "singular": "Cash",
+            "plural": "Cash"
           },
           "features": {
             "check": {

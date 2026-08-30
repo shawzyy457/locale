@@ -152,7 +152,7 @@
           "",
           " &f&fCargo: {user_group_name_with_color}",
           " &f&fOnline: &7%network_online-count%",
-          " &f&fGold: &6{user_gold_formatted}",
+          " &f&fCash: &6{user_gold_formatted}",
           "",
           "  &cO P4FREE",
           "  &cestá chegando!",
