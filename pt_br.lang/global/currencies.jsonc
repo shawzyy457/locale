@@ -21,7 +21,7 @@
         }
       },
       "types": {
-        "gold": {
+        "cash": {
           "name": {
             "singular": "Cash",
             "plural": "Cash"

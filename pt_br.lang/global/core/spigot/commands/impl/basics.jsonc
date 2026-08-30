@@ -45,7 +45,7 @@
             ],
             "balance": [
               "{primary}---- Saldo ----",
-              "&fCash: &6{profile_gold}",
+              "&fCash: &6{profile_cash}",
               "&fCarteira: &7{profile_wallet}"
             ],
             "discord": [

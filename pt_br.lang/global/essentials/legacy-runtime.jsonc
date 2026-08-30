@@ -58,7 +58,7 @@
           "name": "&cMundo aberto",
           "description": ["&7Teleporta para um local aleatório."]
         },
-        "goldshop": {
+        "cashshop": {
           "name": "&6Loja de Cash",
           "description": ["&7Acesse a loja de Cash."]
         },
