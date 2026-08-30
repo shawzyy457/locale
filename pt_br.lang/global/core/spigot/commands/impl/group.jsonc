@@ -19,12 +19,13 @@
               },
               "days": {
                 "name": "dias",
-                "description": "Dias que você deseja adicionar o grupo"
+                "description": "Dias de duração; em branco ou 0 = permanente"
               }
             },
             "need-highest-group": "Você só pode adicionar grupos menores ou iguais ao seu!",
             "error": "Sua tentativa de adicionar o grupo falhou, tente novamente mais tarde!",
-            "success": "Você adicionou o grupo {group_id} para o jogador {target_name} no servidor {server_id} por {days} dias."
+            "success": "Você adicionou o grupo {group_id} para o jogador {target_name} no servidor {server_id} por {days} dias.",
+            "success-permanent": "Você adicionou o grupo {group_id} para o jogador {target_name} no servidor {server_id} permanentemente."
           },
           "remove": {
             "arguments": {
