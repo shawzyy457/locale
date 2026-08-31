@@ -1,0 +1,88 @@
+{
+  "plugins": {
+    // A espada e o machado especiais do P4Free. Os dois são o mesmo sistema, e a
+    // diferença entre eles vive aqui e no config.yml do módulo.
+    "weapons": {
+      "espada": {
+        "item": {
+          "name": "&bEspada Especial",
+          "investment": "&7Investido: &b{tokens} tokens",
+          "enchant-owned": "&8▸ &f{enchant} &b{level}",
+          "enchant-missing": "&8▸ &7{enchant}",
+          "kills": "&7Abates: &f{kills}"
+        },
+        "broken": "&cA sua espada especial se partiu."
+      },
+      "machado": {
+        "item": {
+          "name": "&cMachado Especial",
+          "investment": "&7Investido: &b{tokens} tokens",
+          "enchant-owned": "&8▸ &f{enchant} &b{level}",
+          "enchant-missing": "&8▸ &7{enchant}",
+          "kills": "&7Abates: &f{kills}"
+        },
+        "broken": "&cO seu machado especial se partiu."
+      },
+      "commands": {
+        "espada": {
+          "inventory-full": "Libere um espaço no inventário antes de pegar a espada.",
+          "created": "Sua espada especial foi criada.",
+          "status": [
+            "",
+            " &bEspada especial",
+            " &7Prestígio: &f{prestige}",
+            " &7Abates: &f{kills}",
+            " &7Investido: &f{tokens} tokens",
+            " &7Encantamentos: &f{enchantments}",
+            ""
+          ]
+        },
+        "machado": {
+          "inventory-full": "Libere um espaço no inventário antes de pegar o machado.",
+          "created": "Seu machado especial foi criado.",
+          "status": [
+            "",
+            " &cMachado especial",
+            " &7Prestígio: &f{prestige}",
+            " &7Abates: &f{kills}",
+            " &7Investido: &f{tokens} tokens",
+            " &7Encantamentos: &f{enchantments}",
+            ""
+          ]
+        }
+      },
+      "messages": {
+        "duplicates-removed": "Removemos {amount} arma(s) duplicada(s) do seu inventário.",
+        "skull-cracker": "&6Crítico! &eQuebra-Crânio ativado.",
+        "armor-breaker": {
+          "attacker": "&4Quebra-Armadura ativado.",
+          "victim": "&cSua armadura está se desgastando mais rápido."
+        },
+        "drainage": {
+          "killer": "&eVocê drenou &a{amount}&e tokens de &f{player}&e.",
+          "victim": "&cVocê perdeu &e{amount}&c tokens para &f{player}&c."
+        }
+      },
+      // O Reparador, o prêmio do encantamento Reparo da espada.
+      "repairer": {
+        "item": {
+          "name": "&cReparador",
+          "lore": [
+            "&7Repara a armadura do corpo",
+            "&7no clique direito."
+          ]
+        },
+        "announce": [
+          "",
+          " &eReparador!",
+          " &f{killer} &aabateu &f{victim} &acom uma arma especial",
+          " &ae recebeu um &lReparador&r&a.",
+          ""
+        ],
+        "repaired": "Armadura reparada.",
+        "nothing-to-repair": "Nenhuma peça da sua armadura está danificada.",
+        "cannot-move": "O reparador não sai do seu inventário."
+      }
+    }
+  }
+}
