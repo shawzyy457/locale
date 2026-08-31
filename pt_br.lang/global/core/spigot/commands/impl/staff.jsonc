@@ -26,6 +26,11 @@
               "&fGrupos: &7{account_groups}",
               "&fCadastrado em: &7{account_registered}"
             ],
+            "network": [
+              "&fNível de rede: &7{account_level}",
+              "&fConquistas: &7{account_achievements}"
+            ],
+            "unknown": "?",
             "no-groups": "Nenhum.",
             "associated": "&fContas associadas: &7{account_associated}",
             "associated-entry": "{associated_name}",

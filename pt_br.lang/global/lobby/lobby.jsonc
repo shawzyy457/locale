@@ -196,6 +196,7 @@
         "on-join": {
           "user-notification": "{user_name_with_tag} &eentrou neste lobby!"
         },
+        "achievement-unlocked": "&a&lCONQUISTA! &fVocê desbloqueou &a{achievement_name}&f.",
         "visibility": {
           "on": "&aAgora todos os jogadores estão visíveis para você.",
           "off": "&cAgora todos os jogadores estão escondidos para você."
@@ -275,13 +276,17 @@
         "profile": {
           "title": "Meu perfil",
           "discord-none": "Nenhum vinculado",
+          "unknown": "?",
           "items": {
             "0": {
               "name": "&aSeu perfil",
               "lore": [
                 "&fGrupo: &f{user_group_name_with_color}",
+                "&fNível de rede: &f{account_level}",
                 "",
                 " &fData de registro: &7{user_registered_date_formated}",
+                " &fÚltimo login: &7{account_last_login}",
+                " &fConquistas: &7{account_achievements}",
                 " &fDiscord: &7{user_discord_name}",
                 " &fE-Mail: &7Nenhum vinculado",
                 ""
