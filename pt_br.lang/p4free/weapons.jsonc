@@ -202,7 +202,7 @@
               "name": "&bEscolha o TOP",
               "lore": [
                 "",
-                "&7A mostrar: &f{filter}",
+                "{tops}",
                 "",
                 "&bClique para alterar."
               ]
