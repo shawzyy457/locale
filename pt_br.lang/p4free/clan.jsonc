@@ -193,7 +193,8 @@
               }
             },
             "errors": {
-              "already-in-clan": "&cVocê já faz parte de um clã."
+              "already-in-clan": "&cVocê já faz parte de um clã.",
+              "clan-not-found": "&cNão existe nenhum clã com essa tag."
             },
             "success": "&aVocê se juntou ao clã {clan_color_tag_code}[{clan_tag}]"
           },
@@ -215,7 +216,21 @@
               "is-leader": "&cO líder do clã não pode abandoná-lo. Caso queira deletá-lo utilize /clan desfazer."
             }
           },
+          "members": {
+            "arguments": {
+              "tag": {
+                "name": "tag",
+                "description": "Tag do clã cujos membros você deseja ver"
+              }
+            }
+          },
           "profile": {
+            "arguments": {
+              "name": {
+                "name": "jogador",
+                "description": "Nome do jogador que você deseja consultar"
+              }
+            },
             "success-with-clan": [
               "",
               " &eInformações do jogador:",
