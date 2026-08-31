@@ -268,6 +268,7 @@
           "already-stopped": "Esse evento já está parado.",
           "cant-start": "Já existe um evento ocorrendo!",
           "need-clan": "Para entrar no evento é necessário possuir um clan!",
+          "clan-not-authorized": "&cO seu clã ainda não foi autorizado a entrar nos eventos.",
           "cant-join-event": "O Gladiador não está disponível para entrada."
         },
         "events": {
