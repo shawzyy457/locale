@@ -80,7 +80,8 @@
         "prestige-not-invested": "Você precisa ter {required} tokens investidos nesta arma.",
         "prestige-done": "&aPrestígio &l{prestige}&r&a. Os encantamentos foram zerados.",
         "book-wrong-weapon": "Este livro não é para esta arma.",
-        "deleted": "&cSua arma foi excluída."
+        "deleted": "&cSua arma foi excluída.",
+        "free-upgrade": "&aParabéns! &f{enchant} &asubiu para o nível &f{level}&a de graça, pelo seu grupo."
       },
       // Os filtros do ranking.
       "tops": {
@@ -209,6 +210,17 @@
                 "&7Custo: &b{enchant_price}",
                 "",
                 "&cVocê não tem {enchant_currency} suficientes."
+              ]
+            },
+            // 10: o nivel que o grupo leva de graca (o upgrade VIP do sistema antigo).
+            "10": {
+              "name": "&f{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "",
+                "&aUpgrade do seu grupo disponível!",
+                "&eClique para levar de graça."
               ]
             },
             // 5: o ranking.
