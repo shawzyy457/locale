@@ -12,6 +12,7 @@
           "in-cooldown": "Você precisa esperar mais {remaining_time} para enviar outra mensagem!",
           "message-cannot-be-empty": "Você não pode enviar uma mensagem vazia!",
           "chat-locked": "O chat global está desabilitado!",
+          "too-similar": "Essa mensagem é quase igual à anterior. Escreva outra coisa.",
           "dont-have-requirements": "Você precisa ter no mínimo {chat_message_currency_value_formatted_requirement} para enviar uma mensagem no chat!",
           "message": {
             "with-space": {
@@ -46,6 +47,7 @@
           "in-cooldown": "Você precisa esperar mais {remaining_time} para enviar outra mensagem!",
           "message-cannot-be-empty": "Você não pode enviar uma mensagem vazia!",
           "chat-locked": "O chat local está desabilitado!",
+          "too-similar": "Essa mensagem é quase igual à anterior. Escreva outra coisa.",
           "dont-have-requirements": "Você precisa ter no mínimo {chat_message_currency_value_formatted_requirement} para enviar uma mensagem no chat!",
           "without-receivers": "&cParece que você está sozinho aqui :(",
           "message": {
