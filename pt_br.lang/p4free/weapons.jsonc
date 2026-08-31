@@ -79,7 +79,8 @@
         "prestige-maximum": "Esta arma já está no prestígio máximo.",
         "prestige-not-invested": "Você precisa ter {required} tokens investidos nesta arma.",
         "prestige-done": "&aPrestígio &l{prestige}&r&a. Os encantamentos foram zerados.",
-        "book-wrong-weapon": "Este livro não é para esta arma."
+        "book-wrong-weapon": "Este livro não é para esta arma.",
+        "deleted": "&cSua arma foi excluída."
       },
       // Os filtros do ranking.
       "tops": {
@@ -173,6 +174,20 @@
                 "&eClique para alternar."
               ]
             },
+            // 7: a exclusão da arma. O texto é neutro porque estes itens são os
+            // mesmos para a espada e para o machado.
+            "7": {
+              "name": "&cExcluir",
+              "lore": [
+                "",
+                "&7Apaga a sua {weapon_name}&7 com todos",
+                "&7os encantamentos e o prestígio.",
+                "",
+                "&cAção irreversível.",
+                "",
+                "&eClique para excluir."
+              ]
+            },
             // 5: o ranking.
             "5": {
               "name": "&fRanking",
@@ -184,6 +199,9 @@
               ]
             }
           }
+        },
+        "delete": {
+          "title": "Excluir a arma"
         },
         "weapon-top": {
           "title": "Ranking das Armas",

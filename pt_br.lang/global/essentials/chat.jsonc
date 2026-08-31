@@ -17,21 +17,21 @@
             "with-space": {
               "with-clan": [
                 "",
-                "&7[G] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}",
+                "&7[G] &f[{sender_clan_tag}] &f{sender_name_with_tag}&f: &7{chat_message}",
                 ""
               ],
               "without-clan": [
                 "",
-                "&7[G] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}",
+                "&7[G] &f{sender_name_with_tag}&f: &7{chat_message}",
                 ""
               ]
             },
             "without-space": {
               "with-clan": [
-                "&7[G] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}"
+                "&7[G] &f[{sender_clan_tag}] &f{sender_name_with_tag}&f: &7{chat_message}"
               ],
               "without-clan": [
-                "&7[G] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &7{chat_message}"
+                "&7[G] &f{sender_name_with_tag}&f: &7{chat_message}"
               ]
             }
           }
@@ -52,21 +52,21 @@
             "with-space": {
               "with-clan": [
                 "",
-                "&e[L] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}",
+                "&e[L] &f[{sender_clan_tag}] &f{sender_name_with_tag}&f: &e{chat_message}",
                 ""
               ],
               "without-clan": [
                 "",
-                "&e[L] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}",
+                "&e[L] &f{sender_name_with_tag}&f: &e{chat_message}",
                 ""
               ]
             },
             "without-space": {
               "with-clan": [
-                "&e[L] &f[{sender_clan_tag}] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}"
+                "&e[L] &f[{sender_clan_tag}] &f{sender_name_with_tag}&f: &e{chat_message}"
               ],
               "without-clan": [
-                "&e[L] %currency-coins_top-tag%&f{sender_name_with_tag}&f: &e{chat_message}"
+                "&e[L] &f{sender_name_with_tag}&f: &e{chat_message}"
               ]
             }
           }
@@ -98,6 +98,24 @@
           "chat-type-not-found": "Não foi possivel encontrar um chat com esse id",
           "success-locked": "O status do chat {chat_type_name} foi alterado para desabilitado.",
           "success-unlocked": "O status do chat {chat_type_name} foi alterado para habilitado."
+        }
+      },
+      "chat": {
+        // As tags clicaveis da linha de chat. O texto e a ancora que a acao procura na
+        // linha, por isso tem de ser igual ao rotulo do formato acima.
+        "tags": {
+          "global": {
+            "text": "&7[G]",
+            "hover": "&7Mensagem enviada no chat global, visivel em todos os servidores."
+          },
+          "local": {
+            "text": "&e[L]",
+            "hover": "&7Mensagem local, so quem esta a 64 blocos ve."
+          },
+          "sender": {
+            "hover": "&eClique para mencionar {sender}.",
+            "suggest": "/{command} {sender}, "
+          }
         }
       },
       "messages": {
