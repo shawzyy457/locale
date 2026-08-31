@@ -24,6 +24,12 @@
         "broken": "&cO seu machado especial se partiu."
       },
       "commands": {
+        "enchant-book": {
+          "target-offline": "Esse jogador não está online.",
+          "target-inventory-full": "O inventário desse jogador está cheio.",
+          "invalid-enchant": "Arma ou encantamento inválido. Use /darencantamento <jogador> <espada|machado> <encantamento> <niveis>",
+          "given": "Você deu um livro de {enchant} {levels} a {player}."
+        },
         "espada": {
           "inventory-full": "Libere um espaço no inventário antes de pegar a espada.",
           "created": "Sua espada especial foi criada.",
@@ -69,7 +75,13 @@
         "not-enough": "Você não tem {currency} suficientes.",
         "enchant-bought": "&a{enchant} &fsubiu para o nível &a{level}&f.",
         "already-repaired": "Esta arma não precisa de conserto.",
-        "repaired": "Arma consertada."
+        "repaired": "Arma consertada.",
+        "cannot-drop": "A arma não se larga no chão.",
+        "cannot-move": "A arma não sai do seu inventário.",
+        "prestige-maximum": "Esta arma já está no prestígio máximo.",
+        "prestige-not-invested": "Você precisa ter {required} tokens investidos nesta arma.",
+        "prestige-done": "&aPrestígio &l{prestige}&r&a. Os encantamentos foram zerados.",
+        "book-wrong-weapon": "Este livro não é para esta arma."
       },
       // A bancada, o menu que gasta tokens para subir encantamento.
       "views": {
@@ -119,8 +131,58 @@
                 "",
                 "&eClique para consertar."
               ]
+            },
+            // 4: o prestígio.
+            "4": {
+              "name": "&fPrestígio &a{weapon_prestige}",
+              "lore": [
+                "",
+                "&7Zera todos os encantamentos e",
+                "&7desbloqueia os do prestígio seguinte.",
+                "",
+                "&7Pede &b{prestige_required} &7investidos.",
+                "",
+                "&eClique para prestigiar."
+              ]
+            },
+            // 5: o ranking.
+            "5": {
+              "name": "&fRanking",
+              "lore": [
+                "",
+                "&7As armas com mais abates.",
+                "",
+                "&eClique para ver."
+              ]
             }
           }
+        },
+        "weapon-top": {
+          "title": "ranking das armas",
+          "items": {
+            "0": {
+              "name": "&f#{position} &7{player}",
+              "lore": [
+                "",
+                "&7Abates: &f{kills}",
+                "&7Prestígio: &f{prestige}",
+                "&7Investido: &b{tokens}"
+              ]
+            }
+          }
+        }
+      },
+      // O livro de encantamento, o segundo caminho para subir um nível.
+      "enchant-book": {
+        "item": {
+          "name": "&fLivro de &a{enchant}",
+          "lore": [
+            "",
+            "&7Sobe &a{levels} &7nível(is) de",
+            "&7&o{enchant}&7 na sua arma.",
+            "",
+            "&eArraste sobre a arma."
+          ]
         }
       },
       // O Reparador, o prêmio do encantamento Reparo da espada.
