@@ -149,11 +149,7 @@
           "ping-sender": "Seu ping é de {sender_ping} ms."
         },
         "plugins": {
-          "message": [
-            "&fPlugins ({plugins_count}):",
-            "{plugins}",
-            ""
-          ]
+          "message": "&fPlugins ({plugins_count}): {plugins}"
         },
         "scale": {
           "arguments": {
