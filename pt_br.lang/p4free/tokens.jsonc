@@ -1,0 +1,31 @@
+{
+  "plugins": {
+    // A moeda tokens só existe no P4Free, por isso o nome dela vive aqui e não no global.
+    "currencies": {
+      "types": {
+        "tokens": {
+          "name": {
+            "singular": "Token",
+            "plural": "Tokens"
+          },
+          "features": {
+            "check": {
+              "visualization": "&b{currency_icon}&f{currency_formatted_value}"
+            }
+          },
+          "visualization": "&b{currency_icon}&f{currency_formatted_value}"
+        }
+      }
+    },
+    "tokens": {
+      "messages": {
+        "session-summary": [
+          "",
+          " &bSequência encerrada: &f+{tokens} tokens",
+          " &7{hits} golpe(s), {kills} abate(s)",
+          ""
+        ]
+      }
+    }
+  }
+}
