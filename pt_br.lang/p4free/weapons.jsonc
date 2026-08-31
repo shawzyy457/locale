@@ -148,7 +148,7 @@
                 "&7Zera o desgaste da arma.",
                 "&7Custo: &b{repair_cost}",
                 "",
-                "&eClique para consertar."
+                "{repair_state}"
               ]
             },
             // 4: o prestígio.
@@ -161,7 +161,7 @@
                 "",
                 "&7Pede &b{prestige_required} &7investidos.",
                 "",
-                "&eClique para prestigiar."
+                "{prestige_state}"
               ]
             },
             // 6: o que se liga e desliga em vez de se comprar.
@@ -188,6 +188,29 @@
                 "&eClique para excluir."
               ]
             },
+            // 8: o encantamento que ainda pede prestígio. Sem ele o ícone convidava a
+            // evoluir e só o clique é que dizia que não.
+            "8": {
+              "name": "&8{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "",
+                "&cPede prestígio &f{enchant_prestige}&c.",
+                "&cAinda não dá para evoluir."
+              ]
+            },
+            // 9: o encantamento que dá para evoluir, mas o saldo não chega.
+            "9": {
+              "name": "&f{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "&7Custo: &b{enchant_price}",
+                "",
+                "&cVocê não tem {enchant_currency} suficientes."
+              ]
+            },
             // 5: o ranking.
             "5": {
               "name": "&fRanking",
@@ -197,6 +220,19 @@
                 "",
                 "&eClique para ver."
               ]
+            }
+          },
+          // As últimas linhas do conserto e do prestígio, que mudam com o estado da arma.
+          "states": {
+            "repair": {
+              "ready": "&eClique para consertar.",
+              "repaired": "&aA arma não precisa de conserto.",
+              "not-enough": "&cVocê não tem o suficiente para consertar."
+            },
+            "prestige": {
+              "ready": "&eClique para prestigiar.",
+              "maximum": "&aA arma já está no prestígio máximo.",
+              "not-invested": "&cFaltam tokens investidos nesta arma."
             }
           }
         },
