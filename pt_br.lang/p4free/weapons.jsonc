@@ -61,6 +61,66 @@
         "drainage": {
           "killer": "&eVocê drenou &a{amount}&e tokens de &f{player}&e.",
           "victim": "&cVocê perdeu &e{amount}&c tokens para &f{player}&c."
+        },
+        "in-combat": "Você não pode abrir a bancada em combate.",
+        "not-in-hand": "Segure a arma na mão para mexer nela.",
+        "already-max-level": "Este encantamento já está no nível máximo.",
+        "prestige-required": "Este encantamento pede prestígio {prestige}.",
+        "not-enough": "Você não tem {currency} suficientes.",
+        "enchant-bought": "&a{enchant} &fsubiu para o nível &a{level}&f.",
+        "already-repaired": "Esta arma não precisa de conserto.",
+        "repaired": "Arma consertada."
+      },
+      // A bancada, o menu que gasta tokens para subir encantamento.
+      "views": {
+        "weapon": {
+          "title": "{weapon_name}",
+          "items": {
+            // 0: encantamento que sobe por nível.
+            "0": {
+              "name": "&f{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "&7Custo: &b{currency_icon}{enchant_price}",
+                "",
+                "&eClique para evoluir."
+              ]
+            },
+            // 1: encantamento que sobe uma chance.
+            "1": {
+              "name": "&f{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "&7Chance: &f{enchant_chance}% &8-> &a{enchant_next_chance}%",
+                "&7Custo: &b{currency_icon}{enchant_price}",
+                "",
+                "&eClique para evoluir."
+              ]
+            },
+            // 2: encantamento já no máximo.
+            "2": {
+              "name": "&f{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &a{enchant_level}&7/&a{enchant_max_level}",
+                "",
+                "&aNo máximo."
+              ]
+            },
+            // 3: o balcão de conserto.
+            "3": {
+              "name": "&fConsertar",
+              "lore": [
+                "",
+                "&7Zera o desgaste da arma.",
+                "&7Custo: &b{repair_cost}",
+                "",
+                "&eClique para consertar."
+              ]
+            }
+          }
         }
       },
       // O Reparador, o prêmio do encantamento Reparo da espada.
