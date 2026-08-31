@@ -1,0 +1,289 @@
+{
+  "plugins": {
+    // As perks do P4Free. Sete vantagens que o jogador compra por níveis e mantém
+    // ligadas nos slots que tem. A descrição de cada uma vive na chave dela: é o único
+    // texto que muda entre elas, e por isso é o único que não está no menu.
+    "perks": {
+      "types": {
+        "attack": {
+          "name": "Ataque",
+          "menu-lore": [
+            "&7Num golpe crítico, multiplica o dano.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Dano do crítico: &f{damage_multiplier}x",
+            "&7Chance de ativar: &f{chance}%",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "resistance": {
+          "name": "Resistência",
+          "menu-lore": [
+            "&7Ao levar um golpe defendendo, ganha Resistência.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Amplificador: &f{power}",
+            "&7Duração: &f{duration}",
+            "&7Chance de ativar: &f{chance}%",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "regeneration": {
+          "name": "Regeneração",
+          "menu-lore": [
+            "&7A maçã dourada encantada pode voltar depois de comida.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Chance de devolver: &f{chance}%",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "repair": {
+          "name": "Reparação",
+          "menu-lore": [
+            "&7Ao matar alguém, sua armadura é reparada.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Quanto repara: &f{repair_percentage}%",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "speed": {
+          "name": "Velocidade",
+          "menu-lore": [
+            "&7Agachado por alguns segundos, ganha Velocidade.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Amplificador: &f{power}",
+            "&7Duração: &f{duration}",
+            "&7Recarga: &f{cooldown}",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "suppression": {
+          "name": "Supressão",
+          "menu-lore": [
+            "&7Agachado por alguns segundos, desliga as perks",
+            "&7dos inimigos por perto.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Alcance: &f{radius} blocos",
+            "&7Alvos: &f{targets}",
+            "&7Duração: &f{duration}",
+            "&7Recarga: &f{cooldown}",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        },
+        "knockback": {
+          "name": "Empurrão",
+          "menu-lore": [
+            "&7Defendendo com a espada por alguns segundos,",
+            "&7seus golpes passam a empurrar mais.",
+            "",
+            "&7Nível: &f{level}&7/&f{max_level}",
+            "&7Próximo nível: &b{next_price}",
+            "&7Desbloqueio: &b{unlock_price}",
+            "",
+            "{status}"
+          ],
+          "upgrade-lore": [
+            "&7Força do empurrão: &f+{power}",
+            "&7Duração: &f{duration}",
+            "&7Recarga: &f{cooldown}",
+            "",
+            "&7Custo: &b{price}",
+            "",
+            "{status}"
+          ]
+        }
+      },
+
+      "views": {
+        "perks": {
+          "title": "Perks ({slots_used}/{slots_total})",
+          "item": {
+            "name": "&b{perk}"
+          },
+          // Os cinco estados do ícone. Cada um deles é uma resposta que o clique pode dar:
+          // enquanto forem os mesmos, o menu não convida para uma ação que ele recusa.
+          "status": {
+            "0": "&eClique para desbloquear.",
+            "1": "&cVocê não tem o suficiente para desbloquear.",
+            "2": "&eClique para ativar. &7Botão direito: níveis.",
+            "3": "&cSeus slots estão cheios. Desative outra antes.",
+            "4": "&aAtivada. &7Clique para desativar."
+          },
+          "info": {
+            "name": "&eComo funciona",
+            "lore": [
+              "&7Você tem &f{slots_used}&7/&f{slots_total} &7perks ativas.",
+              "",
+              "&7Clique numa perk para ligar ou desligar.",
+              "&7Botão direito abre os níveis dela.",
+              "",
+              "&7Mais slots vêm do seu grupo e do item de slot."
+            ]
+          }
+        },
+        "upgrades": {
+          "title": "{perk} ({level}/{max_level})",
+          "item": {
+            "name": "&bNível {level}"
+          },
+          "status": {
+            "0": "&aVocê já tem este nível.",
+            "1": "&eClique para comprar.",
+            "2": "&cVocê não tem o suficiente.",
+            "3": "&eClique para comprar todos os níveis até aqui.",
+            "4": "&cVocê não tem o suficiente para chegar até aqui."
+          },
+          "items": {
+            "0": {
+              "name": "&eVoltar",
+              "lore": [
+                "&7Volta para a lista de perks."
+              ]
+            }
+          }
+        }
+      },
+
+      "items": {
+        "perk": {
+          "name": "&bPerk {perk} {level}",
+          "lore": [
+            "&7Desbloqueia &f{perk} &7no nível &f{level}&7.",
+            "",
+            "&eClique com o botão direito para usar."
+          ]
+        },
+        "slot": {
+          "name": "&bSlot de Perk",
+          "lore": [
+            "&7Dá &f+1 &7espaço para manter mais uma perk ativa.",
+            "",
+            "&eClique com o botão direito para usar."
+          ]
+        }
+      },
+
+      "messages": {
+        "charging": "{bar} &e{perk}...",
+        "in-cooldown": "Aguarde {time} para usar {perk} de novo.",
+
+        "speed-activated": "&aVelocidade ativada por &f{seconds}s&a.",
+
+        "suppressed": "Suas perks foram desligadas por um inimigo.",
+        "suppression-activated": "&aVocê desligou as perks de &f{amount} &ainimigo(s).",
+        "suppression-empty": "Nenhum inimigo no alcance.",
+        "suppression-ended": "&aSuas perks voltaram.",
+
+        "knockback-activated": "&aEmpurrão ativado por &f{seconds}s&a.",
+        "knockback-ended": "O empurrão acabou.",
+
+        "attack-critical": "&aCrítico! &fDano multiplicado.",
+        "attack-received": "Você levou um dano crítico.",
+        "resistance-activated": "&aResistência ativada.",
+        "repair": "&aSua armadura foi reparada.",
+        "repair-clan": "&aSua armadura foi reparada pelo clã.",
+        "regeneration-refunded": "&aA maçã dourada voltou.",
+
+        "selected": "&a{perk} &fativada.",
+        "deselected": "{perk} desativada.",
+        "slots-full": "Você só pode manter {slots} perk(s) ativa(s). Desative outra antes.",
+        "slots-maximum": "Você já tem o máximo de slots.",
+        "slot-redeemed": "&aAgora você pode manter &f{slots} &aperk(s) ativa(s).",
+        "selection-trimmed": "Algumas perks foram desativadas: você mantém {slots} ativa(s).",
+
+        "already-owned": "Você já tem {perk} neste nível ou acima.",
+        "level-invalid": "Esta perk vai até o nível {max_level}.",
+        "currency-missing": "A moeda desta perk não existe neste servidor. Avise a equipe.",
+        "not-enough": "Você não tem {price} {currency}.",
+        "bought": "&a{perk} &fsubiu para o nível &a{level}&f.",
+
+        "item-invalid": "Este item de perk não vale.",
+        "item-already-owned": "Você já tem {perk} {level} ou acima.",
+        "item-redeemed": "&a{perk} {level} &fdesbloqueada."
+      },
+
+      "commands": {
+        "perks": {
+          "still-loading": "Suas perks ainda estão carregando. Tente de novo em instantes."
+        },
+        "perkadmin": {
+          "usage": [
+            "&e/perkadmin dar <jogador> <perk> <nivel>",
+            "&e/perkadmin tirar <jogador> <perk>",
+            "&e/perkadmin zerar <jogador>",
+            "&e/perkadmin cooldowns <jogador>",
+            "&e/perkadmin item <jogador> <perk> <nivel> [qtd]",
+            "&e/perkadmin slot <jogador> [qtd]"
+          ],
+          "target-offline": "{name} não está online neste servidor.",
+          "perk-invalid": "Perk inválida. Existem: {perks}",
+          "level-invalid": "Esta perk vai até o nível {max_level}.",
+          "given": "{name} agora tem {perk} no nível {level}.",
+          "taken": "{perk} foi tirada de {name}.",
+          "reset": "As perks de {name} foram zeradas.",
+          "cooldowns-cleared": "Os cooldowns de {name} foram limpos.",
+          "target-inventory-full": "O inventário de {name} está cheio.",
+          "item-given": "{amount} item(ns) entregue(s) a {name}."
+        }
+      }
+    }
+  }
+}
