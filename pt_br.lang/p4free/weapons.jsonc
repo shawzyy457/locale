@@ -81,6 +81,12 @@
         "prestige-done": "&aPrestígio &l{prestige}&r&a. Os encantamentos foram zerados.",
         "book-wrong-weapon": "Este livro não é para esta arma."
       },
+      // Os filtros do ranking.
+      "tops": {
+        "kills": "Abates",
+        "prestige": "Prestígio",
+        "tokens-spent": "Investimento"
+      },
       // Os nomes dos encantamentos. Ficam aqui e nao no config.yml porque sao texto
       // visivel: no config saiam sem acento e sem cor.
       "enchants": {
@@ -183,12 +189,22 @@
           "title": "Ranking das Armas",
           "items": {
             "0": {
-              "name": "&f#{position} &7{player}",
+              "name": "&8{position}º &f▸ &f{player}",
               "lore": [
                 "",
                 "&7Abates: &f{kills}",
                 "&7Prestígio: &f{prestige}",
-                "&7Investido: &b{tokens}"
+                "&7Investido: &b{tokens}",
+                ""
+              ]
+            },
+            "1": {
+              "name": "&bEscolha o TOP",
+              "lore": [
+                "",
+                "&7A mostrar: &f{filter}",
+                "",
+                "&bClique para alterar."
               ]
             }
           }
