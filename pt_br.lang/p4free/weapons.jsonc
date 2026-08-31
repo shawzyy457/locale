@@ -112,7 +112,7 @@
               "lore": [
                 "",
                 "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
-                "&7Custo: &b{currency_icon}{enchant_price}",
+                "&7Custo: &b{enchant_price}",
                 "",
                 "&eClique para evoluir."
               ]
@@ -124,7 +124,7 @@
                 "",
                 "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
                 "&7Chance: &f{enchant_chance}% &8-> &a{enchant_next_chance}%",
-                "&7Custo: &b{currency_icon}{enchant_price}",
+                "&7Custo: &b{enchant_price}",
                 "",
                 "&eClique para evoluir."
               ]
