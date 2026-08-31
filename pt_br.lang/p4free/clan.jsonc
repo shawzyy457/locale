@@ -48,10 +48,6 @@
         "event_authorization": {
           "on": "&aautorizado",
           "off": "&cnão autorizado"
-        },
-        "friendly_fire": {
-          "on": "&aativo",
-          "off": "&cdesativado"
         }
       },
       "reports": {
@@ -125,7 +121,6 @@
             " &8▸ &fMortes: &7{clan_deaths}",
             "",
             " &8▸ &fEventos: {clan_authorized}",
-            " &8▸ &fFogo amigo: {clan_friendly_fire}",
             "",
             "&8Criado em {clan_created_at}"
           ]
@@ -218,7 +213,6 @@
                 "",
                 "  &e/clan desfazer&7: desfazer o clã",
                 "  &e/clan modtag [tag]&7: mudar as cores da tag",
-                "  &e/clan fogoamigo on/off&7: fogo amigo entre membros",
                 "  &e/clan listar&7: todos os clãs criados",
                 "  &e/. [mensagem]&7: falar no chat do clã",
                 ""
@@ -453,20 +447,6 @@
               "letters-changed": "&cAs letras da tag não mudam, só as cores.",
               "no-change": "&cNenhuma cor foi alterada."
             }
-          },
-          "friendlyfire": {
-            "arguments": {
-              "state": {
-                "name": "on/off",
-                "description": "Ligar ou desligar o fogo amigo"
-              }
-            },
-            "errors": {
-              "already-enabled": "&cO fogo amigo do clã já está ativo.",
-              "already-disabled": "&cO fogo amigo do clã já está desativado."
-            },
-            "success-enabled": "&aVocê ativou o fogo amigo no seu clã.",
-            "success-disabled": "&cVocê desativou o fogo amigo no seu clã."
           },
           "authorize": {
             "arguments": {
