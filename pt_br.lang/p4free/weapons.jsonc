@@ -114,7 +114,7 @@
               "lore": [
                 "",
                 "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
-                "&7Custo: &b{enchant_price}",
+                "&7Custo: &b{enchant_price} {enchant_currency}",
                 "",
                 "&eClique para evoluir."
               ]
@@ -126,7 +126,7 @@
                 "",
                 "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
                 "&7Chance: &f{enchant_chance}% &8-> &a{enchant_next_chance}%",
-                "&7Custo: &b{enchant_price}",
+                "&7Custo: &b{enchant_price} {enchant_currency}",
                 "",
                 "&eClique para evoluir."
               ]
@@ -147,7 +147,7 @@
               "lore": [
                 "",
                 "&7Zera o desgaste da arma.",
-                "&7Custo: &b{repair_cost}",
+                "&7Custo: &b{repair_cost} {repair_currency}",
                 "",
                 "{repair_state}"
               ]
@@ -160,7 +160,7 @@
                 "&7Zera todos os encantamentos e",
                 "&7desbloqueia os do prestígio seguinte.",
                 "",
-                "&7Pede &b{prestige_required} &7investidos.",
+                "&7Pede &b{prestige_required} {investment_currency} &7investidos.",
                 "",
                 "{prestige_state}"
               ]
@@ -207,7 +207,7 @@
               "lore": [
                 "",
                 "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
-                "&7Custo: &b{enchant_price}",
+                "&7Custo: &b{enchant_price} {enchant_currency}",
                 "",
                 "&cVocê não tem {enchant_currency} suficientes."
               ]
