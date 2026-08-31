@@ -31,30 +31,28 @@
           "given": "Você deu um livro de {enchant} {levels} a {player}."
         },
         "espada": {
-          "inventory-full": "Libere um espaço no inventário antes de pegar a espada.",
-          "created": "Sua espada especial foi criada.",
-          "status": [
+          "inventory-full": "Libere um espaço no inventário antes de resgatar a espada.",
+          "already-have": "Você já tem a espada especial na mochila.",
+          "cooldown": "Aguarde para resgatar a espada de novo.",
+          "retrieved": [
             "",
-            " &bEspada especial",
-            " &7Prestígio: &f{prestige}",
-            " &7Abates: &f{kills}",
-            " &7Investido: &f{tokens} tokens",
-            " &7Encantamentos: &f{enchantments}",
+            " &aVocê resgatou a espada especial!",
+            " &7Prestígio &f{prestige}&7, &f{kills}&7 abate(s).",
+            " &eShift + botão direito com ela na mão abre a bancada.",
             ""
           ]
         },
         "machado": {
-          "inventory-full": "Libere um espaço no inventário antes de pegar o machado.",
-          "created": "Seu machado especial foi criado.",
-          "status": [
+          "inventory-full": "Libere um espaço no inventário antes de resgatar o machado.",
+          "already-have": "Você já tem o machado especial na mochila.",
+          "cooldown": "Aguarde para resgatar o machado de novo.",
+          "retrieved": [
             "",
-            " &cMachado especial",
-            " &7Prestígio: &f{prestige}",
-            " &7Abates: &f{kills}",
-            " &7Investido: &f{tokens} tokens",
-            " &7Encantamentos: &f{enchantments}",
+            " &aVocê resgatou o machado especial!",
+            " &7Prestígio &f{prestige}&7, &f{kills}&7 abate(s).",
+            " &eShift + botão direito com ele na mão abre a bancada.",
             ""
-          ]
+          ],
         }
       },
       "messages": {
