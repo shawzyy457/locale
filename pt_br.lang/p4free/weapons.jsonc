@@ -192,9 +192,7 @@
               "name": "&8{position}º &f▸ &f{player}",
               "lore": [
                 "",
-                "&7Abates: &f{kills}",
-                "&7Prestígio: &f{prestige}",
-                "&7Investido: &b{tokens}",
+                "&7{stat}: &f{value}",
                 ""
               ]
             },

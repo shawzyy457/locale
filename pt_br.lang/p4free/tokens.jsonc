@@ -10,10 +10,10 @@
           },
           "features": {
             "check": {
-              "visualization": "&b{currency_icon}&f{currency_formatted_value}"
+              "visualization": "&b{currency_formatted_value}"
             }
           },
-          "visualization": "&b{currency_icon}&f{currency_formatted_value}"
+          "visualization": "&b{currency_formatted_value}"
         }
       }
     },
