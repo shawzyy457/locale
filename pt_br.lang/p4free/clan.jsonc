@@ -757,7 +757,7 @@
           },
           "items": {
             "0": {
-              "name": "&7{clan_position}º &7[{clan_colored_tag}&7] &f{clan_name}",
+              "name": "{clan_position_color}{clan_position}º &7[{clan_colored_tag}&7] &f{clan_name}",
               "lore": [
                 "",
                 " &8▸ &f{statistic_name}: &a{statistic_value}",
