@@ -81,6 +81,20 @@
         "prestige-done": "&aPrestígio &l{prestige}&r&a. Os encantamentos foram zerados.",
         "book-wrong-weapon": "Este livro não é para esta arma."
       },
+      // Os nomes dos encantamentos. Ficam aqui e nao no config.yml porque sao texto
+      // visivel: no config saiam sem acento e sem cor.
+      "enchants": {
+        "sharpening": { "name": "&bAfiação" },
+        "unbreakable": { "name": "&bIndestrutível" },
+        "fortune": { "name": "&bFortuna" },
+        "amplifier": { "name": "&bAmplificador" },
+        "repair": { "name": "&bReparador" },
+        "efficiency": { "name": "&bEficiência" },
+        "drainage": { "name": "&bDrenagem" },
+        "skull-cracker": { "name": "&cQuebra-Crânio" },
+        "knockback": { "name": "&cRepulsão" },
+        "armor-breaker": { "name": "&cQuebra-Armadura" }
+      },
       // A bancada, o menu que gasta tokens para subir encantamento.
       "views": {
         "weapon": {
@@ -143,6 +157,16 @@
                 "&eClique para prestigiar."
               ]
             },
+            // 6: o que se liga e desliga em vez de se comprar.
+            "6": {
+              "name": "{enchant_name}",
+              "lore": [
+                "",
+                "&7Nível: &f{enchant_level}&7/&f{enchant_max_level}",
+                "",
+                "&eClique para alternar."
+              ]
+            },
             // 5: o ranking.
             "5": {
               "name": "&fRanking",
@@ -156,7 +180,7 @@
           }
         },
         "weapon-top": {
-          "title": "ranking das armas",
+          "title": "Ranking das Armas",
           "items": {
             "0": {
               "name": "&f#{position} &7{player}",
