@@ -103,16 +103,16 @@
         }
       },
       "chat": {
-        // As tags clicaveis da linha de chat. O texto e a ancora que a acao procura na
-        // linha, por isso tem de ser igual ao rotulo do formato acima.
+        // As tags clicáveis da linha de chat. O texto é a âncora que a ação procura na
+        // linha, por isso tem de ser igual ao rótulo do formato acima.
         "tags": {
           "global": {
             "text": "&7[G]",
-            "hover": "&7Mensagem enviada no chat global, visivel em todos os servidores."
+            "hover": "&7Mensagem enviada no chat global, visível em todos os servidores."
           },
           "local": {
             "text": "&e[L]",
-            "hover": "&7Mensagem local, so quem esta a 64 blocos ve."
+            "hover": "&7Mensagem local, só quem está a 64 blocos vê."
           },
           "sender": {
             "hover": "&eClique para mencionar {sender}.",
